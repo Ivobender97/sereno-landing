@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500;1,600;1,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css?v=3">
+<link rel="stylesheet" href="css/styles.css?v=43">
 </head>
 <body>
 
@@ -46,7 +46,19 @@
         </div>
       </div>
       <a href="#download" class="btn btn-primary nav-cta" data-i18n="nav.download">Download the app</a>
+      <button class="nav-burger" id="navBurger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
+  </div>
+  <div class="nav-mobile" id="navMobile">
+    <a href="#features" data-i18n="nav.features">Features</a>
+    <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
+    <a href="#faq" data-i18n="nav.faq">FAQ</a>
+    <div class="nav-mobile-langs">
+      <button data-lang="en"><span class="flag">🇬🇧</span> English</button>
+      <button data-lang="it"><span class="flag">🇮🇹</span> Italiano</button>
+      <button data-lang="es"><span class="flag">🇪🇸</span> Español</button>
+    </div>
+    <a href="#download" class="btn btn-primary" data-i18n="nav.download">Download the app</a>
   </div>
 </header>
 
@@ -226,13 +238,13 @@
       <div class="demo-right">
       <div class="demo-screens">
         <!-- Screen 1: Today -->
-        <div class="dscreen"><div class="dscreen-inner"><img class="dscreen-shot" src="assets/demo_today.png" alt="Sereno — Today screen"><span class="dscreen-island"></span></div></div>
+        <div class="dscreen"><div class="dscreen-inner"><img class="dscreen-shot" src="assets/demo_today_sm.png" alt="Sereno — Today screen"><span class="dscreen-island"></span></div></div>
         <!-- Screen 2: Medications -->
-        <div class="dscreen"><div class="dscreen-inner"><img class="dscreen-shot" src="assets/demo_meds.png" alt="Sereno — Medications screen"><span class="dscreen-island"></span></div></div>
+        <div class="dscreen"><div class="dscreen-inner"><img class="dscreen-shot" src="assets/demo_meds_sm.png" alt="Sereno — Medications screen"><span class="dscreen-island"></span></div></div>
         <!-- Screen 3: Symptoms -->
-        <div class="dscreen"><div class="dscreen-inner"><img class="dscreen-shot" src="assets/demo_symptoms.png" alt="Sereno — Symptoms screen"><span class="dscreen-island"></span></div></div>
-        <!-- Screen 4: Health report -->
-        <div class="dscreen"><div class="dscreen-inner"><img class="dscreen-shot" src="assets/demo_report.png" alt="Sereno — Health overview screen"><span class="dscreen-island"></span></div></div>
+        <div class="dscreen"><div class="dscreen-inner"><img class="dscreen-shot" src="assets/demo_symptoms_sm.png" alt="Sereno — Symptoms screen"><span class="dscreen-island"></span></div></div>
+        <!-- Screen 4: Health overview -->
+        <div class="dscreen"><div class="dscreen-inner"><img class="dscreen-shot" src="assets/demo_report_sm.png" alt="Sereno — Health overview screen"><span class="dscreen-island"></span></div></div>
       </div>
       </div>
     </div>
@@ -291,12 +303,46 @@
       <div class="scrap" data-x="320" data-y="55" data-r="-5"><div class="scrap-date" data-i18n="report.note16">checkup May 20</div></div>
       <!-- assembled card -->
       <div class="report-card">
-        <div class="rc-head"><div class="t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg><span data-i18n="report.cardTitle">Health report</span></div><div class="s" data-i18n="report.cardSub">Bella · Labrador · 7 yrs</div></div>
-        <div class="rc-rows">
-          <div class="rc-row"><span class="l" data-i18n="report.r1l">Diabetes</span><span class="v ok" data-i18n="report.r1v">stable</span></div>
-          <div class="rc-row"><span class="l" data-i18n="report.r2l">Insulin 10u</span><span class="v" data-i18n="report.r2v">twice daily</span></div>
-          <div class="rc-row"><span class="l" data-i18n="report.r3l">Weight trend</span><span class="v" data-i18n="report.r3v">−0.4 kg</span></div>
-          <div class="rc-row"><span class="l" data-i18n="report.r4l">Last visit</span><span class="v" data-i18n="report.r4v">Apr 12</span></div>
+        <div class="rc-head">
+          <div class="t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg><span data-i18n="report.cardTitle">Health report</span></div>
+          <div class="s"><span data-i18n="report.cardSub">Luna · Labrador · 7 yrs</span></div>
+          <span class="rc-period" data-i18n="report.cardMeta">last 90 days</span>
+        </div>
+        <div class="rc-body">
+          <div class="rc-group">
+            <div class="rc-glabel" data-i18n="report.gConditions">Conditions</div>
+            <div class="rc-line"><span class="l" data-i18n="report.cond1l">Diabetes</span><span class="v ok" data-i18n="report.cond1v">stable</span></div>
+            <div class="rc-line"><span class="l" data-i18n="report.cond2l">Epilepsy</span><span class="v ok" data-i18n="report.cond2v">improving</span></div>
+          </div>
+          <div class="rc-group">
+            <div class="rc-glabel" data-i18n="report.gMeds">Medications</div>
+            <div class="rc-line"><span class="l" data-i18n="report.med1l">Insulin 10u</span><span class="v" data-i18n="report.med1v">twice daily</span></div>
+            <div class="rc-line"><span class="l" data-i18n="report.med2l">Phenobarbital 60mg</span><span class="v" data-i18n="report.med2v">twice daily</span></div>
+          </div>
+          <div class="rc-group">
+            <div class="rc-glabel" data-i18n="report.gAdherence">Adherence</div>
+            <div class="rc-line"><span class="l" data-i18n="report.adhl">Doses given</span><span class="v ok" data-i18n="report.adhv">94% (172 / 183)</span></div>
+          </div>
+          <div class="rc-group">
+            <div class="rc-glabel" data-i18n="report.gSymptoms">Symptoms</div>
+            <div class="rc-line"><span class="l" data-i18n="report.sym1l">Seizures</span><span class="v" data-i18n="report.sym1v">2 this month</span></div>
+            <div class="rc-sub" data-i18n="report.sym1note">↓ down from 5</div>
+            <div class="rc-line"><span class="l" data-i18n="report.sym2l">Appetite</span><span class="v" data-i18n="report.sym2v">normal</span></div>
+          </div>
+          <div class="rc-group">
+            <div class="rc-glabel" data-i18n="report.gWeight">Weight</div>
+            <div class="rc-line"><span class="l" data-i18n="report.wl">Trend · 90 days</span><span class="v" data-i18n="report.wv">−0.4 kg</span></div>
+          </div>
+          <div class="rc-group">
+            <div class="rc-glabel" data-i18n="report.gVaccines">Vaccines</div>
+            <div class="rc-line"><span class="l" data-i18n="report.vacl">Status</span><span class="v ok" data-i18n="report.vacv">Up to date</span></div>
+            <div class="rc-sub mut" data-i18n="report.vacnote">Next due Oct 2026</div>
+          </div>
+          <div class="rc-group">
+            <div class="rc-glabel" data-i18n="report.gVisits">Vet visits</div>
+            <div class="rc-line"><span class="l" data-i18n="report.vis1l">Last visit</span><span class="v" data-i18n="report.vis1v">Apr 12</span></div>
+            <div class="rc-line"><span class="l" data-i18n="report.vis2l">Next visit</span><span class="v" data-i18n="report.vis2v">Jul 10</span></div>
+          </div>
         </div>
       </div>
     </div>
@@ -322,34 +368,69 @@
         <div class="price"><b data-i18n="p0.price">$0</b><span data-i18n="p0.tag">forever</span></div>
         <ul class="feats">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p0.f1">1 pet profile</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p0.f2">Core medication &amp; dose tracking</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p0.f3">Symptom logging</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p0.f2">Medication &amp; dose tracking</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p0.f3">Symptom log</span></li>
         </ul>
+        <div class="feats-more">
+          <ul class="feats">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p0.f4">1 health report / month</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p0.f5">Up to 5 documents</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p0.f6">1 family member</span></li>
+          </ul>
+        </div>
+        <button class="feats-toggle" type="button" aria-expanded="false">
+          <span class="lbl-more" data-i18n="price.seeAll">See all features</span>
+          <span class="lbl-less" data-i18n="price.hideAll">Hide features</span>
+          <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
         <a href="#download" class="btn btn-ghost" data-i18n="p0.cta">Get started</a>
       </article>
       <article class="pcard feat reveal" data-delay="80">
-        <span class="pcard-tag" data-i18n="p1.tag">Most popular</span>
+        <span class="pcard-tag" data-i18n="p1.tag">Most chosen</span>
         <h3 data-i18n="p1.name">Plus</h3>
-        <p class="desc" data-i18n="p1.d">For families managing chronic conditions.</p>
-        <div class="price"><b id="plusPrice">$4.99</b><span id="plusUnit" data-i18n="price.mo">/mo</span></div>
+        <p class="desc" data-i18n="p1.d">Everything in Free, plus:</p>
+        <div class="price"><b id="plusPrice">$4.99</b><span id="plusUnit" data-i18n="price.mo">/mo</span><span class="save" id="plusSave"></span></div>
         <ul class="feats">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p1.f1">Up to 5 pets</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p1.f2">Health reports for your vet</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p1.f3">Family sharing &amp; reminders</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p1.f4">Document storage</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p1.f1">Up to 3 pets</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p1.f2">Up to 10 active medications</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p1.f3">Family sharing (up to 2 people)</span></li>
         </ul>
+        <div class="feats-more">
+          <ul class="feats">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p1.f4">Symptom trend charts</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p1.f5">Missed-dose reminders &amp; escalation</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p1.f6">Up to 25 documents</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p1.f7">5 reports / month (no watermark)</span></li>
+          </ul>
+        </div>
+        <button class="feats-toggle" type="button" aria-expanded="false">
+          <span class="lbl-more" data-i18n="price.seeAll">See all features</span>
+          <span class="lbl-less" data-i18n="price.hideAll">Hide features</span>
+          <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
         <a href="#download" class="btn btn-primary" data-i18n="p1.cta">Start free trial</a>
       </article>
       <article class="pcard reveal" data-delay="160">
         <h3 data-i18n="p2.name">Pro</h3>
-        <p class="desc" data-i18n="p2.d">Multi-pet households and power users.</p>
-        <div class="price"><b id="proPrice">$9.99</b><span id="proUnit" data-i18n="price.mo">/mo</span></div>
+        <p class="desc" data-i18n="p2.d">Everything in Plus, plus:</p>
+        <div class="price"><b id="proPrice">$9.99</b><span id="proUnit" data-i18n="price.mo">/mo</span><span class="save" id="proSave"></span></div>
         <ul class="feats">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p2.f1">Unlimited pets</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p2.f2">Advanced trends &amp; insights</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p2.f3">Priority support</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p2.f4">Early access to new features</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p2.f1">Glucose curve &amp; seizure timer</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p2.f2">Injection-site tracking</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p2.f3">Unlimited medications, documents &amp; reports</span></li>
         </ul>
+        <div class="feats-more">
+          <ul class="feats">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p2.f4">Up to 10 pets</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p2.f5">Unlimited family members</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p2.f6">Priority support</span></li>
+          </ul>
+        </div>
+        <button class="feats-toggle" type="button" aria-expanded="false">
+          <span class="lbl-more" data-i18n="price.seeAll">See all features</span>
+          <span class="lbl-less" data-i18n="price.hideAll">Hide features</span>
+          <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
         <a href="#download" class="btn btn-ghost" data-i18n="p2.cta">Start free trial</a>
       </article>
     </div>
@@ -428,7 +509,8 @@
 
 </main>
 
-<script src="js/i18n.js?v=3"></script>
-<script src="js/main.js?v=3"></script>
+<script src="js/i18n.js?v=7"></script>
+<script src="js/main.js?v=11"></script>
+<script src="js/mobile-demo.js?v=8"></script>
 </body>
 </html>

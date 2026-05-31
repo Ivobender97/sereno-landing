@@ -7,7 +7,7 @@
 (function () {
   'use strict';
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var isDesktop = function () { return window.innerWidth > 768; };
+  var isDesktop = function () { return window.innerWidth > 720; };
   var $ = function (s, c) { return (c || document).querySelector(s); };
   var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
 
@@ -30,7 +30,7 @@
       if (dict[k] != null) el.textContent = dict[k];
     });
     localStorage.setItem('sereno-lang', l);
-    $$('.lang-menu button').forEach(function (b) {
+    $$('[data-lang]').forEach(function (b) {
       b.classList.toggle('active', b.dataset.lang === l);
     });
     var cur = $('#langCurrent');
@@ -88,14 +88,32 @@
       e.stopPropagation();
       langWrap.classList.toggle('open');
     });
-    $$('.lang-menu button').forEach(function (b) {
-      b.addEventListener('click', function () {
-        applyLang(b.dataset.lang);
-        langWrap.classList.remove('open');
-      });
-    });
     document.addEventListener('click', function () { langWrap.classList.remove('open'); });
   }
+  // bind every language button (desktop menu + mobile menu)
+  $$('[data-lang]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      applyLang(b.dataset.lang);
+      if (langWrap) langWrap.classList.remove('open');
+      closeMobileNav();
+    });
+  });
+
+  /* ---------------- Mobile hamburger menu ---------------- */
+  var navEl = $('.nav'), burger = $('#navBurger'), navMobile = $('#navMobile');
+  function closeMobileNav() { if (navEl) navEl.classList.remove('menu-open'); }
+  if (burger) {
+    burger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      navEl.classList.toggle('menu-open');
+    });
+  }
+  if (navMobile) {
+    $$('a', navMobile).forEach(function (a) { a.addEventListener('click', closeMobileNav); });
+  }
+  document.addEventListener('click', function (e) {
+    if (navEl && navEl.classList.contains('menu-open') && !e.target.closest('.nav')) closeMobileNav();
+  });
 
   /* ---------------- Navbar scroll state ---------------- */
   var nav = $('.nav');
@@ -174,6 +192,7 @@
     monthly: { plus: '$4.99', pro: '$9.99' },
     yearly: { plus: '$39', pro: '$79' }
   };
+  var SAVE = { plus: '35%', pro: '34%' };
   function updatePriceLabels() {
     var dict = I18N[lang] || I18N.en;
     var suffix = billing === 'monthly' ? dict['price.mo'] : dict['price.yr'];
@@ -182,6 +201,11 @@
     if (op) op.textContent = PRICES[billing].pro;
     if (ppu) ppu.textContent = suffix;
     if (opu) opu.textContent = suffix;
+    var ps = $('#plusSave'), os = $('#proSave');
+    var yearly = billing === 'yearly';
+    var word = dict['price.save'] || 'Save';
+    if (ps) { ps.textContent = yearly ? word + ' ' + SAVE.plus : ''; ps.style.display = yearly ? '' : 'none'; }
+    if (os) { os.textContent = yearly ? word + ' ' + SAVE.pro : ''; os.style.display = yearly ? '' : 'none'; }
   }
   var sw = $('#billingSwitch');
   if (sw) {
@@ -206,6 +230,28 @@
       if (!open) { item.classList.add('open'); a.style.maxHeight = a.scrollHeight + 'px'; }
     });
   });
+
+  /* ---------------- Pricing "See all features" accordion ---------------- */
+  $$('.feats-toggle').forEach(function (btn) {
+    var more = btn.previousElementSibling; // .feats-more
+    if (!more) return;
+    var chev = btn.querySelector('.chev');
+    btn.addEventListener('click', function () {
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+      more.style.maxHeight = open ? '0px' : (more.scrollHeight + 'px');
+      if (chev) chev.style.transform = open ? '' : 'rotate(180deg)';
+    });
+  });
+  function syncOpenFeats() {
+    $$('.feats-toggle').forEach(function (btn) {
+      if (btn.getAttribute('aria-expanded') === 'true') {
+        var more = btn.previousElementSibling;
+        if (more) more.style.maxHeight = more.scrollHeight + 'px';
+      }
+    });
+  }
+  window.addEventListener('resize', syncOpenFeats);
 
   /* ---------------- Stats count-up ---------------- */
   var statsDone = false;
@@ -310,6 +356,20 @@
     if (reportHint) reportHint.style.opacity = '0';
   }
 
+  /* desktop: scale the assembled card so it always fits the stage
+     height (the richer report is tall; short laptops would clip it) */
+  function measureReportFit() {
+    if (!reportCard || !reportCard.parentElement) return;
+    if (!isDesktop()) { reportCard.style.removeProperty('--rc-fit'); return; }
+    var avail = reportCard.parentElement.clientHeight - 28;
+    var natural = reportCard.offsetHeight || 1;
+    var fit = Math.min(1, avail / natural);
+    reportCard.style.setProperty('--rc-fit', fit.toFixed(3));
+  }
+  measureReportFit();
+  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(measureReportFit); }
+  window.addEventListener('load', measureReportFit);
+
   var ticking = false;
   function frame() {
     ticking = false;
@@ -324,6 +384,7 @@
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', function () {
+    measureReportFit();
     if (!isDesktop() || reduce) { setStaticReport(); if (demoPin) updateDemo(0); }
     onScroll();
   });
