@@ -314,6 +314,13 @@
     return clamp(-rect.top / total, 0, 1);
   }
 
+  function nearViewport(el) {
+    // only drive scroll animation while the section is on/near screen
+    var r = el.getBoundingClientRect();
+    var h = window.innerHeight || document.documentElement.clientHeight;
+    return r.bottom > -h * 0.25 && r.top < h * 1.25;
+  }
+
   function updateDemo(p) {
     var n = demoScreens.length;
     var prog = p * (n - 1);          // which phone is centered (0..n-1)
@@ -375,8 +382,8 @@
     ticking = false;
     onNav();
     if (isDesktop() && !reduce) {
-      if (demoPin) updateDemo(sectionProgress(demoPin));
-      if (reportPin) updateReport(sectionProgress(reportPin));
+      if (demoPin && nearViewport(demoPin)) updateDemo(sectionProgress(demoPin));
+      if (reportPin && nearViewport(reportPin)) updateReport(sectionProgress(reportPin));
     }
   }
   function onScroll() {
