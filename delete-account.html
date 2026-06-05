@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delete Your Account — Sereno</title>
+  <meta name="description" content="How to delete your Sereno account and all associated data, in the app or by request.">
+  <meta name="robots" content="index, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #eef5f4;
+      color: #1a202c;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    .sereno-nav {
+      position: sticky;
+      top: 0;
+      background: rgba(238, 245, 244, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid #ddeae9;
+      padding: 16px 24px;
+      z-index: 100;
+    }
+    .sereno-nav-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .sereno-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #2c7a7b;
+    }
+    .sereno-brand-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+    .sereno-brand-name {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #2c7a7b;
+    }
+    .sereno-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #2c7a7b;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 8px 14px;
+      border-radius: 9999px;
+      transition: background 0.2s ease;
+    }
+    .sereno-back:hover { background: rgba(44, 122, 123, 0.08); }
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+    .sereno-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 48px 40px;
+      box-shadow: 0 4px 24px rgba(44, 122, 123, 0.06);
+    }
+    .sereno-card h1 {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #1a202c;
+      margin-bottom: 8px;
+    }
+    .sereno-card .last-updated {
+      color: #595959;
+      font-size: 14px;
+      margin-bottom: 32px;
+    }
+    .sereno-card h2 {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: #1a202c;
+      margin-top: 36px;
+      margin-bottom: 14px;
+    }
+    .sereno-card p {
+      font-size: 15px;
+      color: #2d3748;
+      margin-bottom: 14px;
+    }
+    .sereno-card ul, .sereno-card ol {
+      margin-left: 24px;
+      margin-bottom: 14px;
+    }
+    .sereno-card li {
+      font-size: 15px;
+      color: #2d3748;
+      margin-bottom: 8px;
+    }
+    .sereno-card a {
+      color: #2c7a7b;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+    .sereno-card a:hover { color: #1f5b5c; }
+    .sereno-card strong { font-weight: 700; color: #1a202c; }
+    .sereno-card .summary-box {
+      background: #f0f9f7;
+      border-left: 4px solid #2c7a7b;
+      padding: 18px 22px;
+      border-radius: 8px;
+      margin: 16px 0 24px;
+    }
+    .sereno-card .summary-box strong {
+      color: #2c7a7b;
+      display: block;
+      margin-bottom: 6px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .sereno-card .summary-box p { font-size: 14px; color: #234e51; margin: 0; }
+    .sereno-steps {
+      counter-reset: step;
+      list-style: none;
+      margin-left: 0;
+    }
+    .sereno-steps li {
+      position: relative;
+      padding-left: 44px;
+      margin-bottom: 16px;
+      min-height: 32px;
+    }
+    .sereno-steps li::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 30px;
+      height: 30px;
+      background: #2c7a7b;
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .doc-footer {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px 48px;
+      text-align: center;
+      color: #5a6470;
+      font-size: 13px;
+    }
+    .doc-footer a { color: #2c7a7b; text-decoration: none; font-weight: 600; }
+    @media (max-width: 600px) {
+      .sereno-card { padding: 32px 22px; }
+      .sereno-card h1 { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="sereno-nav">
+    <div class="sereno-nav-inner">
+      <a href="/" class="sereno-brand" aria-label="Sereno home">
+        <img src="assets/logo.png" class="sereno-brand-logo" alt="Sereno" />
+        <span class="sereno-brand-name">Sereno</span>
+      </a>
+      <a href="/" class="sereno-back">← Back to home</a>
+    </div>
+  </nav>
+  <main>
+    <div class="sereno-card">
+      <h1>Delete Your Sereno Account</h1>
+      <p class="last-updated">Applies to the app <strong>Sereno — Pet Health Tracker</strong> by Sereno.</p>
+
+      <div class="summary-box">
+        <strong>In short</strong>
+        <p>You can delete your Sereno account and all of its data at any time, directly in the app or by emailing us. Deletion is permanent.</p>
+      </div>
+
+      <h2>Option 1 — Delete from within the app</h2>
+      <ol class="sereno-steps">
+        <li>Open the Sereno app and sign in.</li>
+        <li>Tap the <strong>More</strong> tab (bottom-right).</li>
+        <li>Open <strong>Account</strong>.</li>
+        <li>Tap <strong>Delete account</strong> and confirm.</li>
+      </ol>
+      <p>Your account and all associated data are permanently deleted right away.</p>
+
+      <h2>Option 2 — Request deletion by email</h2>
+      <p>If you can no longer access the app, send an email to
+        <a href="mailto:supportserenopet@gmail.com?subject=Delete%20my%20account">supportserenopet@gmail.com</a>
+        from the email address linked to your account, with the subject <strong>“Delete my account”</strong>.
+        We will verify your request and delete your account within 30 days.</p>
+
+      <h2>What data is deleted</h2>
+      <p>Deleting your account permanently removes <strong>all</strong> of your data, including:</p>
+      <ul>
+        <li>Your account and profile (email, display name)</li>
+        <li>All pets and their profiles</li>
+        <li>Vaccinations, vet visits, symptoms, medications and dose logs</li>
+        <li>Uploaded documents and photos</li>
+        <li>Family sharing memberships and invites</li>
+        <li>Notification and device registration data</li>
+      </ul>
+
+      <h2>Data retention</h2>
+      <p>Your active data is deleted immediately upon request. Residual copies in encrypted backups are
+        purged within <strong>30 days</strong>. We retain data longer only where required to comply with a
+        legal obligation; in that case it is isolated and not used for any other purpose.</p>
+
+      <h2>Questions</h2>
+      <p>Contact us at
+        <a href="mailto:supportserenopet@gmail.com">supportserenopet@gmail.com</a>.
+        See also our <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms of Service</a>.</p>
+    </div>
+  </main>
+  <div class="doc-footer">
+    © Sereno · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
+  </div>
+</body>
+</html>
