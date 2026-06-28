@@ -91,6 +91,8 @@ window.SERENO_I18N = {
     "demo.s3d": "Log a flare-up with a note, a photo and a time in seconds.",
     "demo.s4t": "Health report",
     "demo.s4d": "One tap turns months of tracking into a report your vet will love.",
+    "demo.s5t": "Food & water",
+    "demo.s5d": "Log every meal, treat and sip — with gentle meal reminders, so feeding time is never missed.",
 
     "feat.eyebrow": "Everything chronic-pet care actually needs",
     "feat.title": "Powerful where it matters, calm everywhere else.",
@@ -329,6 +331,8 @@ window.SERENO_I18N = {
     "demo.s3d": "Registra una ricaduta con nota, foto e orario in pochi secondi.",
     "demo.s4t": "Referto di salute",
     "demo.s4d": "Un tocco trasforma mesi di dati in un referto che il veterinario adorerà.",
+    "demo.s5t": "Cibo e acqua",
+    "demo.s5d": "Registra ogni pasto, premio e sorso — con promemoria delicati per i pasti, così l'ora della pappa non si dimentica mai.",
 
     "feat.eyebrow": "Tutto ciò che serve davvero per gli animali cronici",
     "feat.title": "Potente dove conta, sereno ovunque.",
@@ -567,6 +571,8 @@ window.SERENO_I18N = {
     "demo.s3d": "Registra una recaída con nota, foto y hora en segundos.",
     "demo.s4t": "Informe de salud",
     "demo.s4d": "Un toque convierte meses de registro en un informe que tu veterinario adorará.",
+    "demo.s5t": "Comida y agua",
+    "demo.s5d": "Registra cada comida, premio y sorbo — con recordatorios suaves, para no olvidar nunca la hora de comer.",
 
     "feat.eyebrow": "Todo lo que el cuidado crónico realmente necesita",
     "feat.title": "Potente donde importa, sereno en lo demás.",

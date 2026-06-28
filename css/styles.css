@@ -117,10 +117,11 @@ img.photo{opacity:0;transition:opacity .55s ease}
 
 /* store buttons */
 .stores{display:flex;flex-wrap:wrap;gap:14px}
-.store{display:inline-flex;align-items:center;gap:11px;padding:12px 20px;border-radius:16px;
+.store{display:inline-flex;align-items:center;justify-content:center;gap:11px;width:220px;padding:12px 20px;border-radius:16px;
   background:var(--ink);color:#fff;transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
 .store:hover{transform:translateY(-3px);box-shadow:0 16px 30px -12px rgba(22,48,46,.5)}
 .store svg{width:24px;height:24px;flex:none}
+.store span{text-align:center}
 .store small{display:block;font-size:10px;opacity:.72;letter-spacing:.04em;line-height:1}
 .store b{font-size:16px;font-weight:600;line-height:1.2}
 
@@ -341,7 +342,7 @@ img.photo{opacity:0;transition:opacity .55s ease}
 /* ============================================================
    PINNED PRODUCT DEMO
    ============================================================ */
-.demo-pin{height:440vh;position:relative}
+.demo-pin{height:550vh;position:relative}
 .demo-sticky{position:sticky;top:0;height:100vh;display:flex;align-items:center;overflow:hidden}
 .demo-layout{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,6vw,84px);align-items:center;width:100%}
 .demo-left{max-width:540px}
@@ -411,7 +412,7 @@ img.photo{opacity:0;transition:opacity .55s ease}
 /* ============================================================
    REPORT — scattered → assembled
    ============================================================ */
-.report-pin{height:300vh;position:relative}
+.report-pin{height:360vh;position:relative}
 .report-sticky{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;align-items:center;overflow:hidden}
 .report-head{text-align:center;max-width:780px;padding:clamp(40px,6vh,72px) var(--pad) 0;position:relative;z-index:5}
 .report-stage{position:relative;flex:1;width:100%;max-width:1100px;margin:0 auto}

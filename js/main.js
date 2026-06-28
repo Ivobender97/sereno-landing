@@ -341,8 +341,10 @@
   }
 
   function updateReport(p) {
-    // scraps fly together over first 70% of scroll
-    var f = clamp(p / 0.68, 0, 1);
+    // Lead-in: hold the notes scattered & readable while the section pins,
+    // THEN fly them together. Assembly runs from START→END of the scroll.
+    var START = 0.24, END = 0.84;
+    var f = clamp((p - START) / (END - START), 0, 1);
     var ease = 1 - Math.pow(1 - f, 3);
     scraps.forEach(function (s) {
       var tx = s._x * (1 - ease);
@@ -352,8 +354,8 @@
       s.style.transform = 'translate(-50%,-50%) translate(' + tx + 'px,' + ty + 'px) rotate(' + rot + 'deg) scale(' + sc + ')';
       s.style.opacity = clamp(1 - ease * 1.15, 0, 1);
     });
-    if (reportCard) reportCard.classList.toggle('show', p > 0.58);
-    if (reportHint) reportHint.style.opacity = p > 0.08 ? '0' : '1';
+    if (reportCard) reportCard.classList.toggle('show', p > 0.74);
+    if (reportHint) reportHint.style.opacity = p > 0.14 ? '0' : '1';
   }
 
   function setStaticReport() {
