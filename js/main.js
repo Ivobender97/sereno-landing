@@ -231,27 +231,30 @@
     });
   });
 
-  /* ---------------- Pricing "See all features" accordion ---------------- */
-  $$('.feats-toggle').forEach(function (btn) {
-    var more = btn.previousElementSibling; // .feats-more
-    if (!more) return;
-    var chev = btn.querySelector('.chev');
-    btn.addEventListener('click', function () {
-      var open = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', open ? 'false' : 'true');
-      more.style.maxHeight = open ? '0px' : (more.scrollHeight + 'px');
-      if (chev) chev.style.transform = open ? '' : 'rotate(180deg)';
+  /* ---------------- Feature comparison collapsible ---------------- */
+  var cmpBtn = document.querySelector('.cmp-toggle');
+  var cmpPanel = document.getElementById('cmpPanel');
+  if (cmpBtn && cmpPanel) {
+    cmpPanel.addEventListener('transitionend', function () {
+      if (cmpBtn.getAttribute('aria-expanded') === 'true') cmpPanel.style.maxHeight = 'none';
     });
-  });
-  function syncOpenFeats() {
-    $$('.feats-toggle').forEach(function (btn) {
-      if (btn.getAttribute('aria-expanded') === 'true') {
-        var more = btn.previousElementSibling;
-        if (more) more.style.maxHeight = more.scrollHeight + 'px';
+    cmpBtn.addEventListener('click', function () {
+      var open = cmpBtn.getAttribute('aria-expanded') === 'true';
+      if (open) {
+        cmpPanel.style.maxHeight = cmpPanel.scrollHeight + 'px';
+        requestAnimationFrame(function () { cmpPanel.style.maxHeight = '0px'; });
+        cmpBtn.setAttribute('aria-expanded', 'false');
+      } else {
+        cmpBtn.setAttribute('aria-expanded', 'true');
+        cmpPanel.style.maxHeight = cmpPanel.scrollHeight + 'px';
+      }
+    });
+    window.addEventListener('resize', function () {
+      if (cmpBtn.getAttribute('aria-expanded') === 'true' && cmpPanel.style.maxHeight !== 'none') {
+        cmpPanel.style.maxHeight = cmpPanel.scrollHeight + 'px';
       }
     });
   }
-  window.addEventListener('resize', syncOpenFeats);
 
   /* ---------------- Stats count-up ---------------- */
   var statsDone = false;
@@ -408,6 +411,27 @@
     if (reportPin) updateReport(0);
   }
   frame();
+
+  /* --------- Attention pulse on the store buttons when a CTA jumps here --------- */
+  (function () {
+    var finalStores = $$('.final-card .stores .store');
+    if (!finalStores.length) return;
+    function pulseStores() {
+      finalStores.forEach(function (b) { b.classList.remove('store-attn'); });
+      // force reflow so the animation can replay on repeated clicks
+      void finalStores[0].offsetWidth;
+      finalStores.forEach(function (b) { b.classList.add('store-attn'); });
+    }
+    finalStores.forEach(function (b) {
+      b.addEventListener('animationend', function () { b.classList.remove('store-attn'); });
+    });
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest('a[href="#get-app"]');
+      if (!a) return;
+      // wait for the native smooth-scroll to land, then call attention
+      setTimeout(pulseStores, 620);
+    });
+  })();
 
   /* mobile menu (simple anchor scroll) handled by native links */
 })();

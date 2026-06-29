@@ -525,6 +525,50 @@ img.photo{opacity:0;transition:opacity .55s ease}
 .save{display:inline-block;font-size:12px;font-weight:700;color:#1f7a4d;background:#e6f4ec;
   padding:3px 9px;border-radius:100px;white-space:nowrap;letter-spacing:.01em}
 
+/* feature comparison table */
+.cmp{margin-top:56px;max-width:880px;margin-inline:auto;text-align:left}
+.cmp-toggle-wrap{text-align:center}
+.cmp-toggle{display:inline-flex;align-items:center;gap:9px;cursor:pointer;font:inherit;
+  font-size:14.5px;font-weight:700;color:var(--teal);background:var(--card);
+  border:1px solid var(--line);box-shadow:var(--shadow-sm);
+  padding:13px 22px;border-radius:100px;transition:background .2s var(--ease),box-shadow .2s var(--ease)}
+.cmp-toggle:hover{background:var(--base)}
+.cmp-chev{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;transition:transform .35s var(--ease)}
+.cmp-chev svg{width:100%;height:100%;display:block}
+.cmp-toggle[aria-expanded="true"] .cmp-chev{transform:rotate(180deg)}
+.cmp-toggle .cmp-tg-hide{display:none}
+.cmp-toggle[aria-expanded="true"] .cmp-tg-show{display:none}
+.cmp-toggle[aria-expanded="true"] .cmp-tg-hide{display:inline}
+.cmp-panel{max-height:0;overflow:hidden;transition:max-height .5s var(--ease)}
+.cmp-table{margin-top:26px;--vcol:96px;position:relative;background:var(--card);border:1px solid var(--line);
+  border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:6px 24px 16px}
+.cmp-hl{position:absolute;top:8px;bottom:12px;right:calc(24px + var(--vcol));width:var(--vcol);
+  background:rgba(44,122,123,.06);border:1px solid rgba(44,122,123,.16);border-radius:16px;pointer-events:none;z-index:0}
+.cmp-head,.cmp-row{display:grid;grid-template-columns:minmax(0,1fr) repeat(3,var(--vcol));
+  align-items:center;position:relative;z-index:1}
+.cmp-head{padding:18px 0 15px;border-bottom:1px solid var(--line)}
+.cmp-row{border-bottom:1px solid var(--line);min-height:52px}
+.cmp-row:last-child{border-bottom:none}
+.cmp-col{text-align:center;font-weight:700;font-size:15px;color:var(--ink)}
+.cmp-col--plus{color:var(--teal)}
+.cmp-feature{font-size:14.5px;color:var(--ink);font-weight:500;padding:11px 16px 11px 0;line-height:1.35;text-wrap:pretty}
+.cmp-val{display:flex;justify-content:center;align-items:center;font-size:14.5px;font-weight:600;color:var(--ink);text-align:center;line-height:1.25}
+.cmp-val svg{width:19px;height:19px;color:var(--teal)}
+.cmp-val .no{color:var(--ink-soft);opacity:.5;font-weight:500}
+.cmp-group{position:relative;z-index:1;padding:18px 0 7px}
+.cmp-group:first-of-type{padding-top:14px}
+.cmp-glabel{font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-soft);opacity:.6}
+@media(max-width:640px){
+  .cmp{margin-top:44px}
+  .cmp-table{--vcol:68px;padding:4px 10px 12px;margin-top:20px}
+  .cmp-hl{right:calc(10px + var(--vcol))}
+  .cmp-feature{font-size:12px;padding-right:8px}
+  .cmp-col{font-size:13px}
+  .cmp-val{font-size:11.5px;padding:0 2px}
+  .cmp-val svg{width:16px;height:16px}
+  .cmp-val[data-i18n="cmp.unlimited"]{font-size:10px;letter-spacing:-.01em}
+}
+
 /* ============================================================
    FAQ
    ============================================================ */
@@ -538,6 +582,17 @@ img.photo{opacity:0;transition:opacity .55s ease}
 .faq-item.open .faq-q .ic svg{transform:rotate(45deg)}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .45s var(--ease)}
 .faq-a p{padding:0 4px 26px;font-size:16px;color:var(--ink-soft);line-height:1.62;max-width:62ch}
+.faq-contact{margin:36px auto 0;max-width:760px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px 24px;
+  padding:24px 28px;border-radius:var(--radius);background:rgba(244,162,97,.09);border:1px solid rgba(244,162,97,.28)}
+.faq-contact-line{font-size:16px;font-weight:600;color:var(--ink);margin:0}
+.faq-contact-btn{display:inline-flex;align-items:center;gap:9px;flex:none;padding:12px 22px;border-radius:999px;
+  background:var(--teal);color:#fff;font-weight:700;font-size:15px;transition:background .25s var(--ease),transform .25s var(--ease)}
+.faq-contact-btn svg{width:18px;height:18px}
+.faq-contact-btn:hover{background:#1f5455;transform:translateY(-1px)}
+@media (max-width:520px){
+  .faq-contact{flex-direction:column;align-items:flex-start;text-align:left;padding:22px}
+  .faq-contact-btn{width:100%;justify-content:center}
+}
 
 /* ============================================================
    FINAL CTA + FOOTER
@@ -552,6 +607,20 @@ img.photo{opacity:0;transition:opacity .55s ease}
 .final-card .stores{justify-content:center;margin-top:34px;position:relative}
 .final-card .store{background:#fff;color:var(--ink)}
 .final-card .store small{opacity:.6}
+/* attention pulse when a CTA scrolls the user down here */
+@keyframes storeAttn{
+  0%{transform:translateY(0) scale(1);box-shadow:0 0 0 0 rgba(244,162,97,.55)}
+  15%{transform:translateY(-7px) scale(1.04);box-shadow:0 0 0 8px rgba(244,162,97,0)}
+  32%{transform:translateY(0) scale(1)}
+  46%{transform:translateY(-4px) scale(1.02);box-shadow:0 0 0 10px rgba(244,162,97,0)}
+  60%{transform:translateY(0) scale(1);box-shadow:0 0 0 0 rgba(244,162,97,0)}
+  100%{transform:translateY(0) scale(1);box-shadow:0 0 0 0 rgba(244,162,97,0)}
+}
+.final-card .store.store-attn{animation:storeAttn 1.5s var(--ease) both;z-index:1}
+.final-card .store.store-attn:nth-of-type(2){animation-delay:.16s}
+@media (prefers-reduced-motion:reduce){
+  .final-card .store.store-attn{animation:none}
+}
 
 footer{margin-top:clamp(70px,10vw,120px);border-top:1px solid var(--line);padding:64px var(--pad) 40px}
 .foot-grid{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px}
