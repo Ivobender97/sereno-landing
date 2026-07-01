@@ -6,7 +6,12 @@
    ============================================================ */
 (function () {
   'use strict';
-  if (window.innerWidth > 720) return;
+  /* DISABLED — the demo is now a scroll-driven pinned coverflow handled by
+     main.js (updateDemo) on every width, including phones. The old
+     self-playing carousel auto-advanced the steps on a timer and fought
+     with the scroll control, so it is turned off here. */
+  return; // eslint-disable-line
+  /* eslint-disable no-unreachable */
 
   var wrap = document.querySelector('.demo-screens');
   var screens = Array.prototype.slice.call(document.querySelectorAll('.dscreen'));

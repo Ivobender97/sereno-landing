@@ -21,13 +21,29 @@
     return supported.indexOf(n) > -1 ? n : 'en';
   }
   var lang = detectLang();
+  /* render text with the ® trademark mark shrunk to a superscript,
+     using DOM nodes so no HTML escaping is needed */
+  function setI18nText(el, str) {
+    if (str.indexOf('®') === -1) { el.textContent = str; return; }
+    el.textContent = '';
+    var parts = str.split('®');
+    parts.forEach(function (part, i) {
+      if (part) el.appendChild(document.createTextNode(part));
+      if (i < parts.length - 1) {
+        var sup = document.createElement('sup');
+        sup.className = 'tm';
+        sup.textContent = '®';
+        el.appendChild(sup);
+      }
+    });
+  }
   function applyLang(l) {
     lang = l;
     var dict = I18N[l] || I18N.en;
     document.documentElement.lang = l;
     $$('[data-i18n]').forEach(function (el) {
       var k = el.getAttribute('data-i18n');
-      if (dict[k] != null) el.textContent = dict[k];
+      if (dict[k] != null) setI18nText(el, dict[k]);
     });
     localStorage.setItem('sereno-lang', l);
     $$('[data-lang]').forEach(function (b) {
@@ -51,7 +67,7 @@
       var word = document.createElement('span');
       word.className = 'word' + (i === words.length - 1 ? ' accent' : '');
       var inner = document.createElement('span');
-      inner.textContent = w;
+      setI18nText(inner, w);
       inner.style.transitionDelay = (0.1 + i * 0.07) + 's';
       word.appendChild(inner);
       h.appendChild(word);
@@ -235,6 +251,8 @@
   var cmpBtn = document.querySelector('.cmp-toggle');
   var cmpPanel = document.getElementById('cmpPanel');
   if (cmpBtn && cmpPanel) {
+    // open by default; user can close it
+    if (cmpBtn.getAttribute('aria-expanded') === 'true') cmpPanel.style.maxHeight = 'none';
     cmpPanel.addEventListener('transitionend', function () {
       if (cmpBtn.getAttribute('aria-expanded') === 'true') cmpPanel.style.maxHeight = 'none';
     });
@@ -292,8 +310,23 @@
      PINNED SCROLL SECTIONS — single rAF loop
      ============================================================ */
   var demoPin = $('.demo-pin');
+  var demoSticky = $('.demo-sticky');
   var demoScreens = $$('.dscreen');
   var demoSteps = $$('.demo-step');
+
+  // Tap a step to scroll to that screen (works whenever the section is pinned:
+  // desktop + phones with motion enabled). Intuitive, never auto-playing.
+  demoSteps.forEach(function (s, i) {
+    s.addEventListener('click', function () {
+      if (reduce || !demoPin || !demoSticky) return;
+      if (getComputedStyle(demoSticky).position !== 'sticky') return;
+      var total = demoPin.offsetHeight - window.innerHeight;
+      if (total <= 1) return;
+      var n = demoSteps.length;
+      var target = demoPin.getBoundingClientRect().top + window.pageYOffset + (i / (n - 1)) * total;
+      window.scrollTo({ top: Math.round(target), behavior: 'smooth' });
+    });
+  });
 
   var reportPin = $('.report-pin');
   var scraps = $$('.scrap');
@@ -386,9 +419,11 @@
   function frame() {
     ticking = false;
     onNav();
-    if (isDesktop() && !reduce) {
+    if (!reduce) {
+      // demo coverflow is scroll-driven on every width (desktop, tablet, phone)
       if (demoPin && nearViewport(demoPin)) updateDemo(sectionProgress(demoPin));
-      if (reportPin && nearViewport(reportPin)) updateReport(sectionProgress(reportPin));
+      // report scatter→assemble stays desktop/tablet only
+      if (isDesktop() && reportPin && nearViewport(reportPin)) updateReport(sectionProgress(reportPin));
     }
   }
   function onScroll() {
@@ -412,24 +447,37 @@
   }
   frame();
 
-  /* --------- Attention pulse on the store buttons when a CTA jumps here --------- */
+  /* --------- Attention pulse on store buttons when a CTA jumps to them --------- */
   (function () {
-    var finalStores = $$('.final-card .stores .store');
-    if (!finalStores.length) return;
-    function pulseStores() {
-      finalStores.forEach(function (b) { b.classList.remove('store-attn'); });
-      // force reflow so the animation can replay on repeated clicks
-      void finalStores[0].offsetWidth;
-      finalStores.forEach(function (b) { b.classList.add('store-attn'); });
+    function pulse(container) {
+      if (!container) return;
+      var btns = $$('.store', container);
+      if (!btns.length) return;
+      btns.forEach(function (b) { b.classList.remove('store-attn'); });
+      void btns[0].offsetWidth; // force reflow so it can replay
+      btns.forEach(function (b) { b.classList.add('store-attn'); });
     }
-    finalStores.forEach(function (b) {
-      b.addEventListener('animationend', function () { b.classList.remove('store-attn'); });
+    document.addEventListener('animationend', function (e) {
+      if (e.target.classList && e.target.classList.contains('store-attn')) {
+        e.target.classList.remove('store-attn');
+      }
     });
     document.addEventListener('click', function (e) {
+      // top-of-page "Download the app" buttons: animate the hero store buttons in place, no scroll
+      var dl = e.target.closest('.dl-hero');
+      if (dl) {
+        e.preventDefault();
+        pulse(document.getElementById('download'));
+        if (navEl) navEl.classList.remove('menu-open');
+        return;
+      }
       var a = e.target.closest('a[href="#get-app"]');
       if (!a) return;
+      var target = document.getElementById('get-app');
+      if (!target) return;
+      var container = target.classList.contains('stores') ? target : $('.stores', target);
       // wait for the native smooth-scroll to land, then call attention
-      setTimeout(pulseStores, 620);
+      setTimeout(function () { pulse(container); }, 620);
     });
   })();
 

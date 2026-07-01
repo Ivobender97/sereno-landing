@@ -8,8 +8,8 @@ window.SERENO_I18N = {
     "nav.download": "Download the app",
 
     "hero.eyebrow": "Health tracking for pets with chronic conditions",
-    "hero.title": "Care for chronic pets, with confidence.",
-    "hero.sub": "Never lose data. Never miss a dose. Never walk into the vet unprepared. Sereno keeps every medication, symptom and visit in one calm place.",
+    "hero.title": "Care for chronic pets, with Sereno®.",
+    "hero.sub": "Never lose data. Never miss a dose. Never walk into the vet unprepared. Sereno® keeps every medication, symptom and visit in one calm place.",
     "hero.app": "Download on the App Store",
     "hero.play": "Get it on Google Play",
     "hero.phoneTitle": "Today's doses",
@@ -24,17 +24,21 @@ window.SERENO_I18N = {
     "hero.due": "Due",
     "hero.trust": "Loved by 40,000+ pet families",
 
-    "joy.eyebrow": "Why we built Sereno",
+    "joy.eyebrow": "Why we built Sereno®",
     "joy.title": "Good care means more moments like these.",
-    "joy.sub": "Sereno is for every pet — and especially the ones who need a little extra. Less worry behind the scenes, more time just being together.",
+    "joy.sub": "Sereno® is for every pet — and especially the ones who need a little extra. Less worry behind the scenes, more time just being together.",
+    "joy.cap1": "Play time in the sun",
+    "joy.cap2": "Out and about together",
+    "joy.cap3": "Lazy cuddles at home",
+    "joy.cap4": "Puppy kisses",
 
-    "test.eyebrow": "We know what it's like",
+    "test.eyebrow": "We've been there too",
     "test.title": "From families who track every day.",
     "test.all": "All",
     "test.chronic": "Chronic",
     "test.everyday": "Everyday",
     "t1.badge": "Diabetes · 7 yrs",
-    "t1.quote": "I used to panic about missed insulin. Now Sereno reminds me and logs it — Bella hasn't missed a dose in a year.",
+    "t1.quote": "I used to panic about missed insulin. Now Sereno® reminds me and logs it — Bella hasn't missed a dose in a year.",
     "t1.name": "Marta & Bella",
     "t1.meta": "Diabetes · Labrador, 7",
     "t2.badge": "Epilepsy · 4 yrs",
@@ -67,13 +71,13 @@ window.SERENO_I18N = {
     "t8.meta": "Healthy · Cat, 2",
 
     "life.eyebrow": "Whatever the life stage",
-    "life.title": "Sereno fits, from first shots to golden years.",
+    "life.title": "Sereno® fits, from first shots to adulthood.",
     "life.s1": "Puppy & kitten",
     "life.s1d": "Vaccine schedules, growth and first vet visits — start the record from day one.",
     "life.s2": "Adult",
     "life.s2d": "Routine care, weight trends and the occasional scare, all calmly logged.",
     "life.s3": "Senior",
-    "life.s3d": "Chronic conditions, more meds, closer monitoring — Sereno keeps it steady.",
+    "life.s3d": "Chronic conditions, more meds, closer monitoring — Sereno® keeps it steady.",
 
     "stats.title": "Built for the long haul.",
     "stat1": "Pet families",
@@ -246,12 +250,12 @@ window.SERENO_I18N = {
 
     "faq.eyebrow": "Questions",
     "faq.title": "Everything you might be wondering.",
-    "q1": "Is Sereno really free?",
+    "q1": "Is Sereno® really free?",
     "a1": "Yes. One pet profile with core medication and symptom tracking is free forever — no card required. Paid plans add more pets, reports and sharing.",
     "q2": "Can I share access with my family or vet?",
     "a2": "Absolutely. Family sharing keeps everyone caring for your pet in sync, and you can export a clean health report to bring or send to your vet.",
     "q3": "Does it work for healthy pets too?",
-    "a3": "Definitely. Sereno is great for any pet — vaccines, vet visits and documents in one place — and grows with them if a condition ever appears.",
+    "a3": "Definitely. Sereno® is great for any pet — vaccines, vet visits and documents in one place — and grows with them if a condition ever appears.",
     "q4": "Which conditions does it support?",
     "a4": "Anything you need to track. It's tuned for diabetes, epilepsy, kidney disease and arthritis, but works for any ongoing or one-off concern.",
     "q5": "Is my pet's data private?",
@@ -267,7 +271,7 @@ window.SERENO_I18N = {
     "footer.legal": "Legal",
     "footer.privacy": "Privacy Policy",
     "footer.terms": "Terms",
-    "footer.rights": "© 2026 Sereno. Made with care for pets everywhere."
+    "footer.rights": "© 2026 Sereno®. Made with care for pets everywhere."
   },
 
   it: {
@@ -277,8 +281,8 @@ window.SERENO_I18N = {
     "nav.download": "Scarica l'app",
 
     "hero.eyebrow": "Monitoraggio della salute per animali con malattie croniche",
-    "hero.title": "Cura gli animali cronici, con serenità.",
-    "hero.sub": "Mai più dati persi. Mai una dose saltata. Mai dal veterinario impreparato. Sereno raccoglie farmaci, sintomi e visite in un unico posto tranquillo.",
+    "hero.title": "Cura gli animali con malattie croniche, con Sereno®.",
+    "hero.sub": "Mai più dati persi. Mai una dose saltata. Mai dal veterinario impreparato. Sereno® raccoglie farmaci, sintomi e visite in un unico posto tranquillo.",
     "hero.app": "Scarica su App Store",
     "hero.play": "Disponibile su Google Play",
     "hero.phoneTitle": "Dosi di oggi",
@@ -293,17 +297,21 @@ window.SERENO_I18N = {
     "hero.due": "In scadenza",
     "hero.trust": "Amato da oltre 40.000 famiglie",
 
-    "joy.eyebrow": "Perché abbiamo creato Sereno",
+    "joy.eyebrow": "Perché abbiamo creato Sereno®",
     "joy.title": "Curare bene significa più momenti come questi.",
-    "joy.sub": "Sereno è per ogni animale — e soprattutto per quelli che hanno bisogno di un po' di più. Meno preoccupazioni dietro le quinte, più tempo semplicemente insieme.",
+    "joy.sub": "Sereno® è per ogni animale — e soprattutto per quelli che hanno bisogno di un po' di più. Meno preoccupazioni dietro le quinte, più tempo semplicemente insieme.",
+    "joy.cap1": "Giochi al sole",
+    "joy.cap2": "In giro insieme",
+    "joy.cap3": "Coccole pigre a casa",
+    "joy.cap4": "Baci da cucciolo",
 
-    "test.eyebrow": "Sappiamo com'è",
+    "test.eyebrow": "Ci siamo passati anche noi",
     "test.title": "Dalle famiglie che monitorano ogni giorno.",
     "test.all": "Tutti",
     "test.chronic": "Cronici",
     "test.everyday": "Quotidiano",
     "t1.badge": "Diabete · 7 anni",
-    "t1.quote": "Avevo il panico di saltare l'insulina. Ora Sereno me lo ricorda e lo registra — Bella non salta una dose da un anno.",
+    "t1.quote": "Avevo il panico di saltare l'insulina. Ora Sereno® me lo ricorda e lo registra — Bella non salta una dose da un anno.",
     "t1.name": "Marta e Bella",
     "t1.meta": "Diabete · Labrador, 7",
     "t2.badge": "Epilessia · 4 anni",
@@ -336,13 +344,13 @@ window.SERENO_I18N = {
     "t8.meta": "In salute · Gatto, 2",
 
     "life.eyebrow": "Qualunque sia l'età",
-    "life.title": "Sereno si adatta, dai primi vaccini agli anni d'oro.",
+    "life.title": "Sereno® si adatta, dai primi vaccini all'età adulta.",
     "life.s1": "Cucciolo",
     "life.s1d": "Calendario vaccini, crescita e prime visite — inizia la cartella dal primo giorno.",
     "life.s2": "Adulto",
     "life.s2d": "Cure di routine, andamento del peso e qualche spavento, tutto registrato con calma.",
     "life.s3": "Anziano",
-    "life.s3d": "Malattie croniche, più farmaci, controlli più attenti — Sereno tiene tutto stabile.",
+    "life.s3d": "Malattie croniche, più farmaci, controlli più attenti — Sereno® tiene tutto stabile.",
 
     "stats.title": "Pensato per durare.",
     "stat1": "Famiglie",
@@ -363,7 +371,7 @@ window.SERENO_I18N = {
     "demo.s5t": "Cibo e acqua",
     "demo.s5d": "Registra ogni pasto, premio e sorso — con promemoria delicati per i pasti, così l'ora della pappa non si dimentica mai.",
 
-    "feat.eyebrow": "Tutto ciò che serve davvero per gli animali cronici",
+    "feat.eyebrow": "Tutto ciò che serve davvero per gli animali con malattie croniche",
     "feat.title": "Potente dove conta, sereno ovunque.",
     "f1.t": "Farmaci",
     "f1.d": "Orari, promemoria intelligenti e avvisi di ricarica per ogni dose.",
@@ -515,12 +523,12 @@ window.SERENO_I18N = {
 
     "faq.eyebrow": "Domande",
     "faq.title": "Tutto quello che potresti chiederti.",
-    "q1": "Sereno è davvero gratis?",
+    "q1": "Sereno® è davvero gratis?",
     "a1": "Sì. Un profilo animale con monitoraggio di farmaci e sintomi è gratis per sempre — senza carta. I piani a pagamento aggiungono più animali, referti e condivisione.",
     "q2": "Posso condividere l'accesso con famiglia o veterinario?",
     "a2": "Assolutamente. La condivisione tiene tutti allineati e puoi esportare un referto chiaro da portare o inviare al veterinario.",
     "q3": "Funziona anche per animali sani?",
-    "a3": "Certo. Sereno è perfetto per ogni animale — vaccini, visite e documenti in un posto — e cresce con lui se mai comparisse una malattia.",
+    "a3": "Certo. Sereno® è perfetto per ogni animale — vaccini, visite e documenti in un posto — e cresce con lui se mai comparisse una malattia.",
     "q4": "Quali patologie supporta?",
     "a4": "Tutto ciò che ti serve. È pensato per diabete, epilessia, malattie renali e artrite, ma funziona per qualsiasi problema.",
     "q5": "I dati del mio animale sono privati?",
@@ -536,7 +544,7 @@ window.SERENO_I18N = {
     "footer.legal": "Legale",
     "footer.privacy": "Privacy",
     "footer.terms": "Termini",
-    "footer.rights": "© 2026 Sereno. Fatto con cura per gli animali ovunque."
+    "footer.rights": "© 2026 Sereno®. Fatto con cura per gli animali ovunque."
   },
 
   es: {
@@ -546,8 +554,8 @@ window.SERENO_I18N = {
     "nav.download": "Descargar la app",
 
     "hero.eyebrow": "Seguimiento de salud para mascotas con enfermedades crónicas",
-    "hero.title": "Cuida a las mascotas crónicas, con tranquilidad.",
-    "hero.sub": "Nunca pierdas datos. Nunca saltes una dosis. Nunca llegues al veterinario sin preparación. Sereno reúne medicación, síntomas y visitas en un lugar tranquilo.",
+    "hero.title": "Cuida a las mascotas crónicas, con Sereno®.",
+    "hero.sub": "Nunca pierdas datos. Nunca saltes una dosis. Nunca llegues al veterinario sin preparación. Sereno® reúne medicación, síntomas y visitas en un lugar tranquilo.",
     "hero.app": "Descárgalo en App Store",
     "hero.play": "Disponible en Google Play",
     "hero.phoneTitle": "Dosis de hoy",
@@ -562,17 +570,21 @@ window.SERENO_I18N = {
     "hero.due": "Pendiente",
     "hero.trust": "Querido por más de 40.000 familias",
 
-    "joy.eyebrow": "Por qué creamos Sereno",
+    "joy.eyebrow": "Por qué creamos Sereno®",
     "joy.title": "Cuidar bien significa más momentos como estos.",
-    "joy.sub": "Sereno es para cada mascota — y sobre todo para las que necesitan algo más. Menos preocupación detrás, más tiempo simplemente juntos.",
+    "joy.sub": "Sereno® es para cada mascota — y sobre todo para las que necesitan algo más. Menos preocupación detrás, más tiempo simplemente juntos.",
+    "joy.cap1": "Juegos al sol",
+    "joy.cap2": "De paseo juntos",
+    "joy.cap3": "Mimos tranquilos en casa",
+    "joy.cap4": "Besos de cachorro",
 
-    "test.eyebrow": "Sabemos lo que es",
+    "test.eyebrow": "Nosotros también pasamos por eso",
     "test.title": "De familias que registran cada día.",
     "test.all": "Todos",
     "test.chronic": "Crónicos",
     "test.everyday": "Cotidiano",
     "t1.badge": "Diabetes · 7 años",
-    "t1.quote": "Antes entraba en pánico por saltar la insulina. Ahora Sereno me avisa y lo registra — Bella no falla una dosis desde hace un año.",
+    "t1.quote": "Antes entraba en pánico por saltar la insulina. Ahora Sereno® me avisa y lo registra — Bella no falla una dosis desde hace un año.",
     "t1.name": "Marta y Bella",
     "t1.meta": "Diabetes · Labrador, 7",
     "t2.badge": "Epilepsia · 4 años",
@@ -605,13 +617,13 @@ window.SERENO_I18N = {
     "t8.meta": "Sano · Gato, 2",
 
     "life.eyebrow": "Sea cual sea la etapa",
-    "life.title": "Sereno se adapta, de las primeras vacunas a los años dorados.",
+    "life.title": "Sereno® se adapta, de las primeras vacunas a la edad adulta.",
     "life.s1": "Cachorro",
     "life.s1d": "Calendario de vacunas, crecimiento y primeras visitas — empieza el historial desde el primer día.",
     "life.s2": "Adulto",
     "life.s2d": "Cuidados de rutina, tendencia de peso y algún susto, todo registrado con calma.",
     "life.s3": "Senior",
-    "life.s3d": "Enfermedades crónicas, más medicación, control más cercano — Sereno lo mantiene estable.",
+    "life.s3d": "Enfermedades crónicas, más medicación, control más cercano — Sereno® lo mantiene estable.",
 
     "stats.title": "Hecho para el largo plazo.",
     "stat1": "Familias",
@@ -784,12 +796,12 @@ window.SERENO_I18N = {
 
     "faq.eyebrow": "Preguntas",
     "faq.title": "Todo lo que podrías estar preguntándote.",
-    "q1": "¿Sereno es realmente gratis?",
+    "q1": "¿Sereno® es realmente gratis?",
     "a1": "Sí. Un perfil de mascota con seguimiento de medicación y síntomas es gratis para siempre — sin tarjeta. Los planes de pago añaden más mascotas, informes y compartir.",
     "q2": "¿Puedo compartir el acceso con mi familia o veterinario?",
     "a2": "Por supuesto. Compartir mantiene a todos sincronizados, y puedes exportar un informe claro para llevar o enviar a tu veterinario.",
     "q3": "¿Funciona también para mascotas sanas?",
-    "a3": "Claro. Sereno es ideal para cualquier mascota — vacunas, visitas y documentos en un lugar — y crece con ella si alguna vez aparece una enfermedad.",
+    "a3": "Claro. Sereno® es ideal para cualquier mascota — vacunas, visitas y documentos en un lugar — y crece con ella si alguna vez aparece una enfermedad.",
     "q4": "¿Qué enfermedades admite?",
     "a4": "Todo lo que necesites. Está afinado para diabetes, epilepsia, enfermedad renal y artritis, pero sirve para cualquier preocupación.",
     "q5": "¿Los datos de mi mascota son privados?",
@@ -805,6 +817,6 @@ window.SERENO_I18N = {
     "footer.legal": "Legal",
     "footer.privacy": "Privacidad",
     "footer.terms": "Términos",
-    "footer.rights": "© 2026 Sereno. Hecho con cariño para las mascotas de todo el mundo."
+    "footer.rights": "© 2026 Sereno®. Hecho con cariño para las mascotas de todo el mundo."
   }
 };
