@@ -803,28 +803,34 @@ footer{margin-top:clamp(70px,10vw,120px);border-top:1px solid var(--line);paddin
    ============================================================ */
 @media (max-width:720px) and (prefers-reduced-motion: no-preference){
   .demo-pin{height:380vh}
-  .demo-sticky{position:sticky;top:0;height:100vh;display:flex;align-items:center;overflow:hidden;padding-block:0}
+  /* Sticky is taller than the viewport with a negative top: the header
+     (eyebrow + title) scrolls away once the pin engages, freeing that
+     space for a bigger phone and a comfortable, uncramped step list. */
+  .demo-sticky{position:sticky;top:-124px;height:calc(100svh + 124px);display:flex;align-items:stretch;overflow:hidden;padding-block:0}
   .demo-layout{display:flex;flex-direction:column;grid-template-columns:none;gap:8px;align-items:center;justify-content:center;
-    height:100%;width:100%;padding-block:max(8px,1.5vh)}
+    height:100%;width:100%;padding-block:8px}
   .demo-left{display:contents}
   .demo-left .eyebrow{order:1;margin:0 auto;flex:none;font-size:12px}
-  .demo-left .section-title{order:2;margin:0 auto 2px;text-align:center;font-size:clamp(19px,5vw,25px);
-    max-width:18ch;flex:none;line-height:1.12}
-  .demo-right{order:3;width:100%;flex:none;display:flex;align-items:center;justify-content:center;perspective:1000px}
-  .demo-right::before{display:block;width:70%;height:58%}
-  .demo-screens{position:relative;height:clamp(244px,42vh,388px);width:auto;max-width:64vw;aspect-ratio:1170/2532;
+  .demo-left .section-title{order:2;margin:0 auto 4px;text-align:center;font-size:clamp(21px,5.4vw,26px);
+    max-width:16ch;flex:none;line-height:1.15}
+  .demo-right{order:3;width:100%;flex:1 1 auto;min-height:250px;display:flex;align-items:center;justify-content:center;perspective:1100px}
+  .demo-right::before{display:block;width:78%;height:62%}
+  /* phone fills all leftover vertical space — as big as the viewport allows */
+  .demo-screens{position:relative;height:86.5%;max-height:530px;width:auto;max-width:88vw;aspect-ratio:1170/2532;
     display:block;transform-style:preserve-3d;margin-inline:auto;overflow:visible}
   /* thinner bezel so more of the screen reads */
-  .dscreen{position:absolute!important;inset:0;width:auto!important;flex:none;border-radius:32px;scroll-snap-align:none;padding:6px}
-  .dscreen-inner{border-radius:27px}
-  .demo-steps{order:4;flex:none;width:100%;max-width:430px;margin:0 auto;display:flex;flex-direction:column;gap:2px}
-  /* text styled to match the desktop tour */
-  .demo-step{opacity:.4;padding:7px 13px;align-items:flex-start;gap:12px}
-  .demo-step .ds-txt b{font-size:16px;margin-bottom:1px;line-height:1.16;letter-spacing:-.01em}
+  .dscreen{position:absolute!important;inset:0;width:auto!important;flex:none;border-radius:34px;scroll-snap-align:none;padding:6px}
+  .dscreen-inner{border-radius:29px}
+  .demo-steps{order:4;flex:none;width:100%;max-width:430px;margin:0 auto;display:flex;flex-direction:column;gap:5px}
+  /* compact inactive rows so the phone above gets the space */
+  .demo-step{opacity:.55;padding:6px 12px;align-items:center;gap:12px;border-radius:14px}
+  .demo-step .ds-txt b{font-size:15.5px;margin-bottom:0;line-height:1.2;letter-spacing:-.01em}
   .demo-step .ds-txt span{display:none}
-  .demo-step.on{opacity:1;background:rgba(255,255,255,.66);box-shadow:var(--shadow-sm)}
-  .demo-step.on .ds-txt span{display:block;font-size:13.5px;margin-top:1px;line-height:1.42;color:var(--ink-soft)}
-  .ds-ic{width:34px;height:34px;border-radius:10px}
+  .demo-step.on{opacity:1;background:rgba(255,255,255,.7);box-shadow:var(--shadow-sm);align-items:flex-start;padding:10px 13px}
+  .demo-step.on .ds-txt b{font-size:16.5px;margin-bottom:1px}
+  .demo-step.on .ds-txt span{display:block;font-size:13.5px;margin-top:2px;line-height:1.4;color:var(--ink-soft)}
+  .ds-ic{width:32px;height:32px;border-radius:10px;background:var(--sbg,rgba(44,122,123,.1));color:var(--sc,var(--teal))}
+  .demo-step.on .ds-ic{width:38px;height:38px;border-radius:11px;background:var(--sc,var(--teal));color:#fff}
   .ds-ic svg{width:19px;height:19px}
 }
 /* Reduced-motion fallback: plain swipe carousel, no scroll-jacking */
