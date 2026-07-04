@@ -357,23 +357,38 @@
     return r.bottom > -h * 0.25 && r.top < h * 1.25;
   }
 
+  var _lastDemoProg = -1, _lastActive = -1;
   function updateDemo(p) {
     var n = demoScreens.length;
     var prog = p * (n - 1);          // which phone is centered (0..n-1)
+    // skip entirely when the centred position hasn't meaningfully moved
+    if (Math.abs(prog - _lastDemoProg) < 0.003) return;
+    _lastDemoProg = prog;
     demoScreens.forEach(function (sc, i) {
       var off = i - prog;            // 0 = centered, + = to the right, - = to the left
       var a = Math.abs(off);
+      var op = clamp(1.25 - a * 0.85, 0, 1);
+      if (op <= 0.001) {             // fully hidden: hide once, skip transform math
+        if (sc.style.visibility !== 'hidden') { sc.style.opacity = '0'; sc.style.visibility = 'hidden'; }
+        return;
+      }
       var tx = off * 56;             // % horizontal slide
       var rotY = off * -22;          // coverflow turn
       var tz = -Math.min(a, 2.2) * 130;
       var scl = 1 - Math.min(a, 2) * 0.13;
-      var op = clamp(1.25 - a * 0.85, 0, 1);
+      if (sc.style.visibility === 'hidden') sc.style.visibility = 'visible';
       sc.style.transform = 'translateX(' + tx + '%) translateZ(' + tz + 'px) rotateY(' + rotY + 'deg) scale(' + scl + ')';
       sc.style.opacity = op;
-      sc.style.zIndex = Math.round(100 - a * 10);
+      // only touch z-index when the integer actually changes — writing it every
+      // frame forces a stacking-context recompute + layer re-raster (the jank)
+      var z = Math.round(100 - a * 10);
+      if (sc._z !== z) { sc._z = z; sc.style.zIndex = z; }
     });
     var active = clamp(Math.round(prog), 0, n - 1);
-    demoSteps.forEach(function (s, i) { s.classList.toggle('on', i === active); });
+    if (active !== _lastActive) {
+      _lastActive = active;
+      demoSteps.forEach(function (s, i) { s.classList.toggle('on', i === active); });
+    }
   }
 
   function updateReport(p) {
