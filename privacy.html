@@ -257,11 +257,11 @@
     <div class="sereno-card">
 
       <h1>Privacy Policy</h1>
-      <p class="last-updated">Last updated: June 28, 2026</p>
+      <p class="last-updated">Last updated: July 10, 2026</p>
 
       <div class="summary-box">
         <strong>At a glance</strong>
-        <p>This Privacy Policy explains how Sereno collects, uses, and protects your personal information when you use our pet health tracker app. We are based in Italy and operate under European data protection law (GDPR). We do not sell your data. The app contains no advertising trackers; our website uses a Meta advertising pixel only if you give consent via the cookie banner. You can delete your account and data at any time.</p>
+        <p>This Privacy Policy explains how Sereno collects, uses, and protects your personal information when you use our pet health tracker app. We are based in Italy and operate under European data protection law (GDPR). We do not sell your data, and we never share your pet's health information with advertisers. To measure our advertising, the app uses the Meta SDK to share an advertising identifier and basic app events (installs, opens, purchases) with Meta — on iOS only if you allow it through Apple's tracking prompt. You can delete your account and data at any time.</p>
       </div>
 
       <p>This Privacy Notice for <strong>Ivan Salgarello</strong> (doing business as <strong>Sereno</strong>) ("<strong>we</strong>," "<strong>us</strong>," or "<strong>our</strong>"), describes how and why we might access, collect, store, use, and/or share ("<strong>process</strong>") your personal information when you use our services ("<strong>Services</strong>"), including when you:</p>
@@ -360,15 +360,16 @@
       <p>The pet health data you enter is not considered "sensitive personal data" under the GDPR (which applies to human health data, not animal health data). However, we treat it with the same care and security as if it were sensitive, given its private and personal nature to you.</p>
 
       <h3>Information automatically collected</h3>
-      <p><strong>In short:</strong> some technical information is collected automatically when you use the Services, but we do not use third-party analytics or advertising trackers.</p>
+      <p><strong>In short:</strong> some technical information is collected automatically when you use the Services. We do not use third-party product analytics of your in-app behaviour, but we do use the Meta SDK for advertising measurement (see below and Section 5).</p>
       <p>When you use the App, our backend automatically logs minimal technical information necessary for security and service operation, including:</p>
       <ul>
         <li>IP address (used by Supabase for rate-limiting and abuse prevention; not stored long-term);</li>
         <li>Timestamps of sign-in events and API requests;</li>
         <li>Crash reports and error logs (anonymous, used to fix bugs);</li>
         <li>App version and operating system.</li>
+        <li>An advertising identifier (the Apple IDFA on iOS — only if you grant tracking permission — or the Android Advertising ID), used only for advertising measurement via the Meta SDK (see Section 5).</li>
       </ul>
-      <p>We do <strong>not</strong> use Google Analytics, Facebook Pixel, advertising SDKs, or any other third-party tracking technology inside the App.</p>
+      <p>We do <strong>not</strong> use Google Analytics or any product-analytics tracking of your in-app behaviour. The App does include the <strong>Meta (Facebook) SDK</strong>, used solely to measure and optimise our advertising campaigns: it shares an advertising identifier and basic app events (such as installs, app opens and in-app purchases) with Meta. On iOS this happens <strong>only if you grant permission</strong> through Apple's App Tracking Transparency prompt. Your pet's health data is <strong>never</strong> shared with Meta. See Section 5 for details and how to opt out.</p>
 
       <h2 id="how-use">2. How Do We Process Your Information?</h2>
       <p><strong>In short:</strong> we process your information to provide, improve, and secure the Services, to communicate with you, and to comply with legal obligations.</p>
@@ -396,7 +397,7 @@
       </ul>
 
       <h2 id="share">4. When and With Whom Do We Share Information?</h2>
-      <p><strong>In short:</strong> we share information only with the service providers we need to operate the Services. We never sell your data. We do not share data with advertisers from within the app; on our website, limited browsing data is shared with Meta via the Pixel only if you consent (see Section 5).</p>
+      <p><strong>In short:</strong> we share information only with the service providers we need to operate the Services. We never sell your data, and we never share your pet's health data with advertisers. For advertising measurement, the app shares an advertising identifier and basic app events with Meta (on iOS only with your permission); on our website, limited browsing data is shared with Meta via the Pixel only if you consent (see Section 5).</p>
       <p>We share information with the following categories of third parties (acting as <strong>data processors</strong> on our behalf under GDPR Art. 28):</p>
 
       <table class="data-table">
@@ -459,8 +460,8 @@
           </tr>
           <tr>
             <td><strong>Meta Platforms, Inc.</strong></td>
-            <td>Website advertising Pixel (consent-based only)</td>
-            <td>Browsing actions on the website, IP address, device/browser info</td>
+            <td>Advertising measurement — app SDK and (consent-based) website Pixel</td>
+            <td>Advertising identifier and basic app events (installs, opens, purchases); website: browsing actions, IP address, device/browser info. Never any pet health data.</td>
             <td>USA (with Standard Contractual Clauses)</td>
           </tr>
         </tbody>
@@ -473,16 +474,18 @@
         <li><strong>With other family members:</strong> if you invite someone to your family group, they will be able to see the pets and health data you have shared with the group.</li>
       </ul>
 
-      <p><strong>We do not sell your personal information.</strong> The only advertising-related sharing is the Meta Pixel on our website, which runs solely with your prior consent and which you can decline (see Section 5).</p>
+      <p><strong>We do not sell your personal information.</strong> Our advertising-related sharing is limited to Meta — the app SDK (an advertising identifier and basic app events, on iOS only with your permission) and the consent-based Pixel on our website — and never includes your pet's health data. You can decline it (see Section 5).</p>
 
       <h2 id="cookies">5. Cookies and Similar Technologies</h2>
       <p><strong>In short:</strong> the App does not use cookies. Our website uses essential cookies and, only with your consent, the Meta (Facebook) advertising Pixel.</p>
       <p>The mobile App does not use HTTP cookies. The Sereno website (<a href="https://serenopet.com">serenopet.com</a>) may use a minimal number of essential cookies set by our hosting provider (Vercel) for security and basic operation.</p>
-      <p>Our website also uses the <strong>Meta (Facebook) Pixel</strong> — an advertising and measurement technology — loaded <strong>only after you give consent</strong> via the cookie banner. If you decline, no Pixel and no advertising cookies are loaded. When enabled, it collects your browsing actions on our website, your IP address, and browser/device information, and shares them with Meta Platforms, Inc. for advertising measurement and audience building. The legal basis is your <strong>consent</strong> (GDPR Art. 6(1)(a)), which you can withdraw at any time by declining the banner or clearing your cookies. The Sereno mobile app itself contains no Pixel, advertising SDK, or tracking technology.</p>
+      <p>Our website also uses the <strong>Meta (Facebook) Pixel</strong> — an advertising and measurement technology — loaded <strong>only after you give consent</strong> via the cookie banner. If you decline, no Pixel and no advertising cookies are loaded. When enabled, it collects your browsing actions on our website, your IP address, and browser/device information, and shares them with Meta Platforms, Inc. for advertising measurement and audience building. The legal basis is your <strong>consent</strong> (GDPR Art. 6(1)(a)), which you can withdraw at any time by declining the banner or clearing your cookies.</p>
+      <h3>Advertising in the mobile app</h3>
+      <p>The Sereno mobile app uses the <strong>Meta (Facebook) SDK</strong> to measure and optimise our advertising campaigns. It does not use HTTP cookies; instead it may collect an <strong>advertising identifier</strong> (the Apple IDFA on iOS or the Advertising ID on Android) together with <strong>basic app events</strong> such as installs, app opens and in-app purchases, and shares them with Meta Platforms, Inc. for advertising measurement and audience building. <strong>On iOS, the advertising identifier is collected only if you tap "Allow" on Apple's App Tracking Transparency prompt</strong>; if you decline, no tracking identifier is used. <strong>We never share your pet's health information, medical records, symptoms or medications with Meta.</strong> The legal basis is your <strong>consent</strong> on iOS (via the tracking prompt) and our <strong>legitimate interest</strong> in promoting the Services on Android. You can opt out at any time: on iOS via Settings &rarr; Privacy &amp; Security &rarr; Tracking, and on Android by resetting or deleting your Advertising ID in your device settings.</p>
 
       <h2 id="international">6. International Data Transfers</h2>
       <p><strong>In short:</strong> most of your data stays in the European Union. When we use US-based providers, we rely on appropriate safeguards.</p>
-      <p>Your primary data (account, pets, health records, documents) is stored on Supabase servers located in <strong>Stockholm, Sweden (EU)</strong>. Some of our supporting service providers (such as RevenueCat, Expo, and Meta — the latter only for the consent-based website Pixel) are based in the United States. For data transferred to the US, we rely on the <strong>Standard Contractual Clauses</strong> approved by the European Commission as an appropriate safeguard under GDPR Art. 46.</p>
+      <p>Your primary data (account, pets, health records, documents) is stored on Supabase servers located in <strong>Stockholm, Sweden (EU)</strong>. Some of our supporting service providers (such as RevenueCat, Expo, and Meta — the latter for advertising measurement via the app SDK and the consent-based website Pixel) are based in the United States. For data transferred to the US, we rely on the <strong>Standard Contractual Clauses</strong> approved by the European Commission as an appropriate safeguard under GDPR Art. 46.</p>
 
       <h2 id="retention">7. How Long Do We Keep Your Information?</h2>
       <p><strong>In short:</strong> we keep your information only as long as your account is active or as needed to provide the Services and comply with the law.</p>
@@ -536,7 +539,7 @@
         <li>Know what personal information is collected about you;</li>
         <li>Access your personal information;</li>
         <li>Request deletion of your personal information;</li>
-        <li>Opt out of the sale or sharing of personal information (we do not sell your data; the only advertising-related sharing is the consent-based Meta Pixel on our website, which you can decline);</li>
+        <li>Opt out of the sale or sharing of personal information (we do not sell your data; our advertising-related sharing is limited to Meta — the app SDK, on iOS only with your permission, and the consent-based website Pixel — never includes health data, and you can decline it);</li>
         <li>Limit the use of sensitive personal information;</li>
         <li>Not be discriminated against for exercising your rights.</li>
       </ul>
