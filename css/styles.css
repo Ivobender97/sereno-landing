@@ -814,13 +814,13 @@ footer{margin-top:clamp(70px,10vw,120px);border-top:1px solid var(--line);paddin
   .demo-left .eyebrow{order:1;margin:0 auto;flex:none;font-size:12px}
   .demo-left .section-title{order:2;margin:0 auto 4px;text-align:center;font-size:clamp(21px,5.4vw,26px);
     max-width:16ch;flex:none;line-height:1.15}
-  .demo-right{order:3;width:100%;flex:none;height:min(52svh,470px);display:flex;align-items:center;justify-content:center;perspective:1100px}
+  .demo-right{order:3;width:100%;flex:none;display:flex;align-items:center;justify-content:center;perspective:1100px;padding-block:6px}
   /* lighter, non-blurred glow — the blur(24px) alone repaints every scroll frame */
   .demo-right::before{display:block;width:78%;height:62%;filter:none;
     background:radial-gradient(circle,rgba(76,165,166,.22),transparent 66%)}
-  /* fixed phone size — independent of the steps list, which grows/shrinks as the
-     active step expands (that reflow was making the phone jump size on scroll) */
-  .demo-screens{position:relative;height:100%;width:auto;max-width:88vw;aspect-ratio:1170/2532;
+  /* phone sized by WIDTH (vw), not viewport height — so Safari's toolbar
+     sliding in/out no longer changes the height and makes the phones resize */
+  .demo-screens{position:relative;width:min(62vw,290px);height:auto;aspect-ratio:1170/2532;
     display:block;transform-style:preserve-3d;margin-inline:auto;overflow:visible}
   /* cheaper shadow so compositing 5 transformed phones per frame stays smooth */
   .dscreen{box-shadow:0 18px 34px -20px rgba(9,26,24,.5), inset 0 0 0 2px rgba(255,255,255,.07)}
