@@ -406,6 +406,10 @@ img.photo{opacity:0;transition:opacity .55s ease}
 .fcard:hover .fic svg{transform:scale(1.12) rotate(-6deg)}
 .fcard h3{font-size:20px;margin-bottom:9px}
 .fcard p{font-size:15px;color:var(--ink-soft);line-height:1.55}
+.fcard--wide{grid-column:1/-1}
+.fcard--wide p{max-width:68ch}
+.fcard-note{margin-top:14px;padding-top:13px;border-top:1px solid var(--line);
+  font-size:13.5px!important;line-height:1.5;color:var(--ink-soft);opacity:.92;max-width:76ch}
 
 /* ============================================================
    TYPOGRAPHIC MOMENT
@@ -567,13 +571,21 @@ img.photo{opacity:0;transition:opacity .55s ease}
 .cmp-glabel{font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-soft);opacity:.6}
 @media(max-width:640px){
   .cmp{margin-top:44px}
-  .cmp-table{--vcol:68px;padding:4px 10px 12px;margin-top:20px}
-  .cmp-hl{right:calc(10px + var(--vcol))}
-  .cmp-feature{font-size:12px;padding-right:8px}
+  /* The table scrolls horizontally INSIDE its own card (the page body never
+     scrolls sideways) and the feature-name column stays pinned, so labels get
+     a readable width instead of wrapping into tall slivers. */
+  .cmp-table{--vcol:80px;padding:4px 0 12px;margin-top:20px;overflow-x:auto;-webkit-overflow-scrolling:touch;
+    scrollbar-width:thin;overscroll-behavior-x:contain}
+  .cmp-hl{display:none}
+  .cmp-head,.cmp-row{grid-template-columns:minmax(158px,1fr) repeat(3,var(--vcol));min-width:398px}
+  .cmp-feature{font-size:13px;position:sticky;left:0;z-index:2;background:var(--card);
+    padding:11px 12px 11px 14px;box-shadow:1px 0 0 var(--line)}
+  .cmp-head .cmp-feature{background:var(--card)}
   .cmp-col{font-size:13px}
-  .cmp-val{font-size:11.5px;padding:0 2px}
-  .cmp-val svg{width:16px;height:16px}
-  .cmp-val[data-i18n="cmp.unlimited"]{font-size:10px;letter-spacing:-.01em}
+  .cmp-val{font-size:13px;padding:0 2px}
+  .cmp-val svg{width:17px;height:17px}
+  .cmp-val[data-i18n="cmp.unlimited"]{font-size:11px;letter-spacing:-.01em}
+  .cmp-group{padding-left:14px}
 }
 
 /* ============================================================
@@ -755,6 +767,11 @@ footer{margin-top:clamp(70px,10vw,120px);border-top:1px solid var(--line);paddin
   .fcard{padding:18px 15px;border-radius:18px}
   .fcard h3{font-size:16px;margin-bottom:5px}
   .fcard p{font-size:12.5px;line-height:1.45}
+  /* flagship + monitoring cards go full width on phones */
+  .fcard--wide{grid-column:1/-1;padding:20px 17px}
+  .fcard--wide p{font-size:13.5px;line-height:1.55}
+  /* legal disclaimer must stay legible — never below 13px */
+  .fcard-note{font-size:13px!important;margin-top:12px;padding-top:11px;line-height:1.5}
   .fic{width:38px;height:38px;border-radius:11px;margin-bottom:12px}
   .fic svg{width:19px;height:19px}
   /* footer → brand on top, link groups in 3 tidy columns, even spacing */
