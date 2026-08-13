@@ -339,11 +339,24 @@ img.photo{opacity:0;transition:opacity .55s ease}
    STATS
    ============================================================ */
 .stats{text-align:center}
-.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:54px}
-.stat{padding:30px 18px;border-radius:var(--radius);background:rgba(255,255,255,.74);border:1px solid var(--line)}
-.stat-num{font-size:clamp(40px,5.4vw,68px);font-weight:800;letter-spacing:-.04em;
-  background:linear-gradient(135deg,var(--teal),var(--peach));-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
-.stat-label{margin-top:10px;font-size:15px;color:var(--ink-soft);font-weight:500}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
+.stat{position:relative;overflow:hidden;text-align:left;padding:30px 26px 28px;border-radius:var(--radius);
+  background:rgba(255,255,255,.86);border:1px solid var(--line);box-shadow:var(--shadow-sm);
+  transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .5s var(--ease)}
+/* soft accent wash + a top rule that draws in on hover */
+.stat::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:var(--sac,var(--teal));
+  transform:scaleX(0);transform-origin:left;transition:transform .55s var(--ease)}
+.stat::after{content:"";position:absolute;right:-38px;top:-38px;width:150px;height:150px;border-radius:50%;
+  background:var(--sbg,#ecf4f3);opacity:.55;pointer-events:none;transition:transform .6s var(--ease),opacity .5s var(--ease)}
+.stat:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:transparent}
+.stat:hover::before{transform:scaleX(1)}
+.stat:hover::after{transform:scale(1.18);opacity:.75}
+.sic{position:relative;z-index:1;width:50px;height:50px;border-radius:15px;display:grid;place-items:center;margin-bottom:18px;
+  background:var(--sac,var(--teal));color:#fff;box-shadow:0 9px 18px -7px color-mix(in srgb,var(--sac,var(--teal)) 60%,transparent)}
+.sic svg{width:25px;height:25px;transition:transform .5s var(--ease)}
+.stat:hover .sic svg{transform:scale(1.12) rotate(-6deg)}
+.stat-title{position:relative;z-index:1;font-size:clamp(19px,1.5vw,21px);font-weight:700;letter-spacing:-.02em;color:var(--ink);line-height:1.25}
+.stat-label{position:relative;z-index:1;margin-top:9px;font-size:15px;color:var(--ink-soft);font-weight:500;line-height:1.55;text-wrap:pretty}
 
 /* ============================================================
    PINNED PRODUCT DEMO
@@ -665,7 +678,7 @@ footer{margin-top:clamp(70px,10vw,120px);border-top:1px solid var(--line);paddin
   .hero-visual{margin-top:24px}
   .test-grid{grid-template-columns:repeat(2,1fr)}
   .feat-grid{grid-template-columns:repeat(2,1fr)}
-  .stat-grid{grid-template-columns:repeat(2,1fr)}
+  .stat-grid{gap:16px}
   .foot-grid{grid-template-columns:1fr 1fr}
   .nav-inner{max-width:100%}
 }
@@ -761,7 +774,7 @@ footer{margin-top:clamp(70px,10vw,120px);border-top:1px solid var(--line);paddin
   .test-grid .tcard{flex:0 0 85%;scroll-snap-align:start;opacity:1!important;transform:none!important}
   .tcard-img{aspect-ratio:16/10}
   .feat-grid{grid-template-columns:1fr}
-  .stat-grid{grid-template-columns:1fr 1fr}
+  .stat-grid{gap:12px}
   /* features → compact 2-up cards to keep the page short */
   .feat-grid{grid-template-columns:1fr 1fr;gap:12px}
   .fcard{padding:18px 15px;border-radius:18px}
@@ -786,7 +799,12 @@ footer{margin-top:clamp(70px,10vw,120px);border-top:1px solid var(--line);paddin
   .hero h1{font-size:clamp(31px,8.6vw,42px)}
   .section-title{font-size:clamp(25px,7.4vw,34px)}
   .dscreen{width:min(64vw,208px)}
-  .stat{padding:24px 14px}
+  .stat{padding:20px 18px;text-align:left}
+  .sic{width:42px;height:42px;border-radius:13px;margin-bottom:13px}
+  .sic svg{width:22px;height:22px}
+  .stat::after{width:112px;height:112px;right:-30px;top:-30px}
+  .stat-title{font-size:17px}
+  .stat-label{font-size:14px;margin-top:6px;line-height:1.5}
   .pcard{padding:16px 16px 17px}
   .pcard h3{padding-right:96px}
   .pcard .desc{padding-right:96px}

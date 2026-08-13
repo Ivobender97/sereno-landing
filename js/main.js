@@ -205,16 +205,16 @@
   /* ---------------- Pricing toggle ---------------- */
   var billing = 'monthly';
   var PRICES = {
-    monthly: { plus: '$4.99', pro: '$9.99' },
-    yearly: { plus: '$39', pro: '$79' }
+    monthly: { plus: 'p1.priceMo', pro: 'p2.priceMo' },
+    yearly: { plus: 'p1.priceYr', pro: 'p2.priceYr' }
   };
   var SAVE = { plus: '35%', pro: '34%' };
   function updatePriceLabels() {
     var dict = I18N[lang] || I18N.en;
     var suffix = billing === 'monthly' ? dict['price.mo'] : dict['price.yr'];
     var pp = $('#plusPrice'), ppu = $('#plusUnit'), op = $('#proPrice'), opu = $('#proUnit');
-    if (pp) pp.textContent = PRICES[billing].plus;
-    if (op) op.textContent = PRICES[billing].pro;
+    if (pp) pp.textContent = dict[PRICES[billing].plus];
+    if (op) op.textContent = dict[PRICES[billing].pro];
     if (ppu) ppu.textContent = suffix;
     if (opu) opu.textContent = suffix;
     var ps = $('#plusSave'), os = $('#proSave');
@@ -276,34 +276,6 @@
 
   /* ---------------- Stats count-up ---------------- */
   var statsDone = false;
-  var statsEl = $('.stat-grid');
-  if (statsEl) {
-    var sio = new IntersectionObserver(function (e) {
-      if (e[0].isIntersecting && !statsDone) {
-        statsDone = true;
-        $$('.stat-num').forEach(function (el) { countUp(el); });
-        sio.disconnect();
-      }
-    }, { threshold: 0.4 });
-    sio.observe(statsEl);
-  }
-  function countUp(el) {
-    var target = parseFloat(el.dataset.to);
-    var dec = parseInt(el.dataset.dec || '0', 10);
-    var pre = el.dataset.pre || '';
-    var suf = el.dataset.suf || '';
-    if (reduce) { el.textContent = pre + target.toFixed(dec) + suf; return; }
-    var start = performance.now(), dur = 1700;
-    function tick(now) {
-      var p = Math.min((now - start) / dur, 1);
-      var e = 1 - Math.pow(1 - p, 3);
-      var v = target * e;
-      el.textContent = pre + (dec ? v.toFixed(dec) : Math.round(v).toLocaleString()) + suf;
-      if (p < 1) requestAnimationFrame(tick);
-      else el.textContent = pre + (dec ? target.toFixed(dec) : Math.round(target).toLocaleString()) + suf;
-    }
-    requestAnimationFrame(tick);
-  }
 
 
   /* ============================================================
