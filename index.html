@@ -695,7 +695,7 @@
 </style>
 
 <div id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">
-  <p class="cc-text">We use cookies to measure and improve our ads. <a href="/privacy">Privacy Policy</a></p>
+  <p class="cc-text"><span id="cc-msg">We use cookies to measure and improve our ads.</span> <a href="/privacy" id="cc-privacy">Privacy Policy</a></p>
   <div class="cc-actions">
     <button type="button" class="cc-decline" id="cc-decline">Decline</button>
     <button type="button" class="cc-accept" id="cc-accept">Accept</button>
@@ -706,6 +706,23 @@
 (function(){
   var PIXEL_ID = '27504330972512838';
   var STORE_KEY = 'sereno_cookie_consent';
+
+  /* banner copy follows the page language (set on <html lang> by the i18n layer) */
+  var CC_TEXT = {
+    en: { msg:'We use cookies to measure and improve our ads.', privacy:'Privacy Policy', decline:'Decline', accept:'Accept' },
+    it: { msg:'Usiamo i cookie per misurare e migliorare le nostre inserzioni.', privacy:'Informativa privacy', decline:'Rifiuta', accept:'Accetta' },
+    es: { msg:'Usamos cookies para medir y mejorar nuestros anuncios.', privacy:'Política de privacidad', decline:'Rechazar', accept:'Aceptar' }
+  };
+  function localizeBanner(){
+    var l = (document.documentElement.lang || 'en').slice(0,2);
+    var t = CC_TEXT[l] || CC_TEXT.en;
+    var m = document.getElementById('cc-msg'), p = document.getElementById('cc-privacy'),
+        d = document.getElementById('cc-decline'), a = document.getElementById('cc-accept');
+    if(m) m.textContent = t.msg;
+    if(p) p.textContent = t.privacy;
+    if(d) d.textContent = t.decline;
+    if(a) a.textContent = t.accept;
+  }
 
   function loadPixel(){
     if(window.fbq) return;
@@ -720,9 +737,11 @@
   }
 
   function bindDownloadTracking(){
-    document.querySelectorAll('a.store[href*="apps.apple.com"]').forEach(function(a){
+    document.querySelectorAll('a.store').forEach(function(a){
       a.addEventListener('click', function(){
-        if(window.fbq) window.fbq('trackCustom', 'DownloadClick');
+        if(window.fbq) window.fbq('trackCustom', 'DownloadClick', {
+          platform: a.href.indexOf('play.google.com') > -1 ? 'android' : 'ios'
+        });
       });
     });
   }
@@ -739,6 +758,11 @@
 
   var choice = null;
   try{ choice = localStorage.getItem(STORE_KEY); }catch(e){}
+
+  /* localize the banner regardless of consent state, and keep it in sync
+     if the visitor switches language */
+  localizeBanner();
+  new MutationObserver(localizeBanner).observe(document.documentElement, { attributes:true, attributeFilter:['lang'] });
 
   if(choice === 'accepted'){
     activate();
