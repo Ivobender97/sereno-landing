@@ -45,6 +45,10 @@
       var k = el.getAttribute('data-i18n');
       if (dict[k] != null) setI18nText(el, dict[k]);
     });
+    /* the guide is a separate self-contained file per language.
+       vercel.json has cleanUrls:true, so link without the .html extension */
+    var GUIDES = { it: '/guida/guida-sereno', en: '/guida/sereno-guide', es: '/guida/guia-sereno' };
+    $$('[data-guide-link]').forEach(function (a) { a.setAttribute('href', GUIDES[l] || GUIDES.en); });
     localStorage.setItem('sereno-lang', l);
     $$('[data-lang]').forEach(function (b) {
       b.classList.toggle('active', b.dataset.lang === l);
@@ -222,6 +226,10 @@
     var word = dict['price.save'] || 'Save';
     if (ps) { ps.textContent = yearly ? word + ' ' + SAVE.plus : ''; ps.style.display = yearly ? '' : 'none'; }
     if (os) { os.textContent = yearly ? word + ' ' + SAVE.pro : ''; os.style.display = yearly ? '' : 'none'; }
+    /* the 7-day free trial exists on the yearly plan only */
+    var pc = $('#plusCta'), oc = $('#proCta');
+    if (pc) pc.textContent = yearly ? dict['p1.cta'] : (dict['p1.ctaMo'] || dict['p1.cta']);
+    if (oc) oc.textContent = yearly ? dict['p2.cta'] : (dict['p2.ctaMo'] || dict['p2.cta']);
   }
   var sw = $('#billingSwitch');
   if (sw) {
@@ -330,26 +338,38 @@
   }
 
   var _lastDemoProg = -1, _lastActive = -1;
+  // phones use cheap 2D transforms; desktop keeps the 3D coverflow
+  var demoFlat = window.matchMedia('(max-width:720px)');
   function updateDemo(p) {
     var n = demoScreens.length;
+    var flat = demoFlat.matches;
     var prog = p * (n - 1);          // which phone is centered (0..n-1)
     // skip entirely when the centred position hasn't meaningfully moved
-    if (Math.abs(prog - _lastDemoProg) < 0.003) return;
+    if (Math.abs(prog - _lastDemoProg) < (flat ? 0.006 : 0.003)) return;
     _lastDemoProg = prog;
     demoScreens.forEach(function (sc, i) {
       var off = i - prog;            // 0 = centered, + = to the right, - = to the left
       var a = Math.abs(off);
-      var op = clamp(1.25 - a * 0.85, 0, 1);
+      // on phones only the centred phone and its immediate neighbours are drawn,
+      // so the compositor never juggles five big layers at once
+      var op = flat ? clamp(1.35 - a * 1.35, 0, 1) : clamp(1.25 - a * 0.85, 0, 1);
       if (op <= 0.001) {             // fully hidden: hide once, skip transform math
         if (sc.style.visibility !== 'hidden') { sc.style.opacity = '0'; sc.style.visibility = 'hidden'; }
         return;
       }
-      var tx = off * 56;             // % horizontal slide
-      var rotY = off * -22;          // coverflow turn
-      var tz = -Math.min(a, 2.2) * 130;
-      var scl = 1 - Math.min(a, 2) * 0.13;
       if (sc.style.visibility === 'hidden') sc.style.visibility = 'visible';
-      sc.style.transform = 'translateX(' + tx + '%) translateZ(' + tz + 'px) rotateY(' + rotY + 'deg) scale(' + scl + ')';
+      if (flat) {
+        // 2D only: no perspective, no rotateY, no translateZ — far cheaper to raster
+        var ftx = off * 62;
+        var fscl = 1 - Math.min(a, 1.4) * 0.16;
+        sc.style.transform = 'translate3d(' + ftx + '%,0,0) scale(' + fscl + ')';
+      } else {
+        var tx = off * 56;           // % horizontal slide
+        var rotY = off * -22;        // coverflow turn
+        var tz = -Math.min(a, 2.2) * 130;
+        var scl = 1 - Math.min(a, 2) * 0.13;
+        sc.style.transform = 'translateX(' + tx + '%) translateZ(' + tz + 'px) rotateY(' + rotY + 'deg) scale(' + scl + ')';
+      }
       sc.style.opacity = op;
       // only touch z-index when the integer actually changes — writing it every
       // frame forces a stacking-context recompute + layer re-raster (the jank)
