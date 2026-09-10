@@ -1,26 +1,36 @@
-Sereno — file da committare su Ivobender97/sereno-landing (branch main)
+Sereno — SOLO i file modificati, per Ivobender97/sereno-landing (main)
 
-Sostituisci nel repo:
-  index.html            <- index.html   (era Sereno.html qui)
+SOSTITUISCI:
+  index.html            pixel OpenAI + tutte le novita'
+  privacy.html          solo pixel OpenAI
+  terms.html            solo pixel OpenAI
+  delete-account.html   solo pixel OpenAI
   css/styles.css
   js/i18n.js
   js/main.js
-  js/mobile-demo.js     (invariato, incluso per sicurezza)
 
-Aggiungi nuova cartella:
+AGGIUNGI (non c'e' ancora nel repo):
   guida/guida-sereno.html   (it)
   guida/sereno-guide.html   (en)
   guida/guia-sereno.html    (es)
 
+js/mobile-demo.js e gli assets non sono stati toccati: non ci sono qui.
+
 Cosa cambia
-- Pulsanti Plus/Pro: "Abbonati" in vista mensile, "Prova gratis" in annuale.
-- FAQ "quali patologie supporta": ora elenca tutte e 17.
-- Nuova sezione #conditions con le 17 patologie (3 lingue).
-- Nuove card: Feci, Scheda d'emergenza, Grafici dentro il referto.
-- Nuova sezione #guide prima della FAQ + link nel footer, nella lingua del sito.
+- Pixel OpenAI Ads (solo init) in cima al <head> delle 4 pagine, uno per
+  pagina. Meta pixel invariato. Niente pixel nei file /guida/.
+- Pulsanti Plus/Pro: "Abbonati" in mensile, "Prova gratis" in annuale.
+- FAQ patologie: tutte e 17. a1 e a2 riscritte (3 lingue).
+- Nuova sezione #conditions con le 17 patologie.
+- Nuove card: Feci, Scheda d'emergenza, Grafici dentro il referto; righe
+  della griglia funzioni tutte piene e della stessa altezza.
+- Nuova sezione #guide prima della FAQ + link nel footer, nella lingua
+  del sito.
 - Fix: il simbolo euro non va piu' a capo nei prezzi annuali.
 
-Non toccati: prezzi (p1/p2.priceMo/priceYr) e testimonianze.
+NON toccati: prezzi (p1/p2.priceMo/priceYr) e testimonianze.
 
-Nota: i link alla guida sono senza .html (vercel.json cleanUrls:true),
-quindi in locale non si aprono — in produzione si'.
+Note
+- Link alla guida senza .html (vercel.json cleanUrls:true): in locale non
+  si aprono, in produzione si'.
+- Non mettere nulla in sereno-deploy-7.0/: e' una copia vecchia.
