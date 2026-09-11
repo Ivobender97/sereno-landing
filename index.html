@@ -802,6 +802,16 @@
     bindDownloadTracking();
   }
 
+  /* OpenAI Ads conversion — one delegated listener, fires once per store click,
+     never blocks the navigation (all store links are target="_blank"). */
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a.store');
+    if(!a) return;
+    if(typeof window.oaiq === "function"){
+      oaiq("measure", "lead_created", { type: "customer_action" });
+    }
+  });
+
   function hideBanner(){
     var b = document.getElementById('cookie-banner');
     if(b) b.classList.remove('show');

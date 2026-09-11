@@ -1,7 +1,7 @@
 Sereno — SOLO i file modificati, per Ivobender97/sereno-landing (main)
 
 SOSTITUISCI:
-  index.html            pixel OpenAI + tutte le novita'
+  index.html            pixel OpenAI (base + evento conversione) e tutte le novita'
   privacy.html          solo pixel OpenAI
   terms.html            solo pixel OpenAI
   delete-account.html   solo pixel OpenAI
@@ -17,8 +17,10 @@ AGGIUNGI (non c'e' ancora nel repo):
 js/mobile-demo.js e gli assets non sono stati toccati: non ci sono qui.
 
 Cosa cambia
-- Pixel OpenAI Ads (solo init) in cima al <head> delle 4 pagine, uno per
-  pagina. Meta pixel invariato. Niente pixel nei file /guida/.
+- Pixel OpenAI Ads (init) in cima al <head> delle 4 pagine, uno per pagina.
+- Evento conversione OpenAI su tutti e 4 i pulsanti store (solo index.html):
+  un listener delegato su a.store, chiamata guardata, nessun preventDefault.
+- Meta pixel invariato. Niente pixel nei file /guida/.
 - Pulsanti Plus/Pro: "Abbonati" in mensile, "Prova gratis" in annuale.
 - FAQ patologie: tutte e 17. a1 e a2 riscritte (3 lingue).
 - Nuova sezione #conditions con le 17 patologie.
@@ -34,3 +36,5 @@ Note
 - Link alla guida senza .html (vercel.json cleanUrls:true): in locale non
   si aprono, in produzione si'.
 - Non mettere nulla in sereno-deploy-7.0/: e' una copia vecchia.
+- La privacy policy nomina ancora solo Meta: va aggiornata col secondo
+  strumento pubblicitario (da fare).
