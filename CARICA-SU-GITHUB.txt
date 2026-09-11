@@ -1,10 +1,10 @@
 Sereno — SOLO i file modificati, per Ivobender97/sereno-landing (main)
 
 SOSTITUISCI:
-  index.html            pixel OpenAI (base + evento conversione) e tutte le novita'
-  privacy.html          solo pixel OpenAI
-  terms.html            solo pixel OpenAI
-  delete-account.html   solo pixel OpenAI
+  index.html            pixel OpenAI dietro il consenso + evento conversione + novita'
+  privacy.html          pixel OpenAI RIMOSSO (torna come prima)
+  terms.html            pixel OpenAI RIMOSSO (torna come prima)
+  delete-account.html   pixel OpenAI RIMOSSO (torna come prima)
   css/styles.css
   js/i18n.js
   js/main.js
@@ -16,11 +16,18 @@ AGGIUNGI (non c'e' ancora nel repo):
 
 js/mobile-demo.js e gli assets non sono stati toccati: non ci sono qui.
 
-Cosa cambia
-- Pixel OpenAI Ads (init) in cima al <head> delle 4 pagine, uno per pagina.
-- Evento conversione OpenAI su tutti e 4 i pulsanti store (solo index.html):
-  un listener delegato su a.store, chiamata guardata, nessun preventDefault.
+Pixel OpenAI Ads
+- Non piu' nel <head>: ora si carica dentro activate(), accanto a
+  loadPixel() di Meta, quindi SOLO dopo "Accetta" sul banner cookie.
+- debug:false.
+- Evento conversione su tutti e 4 i pulsanti store: un listener delegato
+  su a.store, chiamata guardata, nessun preventDefault. Se il consenso e'
+  stato negato la chiamata non fa nulla.
+- Le tre pagine legali non hanno piu' nessun pixel OpenAI (non hanno
+  banner cookie e non portano agli store).
 - Meta pixel invariato. Niente pixel nei file /guida/.
+
+Resto dei cambiamenti
 - Pulsanti Plus/Pro: "Abbonati" in mensile, "Prova gratis" in annuale.
 - FAQ patologie: tutte e 17. a1 e a2 riscritte (3 lingue).
 - Nuova sezione #conditions con le 17 patologie.
@@ -36,5 +43,5 @@ Note
 - Link alla guida senza .html (vercel.json cleanUrls:true): in locale non
   si aprono, in produzione si'.
 - Non mettere nulla in sereno-deploy-7.0/: e' una copia vecchia.
-- La privacy policy nomina ancora solo Meta: va aggiornata col secondo
-  strumento pubblicitario (da fare).
+- La privacy policy nomina ancora solo Meta: va aggiunto il secondo
+  strumento pubblicitario al testo e al consenso (da fare).
