@@ -3,6 +3,7 @@
 window.SERENO_I18N = {
   en: {
     "nav.features": "Features",
+    "nav.reports": "Reports",
     "nav.pricing": "Pricing",
     "nav.faq": "FAQ",
     "nav.download": "Download the app",
@@ -474,6 +475,7 @@ window.SERENO_I18N = {
 
   it: {
     "nav.features": "Funzioni",
+    "nav.reports": "Referti",
     "nav.pricing": "Prezzi",
     "nav.faq": "FAQ",
     "nav.download": "Scarica l'app",
@@ -945,6 +947,7 @@ window.SERENO_I18N = {
 
   es: {
     "nav.features": "Funciones",
+    "nav.reports": "Informes",
     "nav.pricing": "Precios",
     "nav.faq": "FAQ",
     "nav.download": "Descargar la app",

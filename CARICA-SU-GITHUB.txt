@@ -6,7 +6,7 @@ SOSTITUISCI:
   terms.html            pixel OpenAI RIMOSSO (torna come prima)
   delete-account.html   pixel OpenAI RIMOSSO (torna come prima)
   css/styles.css
-  js/i18n.js
+  js/i18n.js            (include la voce di menu "Referti")
   js/main.js
 
 AGGIUNGI:
@@ -36,9 +36,10 @@ La pagina /referti
   non c'e' nessun prezzo scritto a mano.
 - Numero di pagine per PDF: nel data-pages di ogni scheda.
 
-Link dalla home: uno solo, nella sezione del referto ("Guarda tre referti
-veri"). Niente voce nel menu in cima. Aggiunta anche la voce Referti nel
-footer della pagina nuova.
+Link dalla home: voce "Referti" nel menu in cima (fra Features e Pricing,
+in entrambi i menu, anche su /referti) + il pulsante "Guarda tre referti
+veri" piu' in basso nella pagina. Voce Referti anche nel footer della
+pagina nuova.
 
 Pixel OpenAI Ads
 - Si carica dentro activate(), dopo "Accetta" sul banner cookie. debug:false.
