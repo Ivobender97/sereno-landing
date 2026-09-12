@@ -11,27 +11,26 @@ SOSTITUISCI:
 
 AGGIUNGI:
   referti.html              pagina nuova, servita su /referti (cleanUrls)
-  referti/                  i sei PDF (gia' dentro, nomi giusti)
+  referti/                  i nove PDF (gia' dentro, nomi giusti)
   guida/guida-sereno.html   (it)
   guida/sereno-guide.html   (en)
   guida/guia-sereno.html    (es)
 
-I sei PDF sono nel pacchetto, in referti/. Il numero di pagine scritto
+I nove PDF sono nel pacchetto, in referti/. Il numero di pagine scritto
 sui pulsanti l'ho verificato file per file e corrisponde:
-  willow-kidney      en 27 · it 26
-  rocky-megaesophagus  en 20 · it 20
-  milo-epi           en 18 · it 19
-Lo spagnolo non c'e': in spagnolo il primo pulsante serve il file -en.
+  willow-kidney        en 27 · it 26 · es 26
+  rocky-megaesophagus  en 20 · it 20 · es 20
+  milo-epi             en 18 · it 19 · es 19
+Tutte e tre le lingue sono attive: ogni pagina propone prima il PDF
+nella lingua del sito.
 
 La pagina /referti
 - Sei blocchi: apertura, i tre referti, il referto smontato (4 parti con
   gli esempi ricostruiti in HTML), le 18 sezioni, chi l'ha corretto,
   i tre passi. In fondo la nota sugli animali d'esempio.
 - Stessa grafica, stesso nav e footer, stesso i18n (chiavi rep.*) del sito.
-- Pulsanti PDF: prima la lingua del sito, poi l'altra. In spagnolo il
-  primo pulsante serve il file -en. Per far comparire lo spagnolo:
-  metti i file -es in /referti/ e aggiungi 'es' all'array PDF_LANGS in
-  cima allo script di referti.html.
+- Pulsanti PDF: prima la lingua del sito, poi le altre due. Tutte e tre
+  le lingue hanno i file (PDF_LANGS = it, en, es).
 - La riga sui piani prende nome e prezzo dalle chiavi p0.name / p0.price:
   non c'e' nessun prezzo scritto a mano.
 - Numero di pagine per PDF: nel data-pages di ogni scheda.
