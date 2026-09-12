@@ -1,7 +1,7 @@
 Sereno — SOLO i file modificati, per Ivobender97/sereno-landing (main)
 
 SOSTITUISCI:
-  index.html            pixel OpenAI dietro il consenso + evento conversione + novita'
+  index.html            pixel OpenAI dietro il consenso + un link nuovo a /referti
   privacy.html          pixel OpenAI RIMOSSO (torna come prima)
   terms.html            pixel OpenAI RIMOSSO (torna come prima)
   delete-account.html   pixel OpenAI RIMOSSO (torna come prima)
@@ -9,39 +9,48 @@ SOSTITUISCI:
   js/i18n.js
   js/main.js
 
-AGGIUNGI (non c'e' ancora nel repo):
+AGGIUNGI:
+  referti.html              pagina nuova, servita su /referti (cleanUrls)
+  referti/                  i sei PDF (gia' dentro, nomi giusti)
   guida/guida-sereno.html   (it)
   guida/sereno-guide.html   (en)
   guida/guia-sereno.html    (es)
 
-js/mobile-demo.js e gli assets non sono stati toccati: non ci sono qui.
+I sei PDF sono nel pacchetto, in referti/. Il numero di pagine scritto
+sui pulsanti l'ho verificato file per file e corrisponde:
+  willow-kidney      en 27 · it 26
+  rocky-megaesophagus  en 20 · it 20
+  milo-epi           en 18 · it 19
+Lo spagnolo non c'e': in spagnolo il primo pulsante serve il file -en.
+
+La pagina /referti
+- Sei blocchi: apertura, i tre referti, il referto smontato (4 parti con
+  gli esempi ricostruiti in HTML), le 18 sezioni, chi l'ha corretto,
+  i tre passi. In fondo la nota sugli animali d'esempio.
+- Stessa grafica, stesso nav e footer, stesso i18n (chiavi rep.*) del sito.
+- Pulsanti PDF: prima la lingua del sito, poi l'altra. In spagnolo il
+  primo pulsante serve il file -en. Per far comparire lo spagnolo:
+  metti i file -es in /referti/ e aggiungi 'es' all'array PDF_LANGS in
+  cima allo script di referti.html.
+- La riga sui piani prende nome e prezzo dalle chiavi p0.name / p0.price:
+  non c'e' nessun prezzo scritto a mano.
+- Numero di pagine per PDF: nel data-pages di ogni scheda.
+
+Link dalla home: uno solo, nella sezione del referto ("Guarda tre referti
+veri"). Niente voce nel menu in cima. Aggiunta anche la voce Referti nel
+footer della pagina nuova.
 
 Pixel OpenAI Ads
-- Non piu' nel <head>: ora si carica dentro activate(), accanto a
-  loadPixel() di Meta, quindi SOLO dopo "Accetta" sul banner cookie.
-- debug:false.
-- Evento conversione su tutti e 4 i pulsanti store: un listener delegato
-  su a.store, chiamata guardata, nessun preventDefault. Se il consenso e'
-  stato negato la chiamata non fa nulla.
-- Le tre pagine legali non hanno piu' nessun pixel OpenAI (non hanno
-  banner cookie e non portano agli store).
-- Meta pixel invariato. Niente pixel nei file /guida/.
-
-Resto dei cambiamenti
-- Pulsanti Plus/Pro: "Abbonati" in mensile, "Prova gratis" in annuale.
-- FAQ patologie: tutte e 17. a1 e a2 riscritte (3 lingue).
-- Nuova sezione #conditions con le 17 patologie.
-- Nuove card: Feci, Scheda d'emergenza, Grafici dentro il referto; righe
-  della griglia funzioni tutte piene e della stessa altezza.
-- Nuova sezione #guide prima della FAQ + link nel footer, nella lingua
-  del sito.
-- Fix: il simbolo euro non va piu' a capo nei prezzi annuali.
+- Si carica dentro activate(), dopo "Accetta" sul banner cookie. debug:false.
+- Evento conversione su tutti e 4 i pulsanti store della home.
+- Le pagine legali e i file /guida/ non hanno pixel.
+- referti.html NON ha il pixel ne' il banner cookie: se la pagina la
+  linkiamo da Facebook, il traffico non viene misurato. Da decidere.
 
 NON toccati: prezzi (p1/p2.priceMo/priceYr) e testimonianze.
 
 Note
-- Link alla guida senza .html (vercel.json cleanUrls:true): in locale non
-  si aprono, in produzione si'.
+- I link alla guida sono senza .html (cleanUrls): in locale non si aprono.
 - Non mettere nulla in sereno-deploy-7.0/: e' una copia vecchia.
 - La privacy policy nomina ancora solo Meta: va aggiunto il secondo
   strumento pubblicitario al testo e al consenso (da fare).
