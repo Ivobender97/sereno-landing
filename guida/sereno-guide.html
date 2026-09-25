@@ -106,7 +106,7 @@
 <header>
   <p class="kicker">App guide</p>
   <h1>Sereno</h1>
-  <p>Sereno keeps the health diary of an animal living with a long illness: the medicines given, the symptoms seen, the weight, what they eat. And it turns months of scattered notes into a document your vet can read in two minutes.</p>
+  <p>Sereno keeps track of an animal living with a long illness: the medicines given, the symptoms seen, the weight, what they eat. And it turns months of scattered notes into a document your vet can read in two minutes.</p>
   <p>This guide covers the whole app, screen by screen. You don't have to read it front to back: the table of contents below is there so you can jump to the part you need.</p></header>
 
 <main>
@@ -177,7 +177,7 @@
 
 <div class="note warn">
   <p style="margin:0 0 10px"><b>One thing to know about the Home screen.</b> There are two words at the top, <span class="btn">Health</span> and <span class="btn">Food</span>. They are not a heading: they are a <b>switch</b>, and they change everything below them.</p>
-  <p style="margin:0">On <b>Health</b> you get today's doses, the quick actions and recent activity. On <b>Food</b> you get meals and water. If you're hunting for the food diary and can't find it, nine times out of ten you're still on the Health side.</p>
+  <p style="margin:0">On <b>Health</b> you get today's doses, the quick actions and recent activity. On <b>Food</b> you get meals and water. If you're hunting for meals and can't find them, nine times out of ten you're still on the Health side.</p>
 </div>
 
 <h2 id="animale">3 · The pet profile</h2>
@@ -192,6 +192,7 @@
   <li><b>Chronic conditions.</b> As many as you need, and if the one you're after isn't in the list you type it in under <b>Other conditions</b>. For each one you can say <b>since when</b>. <i class="ic"></i> <b>This is what switches the right features on by itself.</b></li>
   <li><b>Monitoring tools.</b> The switches, one by one: the ones you turn on appear in the Home screen's quick actions. <a href="#strumenti">Chapter 10</a>.</li>
   <li><b>Allergies</b> and <b>Important notes.</b> Free text: this is where you write down the things you'd say out loud to whoever is looking after them instead of you.</li>
+  <li><b>How they drink.</b> Plain water, thickened water, subcutaneous fluids — the way your animal takes water. It lives here rather than with the day-to-day entries because, once you've found the way that works, it stops changing: asking every evening would be noise, writing it down once is information. Fill it in and it also shows up on the Emergency Card and in the report.</li>
   <li><b>Health data.</b> A summary for this pet — vaccines, medications, visits, symptoms, documents — with the latest entries in view and <b>View all</b> to open the full list.</li>
   <li><b>Family</b>, to manage who else can see this pet. <a href="#famiglia">Chapter 14</a>.</li>
   <li>At the bottom, <b>Delete pet</b>: removes the pet and all their records — vaccines, visits, symptoms, documents, medications. There is no going back.</li>
@@ -200,7 +201,7 @@
 <p>The pencil icon at the top opens <b>Edit pet</b>: photo, name, species, breed, date of birth, weight and the vet's details.</p>
 
 <div class="note">
-  <p style="margin:0"><b>What you write here is the Emergency Card.</b> Vet, conditions, allergies and notes are the same fields that show up on the card you hold out in a clinic <a href="#emergenza">(chapter 13)</a>. Filling them in isn't about being tidy: it's for that moment.</p>
+  <p style="margin:0"><b>What you write here is the Emergency Card.</b> Vet, conditions, allergies, how they drink and notes are the same fields that show up on the card you hold out in a clinic <a href="#emergenza">(chapter 13)</a>. Filling them in isn't about being tidy: it's for that moment.</p>
 </div>
 
 <h2 id="azioni">4 · Quick actions</h2>
@@ -287,7 +288,7 @@
 
 <h2 id="sintomi">6 · Symptoms</h2>
 
-<p class="lead">This is the diary of what <i>you</i> notice. Your vet sees the animal for twenty minutes every three months; you see them every day. This is the part nobody else can write for you.</p>
+<p class="lead">This is where you write what <i>you</i> notice. Your vet sees the animal for twenty minutes every three months; you see them every day. This is the part nobody else can write for you.</p>
 
 <h3>Logging one</h3>
 
@@ -299,9 +300,11 @@
   <li><b>When</b>: now, or the real date and time if you're writing it up later.</li>
 </ol>
 
-<h3>The two fields that make the difference</h3>
+<h3>The three fields that make the difference</h3>
 
-<p><b>In what circumstances.</b> Optional, and worth more than all the rest. <i>After getting down off the sofa. Lying down at night. Water rather than food. White foam rather than food.</i> Two regurgitations in different circumstances have different causes, and this is the one line that lets a vet tell them apart.</p>
+<p><b>What came up.</b> It only appears on regurgitation, and you answer it with a tap: <i>water, phlegm, foam, food</i>, more than one when it was mixed. It is not a small detail: four different substances send a vet in four different directions. And because it is a choice and not a sentence, the app can count it: the report tells you how many of the episodes were foam.</p>
+
+<p><b>In what circumstances.</b> Optional, and worth more than all the rest. <i>After getting down off the sofa. Lying down at night. Right after drinking.</i> Two regurgitations in different circumstances have different causes, and this is the one line that lets a vet tell them apart.</p>
 
 <p><i class="ic"></i> <b>The photo.</b> A patch of redness, a swelling, a limp that words describe badly. You can take it there and then or pick it from your gallery. It saves your vet the question "what exactly did it look like?", which two weeks later nobody can answer.</p>
 
@@ -330,6 +333,8 @@
 <h3>Water</h3>
 
 <p><span class="btn">Log water</span> doesn't ask for millilitres: it asks for <b>normal</b>, <b>less than usual</b> or <b>more than usual</b>. That's deliberate — excessive thirst is a signal that counts in kidney disease and diabetes, and spotting it takes consistency, not precision.</p>
+
+<p>What you log here is <b>how much</b> they drank, which changes from one day to the next. <b>How</b> they drink — plain water, thickened water, subcutaneous fluids — isn't asked here: it's a field on the pet profile <a href="#animale">(chapter 3)</a>, because it's something you settle once and then keep.</p>
 
 <h3>Meal times</h3>
 
@@ -525,7 +530,9 @@
 
 <p class="lead">It's for the worst moment: you're in a clinic that has never met your animal, and somebody asks you what they're on and what they're allergic to.</p>
 
-<p>It opens from the panel at the top of the Home screen. On a single screen it gathers the <b>chronic conditions</b>, the <b>active medications with doses and times</b>, the <b>allergies</b>, the <b>important notes</b>, the <b>most recent symptoms</b> and your <b>vet's contact</b>, which you can call with one tap.</p>
+<p>It opens from the panel at the top of the Home screen. On a single screen it gathers the <b>chronic conditions</b>, the <b>active medications with doses and times</b>, the <b>allergies</b>, <b>how they drink</b>, the <b>important notes</b>, the <b>most recent symptoms</b> and your <b>vet's contact</b>, which you can call with one tap.</p>
+
+<p><b>How they drink</b> only appears if you've filled it in on the pet profile: a card you read in a hurry shouldn't have empty lines on it. When it's there, it tells someone who has never met your animal how to get water into them.</p>
 
 <h3>You fill it in from inside it</h3>
 
@@ -630,7 +637,7 @@
 <h2 id="domande">16 · Common questions</h2>
 
 <div class="note"><p style="margin:0 0 8px"><b>Where do I keep the record of annual check-ups?</b></p><p style="margin:0">In two tabs, which together make the medical file. <span class="btn">Vet</span> for <b>what happened</b> — date, reason, what was done, the next check-up. <span class="btn">Docs</span> for <b>the paperwork</b> you brought home from it.</p></div>
-<div class="note"><p style="margin:0 0 8px"><b>I can't find the food diary.</b></p><p style="margin:0">It's on the Home screen, but on the <span class="btn">Food</span> side of the switch at the top. It doesn't show on the Health side.</p></div>
+<div class="note"><p style="margin:0 0 8px"><b>I can't find the meals.</b></p><p style="margin:0">It's on the Home screen, but on the <span class="btn">Food</span> side of the switch at the top. It doesn't show on the Health side.</p></div>
 <div class="note"><p style="margin:0 0 8px"><b>I can't see the tool I need.</b></p><p style="margin:0">Tools stay switched off until they're needed. Turn it on from <span class="btn">More tools</span>, or — better — declare the condition in the pet profile and the app will switch on the right ones by itself.</p></div>
 <div class="note"><p style="margin:0 0 8px"><b>How do I add a second condition?</b></p><p style="margin:0">From the pet profile, under <b>Chronic conditions</b>: add as many as you need, and if the one you want isn't in the list you type it in under <b>Other conditions</b>.</p></div>
 <div class="note"><p style="margin:0 0 8px"><b>Where do I log the weight?</b></p><p style="margin:0">In the pet profile, with <span class="btn">+ Log weight</span>. Two readings are enough for the app to start showing you the direction.</p></div>
