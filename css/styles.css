@@ -331,6 +331,9 @@ img.photo{opacity:0;transition:opacity .55s ease}
 .timeline.in .tnode:nth-child(3) .tnode-dot{transition-delay:.5s}
 .timeline.in .tnode:nth-child(4) .tnode-dot{transition-delay:.75s}
 .tnode-dot svg{width:40px;height:40px}
+/* Cane e gatto a ogni eta': due cerchi leggermente sovrapposti */
+.tnode-pair{display:flex;justify-content:center}
+.tnode-pair .tnode-dot+.tnode-dot{margin-left:-20px}
 .tnode-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
 .tnode h3{font-size:21px}
 .tnode p{font-size:15px;color:var(--ink-soft);max-width:30ch;margin:0 auto;line-height:1.55}
@@ -534,7 +537,7 @@ img.photo{opacity:0;transition:opacity .55s ease}
 .pcard .feats svg{width:18px;height:18px;color:var(--teal);flex:none;margin-top:2px}
 .pcard .btn{width:100%}
 /* collapsible "see all features" accordion */
-.pcard .feats{flex:none;margin:22px 0 0}
+.pcard .feats{flex:none;margin:22px 0 26px}
 .feats-more{max-height:0;overflow:hidden;transition:max-height .42s var(--ease)}
 .feats-more > .feats{margin:13px 0 0}
 .feats-toggle{margin-top:auto;display:flex;align-items:center;justify-content:center;gap:7px;width:100%;
