@@ -24,6 +24,8 @@ window.SERENO_I18N = {
     "hero.done": "Done",
     "hero.due": "Due",
     "hero.trust": "Built for the pets who need a little extra",
+    "tester.badge": "Beta testers wanted",
+    "tester.text": "Limited places. Sign up in the app, then write to us: we'll unlock the full version free until December 31. In return, just tell us what works and what's missing.",
 
     "joy.eyebrow": "Why we built Sereno®",
     "joy.title": "Good care means more moments like these.",
@@ -509,6 +511,8 @@ window.SERENO_I18N = {
     "hero.done": "Fatto",
     "hero.due": "In arrivo",
     "hero.trust": "Pensato per gli animali che hanno bisogno di qualcosa in più",
+    "tester.badge": "Cerchiamo tester",
+    "tester.text": "Posti limitati. Registrati nell’app e poi scrivici: sblocchiamo la versione completa gratis fino al 31 dicembre. In cambio, dicci solo cosa funziona e cosa manca.",
 
     "joy.eyebrow": "Perché abbiamo creato Sereno®",
     "joy.title": "Curare bene significa più momenti come questi.",
@@ -994,6 +998,8 @@ window.SERENO_I18N = {
     "hero.done": "Hecho",
     "hero.due": "Pendiente",
     "hero.trust": "Pensado para las mascotas que necesitan algo más",
+    "tester.badge": "Buscamos probadores",
+    "tester.text": "Plazas limitadas. Regístrate en la app y luego escríbenos: desbloqueamos la versión completa gratis hasta el 31 de diciembre. A cambio, solo dinos qué funciona y qué falta.",
 
     "joy.eyebrow": "Por qué creamos Sereno®",
     "joy.title": "Cuidar bien significa más momentos como estos.",
