@@ -2,30 +2,30 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Sereno — Calm, confident care for chronic pets</title>
 <meta name="description" content="Sereno keeps every medication, symptom and vet visit for your pet in one calm place. Built for chronic conditions, great for any pet.">
+<meta name="theme-color" content="#f6f3ec">
+<link rel="icon" href="assets/logo-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500;1,600;1,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css?v=76">
+<link rel="preload" as="image" href="assets/app_home.webp">
+<link rel="stylesheet" href="css/v3.css?v=25">
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
-<!-- ===== Living animated background ===== -->
-<div class="bg" aria-hidden="true">
-  <div class="blob blob--1"></div>
-  <div class="blob blob--2"></div>
-  <div class="blob blob--3"></div>
-  <div class="blob blob--4"></div>
-</div>
+<!-- ===== Ambient background ===== -->
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
 <div class="grain" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
 
-<!-- ===== 1. NAVBAR ===== -->
-<header class="nav">
+<!-- ===== NAV ===== -->
+<header class="nav" id="nav">
   <div class="nav-inner">
-    <a class="brand" href="#top">
-      <img src="assets/logo.png" alt="Sereno">
+    <a class="brand" href="#top" aria-label="Sereno">
+      <img src="assets/logo-192.png" alt="" width="36" height="36">
       <span>Sereno<sup class="tm">®</sup></span>
     </a>
     <nav class="nav-links">
@@ -36,18 +36,18 @@
     </nav>
     <div class="nav-right">
       <div class="lang">
-        <button class="lang-btn" aria-label="Language">
+        <button class="lang-btn" aria-label="Language" type="button">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
           <span id="langCurrent">EN</span>
         </button>
         <div class="lang-menu">
-          <button data-lang="en"><span class="flag">🇬🇧</span> English</button>
-          <button data-lang="it"><span class="flag">🇮🇹</span> Italiano</button>
-          <button data-lang="es"><span class="flag">🇪🇸</span> Español</button>
+          <button type="button" data-lang="en"><span class="flag">🇬🇧</span> English</button>
+          <button type="button" data-lang="it"><span class="flag">🇮🇹</span> Italiano</button>
+          <button type="button" data-lang="es"><span class="flag">🇪🇸</span> Español</button>
         </div>
       </div>
-      <a class="btn btn-primary nav-cta dl-hero" role="button" tabindex="0" data-i18n="nav.download">Download the app</a>
-      <button class="nav-burger" id="navBurger" aria-label="Menu"><span></span><span></span><span></span></button>
+      <a class="btn btn-dark nav-cta" href="#download" data-i18n="nav.download">Download the app</a>
+      <button class="nav-burger" id="navBurger" aria-label="Menu" type="button"><span></span><span></span></button>
     </div>
   </div>
   <div class="nav-mobile" id="navMobile">
@@ -56,291 +56,177 @@
     <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
     <a href="#faq" data-i18n="nav.faq">FAQ</a>
     <div class="nav-mobile-langs">
-      <button data-lang="en"><span class="flag">🇬🇧</span> English</button>
-      <button data-lang="it"><span class="flag">🇮🇹</span> Italiano</button>
-      <button data-lang="es"><span class="flag">🇪🇸</span> Español</button>
+      <button type="button" data-lang="en"><span class="flag">🇬🇧</span> EN</button>
+      <button type="button" data-lang="it"><span class="flag">🇮🇹</span> IT</button>
+      <button type="button" data-lang="es"><span class="flag">🇪🇸</span> ES</button>
     </div>
   </div>
 </header>
 
 <main id="top">
 
-<!-- ===== 2. HERO ===== -->
-<section class="hero section">
+<!-- ===== 1. HERO ===== -->
+<section class="hero">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <span class="eyebrow" data-i18n="hero.eyebrow">Health tracking for pets with chronic conditions</span>
-      <h1 id="heroTitle"></h1>
-      <p class="hero-sub" data-i18n="hero.sub"></p>
-      <div class="hero-actions">
-        <div class="stores" id="download">
-          <a class="store" href="https://apps.apple.com/app/sereno-pet-health-tracker/id6776119195" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 1.6c.1 1-.3 2-.9 2.7-.7.8-1.7 1.4-2.7 1.3-.1-1 .3-2 1-2.8.6-.7 1.7-1.2 2.6-1.2zM20 17.2c-.5 1.2-.8 1.7-1.4 2.7-.9 1.4-2.2 3.1-3.7 3.1-1.4 0-1.7-.9-3.6-.9s-2.3.9-3.6.9c-1.6 0-2.8-1.5-3.7-2.9C1.4 16.6.8 11.9 2.4 9.4c1-1.6 2.7-2.6 4.3-2.6 1.6 0 2.6 1 3.9 1 1.3 0 2-1 3.9-1 1.4 0 2.9.8 3.9 2.1-3.4 1.9-2.9 6.8 1.2 8.3z"/></svg>
-            <span><small data-i18n="hero.app">Download on the</small><b>App Store</b></span>
-          </a>
-          <a class="store" href="https://play.google.com/store/apps/details?id=com.ivansalgarello.sereno" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24"><path fill="#4ca5a6" d="M3.6 2.3 13 11.7l-2.6 2.6z"/><path fill="#f4a261" d="M16.5 8.8 13.9 11l3 3 3.1-1.8c.9-.5.9-1.8 0-2.3z"/><path fill="#2c7a7b" d="M3.6 2.3c-.2.2-.3.5-.3.9v17.6c0 .4.1.7.3.9L13 11.7z"/><path fill="#e08c43" d="m3.6 21.7 9.4-9.4 2.6 2.6-9.4 5.4c-.9.5-1.9.2-2.6-.6z" opacity=".9"/></svg>
-            <span><small data-i18n="hero.play">Get it on</small><b>Google Play</b></span>
-          </a>
-        </div>
+      <span class="eyebrow eyebrow-pill"><i class="dot"></i><span data-i18n="hero.eyebrow">Health tracking for pets with chronic conditions</span></span>
+      <h1 id="heroTitle" class="hero-title">Care for chronic pets, with Sereno®.</h1>
+      <p class="hero-sub" data-i18n="hero.sub">Never lose data. Never miss a dose. Never walk into the vet unprepared. Sereno® keeps every medication, symptom and visit in one calm place.</p>
+      <div class="stores" id="download">
+        <a class="store" href="https://apps.apple.com/app/sereno-pet-health-tracker/id6776119195" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 1.6c.1 1-.3 2-.9 2.7-.7.8-1.7 1.4-2.7 1.3-.1-1 .3-2 1-2.8.6-.7 1.7-1.2 2.6-1.2zM20 17.2c-.5 1.2-.8 1.7-1.4 2.7-.9 1.4-2.2 3.1-3.7 3.1-1.4 0-1.7-.9-3.6-.9s-2.3.9-3.6.9c-1.6 0-2.8-1.5-3.7-2.9C1.4 16.6.8 11.9 2.4 9.4c1-1.6 2.7-2.6 4.3-2.6 1.6 0 2.6 1 3.9 1 1.3 0 2-1 3.9-1 1.4 0 2.9.8 3.9 2.1-3.4 1.9-2.9 6.8 1.2 8.3z"/></svg>
+          <span><small data-i18n="hero.app">Download on the</small><b>App Store</b></span>
+        </a>
+        <a class="store" href="https://play.google.com/store/apps/details?id=com.ivansalgarello.sereno" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path fill="#4ca5a6" d="M3.6 2.3 13 11.7l-2.6 2.6z"/><path fill="#f4a261" d="M16.5 8.8 13.9 11l3 3 3.1-1.8c.9-.5.9-1.8 0-2.3z"/><path fill="#7fd1c7" d="M3.6 2.3c-.2.2-.3.5-.3.9v17.6c0 .4.1.7.3.9L13 11.7z"/><path fill="#e08c43" d="m3.6 21.7 9.4-9.4 2.6 2.6-9.4 5.4c-.9.5-1.9.2-2.6-.6z" opacity=".9"/></svg>
+          <span><small data-i18n="hero.play">Get it on</small><b>Google Play</b></span>
+        </a>
       </div>
-      <a class="tester-box" href="mailto:supportserenopet@gmail.com?subject=Tester">
-        <span class="tester-badge" data-i18n="tester.badge">Beta testers wanted</span>
-        <span class="tester-text" data-i18n="tester.text">Limited places. Sign up in the app, then write to us: we'll unlock the full version free until December 31. In return, just tell us what works and what's missing.</span>
-        <span class="tester-mail">supportserenopet@gmail.com</span>
-      </a>
-      <div class="hero-trust">
-        <span class="stars">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
-        </span>
-        <span data-i18n="hero.trust">Built for the pets who need a little extra</span>
-      </div>
+      <a class="plans-link" href="#pricing"><span data-i18n="price.title">Free forever for one pet.</span><b><span data-i18n="v3.plans">See the plans</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></b></a>
     </div>
 
-    <!-- phone mockup -->
-    <div class="hero-visual">
-      <div class="phone-float">
-        <div class="phone">
-          <div class="phone-screen">
-            <img class="phone-shot" src="assets/app_home.png" alt="Sereno — app home screen">
+    <div class="hero-visual" id="heroVisual">
+      <div class="halo" aria-hidden="true"></div>
+      <div class="rings" aria-hidden="true"><i></i><i></i><i></i></div>
+      <svg class="ecg" viewBox="0 0 1200 160" aria-hidden="true"><path class="ecg-base" d="M0 90 H190 l18 -8 l14 8 h26 l12 -62 l18 118 l14 -74 l12 18 h36 l14 -12 l16 12 H850 l18 -8 l14 8 h26 l12 -62 l18 118 l14 -74 l12 18 h36 l14 -12 l16 12 H1200"/><path class="ecg-run" pathLength="1" d="M0 90 H190 l18 -8 l14 8 h26 l12 -62 l18 118 l14 -74 l12 18 h36 l14 -12 l16 12 H850 l18 -8 l14 8 h26 l12 -62 l18 118 l14 -74 l12 18 h36 l14 -12 l16 12 H1200"/></svg>
+      <div class="scene">
+        <div class="spin" id="heroSpin">
+          <div class="tilt" id="heroTilt">
+            <div class="float">
+              <div class="p3 p3--hero" data-src="assets/app_home.webp" data-alt="Sereno — home screen with Luna, Bella, Max and Bobby" data-eager></div>
+            </div>
+            <!-- live cards, in front of the phone in 3D -->
+            <div class="orb orb--dose" aria-hidden="true"><div class="live">
+              <span class="live-ic ic-teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path class="draw" d="M5 12.5l4.2 4.2L19 7"/></svg></span>
+              <span class="live-txt"><b data-i18n="v2.live.dose.t">Insulin · 10 u</b><small data-i18n="v2.live.dose.s">Given at 8:00 by Marco</small></span>
+            </div></div>
+            <div class="orb orb--weight" aria-hidden="true"><div class="live live--weight">
+              <span class="live-txt"><small data-i18n="v2.live.weight.t">Weight · 90 days</small><b data-i18n="v2.live.weight.s">−0.4 kg</b></span>
+              <svg class="spark" viewBox="0 0 120 40" fill="none"><defs><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4ca5a6" stop-opacity=".35"/><stop offset="1" stop-color="#4ca5a6" stop-opacity="0"/></linearGradient></defs><path d="M2 12 L20 10 L36 15 L52 13 L68 19 L84 18 L100 24 L118 27 L118 40 L2 40Z" fill="url(#sg)"/><path class="spark-line" d="M2 12 L20 10 L36 15 L52 13 L68 19 L84 18 L100 24 L118 27" stroke="#2c7a7b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle class="spark-dot" cx="118" cy="27" r="3.4" fill="#2c7a7b"/></svg>
+            </div></div>
+            <div class="orb orb--timer" aria-hidden="true"><div class="live">
+              <span class="live-ic ic-coral"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="13" r="8"/><path d="M12 13V9M9.5 2.5h5"/></svg></span>
+              <span class="live-txt"><small data-i18n="v2.live.timer.t">Seizure timer</small><b class="mono" id="liveTimer">00:42</b></span>
+              <span class="rec"></span>
+            </div></div>
+            <div class="orb orb--report" aria-hidden="true"><div class="live">
+              <span class="live-ic ic-ink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span>
+              <span class="live-txt"><b data-i18n="v2.live.report.t">Vet report ready</b><small data-i18n="v2.live.report.s">PDF · last 90 days</small></span>
+            </div></div>
           </div>
-          <div class="phone-island"></div>
+        </div>
+        <div class="floor" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    <a class="tester" href="mailto:supportserenopet@gmail.com?subject=Tester">
+      <span class="tester-badge"><i class="pulse"></i><span data-i18n="tester.badge">Beta testers wanted</span></span>
+      <span class="tester-text" data-i18n="tester.text">Limited places. Sign up in the app, then write to us: we'll unlock the full version free until December 31. In return, just tell us what works and what's missing.</span>
+      <span class="tester-mail">supportserenopet@gmail.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+  </div>
+  <a class="scroll-cue" href="#questions" aria-label="Scroll"><span data-i18n="v2.scroll">Scroll</span><i></i></a>
+</section>
+
+<!-- ===== 2. CONDITIONS MARQUEE ===== -->
+<div class="cond-head wrap"><span class="eyebrow center reveal" data-i18n="v2.cond.eyebrow">Twenty-three conditions, each with its own tools</span></div>
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-row" id="marqueeA"></div>
+  <div class="marquee-row rev" id="marqueeB"></div>
+</div>
+<p class="cond-note wrap center reveal" data-i18n="cond.note">Declare the condition in the app and Sereno enables the tracking built for it.</p>
+
+<!-- ===== JOY: photos that slide sideways as you scroll ===== -->
+<section class="section joy" id="joy">
+  <div class="wrap joy-head">
+    <span class="eyebrow center reveal" data-i18n="joy.eyebrow">Why we built Sereno</span>
+    <h2 class="section-title center reveal" data-i18n="joy.title">Good care means more moments like these.</h2>
+    <p class="lede center reveal" data-i18n="joy.sub">Sereno is for every pet — and especially the ones who need a little extra.</p>
+  </div>
+  <div class="joy-row" id="joyRow">
+    <figure class="joy-card" style="--i:0"><div class="joy-ph"><img loading="lazy" src="https://images.unsplash.com/photo-1518963794447-3967204b300e?auto=format&fit=crop&w=720&q=70" alt="Man playing happily with his dog outdoors" width="720" height="900"></div><figcaption data-i18n="joy.cap1">Play time in the sun</figcaption></figure>
+    <figure class="joy-card" style="--i:1"><div class="joy-ph"><img loading="lazy" src="https://images.unsplash.com/photo-1493101561740-e745892775b2?auto=format&fit=crop&w=720&q=70" alt="Woman carrying her cat outdoors" width="720" height="900"></div><figcaption data-i18n="joy.cap2">Out and about together</figcaption></figure>
+    <figure class="joy-card" style="--i:2"><div class="joy-ph"><img loading="lazy" src="https://images.unsplash.com/photo-1622050163093-687b7859d499?auto=format&fit=crop&w=720&q=70" alt="Woman gently playing with her cat at home" width="720" height="900"></div><figcaption data-i18n="joy.cap3">Lazy cuddles at home</figcaption></figure>
+    <figure class="joy-card" style="--i:3"><div class="joy-ph"><img loading="lazy" src="https://images.unsplash.com/photo-1579119134757-5c38803f34fc?auto=format&fit=crop&w=720&q=70" alt="Happy dog giving its owner a kiss" width="720" height="900"></div><figcaption data-i18n="joy.cap4">Puppy kisses</figcaption></figure>
+  </div>
+</section>
+
+<!-- ===== 3. THE THREE QUESTIONS ===== -->
+<section class="section questions" id="questions">
+  <div class="wrap">
+    <span class="eyebrow center reveal" data-i18n="v2.q.eyebrow">At every vet visit</span>
+    <h2 class="section-title center reveal" data-i18n="v2.q.title">Three questions the vet always asks.</h2>
+    <div class="qs">
+      <p class="q scrub"><span class="q-n">01</span><span data-i18n="v2.q1">Since when?</span><i class="q-ck"></i></p>
+      <p class="q scrub"><span class="q-n">02</span><span data-i18n="v2.q2">How many times?</span><i class="q-ck"></i></p>
+      <p class="q scrub"><span class="q-n">03</span><span data-i18n="v2.q3">What dose is it on now?</span><i class="q-ck"></i></p>
+    </div>
+    <p class="q-answer scrub" data-i18n="v2.q.answer">With Sereno® the answer is already written down, with the dates.</p>
+  </div>
+</section>
+
+<!-- ===== 4. THE APP, SCREEN BY SCREEN (sticky, scroll-driven) ===== -->
+<section class="scr-sec" id="features">
+  <div class="wrap story-head">
+    <span class="eyebrow center reveal" data-i18n="demo.eyebrow">Care, on every screen</span>
+    <h2 class="section-title center reveal" data-i18n="demo.title">A guided tour through your pet's whole health story.</h2>
+  </div>
+  <div class="story-track" id="storyTrack">
+    <div class="story-stage" id="storyStage">
+      <div class="story-glow" aria-hidden="true"></div>
+      <div class="story-copy">
+        <article class="sstep" style="--c:#4684ad"><span class="sstep-n">01</span><h3 data-i18n="demo.s1t">Today</h3><p data-i18n="demo.s1d">Every dose and task for the day.</p></article>
+        <article class="sstep" style="--c:#2c7a7b"><span class="sstep-n">02</span><h3 data-i18n="demo.s2t">Medications</h3><p data-i18n="demo.s2d">Doses, schedules and refill reminders.</p></article>
+        <article class="sstep" style="--c:#cf7a37"><span class="sstep-n">03</span><h3 data-i18n="demo.s3t">Symptoms</h3><p data-i18n="demo.s3d">Log a flare-up with a note, a photo and a time.</p></article>
+        <article class="sstep" style="--c:#4f9468"><span class="sstep-n">04</span><h3 data-i18n="demo.s4t">Health report</h3><p data-i18n="demo.s4d">One tap turns months of tracking into a report.</p></article>
+        <article class="sstep" style="--c:#c16f8c"><span class="sstep-n">05</span><h3 data-i18n="demo.s5t">Food &amp; water</h3><p data-i18n="demo.s5d">Log every meal, treat and sip.</p></article>
+      </div>
+      <div class="story-visual">
+        <div class="scene">
+          <div class="tilt" id="storyTilt">
+            <div class="spin" id="storySpin"><div class="p3 p3--story" id="storyPhone">
+              <img class="scr" src="assets/demo_today_sm.webp" alt="Sereno — Today" width="640" height="1385">
+              <img class="scr" loading="lazy" src="assets/demo_meds_sm.webp" alt="Sereno — Medications" width="640" height="1385">
+              <img class="scr" loading="lazy" src="assets/demo_symptoms_sm.webp" alt="Sereno — Symptoms" width="640" height="1385">
+              <img class="scr" loading="lazy" src="assets/demo_report_sm.webp" alt="Sereno — Health overview" width="640" height="1385">
+              <img class="scr" loading="lazy" src="assets/demo_food_sm.webp" alt="Sereno — Food &amp; water" width="640" height="1385">
+            </div></div>
+            <div class="orb orb--s" aria-hidden="true">
+              <div class="live scard"><span class="live-ic ic-teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.2 4.2L19 7"/></svg></span><span class="live-txt"><b data-i18n="v2.live.dose.t">Insulin · 10 u</b><small data-i18n="v2.live.dose.s">Given at 8:00 by Marco</small></span></div>
+              <div class="live scard"><span class="live-ic ic-teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 20.5 3.5 13.5a5 5 0 0 1 7-7l7 7a5 5 0 0 1-7 7z"/><path d="m8.5 8.5 7 7"/></svg></span><span class="live-txt"><b data-i18n="v3.ref.t">Sereno refill</b><small data-i18n="v3.ref.s">Insulin · 2 doses remaining</small></span></div>
+              <div class="live scard"><span class="live-ic ic-coral"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="13" r="8"/><path d="M12 13V9M9.5 2.5h5"/></svg></span><span class="live-txt"><small data-i18n="v2.live.timer.t">Seizure timer</small><b class="mono story-timer">01:18</b></span><span class="rec"></span></div>
+              <div class="live scard"><span class="live-ic ic-ink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span><span class="live-txt"><b data-i18n="v2.live.report.t">Vet report ready</b><small data-i18n="v2.live.report.s">PDF · last 90 days</small></span></div>
+              <div class="live scard"><span class="live-ic ic-rose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><path d="M6 1v3M10 1v3M14 1v3"/></svg></span><span class="live-txt"><b data-i18n="v3.meal.t">Meal reminder</b><small data-i18n="v3.meal.s">Time for Luna's meal</small></span></div>
+            </div>
+          </div>
+          <div class="floor" aria-hidden="true"></div>
         </div>
       </div>
+      <div class="story-rail" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <span class="story-hint" aria-hidden="true" data-i18n="v3.story.scroll">Keep scrolling</span>
     </div>
   </div>
 </section>
 
-<!-- ===== 3. JOYFUL MOMENT ===== -->
-<section class="section section-pad joy">
-  <div class="wrap joy-head">
-    <div class="reveal">
-      <span class="eyebrow" data-i18n="joy.eyebrow">Why we built Sereno</span>
-      <h2 class="section-title" data-i18n="joy.title">Good care means more moments like these.</h2>
-    </div>
-    <p class="lede reveal" data-delay="120" data-i18n="joy.sub">Sereno is for every pet — and especially the ones who need a little extra.</p>
-  </div>
-  <div class="joy-track-wrap">
-    <div class="joy-track">
-      <figure class="joy-card"><img class="photo" loading="eager" fetchpriority="high" data-label="Owner playing with dog" src="https://images.unsplash.com/photo-1518963794447-3967204b300e?auto=format&fit=crop&w=720&q=70" alt="Man playing happily with his dog outdoors"><figcaption class="cap" data-i18n="joy.cap1">Play time in the sun</figcaption></figure>
-      <figure class="joy-card"><img class="photo" loading="lazy" data-label="Owner carrying cat" src="https://images.unsplash.com/photo-1493101561740-e745892775b2?auto=format&fit=crop&w=720&q=70" alt="Woman carrying her cat outdoors"><figcaption class="cap" data-i18n="joy.cap2">Out and about together</figcaption></figure>
-      <figure class="joy-card"><img class="photo" loading="lazy" data-label="Owner petting cat" src="https://images.unsplash.com/photo-1622050163093-687b7859d499?auto=format&fit=crop&w=720&q=70" alt="Woman gently playing with her cat at home"><figcaption class="cap" data-i18n="joy.cap3">Lazy cuddles at home</figcaption></figure>
-      <figure class="joy-card"><img class="photo" loading="lazy" data-label="Dog kissing owner" src="https://images.unsplash.com/photo-1579119134757-5c38803f34fc?auto=format&fit=crop&w=720&q=70" alt="Happy dog giving its owner a kiss"><figcaption class="cap" data-i18n="joy.cap4">Puppy kisses</figcaption></figure>
-    </div>
-    <div class="joy-hint">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      <span>Drag or scroll</span>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 4. TESTIMONIALS ===== -->
-<section class="section section-pad">
+<!-- ===== 5. CHAOS -> REPORT (scroll-driven) ===== -->
+<section class="report" id="report">
   <div class="wrap">
-    <div class="test-head reveal">
-      <span class="eyebrow center" data-i18n="test.eyebrow">We've been there too</span>
-      <h2 class="section-title center" data-i18n="test.title">From families who track every day.</h2>
-    </div>
-    <div class="test-grid">
-      <article class="tcard reveal" data-cat="chronic">
-        <div class="tcard-img"><img class="photo" loading="lazy" data-label="Marta & Bella" src="https://images.unsplash.com/photo-1557199582-14cd70bc6d39?auto=format&fit=crop&w=640&q=70" alt="Owner standing with his Labrador retriever"><span class="tcard-badge" data-i18n="t1.badge">Diabetes · 7 yrs</span></div>
-        <div class="tcard-body"><p class="tcard-quote" data-i18n="t1.quote"></p><div class="tcard-name" data-i18n="t1.name">Marta & Bella</div><div class="tcard-meta" data-i18n="t1.meta">Diabetes · Labrador, 7</div></div>
-      </article>
-      <article class="tcard reveal" data-delay="80" data-cat="chronic">
-        <div class="tcard-img"><img class="photo" loading="lazy" data-label="James & Otis" src="https://images.unsplash.com/photo-1540411003967-af56b79be677?auto=format&fit=crop&w=640&q=70" alt="Child hugging a Siberian husky"><span class="tcard-badge" data-i18n="t2.badge">Epilepsy · 4 yrs</span></div>
-        <div class="tcard-body"><p class="tcard-quote" data-i18n="t2.quote"></p><div class="tcard-name" data-i18n="t2.name">James & Otis</div><div class="tcard-meta" data-i18n="t2.meta">Epilepsy · Husky, 4</div></div>
-      </article>
-      <article class="tcard reveal" data-delay="160" data-cat="chronic">
-        <div class="tcard-img"><img class="photo" loading="lazy" data-label="Lena & Mochi" src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=640&q=70" alt="A calm cat resting at home" style="object-position:50% 30%"><span class="tcard-badge" data-i18n="t3.badge">Kidney · 11 yrs</span></div>
-        <div class="tcard-body"><p class="tcard-quote" data-i18n="t3.quote"></p><div class="tcard-name" data-i18n="t3.name">Lena & Mochi</div><div class="tcard-meta" data-i18n="t3.meta">Kidney disease · Cat, 11</div></div>
-      </article>
-      <article class="tcard reveal" data-cat="everyday">
-        <div class="tcard-img"><img class="photo" loading="lazy" data-label="Diego & Pippa" src="https://images.unsplash.com/photo-1601758124510-52d02ddb7cbd?auto=format&fit=crop&w=640&q=70" alt="Couple with their Jack Russell terrier"><span class="tcard-badge" data-i18n="t4.badge">Everyday</span></div>
-        <div class="tcard-body"><p class="tcard-quote" data-i18n="t4.quote"></p><div class="tcard-name" data-i18n="t4.name">Diego & Pippa</div><div class="tcard-meta" data-i18n="t4.meta">Healthy · Jack Russell, 2</div></div>
-      </article>
-      <article class="tcard reveal" data-delay="80" data-cat="everyday">
-        <div class="tcard-img"><img class="photo" loading="lazy" data-label="Sofia & Nala" src="https://images.unsplash.com/photo-1495360010541-f48722b34f7d?auto=format&fit=crop&w=640&q=70" alt="A cat at home"><span class="tcard-badge" data-i18n="t5.badge">Everyday</span></div>
-        <div class="tcard-body"><p class="tcard-quote" data-i18n="t5.quote"></p><div class="tcard-name" data-i18n="t5.name">Sofia & Nala</div><div class="tcard-meta" data-i18n="t5.meta">Healthy · Cat, 3</div></div>
-      </article>
-      <article class="tcard reveal" data-delay="160" data-cat="chronic">
-        <div class="tcard-img"><img class="photo" loading="lazy" data-label="Tom & Biscuit" src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=640&q=70" alt="A golden retriever"><span class="tcard-badge" data-i18n="t6.badge">Arthritis · 9 yrs</span></div>
-        <div class="tcard-body"><p class="tcard-quote" data-i18n="t6.quote"></p><div class="tcard-name" data-i18n="t6.name">Tom & Biscuit</div><div class="tcard-meta" data-i18n="t6.meta">Arthritis · Golden retriever, 9</div></div>
-      </article>
-      <article class="tcard reveal" data-cat="chronic">
-        <div class="tcard-img"><img class="photo" loading="lazy" data-label="Elisa & Argo" src="https://images.unsplash.com/photo-1581527106942-3c2c6b0bbe63?auto=format&fit=crop&w=640&q=70" alt="Woman hugging her mixed-breed dog"><span class="tcard-badge" data-i18n="t7.badge">Heart · 8 yrs</span></div>
-        <div class="tcard-body"><p class="tcard-quote" data-i18n="t7.quote"></p><div class="tcard-name" data-i18n="t7.name">Elisa & Argo</div><div class="tcard-meta" data-i18n="t7.meta">Heart condition · Mixed breed, 8</div></div>
-      </article>
-      <article class="tcard reveal" data-delay="80" data-cat="everyday">
-        <div class="tcard-img"><img class="photo" loading="lazy" data-label="Nora & Milo" src="https://images.unsplash.com/photo-1642112312562-f7dfcfcff8b6?auto=format&fit=crop&w=640&q=70" alt="Woman sitting with her cat on her lap"><span class="tcard-badge" data-i18n="t8.badge">Everyday</span></div>
-        <div class="tcard-body"><p class="tcard-quote" data-i18n="t8.quote"></p><div class="tcard-name" data-i18n="t8.name">Nora & Milo</div><div class="tcard-meta" data-i18n="t8.meta">Healthy · Cat, 2</div></div>
-      </article>
-    </div>
+    <span class="eyebrow center reveal" data-i18n="report.eyebrow">From chaos to clarity</span>
+    <h2 class="section-title center reveal" data-i18n="report.title">Scribbled notes, reminders and half-remembered dates become a calm report your vet will love.</h2>
   </div>
-</section>
-
-<!-- ===== 5. LIFESTAGE TIMELINE ===== -->
-<section class="section section-pad life">
-  <div class="wrap">
-    <span class="eyebrow center reveal" data-i18n="life.eyebrow">Whatever the life stage</span>
-    <h2 class="section-title center reveal" data-delay="80" data-i18n="life.title">Sereno fits, from first shots to adulthood.</h2>
-    <div class="timeline">
-      <div class="timeline-line"><i></i></div>
-      <div class="tnode">
-        <div class="tnode-pair"><div class="tnode-dot"><img class="tnode-photo" loading="lazy" src="https://images.unsplash.com/photo-1591160690555-5debfba289f0?auto=format&fit=crop&w=240&q=70" alt="Golden retriever puppy"></div><div class="tnode-dot"><img class="tnode-photo" loading="lazy" src="https://images.unsplash.com/photo-1529778873920-4da4926a72c2?auto=format&fit=crop&w=240&q=70" alt="Tabby kitten"></div></div>
-        <h3 data-i18n="life.s1">Puppy &amp; kitten</h3>
-        <p data-i18n="life.s1d">Vaccine schedules, growth and first vet visits.</p>
+  <div class="rep-track" id="repTrack">
+    <div class="report-stage" id="reportStage">
+      <div class="scraps" aria-hidden="true">
+        <span class="scrap y" style="--x:-42;--y:-34;--r:-9;--k:0" data-i18n="report.note1">Insulin 10u — twice a day?</span>
+        <span class="scrap p" style="--x:30;--y:-38;--r:7;--k:1" data-i18n="report.note2">weird limp Tues</span>
+        <span class="scrap g" style="--x:-38;--y:30;--r:6;--k:2" data-i18n="report.note3">weight down a bit</span>
+        <span class="scrap b" style="--x:36;--y:26;--r:-6;--k:3" data-i18n="report.note7">seizure 6:40am</span>
+        <span class="scrap y" style="--x:-8;--y:-46;--r:4;--k:4" data-i18n="report.note8">drinking lots of water</span>
+        <span class="scrap p" style="--x:6;--y:44;--r:-5;--k:5" data-i18n="report.note6">refill insulin!!</span>
+        <span class="scrap g" style="--x:44;--y:-4;--r:9;--k:6" data-i18n="report.note10">call Dr. Rossi</span>
+        <span class="scrap b" style="--x:-46;--y:0;--r:-7;--k:7" data-i18n="report.note4">vet visit Apr 12</span>
       </div>
-      <div class="tnode">
-        <div class="tnode-pair"><div class="tnode-dot"><img class="tnode-photo" loading="lazy" src="https://images.unsplash.com/photo-1633722715463-d30f4f325e24?auto=format&fit=crop&w=240&q=70" alt="Adult golden retriever"></div><div class="tnode-dot"><img class="tnode-photo" loading="lazy" src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=240&q=70" alt="Adult tabby cat"></div></div>
-        <h3 data-i18n="life.s2">Adult</h3>
-        <p data-i18n="life.s2d">Routine care, weight trends and the occasional scare.</p>
-      </div>
-      <div class="tnode">
-        <div class="tnode-pair"><div class="tnode-dot"><img class="tnode-photo" loading="lazy" src="https://images.unsplash.com/photo-1605897472359-85e4b94d685d?auto=format&fit=crop&w=240&q=70" alt="Senior golden retriever resting"></div><div class="tnode-dot"><img class="tnode-photo" loading="lazy" src="https://images.unsplash.com/photo-1695740666652-9369b8c3da28?auto=format&fit=crop&w=240&q=70" alt="Senior tabby cat resting"></div></div>
-        <h3 data-i18n="life.s3">Senior</h3>
-        <p data-i18n="life.s3d">Chronic conditions, more meds, closer monitoring.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 6. WHY SERENO ===== -->
-<section class="section section-pad stats">
-  <div class="wrap">
-    <div class="stat-grid reveal">
-      <div class="stat" style="--sac:#2c7a7b;--sbg:#ecf4f3"><div class="sic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 4.5 12 2.8l7.5 1.7v6c0 4.6-3.1 8.2-7.5 9.7-4.4-1.5-7.5-5.1-7.5-9.7z"/><path d="m9 11.5 2 2 4-4"/></svg></div><div class="stat-title" data-i18n="why1.t">No ads inside the app</div><div class="stat-label" data-i18n="why1.d">No banners, no videos to dismiss. Open it, mark the dose, that's it.</div></div>
-      <div class="stat" style="--sac:#4684ad;--sbg:#e9f0f5"><div class="sic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2.8H6.5A1.8 1.8 0 0 0 4.7 4.6v14.8a1.8 1.8 0 0 0 1.8 1.8h11a1.8 1.8 0 0 0 1.8-1.8V8.3z"/><path d="M14 2.8v5.5h5.3"/><path d="M8.4 13.4h7.2M8.4 17h4.6"/></svg></div><div class="stat-title" data-i18n="why2.t">One report for the visit</div><div class="stat-label" data-i18n="why2.d">Pick a period and Sereno builds a PDF: doses given and missed, symptoms with dates and severity, weight, lab values and past visits. Open it in the exam room, or send it ahead.</div></div>
-      <div class="stat" style="--sac:#cf7a37;--sbg:#fcefe2"><div class="sic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.2 10.6a3.1 3.1 0 1 0 0-6.2 3.1 3.1 0 0 0 0 6.2Z"/><path d="M2.9 19.6c0-3 2.8-5.2 6.3-5.2s6.3 2.2 6.3 5.2"/><path d="M17.2 4.9a3.1 3.1 0 0 1 0 5.9"/><path d="M19 14.9c1.4.8 2.3 2 2.3 3.6"/></svg></div><div class="stat-title" data-i18n="why3.t">Two people, one pet, in real time</div><div class="stat-label" data-i18n="why3.d">Invite whoever cares for them: they join with their own account and pay nothing. Mark a dose and it appears on their phone straight away, with a notification saying who gave it. Nobody gives it twice.</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 7. PINNED PRODUCT DEMO ===== -->
-<section class="section demo-pin" id="features-demo">
-  <div class="demo-sticky">
-    <div class="wrap demo-layout">
-      <div class="demo-left">
-        <span class="eyebrow" data-i18n="demo.eyebrow">Care, on every screen</span>
-        <h2 class="section-title" data-i18n="demo.title">A guided tour through your pet's whole health story.</h2>
-        <ul class="demo-steps">
-          <li class="demo-step on" style="--sc:#4684ad;--sbg:#e9f0f5"><span class="ds-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path d="M3 9h18M8 2.5v4M16 2.5v4M8.5 14l2.5 2.5 4.5-4.5"/></svg></span><div class="ds-txt"><b data-i18n="demo.s1t">Today</b><span data-i18n="demo.s1d">Every dose and task for the day.</span></div></li>
-          <li class="demo-step" style="--sc:#2c7a7b;--sbg:#ecf4f3"><span class="ds-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 20.5 4 14a5 5 0 0 1 7-7l6.5 6.5a5 5 0 0 1-7 7Z"/><path d="m8.5 8.5 7 7"/></svg></span><div class="ds-txt"><b data-i18n="demo.s2t">Medications</b><span data-i18n="demo.s2d">Doses, schedules and refill reminders.</span></div></li>
-          <li class="demo-step" style="--sc:#cf7a37;--sbg:#fcefe2"><span class="ds-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2 5 4-12 2 7h6"/></svg></span><div class="ds-txt"><b data-i18n="demo.s3t">Symptoms</b><span data-i18n="demo.s3d">Log a flare-up with a note, a photo and a time.</span></div></li>
-          <li class="demo-step" style="--sc:#4f9468;--sbg:#eaf3ec"><span class="ds-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11.5l2.5 2.5 5-5"/><path d="M20 12.5V18a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h8.5"/></svg></span><div class="ds-txt"><b data-i18n="demo.s4t">Health report</b><span data-i18n="demo.s4d">One tap turns months of tracking into a report.</span></div></li>
-          <li class="demo-step" style="--sc:#c16f8c;--sbg:#f9ebf0"><span class="ds-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v6a2 2 0 0 0 4 0V3M7 11v10"/><path d="M16.5 3C15 3 14 5.4 14 8s1 4 2.5 4M16.5 3v18"/></svg></span><div class="ds-txt"><b data-i18n="demo.s5t">Food &amp; water</b><span data-i18n="demo.s5d">Log every meal, treat and sip.</span></div></li>
-        </ul>
-      </div>
-      <div class="demo-right">
-      <div class="demo-screens">
-        <!-- Screen 1: Today -->
-        <div class="dscreen"><div class="dscreen-inner"><img class="dscreen-shot" src="assets/demo_today_sm.png" alt="Sereno — Today screen"><span class="dscreen-island"></span></div></div>
-        <!-- Screen 2: Medications -->
-        <div class="dscreen"><div class="dscreen-inner"><img class="dscreen-shot" src="assets/demo_meds_sm.png" alt="Sereno — Medications screen"><span class="dscreen-island"></span></div></div>
-        <!-- Screen 3: Symptoms -->
-        <div class="dscreen"><div class="dscreen-inner"><img class="dscreen-shot" src="assets/demo_symptoms_sm.png" alt="Sereno — Symptoms screen"><span class="dscreen-island"></span></div></div>
-        <!-- Screen 4: Health overview -->
-        <div class="dscreen"><div class="dscreen-inner"><img class="dscreen-shot" src="assets/demo_report_sm.png" alt="Sereno — Health overview screen"><span class="dscreen-island"></span></div></div>
-        <!-- Screen 5: Food & water -->
-        <div class="dscreen"><div class="dscreen-inner"><img class="dscreen-shot" src="assets/demo_food_sm.png" alt="Sereno — Food & water screen"><span class="dscreen-island"></span></div></div>
-      </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 8. FEATURES ===== -->
-<section class="section section-pad" id="features">
-  <div class="wrap">
-    <span class="eyebrow center reveal" data-i18n="feat.eyebrow">Everything chronic-pet care actually needs</span>
-    <h2 class="section-title center reveal" data-delay="80" data-i18n="feat.title">Powerful where it matters, calm everywhere else.</h2>
-    <div class="feat-grid">
-      <article class="fcard fcard--wide reveal" style="--fac:#2c7a7b;--fbg:#ecf4f3"><div class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 3.5 3.5L21 6"/><path d="M15 6h6v6"/></svg></div><h3 data-i18n="f7.t">Insights</h3><p data-i18n="f7.d">Sereno reads the data you've already entered and shows you the patterns in it: what's above or below your pet's usual range, what tends to happen at certain times of day, and what has changed since the last vet visit.</p><p class="fcard-note" data-i18n="f7.disc">This is a pattern in the data you entered. It is not a diagnosis or a cause, and does not indicate any disease. Discuss your pet's health with your veterinarian.</p></article>
-      <article class="fcard reveal" style="--fac:#2c7a7b;--fbg:#ecf4f3"><div class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10.5 20.5 4 14a5 5 0 0 1 7-7l6.5 6.5a5 5 0 0 1-7 7Z"/><path d="m8.5 8.5 7 7"/></svg></div><h3 data-i18n="f1.t">Medications</h3><p data-i18n="f1.d">Schedules, smart reminders and refill alerts.</p></article>
-      <article class="fcard reveal" data-delay="80" style="--fac:#cf7a37;--fbg:#fcefe2"><div class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h4l2 5 4-12 2 7h6"/></svg></div><h3 data-i18n="f2.t">Symptoms</h3><p data-i18n="f2.d">Quick logging with photos, severity and time.</p></article>
-      <article class="fcard reveal" data-delay="160" style="--fac:#4f9468;--fbg:#eaf3ec"><div class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 4 6v6c0 5 3.4 8.5 8 10 4.6-1.5 8-5 8-10V6Z"/><path d="m9 12 2 2 4-4"/></svg></div><h3 data-i18n="f3.t">Vaccines</h3><p data-i18n="f3.d">Full immunisation history with renewal nudges.</p></article>
-      <article class="fcard reveal" style="--fac:#4684ad;--fbg:#e9f0f5"><div class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4M12 13v4M10 15h4"/></svg></div><h3 data-i18n="f4.t">Vet visits</h3><p data-i18n="f4.d">Notes, diagnoses and follow-ups in one timeline.</p></article>
-      <article class="fcard reveal" data-delay="80" style="--fac:#c0913a;--fbg:#f8f2df"><div class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></div><h3 data-i18n="f5.t">Documents</h3><p data-i18n="f5.d">Lab results and prescriptions, scanned and searchable.</p></article>
-      <article class="fcard reveal" data-delay="160" style="--fac:#c16f8c;--fbg:#f9ebf0"><div class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M15.5 13.6c2.6.2 4.5 2.3 4.5 5"/></svg></div><h3 data-i18n="f6.t">Family sharing</h3><p data-i18n="f6.d">Everyone caring for your pet, always in sync.</p></article>
-      <article class="fcard reveal" style="--fac:#8a6d3b;--fbg:#f6f1e7"><div class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19h16"/><rect x="5" y="11" width="3.4" height="6"/><rect x="10.3" y="7" width="3.4" height="10"/><rect x="15.6" y="13" width="3.4" height="4"/></svg></div><h3 data-i18n="f9.t">Stool tracking</h3><p data-i18n="f9.d">Colour, consistency, amount and a 1–7 score (1 hard and dry, 3 formed, 7 liquid). Three charts: the score over time, how many a day, and the split between hard, formed and loose.</p></article>
-      <article class="fcard reveal" data-delay="80" style="--fac:#4684ad;--fbg:#e9f0f5"><div class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13h3l2.5 5 4-13 2.5 8h6"/></svg></div><h3 data-i18n="f8.t">Monitoring</h3><p data-i18n="f8.d">Track temperature, resting breathing rate, fluids, quality of life and weight over time — and map lumps on a body diagram so you always know which one you're looking at.</p></article>
-      <article class="fcard reveal" data-delay="160" style="--fac:#4684ad;--fbg:#e9f0f5"><div class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5"/><path d="M9 17v-3M12 17v-5M15 17v-2"/></svg></div><h3 data-i18n="f11.t">Charts inside the report</h3><p data-i18n="f11.d">From Plus: weight, symptoms and monitoring tools don't stay lists of numbers — they're drawn as charts inside the PDF you take to the vet.</p></article>
-      <article class="fcard fcard--wide reveal" style="--fac:#c0392b;--fbg:#fdeeeb"><div class="fic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M12 9v6M9 12h6"/></svg></div><h3 data-i18n="f10.t">Emergency Card</h3><p data-i18n="f10.d">One screen with conditions, active medications with doses and times, allergies, important notes, latest symptoms and your vet's number, callable with one tap. It works with no connection, and shares as a one-page PDF.</p></article>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 8b. CONDITIONS ===== -->
-<section class="section section-pad conds" id="conditions">
-  <div class="wrap">
-    <span class="eyebrow center reveal" data-i18n="cond.eyebrow">Twenty-two conditions, each with its own tools</span>
-    <h2 class="section-title center reveal" data-delay="80" data-i18n="cond.title">Say what your pet has. The right tools switch themselves on.</h2>
-    <ul class="cond-grid reveal" data-delay="140">
-      <li data-i18n="cond.diabetes">Diabetes</li>
-      <li data-i18n="cond.epilepsy">Epilepsy</li>
-      <li data-i18n="cond.cancer">Cancer (other types)</li>
-      <li data-i18n="cond.kidney_disease">Kidney disease</li>
-      <li data-i18n="cond.heart_disease">Heart problems</li>
-      <li data-i18n="cond.cushings">Cushing's syndrome</li>
-      <li data-i18n="cond.hyperthyroidism">Hyperthyroidism</li>
-      <li data-i18n="cond.arthritis">Arthritis / mobility</li>
-      <li data-i18n="cond.senior">Senior pet</li>
-      <li data-i18n="cond.ibd">IBD / digestive</li>
-      <li data-i18n="cond.allergies">Allergies</li>
-      <li data-i18n="cond.anxiety">Anxiety / behavior</li>
-      <li data-i18n="cond.megaesophagus">Megaesophagus</li>
-      <li data-i18n="cond.myasthenia_gravis">Myasthenia gravis</li>
-      <li data-i18n="cond.epi">EPI (pancreatic insufficiency)</li>
-      <li data-i18n="cond.addisons">Addison's disease</li>
-      <li data-i18n="cond.hypothyroidism">Hypothyroidism</li>
-      <li data-i18n="cond.gi_lymphoma">Intestinal lymphoma</li>
-      <li data-i18n="cond.pancreatitis">Pancreatitis</li>
-      <li data-i18n="cond.feline_asthma">Feline asthma</li>
-      <li data-i18n="cond.imha">IMHA (immune-mediated anaemia)</li>
-      <li data-i18n="cond.felv">FeLV (feline leukaemia)</li>
-    </ul>
-    <p class="cond-note reveal" data-delay="200" data-i18n="cond.note">Declare the condition in the app and Sereno enables the tracking built for it. Works for any other ongoing or one-off concern too.</p>
-  </div>
-</section>
-
-<!-- ===== 9. TYPOGRAPHIC MOMENT ===== -->
-<section class="section typo">
-  <div class="wrap">
-    <p id="typoLine"></p>
-  </div>
-</section>
-
-<!-- ===== 10. REPORT — scattered to assembled ===== -->
-<section class="section report-pin">
-  <div class="report-sticky">
-    <div class="report-head">
-      <span class="eyebrow center" data-i18n="report.eyebrow">From chaos to clarity</span>
-      <h2 class="section-title center" data-i18n="report.title">Scribbled notes, reminders and half-remembered dates become a calm report your vet will love.</h2>
-    </div>
-    <div class="report-stage">
-      <!-- scattered scraps -->
-      <div class="scrap" data-x="-460" data-y="-70" data-r="-9"><div class="note y" data-i18n="report.note1">Insulin 10u — twice a day?</div></div>
-      <div class="scrap" data-x="-300" data-y="-170" data-r="7"><div class="note p" data-i18n="report.note2">weird limp Tues</div></div>
-      <div class="scrap" data-x="-150" data-y="-110" data-r="-6"><div class="note g" data-i18n="report.note3">weight down a bit</div></div>
-      <div class="scrap" data-x="-470" data-y="100" data-r="5"><div class="note b" data-i18n="report.note7">seizure 6:40am</div></div>
-      <div class="scrap" data-x="-330" data-y="40" data-r="-4"><div class="note y" data-i18n="report.note8">drinking lots of water</div></div>
-      <div class="scrap" data-x="-220" data-y="165" data-r="8"><div class="note p" data-i18n="report.note9">skipped breakfast?</div></div>
-      <div class="scrap" data-x="-70" data-y="-185" data-r="-7"><div class="note g" data-i18n="report.note5">ate well today :)</div></div>
-      <div class="scrap" data-x="70" data-y="-160" data-r="6"><div class="note b" data-i18n="report.note13">limping again?</div></div>
-      <div class="scrap" data-x="-50" data-y="160" data-r="-5"><div class="note y" data-i18n="report.note6">refill insulin!!</div></div>
-      <div class="scrap" data-x="180" data-y="155" data-r="9"><div class="note p" data-i18n="report.note10">call Dr. Rossi</div></div>
-      <div class="scrap" data-x="320" data-y="170" data-r="-8"><div class="note g" data-i18n="report.note11">blood test results</div></div>
-      <div class="scrap" data-x="210" data-y="-150" data-r="5"><div class="note b" data-i18n="report.note14">more tired lately</div></div>
-      <div class="scrap" data-x="360" data-y="-95" data-r="-6"><div class="note y" data-i18n="report.note17">−0.4 kg this month</div></div>
-      <div class="scrap" data-x="460" data-y="55" data-r="8"><div class="note p" data-i18n="report.note18">good energy today!</div></div>
-      <div class="scrap" data-x="450" data-y="-165" data-r="-9"><div class="note g" data-i18n="report.note15">vaccine due soon</div></div>
-      <div class="scrap" data-x="-120" data-y="20" data-r="-3"><div class="scrap-date" data-i18n="report.note4">vet visit Apr 12</div></div>
-      <div class="scrap" data-x="140" data-y="35" data-r="4"><div class="scrap-date" data-i18n="report.note12">last shot Mar 3</div></div>
-      <div class="scrap" data-x="320" data-y="55" data-r="-5"><div class="scrap-date" data-i18n="report.note16">checkup May 20</div></div>
-      <!-- assembled card -->
+      <div class="rc-wrap"><i class="rc-stamp" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.2 4.2L19 7"/></svg></i>
       <div class="report-card">
         <div class="rc-head">
           <div class="t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg><span data-i18n="report.cardTitle">Health report</span></div>
@@ -348,357 +234,299 @@
           <span class="rc-period" data-i18n="report.cardMeta">last 90 days</span>
         </div>
         <div class="rc-body">
-          <div class="rc-group">
-            <div class="rc-glabel" data-i18n="report.gConditions">Conditions</div>
-            <div class="rc-line"><span class="l" data-i18n="report.cond1l">Diabetes</span><span class="v ok" data-i18n="report.cond1v">stable</span></div>
-            <div class="rc-line"><span class="l" data-i18n="report.cond2l">Epilepsy</span><span class="v ok" data-i18n="report.cond2v">improving</span></div>
-          </div>
-          <div class="rc-group">
-            <div class="rc-glabel" data-i18n="report.gMeds">Medications</div>
+          <div class="rc-group" style="--g:0"><div class="rc-glabel" data-i18n="report.gMeds">Medications</div>
             <div class="rc-line"><span class="l" data-i18n="report.med1l">Insulin 10u</span><span class="v" data-i18n="report.med1v">twice daily</span></div>
             <div class="rc-line"><span class="l" data-i18n="report.med2l">Phenobarbital 60mg</span><span class="v" data-i18n="report.med2v">twice daily</span></div>
           </div>
-          <div class="rc-group">
-            <div class="rc-glabel" data-i18n="report.gAdherence">Adherence</div>
+          <div class="rc-group" style="--g:1"><div class="rc-glabel" data-i18n="report.gAdherence">Adherence</div>
             <div class="rc-line"><span class="l" data-i18n="report.adhl">Doses given</span><span class="v ok" data-i18n="report.adhv">94% (172 / 183)</span></div>
+            <div class="rc-bar"><i style="--w:.94"></i></div>
           </div>
-          <div class="rc-group">
-            <div class="rc-glabel" data-i18n="report.gSymptoms">Symptoms</div>
+          <div class="rc-group" style="--g:2"><div class="rc-glabel" data-i18n="report.gSymptoms">Symptoms</div>
             <div class="rc-line"><span class="l" data-i18n="report.sym1l">Seizures</span><span class="v" data-i18n="report.sym1v">2 this month</span></div>
             <div class="rc-sub" data-i18n="report.sym1note">↓ down from 5</div>
-            <div class="rc-line"><span class="l" data-i18n="report.sym2l">Appetite</span><span class="v" data-i18n="report.sym2v">normal</span></div>
           </div>
-          <div class="rc-group">
-            <div class="rc-glabel" data-i18n="report.gWeight">Weight</div>
+          <div class="rc-group" style="--g:3"><div class="rc-glabel" data-i18n="report.gWeight">Weight</div>
             <div class="rc-line"><span class="l" data-i18n="report.wl">Trend · 90 days</span><span class="v" data-i18n="report.wv">−0.4 kg</span></div>
+            <svg class="rc-spark" viewBox="0 0 220 34" fill="none"><path class="rc-line-path" pathLength="1" d="M2 10 L30 9 L58 13 L86 12 L114 17 L142 16 L170 21 L218 24" stroke="#2c7a7b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <div class="rc-group">
-            <div class="rc-glabel" data-i18n="report.gVaccines">Vaccines</div>
-            <div class="rc-line"><span class="l" data-i18n="report.vacl">Status</span><span class="v ok" data-i18n="report.vacv">Up to date</span></div>
-            <div class="rc-sub mut" data-i18n="report.vacnote">Next due Oct 2026</div>
-          </div>
-          <div class="rc-group">
-            <div class="rc-glabel" data-i18n="report.gVisits">Vet visits</div>
+          <div class="rc-group" style="--g:4"><div class="rc-glabel" data-i18n="report.gVisits">Vet visits</div>
             <div class="rc-line"><span class="l" data-i18n="report.vis1l">Last visit</span><span class="v" data-i18n="report.vis1v">Apr 12</span></div>
-            <div class="rc-line"><span class="l" data-i18n="report.vis2l">Next visit</span><span class="v" data-i18n="report.vis2v">Jul 10</span></div>
           </div>
         </div>
       </div>
+      </div>
     </div>
-    <div class="report-hint"><span data-i18n="report.hint">Keep scrolling</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M6 13l6 6 6-6"/></svg></div>
+  </div>
+  <div class="center rep-cta reveal"><a class="btn btn-dark btn-arrow" href="/referti"><span data-i18n="rep.homeLink">See three real reports</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+</section>
+
+<!-- ===== 6. FAMILY SHARING ===== -->
+<section class="section family">
+  <div class="wrap family-grid">
+    <div class="family-copy">
+      <span class="eyebrow reveal" data-i18n="v2.fam.eyebrow">Family sharing</span>
+      <h2 class="section-title reveal" data-i18n="why3.t">Two people, one pet, in real time</h2>
+      <p class="lede reveal" data-i18n="why3.d">Invite whoever cares for them: they join with their own account and pay nothing. Mark a dose and it appears on their phone straight away, with a notification saying who gave it. Nobody gives it twice.</p>
+    </div>
+    <div class="fam" id="famDemo" aria-hidden="true">
+      <svg class="fam-arc" viewBox="0 0 200 60" preserveAspectRatio="none"><path class="fam-arc-base" d="M10 55 C 60 0, 140 0, 190 55"/><path class="fam-arc-dot" pathLength="100" d="M10 55 C 60 0, 140 0, 190 55"/></svg>
+      <div class="fam-ph fam-ph--a">
+        <span class="fam-who" data-i18n="v2.fam.partner">Marco</span>
+        <div class="scene"><div class="tilt"><div class="p3 p3--mini">
+          <div class="ui">
+            <div class="ui-status"><b>8:00</b><i></i></div>
+            <div class="ui-head"><img src="assets/av_luna.png" alt="" width="64" height="64"><span><small data-i18n="v3.fam.today">Today</small><b>Luna</b></span></div>
+            <div class="ui-card now"><span class="ui-pill"></span><span class="ui-dose"><b data-i18n="v2.fam.dose">Insulin · 10 u</b><small data-i18n="v2.fam.time">8:00 AM</small></span>
+              <span class="ui-btn"><span class="a" data-i18n="v2.fam.btn">Mark as given</span><span class="b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="v2.fam.given">Given</span></span></span>
+              <i class="ui-tap"></i>
+            </div>
+            <div class="ui-card later"><span class="ui-pill"></span><span class="ui-dose"><b data-i18n="v2.fam.dose">Insulin · 10 u</b><small data-i18n="v3.fam.time2">8:00 PM</small></span><span class="ui-tag" data-i18n="v3.fam.sched">Later</span></div>
+            <div class="ui-week"><span class="ui-wl"><small data-i18n="v3.fam.week">Last 7 days</small></span><span class="ui-dots"><i></i><i></i><i></i><i></i><i></i><i class="miss"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="today"></i></span></div>
+            <div class="ui-tabs"><i class="on"></i><i></i><i></i><i></i><i></i></div>
+          </div>
+        </div></div></div>
+      </div>
+      <div class="fam-ph fam-ph--b">
+        <span class="fam-who" data-i18n="v2.fam.you">You</span>
+        <div class="scene"><div class="tilt"><div class="p3 p3--mini">
+          <div class="ui">
+            <div class="ui-status"><b>8:00</b><i></i></div>
+            <div class="ui-notif"><img src="assets/logo-192.png" alt="" width="40" height="40"><span><b data-i18n="v2.fam.notif.t">Insulin given</b><small data-i18n="v2.fam.notif.s">Marco marked it at 8:00</small></span></div>
+            <div class="ui-head"><img src="assets/av_luna.png" alt="" width="64" height="64"><span><small data-i18n="v3.fam.today">Today</small><b>Luna</b></span></div>
+            <div class="ui-card now"><span class="ui-pill"></span><span class="ui-dose"><b data-i18n="v2.fam.dose">Insulin · 10 u</b><small data-i18n="v2.fam.time">8:00 AM</small></span>
+              <span class="ui-btn"><span class="a" data-i18n="v2.fam.btn">Mark as given</span><span class="b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="v2.fam.given">Given</span></span></span>
+            </div>
+            <div class="ui-card later"><span class="ui-pill"></span><span class="ui-dose"><b data-i18n="v2.fam.dose">Insulin · 10 u</b><small data-i18n="v3.fam.time2">8:00 PM</small></span><span class="ui-tag" data-i18n="v3.fam.sched">Later</span></div>
+            <div class="ui-week"><span class="ui-wl"><small data-i18n="v3.fam.week">Last 7 days</small></span><span class="ui-dots"><i></i><i></i><i></i><i></i><i></i><i class="miss"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="today"></i></span></div>
+            <div class="ui-tabs"><i class="on"></i><i></i><i></i><i></i><i></i></div>
+          </div>
+        </div></div></div>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="section report-cta-band">
+<!-- ===== LIFE STAGES: a line that grows as you scroll ===== -->
+<section class="section life" id="life">
   <div class="wrap">
-    <a class="btn btn-ghost report-cta reveal" href="/referti" data-i18n="rep.homeLink">See three real reports</a>
+    <span class="eyebrow center reveal" data-i18n="life.eyebrow">Whatever the life stage</span>
+    <h2 class="section-title center reveal" data-i18n="life.title">Sereno fits, from first shots to adulthood.</h2>
+    <div class="tl" id="lifeTl">
+      <div class="tl-line"><i></i></div>
+      <div class="tl-node" style="--i:0"><div class="tl-pair"><span class="tl-ph"><img loading="lazy" src="https://images.unsplash.com/photo-1591160690555-5debfba289f0?auto=format&fit=crop&w=240&q=70" alt="Golden retriever puppy" width="240" height="240"></span><span class="tl-ph"><img loading="lazy" src="https://images.unsplash.com/photo-1529778873920-4da4926a72c2?auto=format&fit=crop&w=240&q=70" alt="Tabby kitten" width="240" height="240"></span></div><span class="tl-dot"></span><div class="tl-txt"><h3 data-i18n="life.s1">Puppy &amp; kitten</h3><p data-i18n="life.s1d">Vaccine schedules, growth and first vet visits.</p></div></div>
+      <div class="tl-node" style="--i:1"><div class="tl-pair"><span class="tl-ph"><img loading="lazy" src="https://images.unsplash.com/photo-1633722715463-d30f4f325e24?auto=format&fit=crop&w=240&q=70" alt="Adult golden retriever" width="240" height="240"></span><span class="tl-ph"><img loading="lazy" src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=240&q=70" alt="Adult tabby cat" width="240" height="240"></span></div><span class="tl-dot"></span><div class="tl-txt"><h3 data-i18n="life.s2">Adult</h3><p data-i18n="life.s2d">Routine care, weight trends and the occasional scare.</p></div></div>
+      <div class="tl-node" style="--i:2"><div class="tl-pair"><span class="tl-ph"><img loading="lazy" src="https://images.unsplash.com/photo-1605897472359-85e4b94d685d?auto=format&fit=crop&w=240&q=70" alt="Senior golden retriever resting" width="240" height="240"></span><span class="tl-ph"><img loading="lazy" src="https://images.unsplash.com/photo-1695740666652-9369b8c3da28?auto=format&fit=crop&w=240&q=70" alt="Senior tabby cat resting" width="240" height="240"></span></div><span class="tl-dot"></span><div class="tl-txt"><h3 data-i18n="life.s3">Senior</h3><p data-i18n="life.s3d">Chronic conditions, more meds, closer monitoring.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 8. FEATURES BENTO ===== -->
+<section class="section bento-sec">
+  <div class="wrap">
+    <span class="eyebrow center reveal" data-i18n="feat.eyebrow">Everything chronic-pet care actually needs</span>
+    <h2 class="section-title center reveal" data-i18n="feat.title">Powerful where it matters, calm everywhere else.</h2>
+    <div class="bento">
+      <article class="bcard b-wide b-insight reveal">
+        <div class="bic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 3.5 3.5L21 6"/><path d="M15 6h6v6"/></svg></div>
+        <h3 data-i18n="f7.t">Insights</h3>
+        <p data-i18n="f7.d">Sereno reads the data you've already entered and shows you the patterns in it.</p>
+        <p class="bnote" data-i18n="f7.disc">This is a pattern in the data you entered. It is not a diagnosis or a cause, and does not indicate any disease. Discuss your pet's health with your veterinarian.</p>
+        <svg class="b-chart" viewBox="0 0 300 90" fill="none" aria-hidden="true"><path d="M0 70 C40 66 60 40 100 46 S170 74 210 44 S270 20 300 24" stroke="#4ca5a6" stroke-width="3" class="spark-line" stroke-linecap="round"/><path d="M0 80 L300 80" stroke="rgba(22,48,46,.12)" stroke-dasharray="4 6"/></svg>
+      </article>
+      <article class="bcard b-red reveal">
+        <div class="bic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M12 9v6M9 12h6"/></svg></div>
+        <h3 data-i18n="f10.t">Emergency Card</h3>
+        <p data-i18n="f10.d">One screen with conditions, active medications, allergies and your vet's number.</p>
+      </article>
+      <article class="bcard reveal">
+        <div class="bic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13h3l2.5 5 4-13 2.5 8h6"/></svg></div>
+        <h3 data-i18n="f8.t">Monitoring</h3>
+        <p data-i18n="f8.d">Track temperature, resting breathing rate, fluids, quality of life and weight over time.</p>
+      </article>
+      <article class="bcard b-sand reveal">
+        <div class="bic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19h16"/><rect x="5" y="11" width="3.4" height="6"/><rect x="10.3" y="7" width="3.4" height="10"/><rect x="15.6" y="13" width="3.4" height="4"/></svg></div>
+        <h3 data-i18n="f9.t">Stool tracking</h3>
+        <p data-i18n="f9.d">Colour, consistency, amount and a 1–7 score.</p>
+      </article>
+      <article class="bcard reveal">
+        <div class="bic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5"/><path d="M9 17v-3M12 17v-5M15 17v-2"/></svg></div>
+        <h3 data-i18n="f11.t">Charts inside the report</h3>
+        <p data-i18n="f11.d">From Plus: weight, symptoms and monitoring tools are drawn as charts inside the PDF.</p>
+      </article>
+      <article class="bcard b-mint reveal">
+        <div class="bic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 4 6v6c0 5 3.4 8.5 8 10 4.6-1.5 8-5 8-10V6Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3 data-i18n="f3.t">Vaccines</h3>
+        <p data-i18n="f3.d">Full immunisation history with renewal nudges.</p>
+      </article>
+      <article class="bcard reveal">
+        <div class="bic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4M12 13v4M10 15h4"/></svg></div>
+        <h3 data-i18n="f4.t">Vet visits</h3>
+        <p data-i18n="f4.d">Notes, diagnoses and follow-ups in one timeline.</p>
+      </article>
+      <article class="bcard reveal">
+        <div class="bic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></div>
+        <h3 data-i18n="f5.t">Documents</h3>
+        <p data-i18n="f5.d">Lab results and prescriptions, scanned and searchable.</p>
+      </article>
+      <article class="bcard b-ink reveal">
+        <div class="bic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 4.5 12 2.8l7.5 1.7v6c0 4.6-3.1 8.2-7.5 9.7-4.4-1.5-7.5-5.1-7.5-9.7z"/><path d="m9 11.5 2 2 4-4"/></svg></div>
+        <h3 data-i18n="why1.t">No ads inside the app</h3>
+        <p data-i18n="why1.d">No banners, no videos to dismiss. Open it, mark the dose, that's it.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 9. LINE ===== -->
+<section class="section typo">
+  <div class="wrap"><p id="typoLine" class="typo-line">Less worry. More moments together.</p></div>
+</section>
+
+<!-- ===== 10. STORIES ===== -->
+<section class="section stories">
+  <div class="wrap">
+    <span class="eyebrow center reveal" data-i18n="test.eyebrow">We've been there too</span>
+    <h2 class="section-title center reveal" data-i18n="test.title">From families who track every day.</h2>
+  </div>
+  <div class="stories-marquee">
+    <div class="stories-row" id="storiesRow">
+      <article class="story" style="--a:#2c7a7b"><div class="story-img"><img loading="lazy" src="https://images.unsplash.com/photo-1557199582-14cd70bc6d39?auto=format&fit=crop&w=640&q=70" alt="Owner standing with his Labrador retriever" width="640" height="427"></div><span class="story-badge" data-i18n="t1.badge">Diabetes · 7 yrs</span><p data-i18n="t1.quote"></p><footer><i>MB</i><span><b data-i18n="t1.name">Marta & Bella</b><small data-i18n="t1.meta"></small></span></footer></article>
+      <article class="story" style="--a:#4684ad"><div class="story-img"><img loading="lazy" src="https://images.unsplash.com/photo-1540411003967-af56b79be677?auto=format&fit=crop&w=640&q=70" alt="Child hugging a Siberian husky" width="640" height="427"></div><span class="story-badge" data-i18n="t2.badge">Epilepsy · 4 yrs</span><p data-i18n="t2.quote"></p><footer><i>JO</i><span><b data-i18n="t2.name">James & Otis</b><small data-i18n="t2.meta"></small></span></footer></article>
+      <article class="story" style="--a:#cf7a37"><div class="story-img"><img loading="lazy" src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=640&q=70" alt="A calm cat resting at home" style="object-position:50% 30%" width="640" height="427"></div><span class="story-badge" data-i18n="t3.badge">Kidney · 11 yrs</span><p data-i18n="t3.quote"></p><footer><i>LM</i><span><b data-i18n="t3.name">Lena & Mochi</b><small data-i18n="t3.meta"></small></span></footer></article>
+      <article class="story" style="--a:#4f9468"><div class="story-img"><img loading="lazy" src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=640&q=70" alt="A golden retriever" width="640" height="427"></div><span class="story-badge" data-i18n="t6.badge">Arthritis · 9 yrs</span><p data-i18n="t6.quote"></p><footer><i>TB</i><span><b data-i18n="t6.name">Tom & Biscuit</b><small data-i18n="t6.meta"></small></span></footer></article>
+      <article class="story" style="--a:#c16f8c"><div class="story-img"><img loading="lazy" src="https://images.unsplash.com/photo-1581527106942-3c2c6b0bbe63?auto=format&fit=crop&w=640&q=70" alt="Woman hugging her mixed-breed dog" width="640" height="427"></div><span class="story-badge" data-i18n="t7.badge">Heart · 8 yrs</span><p data-i18n="t7.quote"></p><footer><i>EA</i><span><b data-i18n="t7.name">Elisa & Argo</b><small data-i18n="t7.meta"></small></span></footer></article>
+      <article class="story" style="--a:#8a6d3b"><div class="story-img"><img loading="lazy" src="https://images.unsplash.com/photo-1601758124510-52d02ddb7cbd?auto=format&fit=crop&w=640&q=70" alt="Couple with their Jack Russell terrier" width="640" height="427"></div><span class="story-badge" data-i18n="t4.badge">Everyday</span><p data-i18n="t4.quote"></p><footer><i>DP</i><span><b data-i18n="t4.name">Diego & Pippa</b><small data-i18n="t4.meta"></small></span></footer></article>
+      <article class="story" style="--a:#2c7a7b"><div class="story-img"><img loading="lazy" src="https://images.unsplash.com/photo-1495360010541-f48722b34f7d?auto=format&fit=crop&w=640&q=70" alt="A cat at home" width="640" height="427"></div><span class="story-badge" data-i18n="t5.badge">Everyday</span><p data-i18n="t5.quote"></p><footer><i>SN</i><span><b data-i18n="t5.name">Sofia & Nala</b><small data-i18n="t5.meta"></small></span></footer></article>
+      <article class="story" style="--a:#4684ad"><div class="story-img"><img loading="lazy" src="https://images.unsplash.com/photo-1642112312562-f7dfcfcff8b6?auto=format&fit=crop&w=640&q=70" alt="Woman sitting with her cat on her lap" width="640" height="427"></div><span class="story-badge" data-i18n="t8.badge">Everyday</span><p data-i18n="t8.quote"></p><footer><i>NM</i><span><b data-i18n="t8.name">Nora & Milo</b><small data-i18n="t8.meta"></small></span></footer></article>
+    </div>
   </div>
 </section>
 
 <!-- ===== 11. PRICING ===== -->
-<section class="section section-pad pricing" id="pricing">
+<section class="section pricing" id="pricing">
   <div class="wrap">
     <span class="eyebrow center reveal" data-i18n="price.eyebrow">Simple pricing</span>
-    <h2 class="section-title center reveal" data-delay="80" data-i18n="price.title">Free forever for one pet.</h2>
-    <div class="toggle reveal" data-delay="140">
-      <span class="lbl on" id="lblMonthly" data-i18n="price.monthly">Monthly</span>
-      <button class="switch" id="billingSwitch" aria-label="Toggle billing"><i></i></button>
-      <span class="lbl" id="lblYearly" data-i18n="price.yearly">Yearly</span>
-      <span class="trial-note" id="trialNote" style="opacity:0" data-i18n="price.trial">7-day free trial on yearly</span>
+    <h2 class="section-title center reveal" data-i18n="price.title">Free forever for one pet.</h2>
+    <div class="billing reveal">
+      <button type="button" class="bill on" data-bill="monthly" data-i18n="price.monthly">Monthly</button>
+      <button type="button" class="bill" data-bill="yearly" data-i18n="price.yearly">Yearly</button>
+      <i class="bill-pill"></i>
     </div>
+    <p class="trial-note center" id="trialNote" data-i18n="price.trial">7-day free trial on yearly</p>
     <div class="price-grid">
       <article class="pcard reveal">
         <h3 data-i18n="p0.name">Free</h3>
         <p class="desc" data-i18n="p0.d">For a simple, single-pet routine.</p>
         <div class="price"><b data-i18n="p0.price">$0</b><span data-i18n="p0.tag">forever</span></div>
         <ul class="feats">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p0.f1">1 pet profile</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p0.f2">Medication &amp; dose tracking</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p0.f3">Symptom log</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p0.f7"></span></li>
+          <li data-i18n="p0.f1">1 pet profile</li>
+          <li data-i18n="p0.f2">Medication &amp; dose tracking</li>
+          <li data-i18n="p0.f3">Symptom log</li>
+          <li data-i18n="p0.f7"></li>
         </ul>
         <a href="#get-app" class="btn btn-ghost" data-i18n="p0.cta">Get started</a>
       </article>
-      <article class="pcard feat reveal" data-delay="80">
+      <article class="pcard pcard--feat reveal">
         <span class="pcard-tag" data-i18n="p1.tag">Most chosen</span>
         <h3 data-i18n="p1.name">Plus</h3>
         <p class="desc" data-i18n="p1.d">For more complex or shared care — everything in Free, plus:</p>
         <div class="price"><b id="plusPrice" data-i18n="p1.priceMo">$4.99</b><span id="plusUnit" data-i18n="price.mo">/mo</span><span class="save" id="plusSave"></span></div>
         <ul class="feats">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p1.f1">Up to 3 pets</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p1.f2">Up to 10 active medications</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p1.f3">Family sharing (up to 2 people)</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p1.f4"></span></li>
+          <li data-i18n="p1.f1">Up to 3 pets</li>
+          <li data-i18n="p1.f2">Up to 10 active medications</li>
+          <li data-i18n="p1.f3">Family sharing (up to 2 people)</li>
+          <li data-i18n="p1.f4"></li>
         </ul>
-        <a href="#get-app" class="btn btn-primary" id="plusCta" data-i18n="p1.cta">Start free trial</a>
+        <a href="#get-app" class="btn btn-light" id="plusCta" data-i18n="p1.cta">Start free trial</a>
       </article>
-      <article class="pcard reveal" data-delay="160">
+      <article class="pcard reveal">
         <h3 data-i18n="p2.name">Pro</h3>
         <p class="desc" data-i18n="p2.d">For serious chronic-condition monitoring — everything in Plus, plus:</p>
         <div class="price"><b id="proPrice" data-i18n="p2.priceMo">$9.99</b><span id="proUnit" data-i18n="price.mo">/mo</span><span class="save" id="proSave"></span></div>
         <ul class="feats">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p2.f0">Insights: patterns and trends from your own data</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p2.f1">Glucose curve &amp; injection tracking (diabetes)</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p2.f2">Seizure timer &amp; diary (epilepsy)</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg><span data-i18n="p2.f3">Blood test values with your vet's thresholds</span></li>
+          <li data-i18n="p2.f0">Insights: patterns and trends from your own data</li>
+          <li data-i18n="p2.f1">Glucose curve &amp; injection tracking (diabetes)</li>
+          <li data-i18n="p2.f2">Seizure timer &amp; diary (epilepsy)</li>
+          <li data-i18n="p2.f3">Blood test values with your vet's thresholds</li>
         </ul>
         <a href="#get-app" class="btn btn-ghost" id="proCta" data-i18n="p2.cta">Start free trial</a>
       </article>
     </div>
-
-    <!-- feature comparison -->
-    <div class="cmp reveal" data-delay="120">
-      <div class="cmp-toggle-wrap">
-        <button class="cmp-toggle" type="button" aria-expanded="true" aria-controls="cmpPanel">
-          <span class="cmp-tg-show" data-i18n="cmp.show">Compare all features</span>
-          <span class="cmp-tg-hide" data-i18n="cmp.hide">Hide comparison</span>
-          <span class="cmp-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg></span>
-        </button>
-      </div>
-      <div class="cmp-panel" id="cmpPanel">
-        <div class="cmp-table">
-        <div class="cmp-hl" aria-hidden="true"></div>
-        <div class="cmp-head">
-          <div class="cmp-feature"></div>
-          <div class="cmp-col" data-i18n="p0.name">Free</div>
-          <div class="cmp-col cmp-col--plus" data-i18n="p1.name">Plus</div>
-          <div class="cmp-col" data-i18n="p2.name">Pro</div>
-        </div>
-
-        <div class="cmp-group"><span class="cmp-glabel" data-i18n="cmp.gCore">Core</span></div>
-        <div class="cmp-row">
-          <div class="cmp-feature" data-i18n="cmp.r1">Symptom log</div>
-          <div class="cmp-val"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg></div>
-          <div class="cmp-val"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg></div>
-          <div class="cmp-val"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg></div>
-        </div>
-        <div class="cmp-row">
-          <div class="cmp-feature" data-i18n="cmp.r2">Vaccine tracking</div>
-          <div class="cmp-val"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg></div>
-          <div class="cmp-val"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg></div>
-          <div class="cmp-val"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg></div>
-        </div>
-        <div class="cmp-row">
-          <div class="cmp-feature" data-i18n="cmp.r3">Vet visit tracking</div>
-          <div class="cmp-val"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg></div>
-          <div class="cmp-val"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg></div>
-          <div class="cmp-val"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg></div>
-        </div>
-        <div class="cmp-row">
-          <div class="cmp-feature" data-i18n="cmp.r4">Emergency Card for the vet</div>
-          <div class="cmp-val"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg></div>
-          <div class="cmp-val"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg></div>
-          <div class="cmp-val"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg></div>
-        </div>
-        <div class="cmp-row">
-          <div class="cmp-feature" data-i18n="cmp.r5">Food &amp; water diary + meal reminders</div>
-          <div class="cmp-val"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg></div>
-          <div class="cmp-val"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg></div>
-          <div class="cmp-val"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg></div>
-        </div>
-        <div class="cmp-row">
-          <div class="cmp-feature" data-i18n="cmp.r6">Weight tracking</div>
-          <div class="cmp-val"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg></div>
-          <div class="cmp-val"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg></div>
-          <div class="cmp-val"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg></div>
-        </div>
-
-        <div class="cmp-row">
-          <div class="cmp-feature" data-i18n="cmp.r19">Condition monitoring (temperature, breathing, fluids, quality of life)</div>
-          <div class="cmp-val"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg></div>
-          <div class="cmp-val"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg></div>
-          <div class="cmp-val"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg></div>
-        </div>
-        <div class="cmp-row">
-          <div class="cmp-feature" data-i18n="cmp.r20">Unified calendar</div>
-          <div class="cmp-val"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg></div>
-          <div class="cmp-val"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg></div>
-          <div class="cmp-val"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg></div>
-        </div>
-        <div class="cmp-row">
-          <div class="cmp-feature" data-i18n="cmp.r21">Custom reminders</div>
-          <div class="cmp-val"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg></div>
-          <div class="cmp-val"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg></div>
-          <div class="cmp-val"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg></div>
-        </div>
-
-        <div class="cmp-group"><span class="cmp-glabel" data-i18n="cmp.gLimits">Limits</span></div>
-        <div class="cmp-row">
-          <div class="cmp-feature" data-i18n="cmp.r7">Pet profiles</div>
-          <div class="cmp-val">1</div>
-          <div class="cmp-val">3</div>
-          <div class="cmp-val">10</div>
-        </div>
-        <div class="cmp-row">
-          <div class="cmp-feature" data-i18n="cmp.r26">Health conditions per pet</div>
-          <div class="cmp-val" data-i18n="cmp.noLimit">Unlimited</div>
-          <div class="cmp-val" data-i18n="cmp.noLimit">Unlimited</div>
-          <div class="cmp-val" data-i18n="cmp.noLimit">Unlimited</div>
-        </div>
-        <div class="cmp-row">
-          <div class="cmp-feature" data-i18n="cmp.r8">Active medications</div>
-          <div class="cmp-val">2</div>
-          <div class="cmp-val">10</div>
-          <div class="cmp-val" data-i18n="cmp.unlimited">Unlimited</div>
-        </div>
-        <div class="cmp-row">
-          <div class="cmp-feature" data-i18n="cmp.r9">Documents</div>
-          <div class="cmp-val">5</div>
-          <div class="cmp-val">25</div>
-          <div class="cmp-val" data-i18n="cmp.unlimited">Unlimited</div>
-        </div>
-        <div class="cmp-row">
-          <div class="cmp-feature" data-i18n="cmp.r25">Archived vet visits</div>
-          <div class="cmp-val">3</div>
-          <div class="cmp-val">25</div>
-          <div class="cmp-val" data-i18n="cmp.unlimited">Unlimited</div>
-        </div>
-        <div class="cmp-row">
-          <div class="cmp-feature" data-i18n="cmp.r10">Family members</div>
-          <div class="cmp-val">1</div>
-          <div class="cmp-val">2</div>
-          <div class="cmp-val" data-i18n="cmp.unlimited">Unlimited</div>
-        </div>
-        <div class="cmp-row">
-          <div class="cmp-feature" data-i18n="cmp.r11">Health reports / month</div>
-          <div class="cmp-val">1</div>
-          <div class="cmp-val">5</div>
-          <div class="cmp-val" data-i18n="cmp.unlimited">Unlimited</div>
-        </div>
-        <div class="cmp-row">
-          <div class="cmp-feature" data-i18n="cmp.r22">Nodule tracking</div>
-          <div class="cmp-val">1</div>
-          <div class="cmp-val" data-i18n="cmp.unlimited">Unlimited</div>
-          <div class="cmp-val" data-i18n="cmp.unlimited">Unlimited</div>
-        </div>
-        <div class="cmp-row">
-          <div class="cmp-feature" data-i18n="cmp.r12">Reports without watermark</div>
-          <div class="cmp-val"><span class="no">—</span></div>
-          <div class="cmp-val"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg></div>
-          <div class="cmp-val"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg></div>
-        </div>
-
-        <div class="cmp-group"><span class="cmp-glabel" data-i18n="cmp.gPlus">Plus</span></div>
-        <div class="cmp-row">
-          <div class="cmp-feature" data-i18n="cmp.r13">Trend charts for all metrics (temperature, weight, breathing, quality of life, symptoms)</div>
-          <div class="cmp-val"><span class="no">—</span></div>
-          <div class="cmp-val"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg></div>
-          <div class="cmp-val"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg></div>
-        </div>
-        <div class="cmp-row">
-          <div class="cmp-feature" data-i18n="cmp.r14">Missed-dose reminders &amp; escalation</div>
-          <div class="cmp-val"><span class="no">—</span></div>
-          <div class="cmp-val"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg></div>
-          <div class="cmp-val"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg></div>
-        </div>
-
-        <div class="cmp-group"><span class="cmp-glabel" data-i18n="cmp.gPro">Pro</span></div>
-        <div class="cmp-row">
-          <div class="cmp-feature" data-i18n="cmp.r24">Insights</div>
-          <div class="cmp-val"><span class="no">—</span></div>
-          <div class="cmp-val"><span class="no">—</span></div>
-          <div class="cmp-val"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg></div>
-        </div>
-        <div class="cmp-row">
-          <div class="cmp-feature" data-i18n="cmp.r15">Glucose curve (for diabetes)</div>
-          <div class="cmp-val"><span class="no">—</span></div>
-          <div class="cmp-val"><span class="no">—</span></div>
-          <div class="cmp-val"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg></div>
-        </div>
-        <div class="cmp-row">
-          <div class="cmp-feature" data-i18n="cmp.r16">Seizure timer (for epilepsy)</div>
-          <div class="cmp-val"><span class="no">—</span></div>
-          <div class="cmp-val"><span class="no">—</span></div>
-          <div class="cmp-val"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg></div>
-        </div>
-        <div class="cmp-row">
-          <div class="cmp-feature" data-i18n="cmp.r17">Injection-site tracking</div>
-          <div class="cmp-val"><span class="no">—</span></div>
-          <div class="cmp-val"><span class="no">—</span></div>
-          <div class="cmp-val"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 6"/></svg></div>
-        </div>
-        <div class="cmp-row">
-          <div class="cmp-feature" data-i18n="cmp.r23">Blood test values</div>
-          <div class="cmp-val"><span class="no">—</span></div>
-          <div class="cmp-val"><span class="no">—</span></div>
-          <div class="cmp-val" data-i18n="cmp.unlimited">Unlimited</div>
-        </div>
-      </div>
-      </div>
-    </div>
+    <details class="cmp reveal">
+      <summary><span data-i18n="cmp.show">Compare all features</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="cmp-table" id="cmpTable"></div>
+    </details>
   </div>
 </section>
 
-<!-- ===== 11b. DOWNLOADABLE GUIDE ===== -->
-<section class="section section-pad guide" id="guide">
+<!-- ===== 12. GUIDE + FAQ ===== -->
+<section class="section guide-faq" id="faq">
   <div class="wrap">
-    <div class="guide-card reveal">
+    <a class="guide-card reveal" data-guide-link href="/guida/sereno-guide" target="_blank" rel="noopener">
+      <div class="guide-book" aria-hidden="true"><span></span><span></span><span></span><b>16</b></div>
       <div class="guide-copy">
-        <span class="eyebrow" data-i18n="guide.eyebrow">The complete guide</span>
-        <h2 data-i18n="guide.title">Sixteen chapters on everything the app does.</h2>
-        <p data-i18n="guide.d">The full Sereno guide, chapter by chapter. Read it in your browser or save it — it's one file, and it works offline.</p>
-        <a class="btn btn-primary" data-guide-link href="/guida/sereno-guide" target="_blank" rel="noopener" data-i18n="guide.cta">Read the guide</a>
+        <span class="eyebrow light" data-i18n="guide.eyebrow">The complete guide</span>
+        <h3 data-i18n="guide.title">Sixteen chapters on everything the app does.</h3>
+        <p data-i18n="guide.d">The full Sereno guide, chapter by chapter.</p>
+        <span class="btn btn-light btn-arrow"><span data-i18n="guide.cta">Read the guide</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </div>
-      <div class="guide-visual" aria-hidden="true">
-        <div class="guide-book"><span></span><span></span><span></span><span></span><span></span></div>
-      </div>
-    </div>
-  </div>
-</section>
+    </a>
 
-<!-- ===== 12. FAQ ===== -->
-<section class="section section-pad" id="faq">
-  <div class="wrap">
     <span class="eyebrow center reveal" data-i18n="faq.eyebrow">Questions</span>
-    <h2 class="section-title center reveal" data-delay="80" data-i18n="faq.title">Everything you might be wondering.</h2>
-    <div class="faq-wrap reveal" data-delay="120">
-      <div class="faq-item"><button class="faq-q"><span data-i18n="q1">Is Sereno really free?</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="faq-a"><p data-i18n="a1"></p></div></div>
-      <div class="faq-item"><button class="faq-q"><span data-i18n="q2">Can I share access?</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="faq-a"><p data-i18n="a2"></p></div></div>
-      <div class="faq-item"><button class="faq-q"><span data-i18n="q3">Does it work for healthy pets?</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="faq-a"><p data-i18n="a3"></p></div></div>
-      <div class="faq-item"><button class="faq-q"><span data-i18n="q4">Which conditions does it support?</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="faq-a"><p data-i18n="a4"></p></div></div>
-      <div class="faq-item"><button class="faq-q"><span data-i18n="q5">Is my pet's data private?</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="faq-a"><p data-i18n="a5"></p></div></div>
-      <div class="faq-item"><button class="faq-q"><span data-i18n="q6">How do I create an account?</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="faq-a"><p data-i18n="a6"></p></div></div>
+    <h2 class="section-title center reveal" data-i18n="faq.title">Everything you might be wondering.</h2>
+    <div class="faq reveal">
+      <details class="faq-item"><summary><span data-i18n="q1">Is Sereno really free?</span><i></i></summary><p data-i18n="a1"></p></details>
+      <details class="faq-item"><summary><span data-i18n="q2">Can I share access?</span><i></i></summary><p data-i18n="a2"></p></details>
+      <details class="faq-item"><summary><span data-i18n="q3">Does it work for healthy pets?</span><i></i></summary><p data-i18n="a3"></p></details>
+      <details class="faq-item"><summary><span data-i18n="q4">Which conditions does it support?</span><i></i></summary><p data-i18n="v2.a4"></p></details>
+      <details class="faq-item"><summary><span data-i18n="q5">Is my pet's data private?</span><i></i></summary><p data-i18n="a5"></p></details>
+      <details class="faq-item"><summary><span data-i18n="q6">How do I create an account?</span><i></i></summary><p data-i18n="a6"></p></details>
     </div>
-    <div class="faq-contact reveal" data-delay="160">
-      <p class="faq-contact-line" data-i18n="faq.contact">Still have questions? We'd love to hear from you.</p>
-      <a class="faq-contact-btn" href="mailto:supportserenopet@gmail.com">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
-        <span data-i18n="faq.contactCta">Email us</span>
-      </a>
+    <div class="faq-contact reveal">
+      <p data-i18n="faq.contact">Still have questions? We'd love to hear from you.</p>
+      <a class="btn btn-ghost" href="mailto:supportserenopet@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg><span data-i18n="faq.contactCta">Email us</span></a>
     </div>
   </div>
 </section>
 
-<!-- ===== 13. FINAL CTA + FOOTER ===== -->
-<section class="section section-pad final">
+<!-- ===== 13. FINAL CTA ===== -->
+<section class="section final">
   <div class="wrap">
     <div class="final-card reveal" id="get-app">
-      <h2 data-i18n="cta.title">Start caring with confidence today.</h2>
-      <p data-i18n="cta.sub">Give your pet calmer, better care — starting today</p>
-      <div class="stores">
-        <a class="store" href="https://apps.apple.com/app/sereno-pet-health-tracker/id6776119195" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 1.6c.1 1-.3 2-.9 2.7-.7.8-1.7 1.4-2.7 1.3-.1-1 .3-2 1-2.8.6-.7 1.7-1.2 2.6-1.2zM20 17.2c-.5 1.2-.8 1.7-1.4 2.7-.9 1.4-2.2 3.1-3.7 3.1-1.4 0-1.7-.9-3.6-.9s-2.3.9-3.6.9c-1.6 0-2.8-1.5-3.7-2.9C1.4 16.6.8 11.9 2.4 9.4c1-1.6 2.7-2.6 4.3-2.6 1.6 0 2.6 1 3.9 1 1.3 0 2-1 3.9-1 1.4 0 2.9.8 3.9 2.1-3.4 1.9-2.9 6.8 1.2 8.3z"/></svg>
-          <span><small data-i18n="hero.app">Download on the</small><b>App Store</b></span>
-        </a>
-        <a class="store" href="https://play.google.com/store/apps/details?id=com.ivansalgarello.sereno" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24"><path fill="#4ca5a6" d="M3.6 2.3 13 11.7l-2.6 2.6z"/><path fill="#f4a261" d="M16.5 8.8 13.9 11l3 3 3.1-1.8c.9-.5.9-1.8 0-2.3z"/><path fill="#2c7a7b" d="M3.6 2.3c-.2.2-.3.5-.3.9v17.6c0 .4.1.7.3.9L13 11.7z"/><path fill="#e08c43" d="m3.6 21.7 9.4-9.4 2.6 2.6-9.4 5.4c-.9.5-1.9.2-2.6-.6z" opacity=".9"/></svg>
-          <span><small data-i18n="hero.play">Get it on</small><b>Google Play</b></span>
-        </a>
+      <div class="final-glow" aria-hidden="true"></div>
+      <div class="final-copy">
+        <h2 data-i18n="cta.title">Start caring with confidence today.</h2>
+        <p data-i18n="cta.sub">Give your pet calmer, better care — starting today</p>
+        <div class="stores">
+          <a class="store store--light" href="https://apps.apple.com/app/sereno-pet-health-tracker/id6776119195" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 1.6c.1 1-.3 2-.9 2.7-.7.8-1.7 1.4-2.7 1.3-.1-1 .3-2 1-2.8.6-.7 1.7-1.2 2.6-1.2zM20 17.2c-.5 1.2-.8 1.7-1.4 2.7-.9 1.4-2.2 3.1-3.7 3.1-1.4 0-1.7-.9-3.6-.9s-2.3.9-3.6.9c-1.6 0-2.8-1.5-3.7-2.9C1.4 16.6.8 11.9 2.4 9.4c1-1.6 2.7-2.6 4.3-2.6 1.6 0 2.6 1 3.9 1 1.3 0 2-1 3.9-1 1.4 0 2.9.8 3.9 2.1-3.4 1.9-2.9 6.8 1.2 8.3z"/></svg>
+            <span><small data-i18n="hero.app">Download on the</small><b>App Store</b></span>
+          </a>
+          <a class="store store--light" href="https://play.google.com/store/apps/details?id=com.ivansalgarello.sereno" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path fill="#4ca5a6" d="M3.6 2.3 13 11.7l-2.6 2.6z"/><path fill="#f4a261" d="M16.5 8.8 13.9 11l3 3 3.1-1.8c.9-.5.9-1.8 0-2.3z"/><path fill="#2c7a7b" d="M3.6 2.3c-.2.2-.3.5-.3.9v17.6c0 .4.1.7.3.9L13 11.7z"/><path fill="#e08c43" d="m3.6 21.7 9.4-9.4 2.6 2.6-9.4 5.4c-.9.5-1.9.2-2.6-.6z" opacity=".9"/></svg>
+            <span><small data-i18n="hero.play">Get it on</small><b>Google Play</b></span>
+          </a>
+        </div>
+      </div>
+      <div class="final-device" aria-hidden="true">
+        <div class="scene"><div class="tilt tilt--spin"><div class="p3 p3--final" data-src="assets/demo_today_sm.webp" data-alt=""></div></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<footer>
-  <div class="foot-grid">
-    <div class="foot-col">
-      <div class="foot-brand"><img src="assets/logo.png" alt="Sereno"><span>Sereno<sup class="tm">®</sup></span></div>
+<footer class="foot">
+  <div class="wrap foot-grid">
+    <div class="foot-col foot-about">
+      <div class="foot-brand"><img src="assets/logo-192.png" alt="" width="34" height="34"><span>Sereno<sup class="tm">®</sup></span></div>
       <p data-i18n="footer.tagline">Calm, confident care for pets with chronic conditions — and every pet in between.</p>
     </div>
     <div class="foot-col">
       <h4 data-i18n="footer.product">Product</h4>
       <ul>
         <li><a href="#features" data-i18n="nav.features">Features</a></li>
+        <li><a href="/referti" data-i18n="nav.reports">Reports</a></li>
         <li><a href="#pricing" data-i18n="nav.pricing">Pricing</a></li>
         <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
         <li><a data-guide-link href="/guida/sereno-guide" target="_blank" rel="noopener" data-i18n="footer.guide">Guide</a></li>
@@ -709,6 +537,7 @@
       <ul>
         <li><a href="#top">Sereno<sup class="tm">®</sup></a></li>
         <li><a href="#download" data-i18n="nav.download">Download</a></li>
+        <li><a href="mailto:supportserenopet@gmail.com">supportserenopet@gmail.com</a></li>
       </ul>
     </div>
     <div class="foot-col">
@@ -719,17 +548,17 @@
       </ul>
     </div>
   </div>
-  <div class="foot-bottom">
+  <div class="wrap foot-bottom">
     <span data-i18n="footer.rights">© 2026 Sereno. Made with care for pets everywhere.</span>
-    <span class="foot-legal-links"><a href="/privacy" data-i18n="footer.privacy">Privacy Policy</a> · <a href="/terms" data-i18n="footer.terms">Terms</a></span>
   </div>
 </footer>
 
 </main>
 
 <script src="js/i18n.js?v=29"></script>
-<script src="js/main.js?v=21"></script>
-<script src="js/mobile-demo.js?v=9"></script>
+<script src="js/i18n-v2.js?v=2"></script>
+<script src="js/i18n-v3.js?v=4"></script>
+<script src="js/v3.js?v=5"></script>
 
 <!-- ============ Cookie consent + Meta Pixel ============ -->
 <style>
@@ -883,7 +712,8 @@
      target every frame so it always lands exactly at the section. -->
 <script>
 (function(){
-  var OFFSET = 16; /* matches scroll-padding-top */
+  var OFFSET = 16; /* v2: plus the fixed nav, measured when used */
+  function navH(){ /* only the visible bar: the closed mobile menu lives inside the header too */ var n=document.querySelector('#nav .nav-inner'); return n ? Math.max(0, n.getBoundingClientRect().bottom) : 0; }
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* let JS own the scroll so native smooth doesn't fight it */
@@ -894,7 +724,7 @@
        scrollY + rect.top is invariant to current scroll = el's absolute top,
        so this tracks layout shifts (e.g. images loading) automatically. */
     var max = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
-    return Math.min(max, Math.max(0, window.scrollY + el.getBoundingClientRect().top - OFFSET));
+    return Math.min(max, Math.max(0, window.scrollY + el.getBoundingClientRect().top - OFFSET - navH()));
   }
 
   function easeInOutCubic(t){ return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2, 3)/2; }
