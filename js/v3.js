@@ -361,11 +361,11 @@
       if (sdir !== 1) return;
       sdx = dx;
       /* the phone follows the finger */
-      if (storyTilt && !reduce) { storyTilt.classList.add('dragging'); setTilt(storyTilt, 6, -22 + clamp(dx * 0.35, -70, 70)); }
+      if (storyTilt && !reduce) { storyTilt.classList.add('dragging'); setTilt(storyTilt, 8, -28 + clamp(dx * 0.35, -70, 70)); }
     }, { passive: true });
     storyStage.addEventListener('touchend', function () {
       if (!swipeMode()) return;
-      if (storyTilt) { storyTilt.classList.remove('dragging'); setTilt(storyTilt, 6, -22); }
+      if (storyTilt) { storyTilt.classList.remove('dragging'); setTilt(storyTilt, 8, -28); }
       if (sdir === 1 && Math.abs(sdx) > 45) { userTook(); var d = sdx < 0 ? 1 : -1; goStory(storyIdx + d, d); }
       sdir = 0; sdx = 0;
     }, { passive: true });
@@ -374,7 +374,7 @@
     if (!swipeMode() || reduce || storyUser || storyAuto) return;
     storyAuto = setInterval(function () { if (swipeMode() && !storyUser) goStory(storyIdx + 1, 1); }, 4200);
   }, function () { if (storyAuto) { clearInterval(storyAuto); storyAuto = null; } }, 0.5);
-  function enterMode() { if (swipeMode()) { paintRails(); if (storyTilt) setTilt(storyTilt, 6, -22); } }
+  function enterMode() { if (swipeMode()) { paintRails(); if (storyTilt) setTilt(storyTilt, 8, -28); } }
   if (swipeMQ.addEventListener) swipeMQ.addEventListener('change', function () { enterMode(); onScroll(); });
   enterMode();
 
@@ -398,7 +398,7 @@
     /* hero: capsules drift at different depths; on touch the phone turns with the scroll */
     if (y < innerHeight * 1.3) {
       caps.forEach(function (c) { c.style.setProperty('--py', (-y * 0.6) + 'px'); });
-      if (heroTilt && !fine) { var p = y / innerHeight; setTilt(heroTilt, 7 + p * 12, -22 + p * 40); }
+      if (heroTilt && !fine) { var p = Math.min(1, y / innerHeight); setTilt(heroTilt, 7 + p * 8, -22 - p * 14); /* always turned to the side, like on a computer: seen face-on it looks flat */ }
     }
 
     /* questions and the answer light up as they cross the lower third */
