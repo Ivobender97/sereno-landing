@@ -746,3 +746,42 @@ html:not(.js) .joy-row .joy-card{opacity:1;transform:rotate(var(--rot))}
   @media (min-width:720px){.p3--story{--w:min(62vw,44cqh,400px)}}
   @media (min-width:1000px){.p3--story{--w:min(40vw,44cqh,340px)}}
 }
+
+/* ============================================================
+   8 Oct, after going live — Ivan's changes
+   ============================================================ */
+/* the top bar stays at the top of the page: it does not follow the scroll */
+.nav{position:absolute}
+html{scroll-padding-top:16px}
+.story-stage{padding-top:34px}
+.report-stage{padding-top:24px}
+@media (max-height:700px){.story-stage{padding-top:24px}}
+@media (min-width:1000px){.story-stage{padding-top:50px}}
+
+/* hero: store buttons and "see the plans" under the phone */
+.hero-grid{grid-template-areas:"copy" "visual" "cta" "tester"}
+.hero-copy .hero-sub{margin-bottom:0}
+.hero-cta{grid-area:cta;display:flex;flex-direction:column;align-items:center;margin-top:4px}
+.hero-cta .plans-link{margin-top:14px}
+@media (min-width:1000px){
+  .hero-grid{grid-template-areas:"copy visual" "cta visual" "tester visual"}
+  .hero-copy .hero-sub{margin-bottom:24px}
+  .hero-cta{align-items:flex-start;margin-top:0}
+}
+
+/* the three questions: one under the other, aligned */
+.q:nth-child(2),.q:nth-child(3){margin-left:0}
+
+/* joy photos: a tidy grid of landscape photos — 2×2 on phones, 4 in a row on computers */
+.joy-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:980px;margin:0 auto;padding:28px var(--pad) 10px;--cw:auto}
+.joy-row .joy-card,.joy-row .joy-card:first-child{width:auto;margin-left:0;--rot:0deg;--dy:0px}
+.joy-row .joy-card{opacity:0;transform:translateY(24px) scale(.96);transition:opacity .6s var(--ease),transform .8s var(--ease);transition-delay:calc(var(--i) * 110ms)}
+.joy.is-on .joy-row .joy-card{opacity:1;transform:none}
+.joy-row .joy-card:hover{transform:translateY(-4px)}
+.joy-row .joy-ph{aspect-ratio:4/3;border:0;border-radius:18px}
+.joy-row .joy-ph img{left:0;width:100%;transform:scale(1.04);animation:kenburns 14s ease-in-out infinite alternate;animation-delay:calc(var(--i) * -3s)}
+@keyframes kenburns{to{transform:scale(1.14) translate3d(-2%,-1%,0)}}
+.joy-row .joy-card figcaption{left:0;right:0;bottom:0;border-radius:0 0 18px 18px;padding:28px 12px 10px;font-size:13.5px}
+@media (min-width:1000px){.joy-row{grid-template-columns:repeat(4,1fr);gap:18px}.joy-row .joy-card figcaption{font-size:14.5px}}
+html:not(.js) .joy-row .joy-card{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.joy-row .joy-card{opacity:1;transform:none}}
