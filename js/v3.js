@@ -304,24 +304,79 @@
 
   /* ---------------- scroll-driven sections ---------------- */
   var storyTrack = $('#storyTrack'), storyStage = $('#storyStage'), storyTilt = $('#storyTilt');
-  var steps = $$('.sstep'), scrs = $$('#storyPhone .scr'), scards = $$('.scard'), rails = $$('.story-rail i');
+  var steps = $$('.sstep'), scrs = $$('#storyPhone .scr'), scards = $$('.scard'), rails = $$('.story-rail button');
   var STORY_C = steps.map(function (s) { return s.style.getPropertyValue('--c'); });
-  var storySpin = $('#storySpin'), storyIdx = -1, scrTimer = null;
+  var storySpin = $('#storySpin'), storyIdx = -1, scrTimer = null, spinTurns = 0;
   function showScreen(i) { scrs.forEach(function (s, k) { s.classList.toggle('on', k <= i); }); }
-  function setStory(i) {
+  function setStory(i, dir) {
     if (i === storyIdx) return;
     var first = storyIdx < 0;
+    if (!first) spinTurns -= (dir || (i > storyIdx ? 1 : -1));
     storyIdx = i;
     steps.forEach(function (s, k) { s.classList.toggle('on', k === i); s.classList.toggle('past', k < i); });
     scards.forEach(function (s, k) { s.classList.toggle('on', k === i); });
     if (storyStage) storyStage.style.setProperty('--c', STORY_C[i]);
     /* a full turn per chapter: the new screen goes in while the back is showing */
-    if (storySpin && !reduce) storySpin.style.transform = 'rotateY(' + (i * 360) + 'deg)';
+    if (storySpin && !reduce) storySpin.style.transform = 'rotateY(' + (spinTurns * 360) + 'deg)';
     clearTimeout(scrTimer);
     if (first || reduce) showScreen(i);
     else scrTimer = setTimeout(function () { showScreen(i); }, 380);
   }
   setStory(0);
+
+  /* phones and tablets: the chapters change by swiping the phone sideways
+     (or with the arrows and the rail); it also moves on by itself every few
+     seconds until the visitor touches it. Computers keep the scroll version. */
+  var swipeMQ = window.matchMedia ? matchMedia('(max-width:999px)') : { matches: false };
+  function swipeMode() { return swipeMQ.matches; }
+  var storyUser = false, storyAuto = null;
+  function paintRails() { rails.forEach(function (r, k) { r.style.setProperty('--f', k <= storyIdx ? 1 : 0); }); }
+  function goStory(i, dir) {
+    var n = steps.length;
+    setStory((i + n) % n, dir);
+    paintRails();
+  }
+  function userTook() { storyUser = true; if (storyAuto) { clearInterval(storyAuto); storyAuto = null; } if (storyStage) storyStage.classList.add('touched'); }
+  $$('.story-arrow').forEach(function (b) {
+    b.addEventListener('click', function () { userTook(); var d = b.classList.contains('next') ? 1 : -1; goStory(storyIdx + d, d); });
+  });
+  rails.forEach(function (r, k) {
+    r.addEventListener('click', function () {
+      if (swipeMode()) { userTook(); goStory(k, k > storyIdx ? 1 : -1); return; }
+      /* computers: jump the scroll to the middle of that chapter */
+      var top = storyTrack.getBoundingClientRect().top + scrollY;
+      window.scrollTo({ top: top + (storyTrack.offsetHeight - innerHeight) * (k + 0.5) / steps.length, behavior: reduce ? 'auto' : 'smooth' });
+    });
+  });
+  if (storyStage) {
+    var sx = 0, sy = 0, sdx = 0, sdir = 0; /* sdir: 0 undecided, 1 sideways, -1 vertical */
+    storyStage.addEventListener('touchstart', function (e) {
+      if (!swipeMode()) return;
+      sx = e.touches[0].clientX; sy = e.touches[0].clientY; sdx = 0; sdir = 0;
+    }, { passive: true });
+    storyStage.addEventListener('touchmove', function (e) {
+      if (!swipeMode() || sdir === -1) return;
+      var dx = e.touches[0].clientX - sx, dy = e.touches[0].clientY - sy;
+      if (!sdir && (Math.abs(dx) > 8 || Math.abs(dy) > 8)) sdir = Math.abs(dx) > Math.abs(dy) ? 1 : -1;
+      if (sdir !== 1) return;
+      sdx = dx;
+      /* the phone follows the finger */
+      if (storyTilt && !reduce) { storyTilt.classList.add('dragging'); setTilt(storyTilt, 6, -22 + clamp(dx * 0.35, -70, 70)); }
+    }, { passive: true });
+    storyStage.addEventListener('touchend', function () {
+      if (!swipeMode()) return;
+      if (storyTilt) { storyTilt.classList.remove('dragging'); setTilt(storyTilt, 6, -22); }
+      if (sdir === 1 && Math.abs(sdx) > 45) { userTook(); var d = sdx < 0 ? 1 : -1; goStory(storyIdx + d, d); }
+      sdir = 0; sdx = 0;
+    }, { passive: true });
+  }
+  watch(storyStage, function () {
+    if (!swipeMode() || reduce || storyUser || storyAuto) return;
+    storyAuto = setInterval(function () { if (swipeMode() && !storyUser) goStory(storyIdx + 1, 1); }, 4200);
+  }, function () { if (storyAuto) { clearInterval(storyAuto); storyAuto = null; } }, 0.5);
+  function enterMode() { if (swipeMode()) { paintRails(); if (storyTilt) setTilt(storyTilt, 6, -22); } }
+  if (swipeMQ.addEventListener) swipeMQ.addEventListener('change', function () { enterMode(); onScroll(); });
+  enterMode();
 
   var repTrack = $('#repTrack'), repStage = $('#reportStage');
   var caps = $$('.caps i'), scrubs = $$('.scrub');
@@ -351,7 +406,7 @@
     scrubs.forEach(function (s) { s.classList.toggle('on', s.getBoundingClientRect().top < line); });
 
     /* story: chapter from progress, the phone swings a little inside each one */
-    if (storyTrack) {
+    if (storyTrack && !swipeMode()) {
       var sp = progress(storyTrack), n = steps.length, f = sp * n;
       setStory(Math.min(n - 1, Math.floor(f)));
       rails.forEach(function (r, k) { r.style.setProperty('--f', clamp(f - k, 0, 1).toFixed(3)); });

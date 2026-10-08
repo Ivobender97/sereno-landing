@@ -785,3 +785,52 @@ html{scroll-padding-top:16px}
 @media (min-width:1000px){.joy-row{grid-template-columns:repeat(4,1fr);gap:18px}.joy-row .joy-card figcaption{font-size:14.5px}}
 html:not(.js) .joy-row .joy-card{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.joy-row .joy-card{opacity:1;transform:none}}
+
+/* smoother scrolling on phones: when the browser shows or hides its own bars
+   the screen changes height. The soft background no longer resizes with it,
+   no longer uses a heavy blur (the gradients are already soft), and stands
+   still on touch screens. */
+.aurora,.grain{bottom:auto;height:100vh;height:100lvh}
+.aurora i{filter:none;will-change:auto}
+@media (hover:none){.aurora i{animation:none}}
+
+/* story chapters: the rail is made of buttons (tap a chapter) */
+.story-rail{gap:4px}
+.story-rail button{position:relative;width:36px;height:24px;border:0;padding:0;background:none;cursor:pointer}
+.story-rail button::before,.story-rail button::after{content:"";position:absolute;left:0;right:0;top:10px;height:4px;border-radius:4px}
+.story-rail button::before{background:var(--line-2)}
+.story-rail button::after{background:var(--c);transform:scaleX(var(--f,0));transform-origin:left;transition:transform .5s var(--ease)}
+.story-arrow,.story-swipe{display:none}
+@keyframes nudge{50%{transform:translateX(5px)}}
+
+/* phones and tablets: the chapters change by swiping the phone sideways
+   (or with the arrows / the rail), not by scrolling down */
+@media (max-width:999px){
+  .story-track{height:auto}
+  .story-stage{position:relative;height:auto;overflow:hidden;grid-template-rows:auto auto auto auto;padding:6px var(--pad) 26px;touch-action:pan-y;-webkit-user-select:none;user-select:none}
+  .story-visual{height:clamp(330px,60svh,640px)}
+  .story-hint{display:none!important}
+  .story-arrow{display:grid;place-items:center;position:absolute;top:50%;z-index:6;width:44px;height:44px;margin-top:-22px;border-radius:50%;background:rgba(255,255,255,.92);border:1px solid var(--line);box-shadow:var(--shadow-sm);color:var(--ink);cursor:pointer;transition:opacity .3s,transform .3s var(--ease)}
+  .story-arrow:active{transform:scale(.92)}
+  .story-arrow.prev{left:-4px} .story-arrow.next{right:-4px}
+  .story-arrow svg{width:20px;height:20px}
+  .story-arrow[disabled]{opacity:.25;pointer-events:none}
+  .story-rail{padding-top:12px}
+  .story-swipe{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:6px;font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);transition:opacity .4s}
+  .story-swipe svg{width:18px;height:18px;animation:nudge 1.6s ease-in-out infinite}
+  .story-stage.touched .story-swipe{opacity:0}
+  #storyTilt{transition:transform .5s var(--ease)}
+  #storyTilt.dragging{transition:none}
+}
+
+/* store buttons: both the same size, content centred */
+.stores .store{width:214px;min-width:0;justify-content:center;padding-left:14px;padding-right:14px}
+.stores{justify-content:center}
+@media (min-width:1000px){.hero-cta .stores{justify-content:flex-start}}
+
+/* seven chapters now (glucose curve and seizure timer added) */
+@media (min-width:1000px){.story-track{height:700vh;height:700svh}}
+.story-rail button{width:30px}
+.ic-blue{background:#3f8fb0}
+.scard--glu{flex-direction:column;align-items:flex-start;gap:4px;padding:10px 12px}
+.scard--glu .spark{width:118px;height:34px}
