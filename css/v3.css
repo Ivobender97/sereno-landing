@@ -834,3 +834,28 @@ html:not(.js) .joy-row .joy-card{opacity:1;transform:none}
 .ic-blue{background:#3f8fb0}
 .scard--glu{flex-direction:column;align-items:flex-start;gap:4px;padding:10px 12px}
 .scard--glu .spark{width:118px;height:34px}
+
+/* hero cards further out, so they cover less of the phone (8 Oct) */
+.orb--dose{left:-40%;top:2%}
+.orb--weight{right:-44%;top:30%}
+.orb--timer{left:-42%;bottom:30%}
+.orb--report{right:-38%;bottom:4%}
+@media (max-width:719px){
+  .hero-visual{--w:min(50vw,230px)}
+  .hero .orb{scale:.8}
+  .orb--dose{left:-52%;top:4%}
+  .orb--weight{right:-56%;top:31%}
+  .orb--timer{left:-54%;bottom:32%}
+  .orb--report{right:-52%;bottom:6%}
+}
+@media (max-width:719px){
+  /* pinned to the screen edges (12px), whatever the phone width */
+  .orb--dose,.orb--timer{transform-origin:left center;left:calc(-16px - (100vw - var(--w)) / 2)}
+  .orb--weight,.orb--report{transform-origin:right center;right:calc(-12px - (100vw - var(--w)) / 2)}
+}
+@media (min-width:1000px) and (max-width:1279px){
+  .orb--dose{left:-28%} .orb--weight{right:-30%} .orb--timer{left:-30%} .orb--report{right:-24%}
+}
+@media (min-width:720px) and (max-width:999px){
+  .orb--dose{left:-46%} .orb--weight{right:-50%} .orb--timer{left:-48%} .orb--report{right:-44%}
+}
