@@ -40,7 +40,8 @@
      lighter in the middle, like a brushed metal band */
   function buildPhone(el) {
     var kids = Array.prototype.slice.call(el.childNodes);
-    var n = el.classList.contains('p3--mini') ? 9 : 14;
+    /* few plates: each one is a full-size layer in the phone's graphics memory */
+    var n = el.classList.contains('p3--mini') ? 4 : 6;
     var body = document.createDocumentFragment();
     for (var k = 0; k < n; k++) {
       var tt = k / (n - 1) - 0.5;
@@ -51,12 +52,12 @@
     }
     /* side keys: action + volume on the left, power on the right */
     [['left', 19, 4.5], ['left', 27, 8], ['left', 37, 8], ['right', 30, 12]].forEach(function (b) {
-      [-0.18, 0, 0.18].forEach(function (z) {
+      [-0.15, 0.15].forEach(function (z) {
         var key = mk('i', 'p3-key');
         key.style[b[0]] = 'calc(var(--w) * -.012)';
         key.style.top = b[1] + '%'; key.style.height = b[2] + '%';
         key.style.setProperty('--t', z);
-        key.style.setProperty('--l', z === 0 ? '46%' : '30%');
+        key.style.setProperty('--l', '40%');
         body.appendChild(key);
       });
     });
@@ -267,6 +268,12 @@
     });
   }, 1000);
 
+  /* pause every animation of a section while it is off screen (phones have little to spare) */
+  if ('IntersectionObserver' in window) {
+    var offIO = new IntersectionObserver(function (en) { en.forEach(function (x) { x.target.classList.toggle('off', !x.isIntersecting); }); }, { rootMargin: '150px 0px' });
+    $$('main > section, main > .marquee, .foot').forEach(function (s) { offIO.observe(s); });
+  }
+
   /* stories: duplicate the row so the marquee loops seamlessly */
   var row = $('#storiesRow');
   if (row) {
@@ -390,64 +397,46 @@
   var bar = $('#progressBar'), ticking = false;
   function onScroll() {
     ticking = false;
-    var y = window.scrollY, h = document.documentElement.scrollHeight - innerHeight;
+    /* 1) READ everything first: measuring after a style change forces the
+          phone to lay the page out again, several times per frame */
+    var y = window.scrollY, vh = innerHeight, h = document.documentElement.scrollHeight - vh;
+    if (reduce) {
+      if (nav) nav.classList.toggle('scrolled', y > 20);
+      if (bar) bar.style.transform = 'scaleX(' + (h > 0 ? Math.min(1, y / h) : 0) + ')';
+      return;
+    }
+    var line = vh * 0.72, mid = vh * 0.62;
+    var scrubOn = scrubs.map(function (s) { return s.getBoundingClientRect().top < line; });
+    var sp = (storyTrack && !swipeMode()) ? progress(storyTrack) : -1;
+    var rp = repTrack ? progress(repTrack) : -1;
+    var lr = lifeTl ? lifeTl.getBoundingClientRect() : null, wide = innerWidth >= 1000;
+    var lifeAt = lifeTl ? lifeNodes.map(function (n, k) { return wide ? k / (lifeNodes.length - 1) * 0.9 : (n.offsetTop + 30) / lifeTl.offsetHeight; }) : [];
+    var typoOn = typoWords.map(function (w) { return w.getBoundingClientRect().top < mid; });
+
+    /* 2) WRITE */
     if (nav) nav.classList.toggle('scrolled', y > 20);
     if (bar) bar.style.transform = 'scaleX(' + (h > 0 ? Math.min(1, y / h) : 0) + ')';
-    if (reduce) return;
-
-    /* hero: capsules drift at different depths; on touch the phone turns with the scroll */
-    if (y < innerHeight * 1.3) {
-      caps.forEach(function (c) { c.style.setProperty('--py', (-y * 0.6) + 'px'); });
-      if (heroTilt && !fine) { var p = Math.min(1, y / innerHeight); setTilt(heroTilt, 7 + p * 8, -22 - p * 14); /* always turned to the side, like on a computer: seen face-on it looks flat */ }
-    }
-
-    /* questions and the answer light up as they cross the lower third */
-    var line = innerHeight * 0.72;
-    scrubs.forEach(function (s) { s.classList.toggle('on', s.getBoundingClientRect().top < line); });
-
+    /* hero: on touch the phone turns a little with the scroll, always to the side (face-on it looks flat) */
+    if (y < vh * 1.3 && heroTilt && !fine) { var p = Math.min(1, y / vh); setTilt(heroTilt, 7 + p * 8, -22 - p * 14); }
+    scrubs.forEach(function (s, k) { s.classList.toggle('on', scrubOn[k]); });
     /* story: chapter from progress, the phone swings a little inside each one */
-    if (storyTrack && !swipeMode()) {
-      var sp = progress(storyTrack), n = steps.length, f = sp * n;
+    if (sp >= 0) {
+      var n = steps.length, f = sp * n;
       setStory(Math.min(n - 1, Math.floor(f)));
       rails.forEach(function (r, k) { r.style.setProperty('--f', clamp(f - k, 0, 1).toFixed(3)); });
       storyStage.classList.toggle('start', sp < 0.04);
-      if (storyTilt) {
-        var local = f - Math.floor(f);
-        setTilt(storyTilt, 6 + Math.sin(sp * Math.PI) * 4, -26 + Math.sin(local * Math.PI) * 30);
-      }
+      if (storyTilt) setTilt(storyTilt, 6 + Math.sin(sp * Math.PI) * 4, -26 + Math.sin((f - Math.floor(f)) * Math.PI) * 30);
     }
-
     /* report: one number (0→1) and CSS does the rest */
-    if (repTrack) repStage.style.setProperty('--p', progress(repTrack).toFixed(4));
-
-    /* joy: the row slides sideways while the section crosses the screen */
-    if (joyRow) {
-      var jr = joySec.getBoundingClientRect();
-      if (jr.bottom > 0 && jr.top < innerHeight) {
-        var jp = clamp((innerHeight - jr.top) / (innerHeight + jr.height), 0, 1);
-        var jt = clamp((jp - 0.18) / 0.64, 0, 1);
-        var span = Math.max(0, joyRow.scrollWidth - document.documentElement.clientWidth);
-        joyRow.style.setProperty('--jx', (-span * jt).toFixed(1) + 'px');
-        joyRow.style.setProperty('--jp', ((jt - 0.5) * 36).toFixed(1) + 'px');
-      }
-    }
-
-    /* life stages: the line grows down (or across) and each stage lights up when reached */
-    if (lifeTl) {
-      var lr = lifeTl.getBoundingClientRect(), wide = innerWidth >= 1000;
-      var lp = clamp((innerHeight * 0.72 - lr.top) / (wide ? innerHeight * 0.35 : lr.height * 0.8), 0, 1);
+    if (rp >= 0) repStage.style.setProperty('--p', rp.toFixed(4));
+    /* life stages: the line grows and each stage lights up when reached */
+    if (lr) {
+      var lp = clamp((vh * 0.72 - lr.top) / (wide ? vh * 0.35 : lr.height * 0.8), 0, 1);
       lifeTl.style.setProperty('--lp', lp.toFixed(3));
-      lifeNodes.forEach(function (n, k) {
-        var at = wide ? k / (lifeNodes.length - 1) * 0.9 : (n.offsetTop + 30) / lifeTl.offsetHeight;
-        n.classList.toggle('on', lp >= at - 0.02);
-      });
+      lifeNodes.forEach(function (nd, k) { nd.classList.toggle('on', lp >= lifeAt[k] - 0.02); });
     }
-
     /* closing line, word by word */
-    if (typoWords.length) {
-      var mid = innerHeight * 0.62;
-      typoWords.forEach(function (w) { w.classList.toggle('on', w.getBoundingClientRect().top < mid); });
-    }
+    typoWords.forEach(function (w, k) { w.classList.toggle('on', typoOn[k]); });
   }
   window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
   window.addEventListener('resize', function () { movePill(); onScroll(); });

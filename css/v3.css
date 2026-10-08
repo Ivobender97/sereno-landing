@@ -859,3 +859,18 @@ html:not(.js) .joy-row .joy-card{opacity:1;transform:none}
 @media (min-width:720px) and (max-width:999px){
   .orb--dose{left:-46%} .orb--weight{right:-50%} .orb--timer{left:-48%} .orb--report{right:-44%}
 }
+
+/* ============================================================
+   Lighter on phones (8 Oct): no live blurs, nothing animating off screen
+   ============================================================ */
+.halo{filter:none;animation:none;background:radial-gradient(circle at 50% 45%,rgba(127,209,199,.45),rgba(127,209,199,0) 62%)}
+.floor{filter:none;animation:none;background:radial-gradient(closest-side,rgba(13,40,38,.26),rgba(13,40,38,0))}
+.ecg-run{filter:none}
+/* a section that is off screen stops all its animations */
+.off,.off *,.off *::before,.off *::after{animation-play-state:paused!important}
+@media (hover:none){
+  /* frosted glass is one of the most expensive things a phone can draw */
+  .eyebrow-pill,.nav.scrolled .nav-inner,.nav-mobile{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+  .eyebrow-pill{background:rgba(255,255,255,.92)}
+  #cookie-banner{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:#fff!important}
+}
