@@ -26,10 +26,22 @@
   .bt-n{flex:0 0 36px;height:36px;border-radius:50%;background:#2c7a7b;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:16px}
   .bt-steps h3{font-size:18px;margin:4px 0 6px}
   .bt-steps p{margin:0;color:#4a615e;line-height:1.55;font-size:15.5px}
-  .bt-steps .stores{margin-top:12px;justify-content:flex-start}
+  .bt-steps li>div{flex:1;min-width:0}
+  .bt-steps .stores{margin-top:12px;justify-content:flex-start;gap:10px}
+  /* i pulsanti degli store restano dentro la scheda anche sui telefoni piccoli */
+  .bt-steps .store{width:100%;max-width:240px}
+  @media (max-width:720px){ .bt-hero{padding-top:44px} }
+  /* telefoni piccoli (320-360 px): schede piu' strette, indirizzo e pulsanti su una riga */
+  @media (max-width:360px){
+    .bt-steps li{padding:16px 12px;gap:10px}
+    .bt-n{flex-basis:30px;height:30px;font-size:14px}
+    .bt-steps .store{padding:11px 12px;gap:8px}
+    .bt-steps .store small{font-size:8.5px;white-space:nowrap}
+    .bt-addr{font-size:12.5px}
+  }
   .bt-mail{display:inline-flex;align-items:center;gap:8px;margin-top:12px;background:#2c7a7b;color:#fff;text-decoration:none;font-weight:700;font-size:15px;border-radius:999px;padding:12px 20px;box-shadow:0 10px 22px -10px rgba(44,122,123,.7)}
   .bt-mail svg{width:18px;height:18px}
-  .bt-addr{display:block;margin-top:8px;font-size:14px;color:#2c7a7b;font-weight:600;word-break:break-all}
+  .bt-addr{display:block;margin-top:8px;font-size:14px;color:#2c7a7b;font-weight:600;overflow-wrap:anywhere}
   .bt-return{background:linear-gradient(160deg,#e9f4f4,#fdf3ea);border-radius:24px;padding:20px 18px;text-align:center;margin:6px 0 16px}
   .bt-return h2{font-size:20px;margin:0 0 8px}
   .bt-return p{margin:0;color:#334;line-height:1.6}
