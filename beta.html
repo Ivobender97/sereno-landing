@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Become a beta tester: the full version free until 31 December — Sereno</title>
+<meta name="description" content="Limited places. Sign up in the Sereno app, write to us, and we'll unlock the full version free until 31 December.">
+<meta property="og:title" content="Sereno beta testers wanted: the full version free until 31 December">
+<meta property="og:description" content="Limited places. Sign up in the app, write to us, and we'll unlock the full version free until 31 December.">
+<meta property="og:url" content="https://www.serenopet.com/beta">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css?v=74">
+<style>
+  /* Pagina dei beta tester: stili solo di questa pagina */
+  .bt-wrap{max-width:640px;margin:0 auto;padding:0 16px}
+  .bt-hero{padding:110px 0 6px;text-align:center}
+  .bt-badge{display:inline-flex;align-items:center;gap:8px;background:#fdf0e3;color:#b8641f;font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:uppercase;border-radius:999px;padding:7px 14px}
+  .bt-badge i{width:8px;height:8px;border-radius:50%;background:#e08c43;display:inline-block}
+  .bt-hero h1{font-size:clamp(28px,6.4vw,44px);line-height:1.12;margin:14px 0 12px}
+  .bt-hero p{color:#4a615e;font-size:17px;line-height:1.55;margin:0 auto;max-width:520px}
+  .bt-steps{list-style:none;padding:0;margin:26px 0 18px;counter-reset:s}
+  .bt-steps li{display:flex;gap:14px;align-items:flex-start;background:#fff;border-radius:22px;padding:18px 16px;margin:0 0 12px;box-shadow:0 10px 30px rgba(20,60,60,.07)}
+  .bt-n{flex:0 0 36px;height:36px;border-radius:50%;background:#2c7a7b;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:16px}
+  .bt-steps h3{font-size:18px;margin:4px 0 6px}
+  .bt-steps p{margin:0;color:#4a615e;line-height:1.55;font-size:15.5px}
+  .bt-steps .stores{margin-top:12px;justify-content:flex-start}
+  .bt-mail{display:inline-flex;align-items:center;gap:8px;margin-top:12px;background:#2c7a7b;color:#fff;text-decoration:none;font-weight:700;font-size:15px;border-radius:999px;padding:12px 20px;box-shadow:0 10px 22px -10px rgba(44,122,123,.7)}
+  .bt-mail svg{width:18px;height:18px}
+  .bt-addr{display:block;margin-top:8px;font-size:14px;color:#2c7a7b;font-weight:600;word-break:break-all}
+  .bt-return{background:linear-gradient(160deg,#e9f4f4,#fdf3ea);border-radius:24px;padding:20px 18px;text-align:center;margin:6px 0 16px}
+  .bt-return h2{font-size:20px;margin:0 0 8px}
+  .bt-return p{margin:0;color:#334;line-height:1.6}
+  .bt-note{font-size:13px;color:#6b7a7a;text-align:center;line-height:1.5;margin:4px 0 40px}
+</style>
+</head>
+<body>
+
+<div class="bg" aria-hidden="true">
+  <div class="blob blob--1"></div>
+  <div class="blob blob--2"></div>
+  <div class="blob blob--3"></div>
+  <div class="blob blob--4"></div>
+</div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">
+      <img src="assets/logo-192.png" alt="Sereno">
+      <span>Sereno<sup class="tm">®</sup></span>
+    </a>
+    <nav class="nav-links">
+      <a href="/#features" data-i18n="nav.features">Features</a>
+      <a href="/referti" data-i18n="nav.reports">Reports</a>
+      <a href="/#pricing" data-i18n="nav.pricing">Pricing</a>
+      <a href="/#faq" data-i18n="nav.faq">FAQ</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang">
+        <button class="lang-btn" aria-label="Language">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+          <span id="langCurrent">EN</span>
+        </button>
+        <div class="lang-menu">
+          <button data-lang="en"><span class="flag">🇬🇧</span> English</button>
+          <button data-lang="it"><span class="flag">🇮🇹</span> Italiano</button>
+          <button data-lang="es"><span class="flag">🇪🇸</span> Español</button>
+        </div>
+      </div>
+      <a class="btn btn-primary nav-cta" href="/#get-app" data-i18n="nav.download">Download the app</a>
+      <button class="nav-burger" id="navBurger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="nav-mobile" id="navMobile">
+    <a href="/#features" data-i18n="nav.features">Features</a>
+    <a href="/referti" data-i18n="nav.reports">Reports</a>
+    <a href="/#pricing" data-i18n="nav.pricing">Pricing</a>
+    <a href="/#faq" data-i18n="nav.faq">FAQ</a>
+    <div class="nav-mobile-langs">
+      <button data-lang="en"><span class="flag">🇬🇧</span> English</button>
+      <button data-lang="it"><span class="flag">🇮🇹</span> Italiano</button>
+      <button data-lang="es"><span class="flag">🇪🇸</span> Español</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<div class="bt-wrap">
+
+  <section class="bt-hero">
+    <span class="bt-badge"><i></i><span data-i18n="tester.badge">Beta testers wanted</span></span>
+    <h1 data-i18n="bt.title">The full version of Sereno, free until 31 December</h1>
+    <p data-i18n="bt.sub">Limited places. Four steps, a few minutes, and no payment details.</p>
+  </section>
+
+  <ol class="bt-steps">
+    <li>
+      <span class="bt-n">1</span>
+      <div>
+        <h3 data-i18n="bt.s1t">Download Sereno</h3>
+        <p data-i18n="bt.s1d">It's free on iPhone and Android.</p>
+        <div class="stores">
+          <a class="store" href="https://apps.apple.com/app/sereno-pet-health-tracker/id6776119195" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 1.6c.1 1-.3 2-.9 2.7-.7.8-1.7 1.4-2.7 1.3-.1-1 .3-2 1-2.8.6-.7 1.7-1.2 2.6-1.2zM20 17.2c-.5 1.2-.8 1.7-1.4 2.7-.9 1.4-2.2 3.1-3.7 3.1-1.4 0-1.7-.9-3.6-.9s-2.3.9-3.6.9c-1.6 0-2.8-1.5-3.7-2.9C1.4 16.6.8 11.9 2.4 9.4c1-1.6 2.7-2.6 4.3-2.6 1.6 0 2.6 1 3.9 1 1.3 0 2-1 3.9-1 1.4 0 2.9.8 3.9 2.1-3.4 1.9-2.9 6.8 1.2 8.3z"/></svg>
+            <span><small data-i18n="hero.app">Download on the</small><b>App Store</b></span>
+          </a>
+          <a class="store" href="https://play.google.com/store/apps/details?id=com.ivansalgarello.sereno" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path fill="#4ca5a6" d="M3.6 2.3 13 11.7l-2.6 2.6z"/><path fill="#f4a261" d="M16.5 8.8 13.9 11l3 3 3.1-1.8c.9-.5.9-1.8 0-2.3z"/><path fill="#2c7a7b" d="M3.6 2.3c-.2.2-.3.5-.3.9v17.6c0 .4.1.7.3.9L13 11.7z"/><path fill="#e08c43" d="m3.6 21.7 9.4-9.4 2.6 2.6-9.4 5.4c-.9.5-1.9.2-2.6-.6z" opacity=".9"/></svg>
+            <span><small data-i18n="hero.play">Get it on</small><b>Google Play</b></span>
+          </a>
+        </div>
+      </div>
+    </li>
+    <li>
+      <span class="bt-n">2</span>
+      <div>
+        <h3 data-i18n="bt.s2t">Sign up in the app</h3>
+        <p data-i18n="bt.s2d">With your email, Google or Apple. Then add your pet.</p>
+      </div>
+    </li>
+    <li>
+      <span class="bt-n">3</span>
+      <div>
+        <h3 data-i18n="bt.s3t">Write to us</h3>
+        <p data-i18n="bt.s3d">Send us an email with the address you signed up with, so we can find your account.</p>
+        <a class="bt-mail" id="btMail" href="mailto:supportserenopet@gmail.com?subject=Beta%20tester">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          <span data-i18n="bt.mailBtn">Write to us</span>
+        </a>
+        <span class="bt-addr">supportserenopet@gmail.com</span>
+      </div>
+    </li>
+    <li>
+      <span class="bt-n">4</span>
+      <div>
+        <h3 data-i18n="bt.s4t">We unlock the full version</h3>
+        <p data-i18n="bt.s4d">We switch it on by hand on your account, free until 31 December, and reply to let you know.</p>
+      </div>
+    </li>
+  </ol>
+
+  <section class="bt-return">
+    <h2 data-i18n="bt.retT">In return</h2>
+    <p data-i18n="bt.retD">Just tell us what works and what's missing. Sereno is made by a small independent team, and every message is read.</p>
+  </section>
+
+  <p class="bt-note" data-i18n="bt.note">After 31 December you choose: keep the free plan, or subscribe. Nothing renews by itself.</p>
+
+</div>
+
+<footer>
+  <div class="foot-grid">
+    <div class="foot-col">
+      <div class="foot-brand"><img src="assets/logo-192.png" alt="Sereno"><span>Sereno<sup class="tm">®</sup></span></div>
+      <p data-i18n="footer.tagline"></p>
+    </div>
+    <div class="foot-col">
+      <h4 data-i18n="footer.product">Product</h4>
+      <ul>
+        <li><a href="/#features" data-i18n="nav.features">Features</a></li>
+        <li><a href="/#pricing" data-i18n="nav.pricing">Pricing</a></li>
+        <li><a href="/#faq" data-i18n="nav.faq">FAQ</a></li>
+        <li><a href="/referti" data-i18n="footer.reports">Vet reports</a></li>
+        <li><a data-guide-link href="/guida/sereno-guide" target="_blank" rel="noopener" data-i18n="footer.guide">Guide</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4 data-i18n="footer.company">Company</h4>
+      <ul>
+        <li><a href="/">Sereno<sup class="tm">®</sup></a></li>
+        <li><a href="/#get-app" data-i18n="nav.download">Download</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4 data-i18n="footer.legal">Legal</h4>
+      <ul>
+        <li><a href="/privacy" data-i18n="footer.privacy">Privacy Policy</a></li>
+        <li><a href="/terms" data-i18n="footer.terms">Terms</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span data-i18n="footer.rights"></span>
+    <span class="foot-legal-links"><a href="/privacy" data-i18n="footer.privacy">Privacy Policy</a> · <a href="/terms" data-i18n="footer.terms">Terms</a></span>
+  </div>
+</footer>
+
+</main>
+
+<script src="js/i18n.js?v=29"></script>
+<script>
+/* Testi di questa pagina, aggiunti al dizionario condiviso prima di main.js:
+   cosi' il cambio lingua del sito li traduce come tutti gli altri. */
+(function(){
+  var I = window.SERENO_I18N = window.SERENO_I18N || {};
+  var T = {
+    en: {
+      "bt.pageTitle": "Become a beta tester: the full version free until 31 December — Sereno",
+      "bt.pageDesc": "Limited places. Sign up in the Sereno app, write to us, and we'll unlock the full version free until 31 December.",
+      "bt.title": "The full version of Sereno, free until 31 December",
+      "bt.sub": "Limited places. Four steps, a few minutes, and no payment details.",
+      "bt.s1t": "Download Sereno",
+      "bt.s1d": "It's free on iPhone and Android.",
+      "bt.s2t": "Sign up in the app",
+      "bt.s2d": "With your email, Google or Apple. Then add your pet.",
+      "bt.s3t": "Write to us",
+      "bt.s3d": "Send us an email with the address you signed up with, so we can find your account.",
+      "bt.mailBtn": "Write to us",
+      "bt.mailSubject": "Beta tester",
+      "bt.mailBody": "Hi Sereno team,\n\nI'd like to be a beta tester. The email I signed up with is: \n\nThank you!",
+      "bt.s4t": "We unlock the full version",
+      "bt.s4d": "We switch it on by hand on your account, free until 31 December, and reply to let you know.",
+      "bt.retT": "In return",
+      "bt.retD": "Just tell us what works and what's missing. Sereno is made by a small independent team, and every message is read.",
+      "bt.note": "After 31 December you choose: keep the free plan, or subscribe. Nothing renews by itself."
+    },
+    it: {
+      "bt.pageTitle": "Diventa beta tester: la versione completa gratis fino al 31 dicembre — Sereno",
+      "bt.pageDesc": "Posti limitati. Registrati nell'app Sereno, scrivici e sblocchiamo la versione completa gratis fino al 31 dicembre.",
+      "bt.title": "La versione completa di Sereno, gratis fino al 31 dicembre",
+      "bt.sub": "Posti limitati. Quattro passaggi, pochi minuti, nessun dato di pagamento.",
+      "bt.s1t": "Scarica Sereno",
+      "bt.s1d": "È gratis su iPhone e Android.",
+      "bt.s2t": "Registrati nell'app",
+      "bt.s2d": "Con la tua email, Google o Apple. Poi aggiungi il tuo animale.",
+      "bt.s3t": "Scrivici",
+      "bt.s3d": "Mandaci un'email con l'indirizzo con cui ti sei registrato, così troviamo il tuo account.",
+      "bt.mailBtn": "Scrivici",
+      "bt.mailSubject": "Beta tester",
+      "bt.mailBody": "Ciao team di Sereno,\n\nvorrei fare il beta tester. L'email con cui mi sono registrato è: \n\nGrazie!",
+      "bt.s4t": "Sblocchiamo la versione completa",
+      "bt.s4d": "La attiviamo a mano sul tuo account, gratis fino al 31 dicembre, e ti rispondiamo per dirtelo.",
+      "bt.retT": "In cambio",
+      "bt.retD": "Dicci solo cosa funziona e cosa manca. Sereno è fatta da un piccolo team indipendente, e ogni messaggio viene letto.",
+      "bt.note": "Dopo il 31 dicembre scegli tu: resti col piano gratuito oppure ti abboni. Non si rinnova niente da solo."
+    },
+    es: {
+      "bt.pageTitle": "Hazte beta tester: la versión completa gratis hasta el 31 de diciembre — Sereno",
+      "bt.pageDesc": "Plazas limitadas. Regístrate en la app Sereno, escríbenos y desbloqueamos la versión completa gratis hasta el 31 de diciembre.",
+      "bt.title": "La versión completa de Sereno, gratis hasta el 31 de diciembre",
+      "bt.sub": "Plazas limitadas. Cuatro pasos, unos minutos y ningún dato de pago.",
+      "bt.s1t": "Descarga Sereno",
+      "bt.s1d": "Es gratis en iPhone y Android.",
+      "bt.s2t": "Regístrate en la app",
+      "bt.s2d": "Con tu email, Google o Apple. Luego añade a tu animal.",
+      "bt.s3t": "Escríbenos",
+      "bt.s3d": "Envíanos un email con la dirección con la que te registraste, para que encontremos tu cuenta.",
+      "bt.mailBtn": "Escríbenos",
+      "bt.mailSubject": "Beta tester",
+      "bt.mailBody": "Hola, equipo de Sereno:\n\nme gustaría ser beta tester. El email con el que me registré es: \n\n¡Gracias!",
+      "bt.s4t": "Desbloqueamos la versión completa",
+      "bt.s4d": "La activamos a mano en tu cuenta, gratis hasta el 31 de diciembre, y te respondemos para avisarte.",
+      "bt.retT": "A cambio",
+      "bt.retD": "Solo dinos qué funciona y qué falta. Sereno lo hace un pequeño equipo independiente, y se lee cada mensaje.",
+      "bt.note": "Después del 31 de diciembre eliges tú: sigues con el plan gratuito o te suscribes. Nada se renueva solo."
+    }
+  };
+  ['en','it','es'].forEach(function(l){ I[l] = I[l] || {}; for (var k in T[l]) I[l][k] = T[l][k]; });
+})();
+</script>
+<script src="js/main.js?v=21"></script>
+
+<script>
+/* Titolo, descrizione e link email seguono la lingua del sito */
+(function(){
+  function d(k){
+    var l = (document.documentElement.lang || 'en').slice(0,2);
+    var I = window.SERENO_I18N || {};
+    return (I[l] && I[l][k]) || (I.en && I.en[k]) || '';
+  }
+  function refresh(){
+    if (d('bt.pageTitle')) document.title = d('bt.pageTitle');
+    var m = document.querySelector('meta[name="description"]');
+    if (m && d('bt.pageDesc')) m.setAttribute('content', d('bt.pageDesc'));
+    var a = document.getElementById('btMail');
+    if (a) a.href = 'mailto:supportserenopet@gmail.com?subject=' + encodeURIComponent(d('bt.mailSubject')) + '&body=' + encodeURIComponent(d('bt.mailBody'));
+  }
+  new MutationObserver(refresh).observe(document.documentElement, { attributes:true, attributeFilter:['lang'] });
+  refresh();
+})();
+</script>
+
+<!-- ============ Cookie consent + Meta Pixel (come nella home) ============ -->
+<style>
+  #cookie-banner{
+    position:fixed;left:16px;right:16px;bottom:16px;z-index:9999;
+    max-width:640px;margin:0 auto;
+    display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+    padding:16px 20px;
+    background:rgba(255,255,255,.96);backdrop-filter:blur(10px);
+    border:1px solid var(--line,rgba(22,48,46,.10));
+    border-radius:16px;
+    box-shadow:0 16px 40px -14px rgba(22,48,46,.35);
+    font-family:'Plus Jakarta Sans',system-ui,sans-serif;
+    transform:translateY(140%);transition:transform .5s cubic-bezier(.22,1,.36,1);
+  }
+  #cookie-banner.show{transform:translateY(0)}
+  #cookie-banner .cc-text{
+    flex:1 1 280px;min-width:240px;
+    font-size:13.5px;line-height:1.5;color:var(--ink-soft,#4a615e)
+  }
+  #cookie-banner .cc-text a{color:var(--teal,#2c7a7b);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+  #cookie-banner .cc-actions{display:flex;gap:10px;flex:0 0 auto}
+  #cookie-banner button{
+    font-family:inherit;cursor:pointer;border:none;
+    padding:10px 20px;border-radius:100px;font-weight:600;font-size:14px;
+    transition:transform .3s,box-shadow .3s,background .25s
+  }
+  #cookie-banner .cc-accept{background:var(--teal,#2c7a7b);color:#fff;box-shadow:0 8px 18px -8px rgba(44,122,123,.6)}
+  #cookie-banner .cc-decline{background:transparent;color:var(--ink-soft,#4a615e);border:1px solid var(--line,rgba(22,48,46,.10))}
+  @media (max-width:520px){
+    #cookie-banner{flex-direction:column;align-items:stretch;text-align:left;gap:14px}
+    #cookie-banner .cc-text{flex:0 0 auto;min-width:0}
+    #cookie-banner .cc-actions{justify-content:flex-end}
+    #cookie-banner .cc-actions button{flex:1}
+  }
+</style>
+
+<div id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <p class="cc-text"><span id="cc-msg">We use cookies to measure and improve our ads.</span> <a href="/privacy" id="cc-privacy">Privacy Policy</a></p>
+  <div class="cc-actions">
+    <button type="button" class="cc-decline" id="cc-decline">Decline</button>
+    <button type="button" class="cc-accept" id="cc-accept">Accept</button>
+  </div>
+</div>
+
+<script>
+/* Stesso pixel e stesso consenso della home. In piu', su questa pagina:
+   - ViewContent all'arrivo (dopo il consenso)
+   - Lead quando si tocca "Scrivici"
+   - DownloadClick (come nella home) sui pulsanti degli store, con page: 'beta' */
+(function(){
+  var PIXEL_ID = '27504330972512838';
+  var STORE_KEY = 'sereno_cookie_consent';
+  var PAGE = { content_name: 'beta_free_until_dec31' };
+
+  var CC_TEXT = {
+    en: { msg:'We use cookies to measure and improve our ads.', privacy:'Privacy Policy', decline:'Decline', accept:'Accept' },
+    it: { msg:'Usiamo i cookie per misurare e migliorare le nostre inserzioni.', privacy:'Informativa privacy', decline:'Rifiuta', accept:'Accetta' },
+    es: { msg:'Usamos cookies para medir y mejorar nuestros anuncios.', privacy:'Política de privacidad', decline:'Rechazar', accept:'Aceptar' }
+  };
+  function localizeBanner(){
+    var l = (document.documentElement.lang || 'en').slice(0,2);
+    var t = CC_TEXT[l] || CC_TEXT.en;
+    var m = document.getElementById('cc-msg'), p = document.getElementById('cc-privacy'),
+        d = document.getElementById('cc-decline'), a = document.getElementById('cc-accept');
+    if(m) m.textContent = t.msg;
+    if(p) p.textContent = t.privacy;
+    if(d) d.textContent = t.decline;
+    if(a) a.textContent = t.accept;
+  }
+
+  function loadPixel(){
+    if(window.fbq) return;
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    window.fbq('init', PIXEL_ID);
+    window.fbq('track', 'PageView');
+    window.fbq('track', 'ViewContent', PAGE);
+  }
+
+  function loadOaiPixel(){
+    if(window.oaiq) return;
+    !function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");oaiq("init",{pixelId:"TvVTsetWKiMSQ3aZ9amM6r",debug:false});
+  }
+
+  function activate(){ loadPixel(); loadOaiPixel(); }
+
+  /* un solo ascoltatore: se il pixel c'e' (consenso dato) manda l'evento,
+     e non blocca mai la navigazione */
+  document.addEventListener('click', function(e){
+    if(!e.target.closest) return;
+    var store = e.target.closest('a.store');
+    if(store){
+      if(window.fbq) window.fbq('trackCustom', 'DownloadClick', {
+        platform: store.href.indexOf('play.google.com') > -1 ? 'android' : 'ios',
+        page: 'beta'
+      });
+      if(typeof window.oaiq === 'function') oaiq('measure', 'lead_created', { type: 'customer_action' });
+      return;
+    }
+    if(e.target.closest('#btMail')){
+      if(window.fbq) window.fbq('track', 'Lead', PAGE);
+    }
+  });
+
+  function hideBanner(){
+    var b = document.getElementById('cookie-banner');
+    if(b) b.classList.remove('show');
+  }
+
+  var choice = null;
+  try{ choice = localStorage.getItem(STORE_KEY); }catch(e){}
+
+  localizeBanner();
+  new MutationObserver(localizeBanner).observe(document.documentElement, { attributes:true, attributeFilter:['lang'] });
+
+  if(choice === 'accepted'){
+    activate();
+  } else if(choice === 'declined'){
+    /* niente pixel */
+  } else {
+    var banner = document.getElementById('cookie-banner');
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ banner.classList.add('show'); }); });
+    document.getElementById('cc-accept').addEventListener('click', function(){
+      try{ localStorage.setItem(STORE_KEY, 'accepted'); }catch(e){}
+      hideBanner();
+      activate();
+    });
+    document.getElementById('cc-decline').addEventListener('click', function(){
+      try{ localStorage.setItem(STORE_KEY, 'declined'); }catch(e){}
+      hideBanner();
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
