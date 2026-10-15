@@ -316,6 +316,7 @@ html:not(.js) .typo-line .w{color:var(--ink)}
 .foot ul a{word-break:break-word}
 .foot ul a:hover{color:var(--teal)}
 .foot-bottom{margin-top:34px;padding-top:20px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-3)}
+.foot-id{display:block;margin-top:6px;font-size:12px}
 
 /* ---------- report card (from v2) ---------- */
 .rc-head{position:relative;padding:18px 20px 16px;background:linear-gradient(135deg,var(--teal),#1f5f5f);color:#fff}

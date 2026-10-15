@@ -4,242 +4,66 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy — Sereno</title>
-  <meta name="description" content="Sereno Privacy Policy. How we collect, use, and protect your personal information when you use our pet health tracker app.">
+  <meta name="description" content="Sereno Privacy Policy: what data we collect, why, who we share it with and your rights under the GDPR.">
   <meta name="robots" content="index, follow">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/fonts.css">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #eef5f4;
-      color: #1a202c;
-      line-height: 1.6;
-      min-height: 100vh;
-    }
-    .sereno-nav {
-      position: sticky;
-      top: 0;
-      background: rgba(238, 245, 244, 0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid #ddeae9;
-      padding: 16px 24px;
-      z-index: 100;
-    }
-    .sereno-nav-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-    .sereno-brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: #2c7a7b;
-    }
-    .sereno-brand-paw {
-      width: 36px;
-      height: 36px;
-      background: #2c7a7b;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 16px rgba(44, 122, 123, 0.25);
-    }
-    .sereno-brand-paw svg {
-      width: 20px;
-      height: 20px;
-      fill: white;
-    }
-    .sereno-brand-logo {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      object-fit: cover;
-    }
-    .sereno-brand-name {
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      color: #2c7a7b;
-    }
-    .sereno-back {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: #2c7a7b;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 14px;
-      padding: 8px 14px;
-      border-radius: 9999px;
-      transition: background 0.2s ease;
-    }
-    .sereno-back:hover {
-      background: rgba(44, 122, 123, 0.08);
-    }
-    main {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 40px 24px 80px;
-    }
-    .sereno-card {
-      background: #ffffff;
-      border-radius: 16px;
-      padding: 48px 40px;
-      box-shadow: 0 4px 24px rgba(44, 122, 123, 0.06);
-    }
-    .sereno-card h1 {
-      font-size: 32px;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      color: #1a202c;
-      margin-bottom: 8px;
-    }
-    .sereno-card .last-updated {
-      color: #595959;
-      font-size: 14px;
-      margin-bottom: 32px;
-    }
-    .sereno-card h2 {
-      font-size: 20px;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      color: #1a202c;
-      margin-top: 36px;
-      margin-bottom: 14px;
-    }
-    .sereno-card h3 {
-      font-size: 17px;
-      font-weight: 700;
-      color: #1a202c;
-      margin-top: 24px;
-      margin-bottom: 10px;
-    }
-    .sereno-card p {
-      font-size: 15px;
-      color: #2d3748;
-      margin-bottom: 14px;
-    }
-    .sereno-card ul, .sereno-card ol {
-      margin-left: 24px;
-      margin-bottom: 14px;
-    }
-    .sereno-card li {
-      font-size: 15px;
-      color: #2d3748;
-      margin-bottom: 8px;
-    }
-    .sereno-card a {
-      color: #2c7a7b;
-      text-decoration: underline;
-      font-weight: 600;
-    }
-    .sereno-card a:hover {
-      color: #1f5b5c;
-    }
-    .sereno-card strong {
-      font-weight: 700;
-      color: #1a202c;
-    }
-    .sereno-card .summary-box {
-      background: #f0f9f7;
-      border-left: 4px solid #2c7a7b;
-      padding: 18px 22px;
-      border-radius: 8px;
-      margin: 16px 0 24px;
-    }
-    .sereno-card .summary-box strong {
-      color: #2c7a7b;
-      display: block;
-      margin-bottom: 6px;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    .sereno-card .summary-box p {
-      font-size: 14px;
-      color: #234e51;
-      margin: 0;
-    }
-    .sereno-card .data-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 16px 0 24px;
-      font-size: 14px;
-    }
-    .sereno-card .data-table th {
-      background: #f7fafa;
-      color: #2c7a7b;
-      text-align: left;
-      padding: 12px 14px;
-      font-weight: 700;
-      border-bottom: 2px solid #ddeae9;
-    }
-    .sereno-card .data-table td {
-      padding: 12px 14px;
-      border-bottom: 1px solid #eef5f4;
-      vertical-align: top;
-      color: #2d3748;
-    }
-    .sereno-card .data-table tr:last-child td {
-      border-bottom: none;
-    }
-    .sereno-toc {
-      background: #f7fafa;
-      border-radius: 12px;
-      padding: 20px 24px;
-      margin: 24px 0 32px;
-    }
-    .sereno-toc h3 {
-      margin-top: 0;
-      font-size: 15px;
-      color: #2c7a7b;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    .sereno-toc ol {
-      margin-left: 18px;
-      margin-bottom: 0;
-      columns: 2;
-      column-gap: 24px;
-    }
-    .sereno-toc li {
-      font-size: 14px;
-      margin-bottom: 4px;
-      break-inside: avoid;
-    }
-    .sereno-toc a {
-      text-decoration: none;
-      color: #2c7a7b;
-      font-weight: 500;
-    }
-    .sereno-toc a:hover {
-      text-decoration: underline;
-    }
-    /* Mobile responsive */
+    body { font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #eef5f4; color: #1a202c; line-height: 1.6; min-height: 100vh; }
+    .sereno-nav { position: sticky; top: 0; background: rgba(238, 245, 244, 0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid #ddeae9; padding: 14px 24px; z-index: 100; }
+    .sereno-nav-inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .sereno-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #2c7a7b; }
+    .sereno-brand-logo { width: 38px; height: 38px; border-radius: 11px; object-fit: cover; }
+    .sereno-brand-name { font-size: 21px; font-weight: 800; letter-spacing: -0.02em; color: #2c7a7b; }
+    .nav-right { display: flex; align-items: center; gap: 8px; }
+    .lang-switch { display: inline-flex; background: #fff; border: 1px solid #ddeae9; border-radius: 9999px; padding: 3px; }
+    .lang-switch button { font: inherit; font-size: 13px; font-weight: 700; color: #2c7a7b; background: none; border: 0; border-radius: 9999px; padding: 5px 10px; cursor: pointer; }
+    .lang-switch button[aria-pressed="true"] { background: #2c7a7b; color: #fff; }
+    .sereno-back { color: #2c7a7b; text-decoration: none; font-weight: 600; font-size: 14px; padding: 8px 12px; border-radius: 9999px; white-space: nowrap; }
+    .sereno-back:hover { background: rgba(44, 122, 123, 0.08); }
+    main { max-width: 900px; margin: 0 auto; padding: 40px 24px 80px; }
+    .sereno-card { background: #fff; border-radius: 16px; padding: 48px 40px; box-shadow: 0 4px 24px rgba(44, 122, 123, 0.06); }
+    .sereno-card h1 { font-size: 32px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 8px; }
+    .sereno-card .last-updated { color: #595959; font-size: 14px; margin-bottom: 28px; }
+    .sereno-card h2 { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; margin-top: 36px; margin-bottom: 14px; scroll-margin-top: 90px; }
+    .sereno-card h3 { font-size: 17px; font-weight: 700; margin-top: 22px; margin-bottom: 10px; }
+    .sereno-card p { font-size: 15px; color: #2d3748; margin-bottom: 14px; }
+    .sereno-card ul, .sereno-card ol { margin-left: 22px; margin-bottom: 14px; }
+    .sereno-card li { font-size: 15px; color: #2d3748; margin-bottom: 8px; }
+    .sereno-card a { color: #2c7a7b; text-decoration: underline; font-weight: 600; overflow-wrap: anywhere; }
+    .sereno-card strong { font-weight: 700; color: #1a202c; }
+    .summary-box { background: #f0f9f7; border-left: 4px solid #2c7a7b; padding: 18px 22px; border-radius: 8px; margin: 16px 0 24px; }
+    .summary-box > strong { color: #2c7a7b; display: block; margin-bottom: 8px; font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .summary-box ul { margin-bottom: 0; }
+    .summary-box li { font-size: 14px; color: #234e51; margin-bottom: 4px; }
+    .warn-box { background: #fff5f5; border-left: 4px solid #c53030; padding: 18px 22px; border-radius: 8px; margin: 16px 0 20px; }
+    .warn-box p { color: #742a2a; margin-bottom: 8px; }
+    .warn-box p:last-child { margin-bottom: 0; }
+    .table-wrap { overflow-x: auto; margin: 16px 0 24px; }
+    .data-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .data-table th { background: #f7fafa; color: #2c7a7b; text-align: left; padding: 11px 12px; font-weight: 700; border-bottom: 2px solid #ddeae9; }
+    .data-table td { padding: 11px 12px; border-bottom: 1px solid #eef5f4; vertical-align: top; color: #2d3748; }
+    .data-table tr:last-child td { border-bottom: none; }
+    .sereno-toc { background: #f7fafa; border-radius: 12px; padding: 20px 24px; margin: 24px 0 32px; }
+    .sereno-toc h3 { margin-top: 0; font-size: 15px; color: #2c7a7b; text-transform: uppercase; letter-spacing: 0.05em; }
+    .sereno-toc ol { margin-left: 18px; margin-bottom: 0; columns: 2; column-gap: 24px; }
+    .sereno-toc li { font-size: 14px; margin-bottom: 4px; break-inside: avoid; }
+    .sereno-toc a { text-decoration: none; font-weight: 500; }
+    .sereno-toc a:hover { text-decoration: underline; }
+    .company { font-size: 14px; color: #4a5568; }
+    [hidden] { display: none !important; }
     @media (max-width: 768px) {
-      .sereno-nav { padding: 12px 16px; }
-      .sereno-brand-name { font-size: 18px; }
-      .sereno-brand-paw { width: 32px; height: 32px; }
-      .sereno-brand-paw svg { width: 18px; height: 18px; }
-      .sereno-back { font-size: 13px; padding: 6px 12px; }
-      main { padding: 24px 12px 60px; }
-      .sereno-card { padding: 28px 20px; border-radius: 12px; }
+      .sereno-nav { padding: 10px 14px; }
+      .sereno-brand-name { display: none; }
+      .sereno-back { font-size: 13px; padding: 6px 8px; }
+      main { padding: 20px 12px 60px; }
+      .sereno-card { padding: 28px 18px; border-radius: 12px; }
       .sereno-card h1 { font-size: 26px; }
       .sereno-card h2 { font-size: 18px; }
       .sereno-toc ol { columns: 1; }
-      .sereno-card .data-table { font-size: 13px; }
-      .sereno-card .data-table th,
-      .sereno-card .data-table td { padding: 10px 8px; }
+      .data-table { font-size: 13px; }
+      .data-table th, .data-table td { padding: 9px 8px; }
     }
   </style>
 </head>
@@ -247,326 +71,581 @@
   <nav class="sereno-nav">
     <div class="sereno-nav-inner">
       <a href="/" class="sereno-brand" aria-label="Sereno home">
-        <img src="assets/logo.png" class="sereno-brand-logo" alt="Sereno" />
+        <img src="/assets/logo-192.png" class="sereno-brand-logo" alt="Sereno" width="38" height="38">
         <span class="sereno-brand-name">Sereno</span>
       </a>
-      <a href="/" class="sereno-back">← Back to home</a>
+      <div class="nav-right">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" data-set="en" aria-pressed="true">EN</button>
+          <button type="button" data-set="it" aria-pressed="false">IT</button>
+          <button type="button" data-set="es" aria-pressed="false">ES</button>
+        </div>
+        <a href="/" class="sereno-back"><span data-lang="en">← Home</span><span data-lang="it" hidden>← Home</span><span data-lang="es" hidden>← Inicio</span></a>
+      </div>
     </div>
   </nav>
   <main>
-    <div class="sereno-card">
-
+    <article class="sereno-card" data-lang="en" lang="en">
       <h1>Privacy Policy</h1>
-      <p class="last-updated">Last updated: July 10, 2026</p>
+      <p class="last-updated">Last updated: October 15, 2026</p>
 
       <div class="summary-box">
         <strong>At a glance</strong>
-        <p>This Privacy Policy explains how Sereno collects, uses, and protects your personal information when you use our pet health tracker app. We are based in Italy and operate under European data protection law (GDPR). We do not sell your data, and we never share your pet's health information with advertisers. To measure our advertising, the app uses the Meta SDK to share an advertising identifier and basic app events (installs, opens, purchases) with Meta — on iOS only if you allow it through Apple's tracking prompt. You can delete your account and data at any time.</p>
+        <ul>
+          <li>Sereno is run by Ivan Salgarello, a sole trader based in Italy. European data protection law (GDPR) applies.</li>
+          <li>We use your data to run the app: your account, your pets' records, reminders, reports and family sharing.</li>
+          <li>We never sell your data and we never give your pet's health records to advertisers.</li>
+          <li>Your app data is stored in the European Union (Stockholm, Sweden).</li>
+          <li>To measure our ads we use Meta's tools in the app and, only if you accept cookies, Meta's and OpenAI's tools on our website.</li>
+          <li>You can delete your account and all its data from the app at any time.</li>
+        </ul>
       </div>
 
-      <p>This Privacy Notice for <strong>Ivan Salgarello</strong> (doing business as <strong>Sereno</strong>) ("<strong>we</strong>," "<strong>us</strong>," or "<strong>our</strong>"), describes how and why we might access, collect, store, use, and/or share ("<strong>process</strong>") your personal information when you use our services ("<strong>Services</strong>"), including when you:</p>
-      <ul>
-        <li>Visit our website at <a href="https://serenopet.com">https://serenopet.com</a> or any website of ours that links to this Privacy Notice;</li>
-        <li>Use Sereno, our mobile pet health tracker app for iOS and Android;</li>
-        <li>Engage with us in other related ways, including any marketing or events.</li>
-      </ul>
-
-      <p><strong>Questions or concerns?</strong> Reading this Privacy Notice will help you understand your privacy rights and choices. If you do not agree with our policies and practices, please do not use our Services. If you have any questions or concerns, please contact us at <a href="mailto:supportserenopet@gmail.com">supportserenopet@gmail.com</a>.</p>
-
       <div class="sereno-toc">
-        <h3>Table of Contents</h3>
+        <h3>Contents</h3>
         <ol>
-          <li><a href="#info-collect">What Information Do We Collect?</a></li>
-          <li><a href="#how-use">How Do We Process Your Information?</a></li>
-          <li><a href="#legal-bases">Legal Bases for Processing</a></li>
-          <li><a href="#share">When and With Whom Do We Share Information?</a></li>
-          <li><a href="#cookies">Cookies and Similar Technologies</a></li>
-          <li><a href="#international">International Data Transfers</a></li>
-          <li><a href="#retention">How Long Do We Keep Your Information?</a></li>
-          <li><a href="#security">How Do We Keep Your Information Safe?</a></li>
-          <li><a href="#minors">Information From Minors</a></li>
-          <li><a href="#rights">Your Privacy Rights</a></li>
-          <li><a href="#dnt">Controls for Do-Not-Track Features</a></li>
-          <li><a href="#us-rights">US State Residents' Specific Rights</a></li>
-          <li><a href="#updates">Updates to This Notice</a></li>
-          <li><a href="#contact">How Can You Contact Us?</a></li>
-          <li><a href="#review">How to Review, Update, or Delete Your Data</a></li>
+          <li><a href="#en-who">Who is responsible for your data</a></li>
+          <li><a href="#en-collect">What data we collect</a></li>
+          <li><a href="#en-why">Why we use it and our legal bases</a></li>
+          <li><a href="#en-share">Who we share it with</a></li>
+          <li><a href="#en-transfers">Transfers outside the EU</a></li>
+          <li><a href="#en-ads">Advertising, cookies and similar tools</a></li>
+          <li><a href="#en-retention">How long we keep it</a></li>
+          <li><a href="#en-security">How we protect it</a></li>
+          <li><a href="#en-minors">Minors</a></li>
+          <li><a href="#en-rights">Your rights</a></li>
+          <li><a href="#en-us">US, UK and Australian users</a></li>
+          <li><a href="#en-changes">Changes to this policy</a></li>
+          <li><a href="#en-contact">Contact us</a></li>
         </ol>
       </div>
 
-      <h2 id="info-collect">1. What Information Do We Collect?</h2>
+      <h2 id="en-who">1. Who is responsible for your data</h2>
+      <p>The data controller is <strong>Ivan Salgarello</strong>, sole trader, trading as <strong>Sereno</strong> ("we", "us"), Tombola, 37053 Cerea (VR), Italy — VAT no. IT05070290233 — email <a href="mailto:supportserenopet@gmail.com">supportserenopet@gmail.com</a>.</p>
+      <p>This policy covers the Sereno app for iOS and Android, the website <a href="https://www.serenopet.com">serenopet.com</a> and the emails you exchange with us. We have not appointed a Data Protection Officer because the law does not require one for our activity (Art. 37 GDPR): write to the email above for any privacy question.</p>
 
-      <h3>Personal information you disclose to us</h3>
-      <p><strong>In short:</strong> we collect personal information that you provide to us when you register an account, use the App, or contact us.</p>
-      <p>We collect personal information that you voluntarily provide to us when you register on the Services, express an interest in obtaining information about us or our products, or otherwise contact us. The personal information we collect depends on the context of your interactions with us and the Services, the choices you make, and the products and features you use.</p>
-
-      <p>The personal information we collect may include the following:</p>
-
+      <h2 id="en-collect">2. What data we collect</h2>
+      <div class="table-wrap">
       <table class="data-table">
-        <thead>
-          <tr>
-            <th>Category</th>
-            <th>What we collect</th>
-            <th>Why</th>
-          </tr>
-        </thead>
+        <thead><tr><th>Category</th><th>What it includes</th></tr></thead>
         <tbody>
-          <tr>
-            <td><strong>Account data</strong></td>
-            <td>Email address, password (hashed), display name, profile photo (optional), preferred language</td>
-            <td>To create and manage your account</td>
-          </tr>
-          <tr>
-            <td><strong>Pet data</strong></td>
-            <td>Pet name, species, breed, sex, birthdate, weight, microchip number, photo, chronic conditions, allergies, notes</td>
-            <td>To allow you to track your pet's profile</td>
-          </tr>
-          <tr>
-            <td><strong>Health data (pet)</strong></td>
-            <td>Vaccinations, vet visits and costs, symptoms (intensity 0-5), medications (dose, schedule, log), medical documents (PDFs, photos)</td>
-            <td>To allow you to record and share your pet's health history</td>
-          </tr>
-          <tr>
-            <td><strong>Veterinarian data</strong></td>
-            <td>Vet name, clinic, phone number, email (provided by you)</td>
-            <td>To populate the Emergency Card and PDF reports</td>
-          </tr>
-          <tr>
-            <td><strong>Family sharing data</strong></td>
-            <td>Email addresses of invited family members, role (owner / member)</td>
-            <td>To enable shared pet management</td>
-          </tr>
-          <tr>
-            <td><strong>Subscription data</strong></td>
-            <td>Subscription tier, trial status, expiration date, store transaction ID (anonymous to us, processed by Apple/Google/RevenueCat)</td>
-            <td>To grant access to paid features</td>
-          </tr>
-          <tr>
-            <td><strong>Device data</strong></td>
-            <td>Push notification token, device platform (iOS/Android), app version, language locale</td>
-            <td>To deliver push notification reminders and provide localized content</td>
-          </tr>
-          <tr>
-            <td><strong>Support communications</strong></td>
-            <td>Emails you send to <a href="mailto:supportserenopet@gmail.com">supportserenopet@gmail.com</a></td>
-            <td>To respond to your inquiries</td>
-          </tr>
+          <tr><td><strong>Account</strong></td><td>Email address, password (stored only as a one-way hash), name, language, notification settings.</td></tr>
+          <tr><td><strong>Sign in with Apple or Google</strong></td><td>The name and email address the provider shares with us when you choose it (with Apple you can hide your real email).</td></tr>
+          <tr><td><strong>Pet profiles</strong></td><td>Name, species, breed, sex, date of birth, weight, microchip number, photo, conditions, allergies.</td></tr>
+          <tr><td><strong>Pet health records</strong></td><td>Medications and doses given, medication changes, symptoms and seizures, vaccinations, vet visits and costs, blood glucose, weight, temperature, breathing rate, food, water, stool, fluids, quality-of-life scores, lumps, lab results, activities, treatments, care reminders, notes, and the documents and photos you upload.</td></tr>
+          <tr><td><strong>Your vet's details</strong></td><td>Name, clinic, phone and email of your vet, if you enter them (for example for the emergency card and the reports).</td></tr>
+          <tr><td><strong>Family sharing</strong></td><td>Email addresses of the people you invite, invitation links (they expire after 7 days), each member's role, and who recorded what on a shared pet (for example "Marco gave the dose").</td></tr>
+          <tr><td><strong>Subscription</strong></td><td>Plan, trial and renewal dates, store, product, price, currency and country of purchase, store transaction identifiers. We never see your card details: payments are handled by Apple or Google.</td></tr>
+          <tr><td><strong>How you found us</strong></td><td>Your optional answer at sign-up (for example a Facebook group, Instagram or your vet) and any partner code you enter.</td></tr>
+          <tr><td><strong>App usage</strong></td><td>How many times a day you open the app, the time of the first and last opening, platform and app version, and when you create a report.</td></tr>
+          <tr><td><strong>Device</strong></td><td>Push notification token, platform (iOS/Android), app version, language.</td></tr>
+          <tr><td><strong>Crash reports</strong></td><td>Technical details of errors: device model, operating system, app version, error trace. The tool is set up not to send default personal identifiers.</td></tr>
+          <tr><td><strong>Ad measurement in the app</strong></td><td>Your Sereno account ID (a random code, not your name or email), the advertising identifier of your device (on iPhone only if you allow tracking; on Android the Advertising ID) and these events: install, app open, sign-up completed and the method used, onboarding completed, first pet added (species only), first medication added, checkout started, trial started, purchase with amount and currency. Never health records, pet names or notes.</td></tr>
+          <tr><td><strong>Support</strong></td><td>The emails you send us and our replies.</td></tr>
+          <tr><td><strong>Website</strong></td><td>IP address and technical request data in our hosting logs; your language and cookie choice saved in your browser; and, only if you accept cookies, the data collected by the Meta Pixel and the OpenAI pixel (pages visited, clicks on the store buttons and on the email button of the beta page, IP address, browser and device information, cookie identifiers).</td></tr>
         </tbody>
       </table>
+      </div>
+      <p><strong>What is required.</strong> To create an account we need an email address (or Sign in with Apple/Google). Everything else is optional, but without it some features will not work.</p>
+      <p><strong>Pet data.</strong> Animal health data is not "special category" data under the GDPR, which protects human health data. We still protect it as if it were.</p>
+      <p><strong>Data about you and other people.</strong> Sereno is made for your pet's data: please do not write health information about yourself or other people in notes or documents. If you enter your vet's details or invite family members, make sure they are fine with it.</p>
 
-      <p><strong>We do not collect</strong>: payment card details (these are handled exclusively by Apple App Store, Google Play, and our subscription provider RevenueCat — we never see your card number), precise location (GPS), biometric data, social security or government ID numbers, browsing history outside the App.</p>
-
-      <h3>Sensitive information</h3>
-      <p>The pet health data you enter is not considered "sensitive personal data" under the GDPR (which applies to human health data, not animal health data). However, we treat it with the same care and security as if it were sensitive, given its private and personal nature to you.</p>
-
-      <h3>Information automatically collected</h3>
-      <p><strong>In short:</strong> some technical information is collected automatically when you use the Services. We do not use third-party product analytics of your in-app behaviour, but we do use the Meta SDK for advertising measurement (see below and Section 5).</p>
-      <p>When you use the App, our backend automatically logs minimal technical information necessary for security and service operation, including:</p>
-      <ul>
-        <li>IP address (used by Supabase for rate-limiting and abuse prevention; not stored long-term);</li>
-        <li>Timestamps of sign-in events and API requests;</li>
-        <li>Crash reports and error logs (anonymous, used to fix bugs);</li>
-        <li>App version and operating system.</li>
-        <li>An advertising identifier (the Apple IDFA on iOS — only if you grant tracking permission — or the Android Advertising ID), used only for advertising measurement via the Meta SDK (see Section 5).</li>
-      </ul>
-      <p>We do <strong>not</strong> use Google Analytics or any product-analytics tracking of your in-app behaviour. The App does include the <strong>Meta (Facebook) SDK</strong>, used solely to measure and optimise our advertising campaigns: it shares an advertising identifier and basic app events (such as installs, app opens and in-app purchases) with Meta. On iOS this happens <strong>only if you grant permission</strong> through Apple's App Tracking Transparency prompt. Your pet's health data is <strong>never</strong> shared with Meta. See Section 5 for details and how to opt out.</p>
-
-      <h2 id="how-use">2. How Do We Process Your Information?</h2>
-      <p><strong>In short:</strong> we process your information to provide, improve, and secure the Services, to communicate with you, and to comply with legal obligations.</p>
-      <p>We process your personal information for a variety of reasons, depending on how you interact with our Services, including:</p>
-      <ul>
-        <li><strong>To create and manage your user account.</strong> We use your email and password to register and authenticate you.</li>
-        <li><strong>To deliver the Services.</strong> We store and synchronize the data you enter (pets, medications, symptoms, documents, etc.) across your devices.</li>
-        <li><strong>To send push notifications.</strong> We use your push token to deliver medication reminders and other in-app notifications you have enabled.</li>
-        <li><strong>To enable family sharing.</strong> When you invite a family member, we use their email to send the invitation and link the accounts.</li>
-        <li><strong>To process subscriptions.</strong> We rely on RevenueCat, Apple App Store, and Google Play to manage your subscription status and entitlements.</li>
-        <li><strong>To generate PDF reports and Emergency Cards.</strong> Generation happens on your device — the resulting PDF is never uploaded to our servers unless you choose to share it.</li>
-        <li><strong>To respond to your support requests.</strong> We use your email to reply to you.</li>
-        <li><strong>To improve the Services.</strong> We use aggregated and anonymized crash logs and error reports to fix bugs and improve reliability.</li>
-        <li><strong>To comply with legal obligations.</strong> We may process your data where required by law, court order, or regulatory authority.</li>
-      </ul>
-
-      <h2 id="legal-bases">3. Legal Bases for Processing (GDPR)</h2>
-      <p><strong>In short:</strong> we only process your personal information when we believe it is necessary and we have a valid legal basis under EU law.</p>
-      <p>The General Data Protection Regulation (GDPR) requires us to identify the legal bases on which we rely to process your information. We rely on the following:</p>
-      <ul>
-        <li><strong>Performance of a contract (Art. 6(1)(b) GDPR)</strong> — when processing is necessary to provide you with the Services you have signed up for (account creation, data storage, subscription management, push notifications you have enabled).</li>
-        <li><strong>Legitimate interests (Art. 6(1)(f) GDPR)</strong> — for security monitoring, fraud prevention, debugging crashes, and improving the Services. We have weighed these interests against your privacy rights and consider them proportionate.</li>
-        <li><strong>Consent (Art. 6(1)(a) GDPR)</strong> — for optional features such as receiving push notifications. You can withdraw consent at any time in app Settings.</li>
-        <li><strong>Legal obligation (Art. 6(1)(c) GDPR)</strong> — when we are legally required to retain or disclose information (e.g. to comply with tax law or respond to a lawful court order).</li>
-      </ul>
-
-      <h2 id="share">4. When and With Whom Do We Share Information?</h2>
-      <p><strong>In short:</strong> we share information only with the service providers we need to operate the Services. We never sell your data, and we never share your pet's health data with advertisers. For advertising measurement, the app shares an advertising identifier and basic app events with Meta (on iOS only with your permission); on our website, limited browsing data is shared with Meta via the Pixel only if you consent (see Section 5).</p>
-      <p>We share information with the following categories of third parties (acting as <strong>data processors</strong> on our behalf under GDPR Art. 28):</p>
-
+      <h2 id="en-why">3. Why we use it and our legal bases</h2>
+      <div class="table-wrap">
       <table class="data-table">
-        <thead>
-          <tr>
-            <th>Provider</th>
-            <th>Purpose</th>
-            <th>Data shared</th>
-            <th>Location</th>
-          </tr>
-        </thead>
+        <thead><tr><th>Purpose</th><th>Legal basis (GDPR)</th></tr></thead>
         <tbody>
-          <tr>
-            <td><strong>Supabase</strong></td>
-            <td>Database, authentication, file storage</td>
-            <td>All account, pet, and health data</td>
-            <td>EU (Stockholm, Sweden)</td>
-          </tr>
-          <tr>
-            <td><strong>RevenueCat</strong></td>
-            <td>Subscription management and entitlement</td>
-            <td>App user ID, subscription status</td>
-            <td>USA (with Standard Contractual Clauses)</td>
-          </tr>
-          <tr>
-            <td><strong>Apple App Store</strong></td>
-            <td>App distribution and in-app purchases</td>
-            <td>Apple ID, payment data (handled by Apple)</td>
-            <td>Worldwide</td>
-          </tr>
-          <tr>
-            <td><strong>Google Play Store</strong></td>
-            <td>App distribution and in-app purchases</td>
-            <td>Google ID, payment data (handled by Google)</td>
-            <td>Worldwide</td>
-          </tr>
-          <tr>
-            <td><strong>Firebase Cloud Messaging (Google)</strong></td>
-            <td>Android push notification delivery</td>
-            <td>Push token, notification payload</td>
-            <td>Worldwide</td>
-          </tr>
-          <tr>
-            <td><strong>Apple Push Notification Service</strong></td>
-            <td>iOS push notification delivery</td>
-            <td>Push token, notification payload</td>
-            <td>Worldwide</td>
-          </tr>
-          <tr>
-            <td><strong>Expo (Expo Application Services)</strong></td>
-            <td>App build distribution and push notification routing</td>
-            <td>Push tokens, anonymous device identifiers</td>
-            <td>USA (with Standard Contractual Clauses)</td>
-          </tr>
-          <tr>
-            <td><strong>Vercel</strong></td>
-            <td>Website hosting (serenopet.com)</td>
-            <td>IP address and basic request logs (website only, not App)</td>
-            <td>Worldwide edge network</td>
-          </tr>
-          <tr>
-            <td><strong>Meta Platforms, Inc.</strong></td>
-            <td>Advertising measurement — app SDK and (consent-based) website Pixel</td>
-            <td>Advertising identifier and basic app events (installs, opens, purchases); website: browsing actions, IP address, device/browser info. Never any pet health data.</td>
-            <td>USA (with Standard Contractual Clauses)</td>
-          </tr>
+          <tr><td>Create and run your account; store and sync your records; reminders, reports, emergency card and family sharing</td><td>Performance of the contract (Art. 6(1)(b))</td></tr>
+          <tr><td>Manage subscriptions, free trials and partner codes</td><td>Performance of the contract (Art. 6(1)(b))</td></tr>
+          <tr><td>Keep billing records</td><td>Legal obligation under Italian tax and accounting law (Art. 6(1)(c))</td></tr>
+          <tr><td>Count app openings, analyse crashes, prevent abuse, keep the service secure, understand how people find us</td><td>Our legitimate interest in keeping Sereno working, safe and useful (Art. 6(1)(f)). You can object at any time.</td></tr>
+          <tr><td>Measure our ads in the app</td><td>iPhone: your consent through Apple's tracking prompt (Art. 6(1)(a)). Android: our legitimate interest in measuring our ads (Art. 6(1)(f)); you can object at any time, see section 6.</td></tr>
+          <tr><td>Meta Pixel and OpenAI pixel on the website</td><td>Your consent through the cookie banner (Art. 6(1)(a) GDPR and Art. 122 of the Italian Privacy Code)</td></tr>
+          <tr><td>Answer your emails</td><td>Performance of the contract or our legitimate interest in replying to you</td></tr>
+          <tr><td>Comply with the law, answer authorities, defend legal claims</td><td>Legal obligation (Art. 6(1)(c)) and legitimate interest (Art. 6(1)(f))</td></tr>
         </tbody>
       </table>
+      </div>
+      <p>We do not make decisions about you based solely on automated processing that produce legal or similarly significant effects (Art. 22 GDPR). Sereno does not give veterinary advice and does not judge your pet's health on its own.</p>
 
-      <p>We may also disclose your information:</p>
+      <h2 id="en-share">4. Who we share it with</h2>
+      <p>We do not sell your data. We use these providers to run Sereno. Where they process data for us, they do so under a data processing agreement (Art. 28 GDPR).</p>
+      <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>Provider</th><th>What it does for us</th><th>Data</th><th>Where</th></tr></thead>
+        <tbody>
+          <tr><td>Supabase</td><td>Database, sign-in, file storage</td><td>All app data</td><td>EU — Stockholm, Sweden</td></tr>
+          <tr><td>Sentry</td><td>Crash reports</td><td>Technical error data</td><td>EU — Germany</td></tr>
+          <tr><td>Expo</td><td>Sends push notifications</td><td>Push token, notification text</td><td>USA</td></tr>
+          <tr><td>Apple Push Notification service, Google Firebase Cloud Messaging</td><td>Deliver notifications to your device</td><td>Push token, notification text</td><td>Worldwide</td></tr>
+          <tr><td>RevenueCat</td><td>Manages subscriptions</td><td>Sereno account ID, purchase data</td><td>USA</td></tr>
+          <tr><td>Resend</td><td>Sends account emails (verification codes, password reset)</td><td>Email address, email content</td><td>USA</td></tr>
+          <tr><td>Google (Gmail)</td><td>Our support mailbox</td><td>Your emails to us</td><td>USA / worldwide</td></tr>
+          <tr><td>Vercel</td><td>Website hosting</td><td>IP address, request logs (website only)</td><td>Global network</td></tr>
+          <tr><td>Meta Platforms Ireland Ltd. and Meta Platforms, Inc.</td><td>Ad measurement: app SDK and, with consent, website Pixel</td><td>See section 2. Never health records.</td><td>Ireland / USA</td></tr>
+          <tr><td>OpenAI</td><td>Ad measurement on the website, only with consent</td><td>Pages visited, store clicks, IP address, browser information</td><td>USA</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>For the Meta Pixel on our website, we and Meta are joint controllers for collecting and sending the data to Meta; what Meta does with it afterwards is covered by Meta's own privacy policy. Meta and OpenAI also use the data under their own policies.</p>
+      <p>We also share data:</p>
       <ul>
-        <li><strong>In response to legal requests:</strong> if required by applicable law, court order, governmental request, or to enforce our legal rights.</li>
-        <li><strong>In connection with a business transfer:</strong> in the unlikely event of a merger, acquisition, or sale of assets, your information may be transferred to the acquiring party under the same protections described here.</li>
-        <li><strong>With other family members:</strong> if you invite someone to your family group, they will be able to see the pets and health data you have shared with the group.</li>
+        <li><strong>With Apple and Google</strong>, which sell and bill subscriptions and provide Sign in with Apple/Google as independent controllers under their own policies.</li>
+        <li><strong>With the people you invite</strong> to your family: they see the pets you share and what is recorded on them.</li>
+        <li><strong>With anyone you choose</strong>: a report or an emergency card leaves the app only when you share it.</li>
+        <li><strong>With partners whose code you used</strong>: they never receive your name or email.</li>
+        <li><strong>With authorities</strong>, when the law requires it, and <strong>with a buyer</strong> if the business is ever transferred, under the same protections described here.</li>
       </ul>
 
-      <p><strong>We do not sell your personal information.</strong> Our advertising-related sharing is limited to Meta — the app SDK (an advertising identifier and basic app events, on iOS only with your permission) and the consent-based Pixel on our website — and never includes your pet's health data. You can decline it (see Section 5).</p>
+      <h2 id="en-transfers">5. Transfers outside the EU</h2>
+      <p>Your app records are stored in the EU. Some providers are based in the United States. For these transfers we rely on the EU–US Data Privacy Framework (European Commission adequacy decision of July 10, 2023) when the provider is certified, and otherwise on the Standard Contractual Clauses approved by the European Commission (Art. 46 GDPR).</p>
 
-      <h2 id="cookies">5. Cookies and Similar Technologies</h2>
-      <p><strong>In short:</strong> the App does not use cookies. Our website uses essential cookies and, only with your consent, the Meta (Facebook) advertising Pixel.</p>
-      <p>The mobile App does not use HTTP cookies. The Sereno website (<a href="https://serenopet.com">serenopet.com</a>) may use a minimal number of essential cookies set by our hosting provider (Vercel) for security and basic operation.</p>
-      <p>Our website also uses the <strong>Meta (Facebook) Pixel</strong> — an advertising and measurement technology — loaded <strong>only after you give consent</strong> via the cookie banner. If you decline, no Pixel and no advertising cookies are loaded. When enabled, it collects your browsing actions on our website, your IP address, and browser/device information, and shares them with Meta Platforms, Inc. for advertising measurement and audience building. The legal basis is your <strong>consent</strong> (GDPR Art. 6(1)(a)), which you can withdraw at any time by declining the banner or clearing your cookies.</p>
-      <h3>Advertising in the mobile app</h3>
-      <p>The Sereno mobile app uses the <strong>Meta (Facebook) SDK</strong> to measure and optimise our advertising campaigns. It does not use HTTP cookies; instead it may collect an <strong>advertising identifier</strong> (the Apple IDFA on iOS or the Advertising ID on Android) together with <strong>basic app events</strong> such as installs, app opens and in-app purchases, and shares them with Meta Platforms, Inc. for advertising measurement and audience building. <strong>On iOS, the advertising identifier is collected only if you tap "Allow" on Apple's App Tracking Transparency prompt</strong>; if you decline, no tracking identifier is used. <strong>We never share your pet's health information, medical records, symptoms or medications with Meta.</strong> The legal basis is your <strong>consent</strong> on iOS (via the tracking prompt) and our <strong>legitimate interest</strong> in promoting the Services on Android. You can opt out at any time: on iOS via Settings &rarr; Privacy &amp; Security &rarr; Tracking, and on Android by resetting or deleting your Advertising ID in your device settings.</p>
-
-      <h2 id="international">6. International Data Transfers</h2>
-      <p><strong>In short:</strong> most of your data stays in the European Union. When we use US-based providers, we rely on appropriate safeguards.</p>
-      <p>Your primary data (account, pets, health records, documents) is stored on Supabase servers located in <strong>Stockholm, Sweden (EU)</strong>. Some of our supporting service providers (such as RevenueCat, Expo, and Meta — the latter for advertising measurement via the app SDK and the consent-based website Pixel) are based in the United States. For data transferred to the US, we rely on the <strong>Standard Contractual Clauses</strong> approved by the European Commission as an appropriate safeguard under GDPR Art. 46.</p>
-
-      <h2 id="retention">7. How Long Do We Keep Your Information?</h2>
-      <p><strong>In short:</strong> we keep your information only as long as your account is active or as needed to provide the Services and comply with the law.</p>
+      <h2 id="en-ads">6. Advertising, cookies and similar tools</h2>
+      <h3>On the website</h3>
       <ul>
-        <li><strong>Account and health data</strong>: retained for as long as your account is active. When you delete your account, all your personal data, uploaded documents, and photos are permanently removed within 30 days, in accordance with GDPR Art. 17 (right to erasure).</li>
-        <li><strong>Support correspondence</strong>: retained for up to 2 years to enable follow-up support and quality improvement.</li>
-        <li><strong>Aggregated and anonymized data</strong>: may be retained indefinitely as it no longer identifies you.</li>
-        <li><strong>Backups</strong>: routine backups of our database are retained for up to 30 days; deleted data is automatically purged from backups within this period.</li>
+        <li><strong>Always on (necessary):</strong> your language and your cookie choice are saved in your browser. Our hosting provider may use technical cookies for security. These do not need consent.</li>
+        <li><strong>Only if you tap "Accept":</strong> the Meta Pixel (cookies such as <code>_fbp</code>) and the OpenAI pixel, used to measure our ads. If you tap "Decline", neither is loaded.</li>
+        <li><strong>Changing your mind:</strong> tap "Cookie preferences" at the bottom of the home page and the banner will appear again. You can also clear the site data in your browser.</li>
+      </ul>
+      <h3>In the app</h3>
+      <p>The app does not use cookies. It includes the Meta SDK, which sends Meta the data listed in section 2 to measure our ads.</p>
+      <ul>
+        <li><strong>iPhone:</strong> the advertising identifier is used only if you tap "Allow" on Apple's tracking prompt. If you don't, we tell Meta not to use your data for tracking. You can change your choice in Settings → Privacy &amp; Security → Tracking.</li>
+        <li><strong>Android:</strong> the SDK starts when you open the app and uses the Android Advertising ID. You can stop this at any time by deleting your Advertising ID in your device settings (Settings → Privacy → Ads), or by writing to us to object.</li>
       </ul>
 
-      <h2 id="security">8. How Do We Keep Your Information Safe?</h2>
-      <p><strong>In short:</strong> we implement technical and organizational measures to protect your personal information.</p>
-      <p>We have implemented appropriate and reasonable technical and organizational security measures designed to protect the security of any personal information we process. These include:</p>
+      <h2 id="en-retention">7. How long we keep it</h2>
       <ul>
-        <li>Encryption of data in transit (HTTPS / TLS) and at rest (AES-256 on Supabase storage);</li>
-        <li>Row-Level Security policies in our database, so that each user can only access their own data;</li>
-        <li>Strong password requirements (minimum 8 characters) and bcrypt-hashed password storage;</li>
-        <li>Email verification on signup;</li>
-        <li>Server-side authentication tokens (JWT) for API access;</li>
-        <li>Regular security audits of our codebase and infrastructure.</li>
+        <li><strong>Account and pet records:</strong> until you delete your account. They are then deleted from our database and file storage, and removed from backups within 30 days.</li>
+        <li><strong>Billing records</strong> (purchases, renewals, refunds): 10 years, as required by Italian law (Art. 2220 of the Civil Code). They are linked only to an account ID and are kept even after you delete your account.</li>
+        <li><strong>Family invitation links:</strong> they expire after 7 days.</li>
+        <li><strong>Crash reports:</strong> no longer than 90 days.</li>
+        <li><strong>Support emails:</strong> up to 2 years after our last exchange.</li>
+        <li><strong>Website logs:</strong> for the short period set by our hosting provider.</li>
+        <li><strong>Cookie choice:</strong> saved in your browser until you change it or clear it.</li>
       </ul>
-      <p>However, please remember that we cannot guarantee that the internet itself is 100% secure. Although we will do our best to protect your personal information, transmission of personal information to and from our Services is at your own risk.</p>
+      <p>We may keep anonymous, aggregated statistics that no longer identify anyone.</p>
 
-      <h2 id="minors">9. Information From Minors</h2>
-      <p><strong>In short:</strong> we do not knowingly collect data from anyone under the age of 18.</p>
-      <p>The Services are intended for users who are at least 18 years old. We do not knowingly solicit or collect personal information from anyone under the age of 18. If you become aware that a child has provided us with personal information, please contact us at <a href="mailto:supportserenopet@gmail.com">supportserenopet@gmail.com</a> and we will take steps to delete such information.</p>
-
-      <h2 id="rights">10. Your Privacy Rights</h2>
-      <p><strong>In short:</strong> you have rights that allow you greater access to and control over your personal information. You can exercise them at any time.</p>
-
-      <h3>Rights under the GDPR (EU/EEA users)</h3>
-      <p>If you are located in the European Union, European Economic Area, or United Kingdom, you have the following rights:</p>
+      <h2 id="en-security">8. How we protect it</h2>
       <ul>
-        <li><strong>Right of access (Art. 15)</strong> — to obtain confirmation of whether we process your data and a copy of it.</li>
-        <li><strong>Right to rectification (Art. 16)</strong> — to correct inaccurate or incomplete data. Most fields can be edited directly in the App.</li>
-        <li><strong>Right to erasure (Art. 17)</strong> — to request deletion of your data. You can delete your account at any time from the App (Settings → Delete Account), which triggers immediate deletion of all your personal data and uploaded files.</li>
-        <li><strong>Right to restriction of processing (Art. 18)</strong> — to ask us to limit how we use your data in certain circumstances.</li>
-        <li><strong>Right to data portability (Art. 20)</strong> — to receive your data in a structured, commonly used, machine-readable format. You can request an export by emailing us.</li>
-        <li><strong>Right to object (Art. 21)</strong> — to object to processing based on legitimate interests.</li>
-        <li><strong>Right to withdraw consent (Art. 7(3))</strong> — where processing is based on consent, you can withdraw it at any time without affecting the lawfulness of prior processing.</li>
-        <li><strong>Right to lodge a complaint</strong> — with your local supervisory authority (in Italy, the <a href="https://www.garanteprivacy.it">Garante per la Protezione dei Dati Personali</a>).</li>
+        <li>Encryption in transit (HTTPS/TLS) and at rest;</li>
+        <li>Database rules (Row-Level Security) so that each person can only reach their own data and the pets shared with them;</li>
+        <li>Hashed passwords and email verification;</li>
+        <li>Regular reviews of our code and infrastructure.</li>
       </ul>
-      <p>To exercise any of these rights, please contact us at <a href="mailto:supportserenopet@gmail.com">supportserenopet@gmail.com</a>. We will respond within 30 days, as required by GDPR.</p>
+      <p>No system is 100% secure. If a breach puts your data at risk, we will notify the authority and, where required, you, as set out in Articles 33 and 34 GDPR.</p>
 
-      <h2 id="dnt">11. Controls for Do-Not-Track Features</h2>
-      <p>Most web browsers and some mobile operating systems include a Do-Not-Track ("DNT") feature you can activate to signal your privacy preference not to have data about your online browsing activities monitored and collected. Because no uniform technology standard for recognizing DNT signals has been finalized, we do not currently respond to DNT signals. As stated above, however, we do not use tracking technologies in the App.</p>
+      <h2 id="en-minors">9. Minors</h2>
+      <p>Sereno is intended for people aged 18 or over. We do not knowingly collect data from minors. If you think a minor has given us their data, write to us and we will delete it.</p>
 
-      <h2 id="us-rights">12. US State Residents' Specific Rights</h2>
-      <p>If you are a resident of California, Colorado, Virginia, Connecticut, Utah, or other US states with comprehensive consumer privacy laws, you may have additional rights, including the right to:</p>
+      <h2 id="en-rights">10. Your rights</h2>
+      <p>Under the GDPR you can ask us at any time to:</p>
       <ul>
-        <li>Know what personal information is collected about you;</li>
-        <li>Access your personal information;</li>
-        <li>Request deletion of your personal information;</li>
-        <li>Opt out of the sale or sharing of personal information (we do not sell your data; our advertising-related sharing is limited to Meta — the app SDK, on iOS only with your permission, and the consent-based website Pixel — never includes health data, and you can decline it);</li>
-        <li>Limit the use of sensitive personal information;</li>
-        <li>Not be discriminated against for exercising your rights.</li>
+        <li><strong>access</strong> your data and get a copy (Art. 15);</li>
+        <li><strong>correct</strong> it (Art. 16) — most of it can be edited directly in the app;</li>
+        <li><strong>delete</strong> it (Art. 17) — in the app go to More → Delete account, or use <a href="/delete-account">serenopet.com/delete-account</a>;</li>
+        <li><strong>restrict</strong> its use (Art. 18);</li>
+        <li><strong>receive it</strong> in a structured, machine-readable format (Art. 20);</li>
+        <li><strong>object</strong> to uses based on our legitimate interest (Art. 21);</li>
+        <li><strong>withdraw your consent</strong> at any time, without affecting what happened before (Art. 7(3)).</li>
       </ul>
-      <p>To exercise these rights, please contact us at <a href="mailto:supportserenopet@gmail.com">supportserenopet@gmail.com</a>.</p>
+      <p>Write to <a href="mailto:supportserenopet@gmail.com">supportserenopet@gmail.com</a>. We reply within one month; for complex requests this can be extended by two more months, and we will tell you why. You also have the right to lodge a complaint with a supervisory authority: in Italy, the <a href="https://www.garanteprivacy.it" target="_blank" rel="noopener">Garante per la protezione dei dati personali</a>, or the authority of the EU country where you live or work.</p>
 
-      <h2 id="updates">13. Updates to This Notice</h2>
-      <p><strong>In short:</strong> yes, we will update this notice as necessary to stay compliant with relevant laws.</p>
-      <p>We may update this Privacy Notice from time to time. The updated version will be indicated by an updated "Last updated" date at the top of this notice. If we make material changes, we will notify you either by sending an email to the address associated with your account or through an in-app notification. We encourage you to review this Privacy Notice frequently to stay informed.</p>
+      <h2 id="en-us">11. US, UK and Australian users</h2>
+      <p><strong>United States.</strong> If you live in a US state with a consumer privacy law (such as California, Colorado, Connecticut, Virginia or Utah), you can ask to know, access, correct and delete your personal information, and you will not be discriminated against for doing so. We do not sell personal information for money. Our use of Meta and OpenAI to measure ads may count as "sharing" or "targeted advertising" under some of these laws: you can opt out by declining cookies on the website, by not allowing tracking on iPhone, by deleting your Advertising ID on Android, or by writing to us. We do not use sensitive personal information to infer characteristics about you. An authorised agent can make a request for you by email.</p>
+      <p><strong>United Kingdom.</strong> You have the same rights under the UK GDPR and can complain to the Information Commissioner's Office (ICO).</p>
+      <p><strong>Australia.</strong> We handle your data in line with the Australian Privacy Principles. Write to us first; if you are not satisfied, you can complain to the Office of the Australian Information Commissioner (OAIC).</p>
 
-      <h2 id="contact">14. How Can You Contact Us About This Notice?</h2>
-      <p>If you have questions or comments about this notice, you may contact us by email:</p>
-      <p>
-        <strong>Ivan Salgarello</strong> (doing business as Sereno)<br>
-        Italy<br>
-        Email: <a href="mailto:supportserenopet@gmail.com">supportserenopet@gmail.com</a><br>
-        Website: <a href="https://serenopet.com">https://serenopet.com</a>
-      </p>
+      <h2 id="en-changes">12. Changes to this policy</h2>
+      <p>When we update this policy we change the date at the top. If the changes are important, we will tell you in the app or by email before they apply.</p>
 
-      <h2 id="review">15. How Can You Review, Update, or Delete the Data We Collect From You?</h2>
-      <p>You have several options to manage your personal data:</p>
+      <h2 id="en-contact">13. Contact us</h2>
+      <p class="company">Ivan Salgarello — Sereno (sole trader)<br>Tombola, 37053 Cerea (VR), Italy<br>VAT no. IT05070290233<br>Email: <a href="mailto:supportserenopet@gmail.com">supportserenopet@gmail.com</a><br>Website: <a href="https://www.serenopet.com">serenopet.com</a></p>
+    </article>
+
+    <article class="sereno-card" data-lang="it" lang="it" hidden>
+      <h1>Informativa sulla privacy</h1>
+      <p class="last-updated">Ultimo aggiornamento: 15 ottobre 2026</p>
+
+      <div class="summary-box">
+        <strong>In breve</strong>
+        <ul>
+          <li>Sereno è gestito da Ivan Salgarello, ditta individuale con sede in Italia. Si applica il Regolamento europeo sulla protezione dei dati (GDPR).</li>
+          <li>Usiamo i tuoi dati per far funzionare l'app: il tuo account, le schede dei tuoi animali, i promemoria, i referti e la condivisione in famiglia.</li>
+          <li>Non vendiamo mai i tuoi dati e non diamo mai i dati sanitari del tuo animale a chi fa pubblicità.</li>
+          <li>I dati dell'app sono conservati nell'Unione europea (Stoccolma, Svezia).</li>
+          <li>Per misurare le nostre inserzioni usiamo gli strumenti di Meta nell'app e, solo se accetti i cookie, quelli di Meta e di OpenAI sul sito.</li>
+          <li>Puoi eliminare il tuo account e tutti i suoi dati dall'app quando vuoi.</li>
+        </ul>
+      </div>
+
+      <div class="sereno-toc">
+        <h3>Indice</h3>
+        <ol>
+          <li><a href="#it-who">Chi è il titolare dei dati</a></li>
+          <li><a href="#it-collect">Quali dati raccogliamo</a></li>
+          <li><a href="#it-why">Perché li usiamo e su quale base giuridica</a></li>
+          <li><a href="#it-share">Con chi li condividiamo</a></li>
+          <li><a href="#it-transfers">Trasferimenti fuori dall'UE</a></li>
+          <li><a href="#it-ads">Pubblicità, cookie e strumenti simili</a></li>
+          <li><a href="#it-retention">Per quanto tempo li conserviamo</a></li>
+          <li><a href="#it-security">Come li proteggiamo</a></li>
+          <li><a href="#it-minors">Minori</a></li>
+          <li><a href="#it-rights">I tuoi diritti</a></li>
+          <li><a href="#it-us">Utenti negli Stati Uniti, nel Regno Unito e in Australia</a></li>
+          <li><a href="#it-changes">Modifiche a questa informativa</a></li>
+          <li><a href="#it-contact">Contatti</a></li>
+        </ol>
+      </div>
+
+      <h2 id="it-who">1. Chi è il titolare dei dati</h2>
+      <p>Il titolare del trattamento è <strong>Ivan Salgarello</strong>, ditta individuale, che opera con il nome <strong>Sereno</strong> ("noi"), con sede in Tombola, 37053 Cerea (VR), Italia — P.IVA 05070290233 — email <a href="mailto:supportserenopet@gmail.com">supportserenopet@gmail.com</a>.</p>
+      <p>Questa informativa riguarda l'app Sereno per iOS e Android, il sito <a href="https://www.serenopet.com">serenopet.com</a> e le email che ci scambiamo. Non abbiamo nominato un Responsabile della protezione dei dati (DPO) perché per la nostra attività la legge non lo richiede (art. 37 GDPR): per qualunque domanda sulla privacy scrivi all'indirizzo qui sopra.</p>
+
+      <h2 id="it-collect">2. Quali dati raccogliamo</h2>
+      <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>Categoria</th><th>Cosa comprende</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Account</strong></td><td>Indirizzo email, password (conservata solo in forma cifrata non reversibile), nome, lingua, impostazioni delle notifiche.</td></tr>
+          <tr><td><strong>Accesso con Apple o Google</strong></td><td>Il nome e l'indirizzo email che il fornitore ci comunica quando lo scegli (con Apple puoi nascondere la tua email vera).</td></tr>
+          <tr><td><strong>Profili degli animali</strong></td><td>Nome, specie, razza, sesso, data di nascita, peso, numero di microchip, foto, patologie, allergie.</td></tr>
+          <tr><td><strong>Dati sanitari degli animali</strong></td><td>Farmaci e dosi date, cambi di terapia, sintomi e crisi, vaccinazioni, visite veterinarie e relativi costi, glicemia, peso, temperatura, frequenza respiratoria, cibo, acqua, feci, fluidi, punteggi di qualità della vita, noduli, esami di laboratorio, attività, trattamenti, promemoria di cura, note, e i documenti e le foto che carichi.</td></tr>
+          <tr><td><strong>Dati del veterinario</strong></td><td>Nome, clinica, telefono ed email del tuo veterinario, se li inserisci (per esempio per la scheda d'emergenza e i referti).</td></tr>
+          <tr><td><strong>Condivisione in famiglia</strong></td><td>Indirizzi email delle persone che inviti, link di invito (scadono dopo 7 giorni), ruolo di ciascun membro, e chi ha registrato cosa su un animale condiviso (per esempio "Marco ha dato la dose").</td></tr>
+          <tr><td><strong>Abbonamento</strong></td><td>Piano, date di prova e di rinnovo, store, prodotto, prezzo, valuta e paese dell'acquisto, identificativi della transazione nello store. Non vediamo mai i dati della tua carta: i pagamenti li gestiscono Apple o Google.</td></tr>
+          <tr><td><strong>Come ci hai conosciuto</strong></td><td>La tua risposta facoltativa all'iscrizione (per esempio un gruppo Facebook, Instagram o il veterinario) e l'eventuale codice partner che inserisci.</td></tr>
+          <tr><td><strong>Uso dell'app</strong></td><td>Quante volte al giorno apri l'app, l'ora della prima e dell'ultima apertura, piattaforma e versione dell'app, e quando crei un referto.</td></tr>
+          <tr><td><strong>Dispositivo</strong></td><td>Token per le notifiche push, piattaforma (iOS/Android), versione dell'app, lingua.</td></tr>
+          <tr><td><strong>Segnalazioni di errore</strong></td><td>Dettagli tecnici degli errori: modello del dispositivo, sistema operativo, versione dell'app, traccia dell'errore. Lo strumento è impostato per non inviare gli identificativi personali predefiniti.</td></tr>
+          <tr><td><strong>Misurazione pubblicitaria nell'app</strong></td><td>L'ID del tuo account Sereno (un codice casuale, non il tuo nome né la tua email), l'identificativo pubblicitario del dispositivo (su iPhone solo se consenti il tracciamento; su Android l'ID pubblicità) e questi eventi: installazione, apertura dell'app, iscrizione completata e metodo usato, introduzione completata, primo animale aggiunto (solo la specie), primo farmaco aggiunto, acquisto avviato, prova iniziata, acquisto con importo e valuta. Mai dati sanitari, nomi degli animali o note.</td></tr>
+          <tr><td><strong>Assistenza</strong></td><td>Le email che ci mandi e le nostre risposte.</td></tr>
+          <tr><td><strong>Sito</strong></td><td>Indirizzo IP e dati tecnici delle richieste nei log del nostro hosting; la lingua e la scelta sui cookie salvate nel tuo browser; e, solo se accetti i cookie, i dati raccolti dal Pixel di Meta e dal pixel di OpenAI (pagine visitate, clic sui pulsanti degli store e sul pulsante email della pagina beta, indirizzo IP, informazioni su browser e dispositivo, identificativi dei cookie).</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p><strong>Cosa è obbligatorio.</strong> Per creare un account serve un indirizzo email (oppure l'accesso con Apple/Google). Tutto il resto è facoltativo, ma senza alcune funzioni non funzionano.</p>
+      <p><strong>Dati degli animali.</strong> I dati sanitari degli animali non sono "categorie particolari" secondo il GDPR, che tutela i dati sanitari delle persone. Li proteggiamo comunque come se lo fossero.</p>
+      <p><strong>Dati su di te e su altre persone.</strong> Sereno è fatto per i dati del tuo animale: non scrivere nelle note o nei documenti informazioni sulla salute tua o di altre persone. Se inserisci i dati del veterinario o inviti familiari, assicurati che siano d'accordo.</p>
+
+      <h2 id="it-why">3. Perché li usiamo e su quale base giuridica</h2>
+      <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>Finalità</th><th>Base giuridica (GDPR)</th></tr></thead>
+        <tbody>
+          <tr><td>Creare e gestire il tuo account; conservare e sincronizzare i dati; promemoria, referti, scheda d'emergenza e condivisione in famiglia</td><td>Esecuzione del contratto (art. 6.1.b)</td></tr>
+          <tr><td>Gestire abbonamenti, prove gratuite e codici partner</td><td>Esecuzione del contratto (art. 6.1.b)</td></tr>
+          <tr><td>Conservare i dati di fatturazione</td><td>Obbligo di legge fiscale e contabile italiano (art. 6.1.c)</td></tr>
+          <tr><td>Contare le aperture dell'app, analizzare gli errori, prevenire abusi, mantenere il servizio sicuro, capire come ci conoscono le persone</td><td>Nostro legittimo interesse a mantenere Sereno funzionante, sicuro e utile (art. 6.1.f). Puoi opporti in qualsiasi momento.</td></tr>
+          <tr><td>Misurare le nostre inserzioni nell'app</td><td>iPhone: il tuo consenso tramite il messaggio di Apple sul tracciamento (art. 6.1.a). Android: nostro legittimo interesse a misurare le inserzioni (art. 6.1.f); puoi opporti in qualsiasi momento, vedi sezione 6.</td></tr>
+          <tr><td>Pixel di Meta e pixel di OpenAI sul sito</td><td>Il tuo consenso tramite il banner dei cookie (art. 6.1.a GDPR e art. 122 del Codice privacy)</td></tr>
+          <tr><td>Rispondere alle tue email</td><td>Esecuzione del contratto o nostro legittimo interesse a risponderti</td></tr>
+          <tr><td>Rispettare la legge, rispondere alle autorità, difenderci in giudizio</td><td>Obbligo di legge (art. 6.1.c) e legittimo interesse (art. 6.1.f)</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>Non prendiamo decisioni su di te basate unicamente su trattamenti automatizzati che producano effetti giuridici o effetti altrettanto significativi (art. 22 GDPR). Sereno non dà consigli veterinari e non giudica da solo la salute del tuo animale.</p>
+
+      <h2 id="it-share">4. Con chi li condividiamo</h2>
+      <p>Non vendiamo i tuoi dati. Per far funzionare Sereno usiamo questi fornitori. Quando trattano dati per nostro conto, lo fanno sulla base di un accordo sul trattamento dei dati (art. 28 GDPR).</p>
+      <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>Fornitore</th><th>Cosa fa per noi</th><th>Dati</th><th>Dove</th></tr></thead>
+        <tbody>
+          <tr><td>Supabase</td><td>Database, accesso, archiviazione dei file</td><td>Tutti i dati dell'app</td><td>UE — Stoccolma, Svezia</td></tr>
+          <tr><td>Sentry</td><td>Segnalazioni di errore</td><td>Dati tecnici degli errori</td><td>UE — Germania</td></tr>
+          <tr><td>Expo</td><td>Invio delle notifiche push</td><td>Token push, testo della notifica</td><td>USA</td></tr>
+          <tr><td>Apple Push Notification service, Google Firebase Cloud Messaging</td><td>Consegna delle notifiche al dispositivo</td><td>Token push, testo della notifica</td><td>Tutto il mondo</td></tr>
+          <tr><td>RevenueCat</td><td>Gestione degli abbonamenti</td><td>ID dell'account Sereno, dati d'acquisto</td><td>USA</td></tr>
+          <tr><td>Resend</td><td>Invio delle email dell'account (codici di verifica, reimpostazione della password)</td><td>Indirizzo email, contenuto dell'email</td><td>USA</td></tr>
+          <tr><td>Google (Gmail)</td><td>La nostra casella di assistenza</td><td>Le email che ci mandi</td><td>USA / tutto il mondo</td></tr>
+          <tr><td>Vercel</td><td>Hosting del sito</td><td>Indirizzo IP, log delle richieste (solo sito)</td><td>Rete globale</td></tr>
+          <tr><td>Meta Platforms Ireland Ltd. e Meta Platforms, Inc.</td><td>Misurazione pubblicitaria: SDK nell'app e, con consenso, Pixel sul sito</td><td>Vedi sezione 2. Mai dati sanitari.</td><td>Irlanda / USA</td></tr>
+          <tr><td>OpenAI</td><td>Misurazione pubblicitaria sul sito, solo con consenso</td><td>Pagine visitate, clic sugli store, indirizzo IP, informazioni sul browser</td><td>USA</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>Per il Pixel di Meta sul nostro sito, noi e Meta siamo contitolari della raccolta e dell'invio dei dati a Meta; quello che Meta ne fa dopo è regolato dalla sua informativa. Anche Meta e OpenAI usano i dati secondo le proprie informative.</p>
+      <p>Condividiamo inoltre i dati:</p>
       <ul>
-        <li><strong>Review and update your data</strong>: most personal data is editable directly in the App (Settings → Account, and individual pet/medication/document records).</li>
-        <li><strong>Request a copy (data export)</strong>: send us an email at <a href="mailto:supportserenopet@gmail.com">supportserenopet@gmail.com</a> and we will send you a structured copy of your data within 30 days.</li>
-        <li><strong>Delete your account and all your data</strong>: in the App, go to Settings → Delete Account. This will permanently remove all your personal data, pets, health records, and uploaded files from our database and from our storage buckets, in accordance with GDPR Art. 17.</li>
+        <li><strong>con Apple e Google</strong>, che vendono e fatturano gli abbonamenti e offrono l'accesso con Apple/Google come titolari autonomi, secondo le loro informative;</li>
+        <li><strong>con le persone che inviti</strong> in famiglia: vedono gli animali che condividi e quello che viene registrato su di loro;</li>
+        <li><strong>con chi scegli tu</strong>: un referto o una scheda d'emergenza escono dall'app solo quando li condividi;</li>
+        <li><strong>con i partner di cui hai usato il codice</strong>: non ricevono mai il tuo nome né la tua email;</li>
+        <li><strong>con le autorità</strong>, quando la legge lo richiede, e <strong>con un acquirente</strong> se l'attività venisse ceduta, con le stesse tutele descritte qui.</li>
       </ul>
 
-    </div>
+      <h2 id="it-transfers">5. Trasferimenti fuori dall'UE</h2>
+      <p>I dati dell'app sono conservati nell'UE. Alcuni fornitori hanno sede negli Stati Uniti. Per questi trasferimenti ci basiamo sul Data Privacy Framework UE–USA (decisione di adeguatezza della Commissione europea del 10 luglio 2023) quando il fornitore è certificato, e altrimenti sulle Clausole contrattuali tipo approvate dalla Commissione europea (art. 46 GDPR).</p>
+
+      <h2 id="it-ads">6. Pubblicità, cookie e strumenti simili</h2>
+      <h3>Sul sito</h3>
+      <ul>
+        <li><strong>Sempre attivi (necessari):</strong> la lingua e la tua scelta sui cookie vengono salvate nel browser. Il nostro hosting può usare cookie tecnici per la sicurezza. Questi non richiedono consenso.</li>
+        <li><strong>Solo se tocchi "Accetta":</strong> il Pixel di Meta (cookie come <code>_fbp</code>) e il pixel di OpenAI, usati per misurare le nostre inserzioni. Se tocchi "Rifiuta", non viene caricato nessuno dei due.</li>
+        <li><strong>Se cambi idea:</strong> tocca "Preferenze cookie" in fondo alla home e il banner ricompare. Puoi anche cancellare i dati del sito dal browser.</li>
+      </ul>
+      <h3>Nell'app</h3>
+      <p>L'app non usa cookie. Contiene l'SDK di Meta, che invia a Meta i dati elencati nella sezione 2 per misurare le nostre inserzioni.</p>
+      <ul>
+        <li><strong>iPhone:</strong> l'identificativo pubblicitario viene usato solo se tocchi "Consenti" nel messaggio di Apple sul tracciamento. Se non lo fai, chiediamo a Meta di non usare i tuoi dati per il tracciamento. Puoi cambiare scelta in Impostazioni → Privacy e sicurezza → Tracciamento.</li>
+        <li><strong>Android:</strong> l'SDK si avvia quando apri l'app e usa l'ID pubblicità di Android. Puoi interromperlo in qualsiasi momento eliminando l'ID pubblicità dalle impostazioni del dispositivo (Impostazioni → Privacy → Annunci), oppure scrivendoci per opporti.</li>
+      </ul>
+
+      <h2 id="it-retention">7. Per quanto tempo li conserviamo</h2>
+      <ul>
+        <li><strong>Account e dati degli animali:</strong> finché non elimini l'account. Poi vengono cancellati dal database e dall'archivio dei file, e dai backup entro 30 giorni.</li>
+        <li><strong>Dati di fatturazione</strong> (acquisti, rinnovi, rimborsi): 10 anni, come richiesto dalla legge italiana (art. 2220 del Codice civile). Sono collegati solo a un ID di account e restano anche dopo l'eliminazione dell'account.</li>
+        <li><strong>Link di invito in famiglia:</strong> scadono dopo 7 giorni.</li>
+        <li><strong>Segnalazioni di errore:</strong> non oltre 90 giorni.</li>
+        <li><strong>Email di assistenza:</strong> fino a 2 anni dall'ultimo scambio.</li>
+        <li><strong>Log del sito:</strong> per il breve periodo stabilito dal nostro hosting.</li>
+        <li><strong>Scelta sui cookie:</strong> salvata nel browser finché non la cambi o la cancelli.</li>
+      </ul>
+      <p>Possiamo conservare statistiche anonime e aggregate che non identificano più nessuno.</p>
+
+      <h2 id="it-security">8. Come li proteggiamo</h2>
+      <ul>
+        <li>Cifratura durante la trasmissione (HTTPS/TLS) e a riposo;</li>
+        <li>Regole del database (Row-Level Security) per cui ogni persona può raggiungere solo i propri dati e gli animali condivisi con lei;</li>
+        <li>Password cifrate e verifica dell'email;</li>
+        <li>Controlli periodici del codice e dell'infrastruttura.</li>
+      </ul>
+      <p>Nessun sistema è sicuro al 100%. Se una violazione mettesse a rischio i tuoi dati, informeremo l'autorità e, quando previsto, anche te, come stabilito dagli articoli 33 e 34 del GDPR.</p>
+
+      <h2 id="it-minors">9. Minori</h2>
+      <p>Sereno è pensato per persone maggiorenni. Non raccogliamo consapevolmente dati di minori. Se pensi che un minore ci abbia dato i suoi dati, scrivici e li cancelleremo.</p>
+
+      <h2 id="it-rights">10. I tuoi diritti</h2>
+      <p>Secondo il GDPR puoi chiederci in qualsiasi momento di:</p>
+      <ul>
+        <li><strong>accedere</strong> ai tuoi dati e averne una copia (art. 15);</li>
+        <li><strong>correggerli</strong> (art. 16) — la maggior parte si modifica direttamente nell'app;</li>
+        <li><strong>cancellarli</strong> (art. 17) — nell'app vai su Altro → Elimina account, oppure usa <a href="/delete-account">serenopet.com/delete-account</a>;</li>
+        <li><strong>limitarne</strong> l'uso (art. 18);</li>
+        <li><strong>riceverli</strong> in un formato strutturato e leggibile da un computer (art. 20);</li>
+        <li><strong>opporti</strong> agli usi basati sul nostro legittimo interesse (art. 21);</li>
+        <li><strong>revocare il consenso</strong> in qualsiasi momento, senza effetti su quanto avvenuto prima (art. 7.3).</li>
+      </ul>
+      <p>Scrivi a <a href="mailto:supportserenopet@gmail.com">supportserenopet@gmail.com</a>. Rispondiamo entro un mese; per le richieste complesse il termine può essere esteso di altri due mesi, e ti diremo perché. Hai anche il diritto di presentare reclamo a un'autorità di controllo: in Italia il <a href="https://www.garanteprivacy.it" target="_blank" rel="noopener">Garante per la protezione dei dati personali</a>, oppure l'autorità del paese UE in cui vivi o lavori.</p>
+
+      <h2 id="it-us">11. Utenti negli Stati Uniti, nel Regno Unito e in Australia</h2>
+      <p><strong>Stati Uniti.</strong> Se vivi in uno stato con una legge sulla privacy dei consumatori (come California, Colorado, Connecticut, Virginia o Utah), puoi chiedere di conoscere, consultare, correggere e cancellare i tuoi dati personali, senza essere discriminato per averlo fatto. Non vendiamo dati personali in cambio di denaro. L'uso di Meta e OpenAI per misurare le inserzioni può valere come "condivisione" o "pubblicità mirata" secondo alcune di queste leggi: puoi rifiutarlo non accettando i cookie sul sito, non consentendo il tracciamento su iPhone, eliminando l'ID pubblicità su Android, oppure scrivendoci. Non usiamo dati personali sensibili per dedurre caratteristiche su di te. Un agente autorizzato può fare una richiesta per te via email.</p>
+      <p><strong>Regno Unito.</strong> Hai gli stessi diritti secondo lo UK GDPR e puoi presentare reclamo all'Information Commissioner's Office (ICO).</p>
+      <p><strong>Australia.</strong> Trattiamo i tuoi dati secondo gli Australian Privacy Principles. Scrivi prima a noi; se non sei soddisfatto, puoi presentare reclamo all'Office of the Australian Information Commissioner (OAIC).</p>
+
+      <h2 id="it-changes">12. Modifiche a questa informativa</h2>
+      <p>Quando aggiorniamo questa informativa cambiamo la data in alto. Se le modifiche sono importanti, te lo diciamo nell'app o via email prima che si applichino.</p>
+
+      <h2 id="it-contact">13. Contatti</h2>
+      <p class="company">Ivan Salgarello — Sereno (ditta individuale)<br>Tombola, 37053 Cerea (VR), Italia<br>P.IVA 05070290233<br>Email: <a href="mailto:supportserenopet@gmail.com">supportserenopet@gmail.com</a><br>Sito: <a href="https://www.serenopet.com">serenopet.com</a></p>
+    </article>
+
+    <article class="sereno-card" data-lang="es" lang="es" hidden>
+      <h1>Política de privacidad</h1>
+      <p class="last-updated">Última actualización: 15 de octubre de 2026</p>
+
+      <div class="summary-box">
+        <strong>En resumen</strong>
+        <ul>
+          <li>Sereno está gestionado por Ivan Salgarello, empresario individual con sede en Italia. Se aplica el Reglamento europeo de protección de datos (RGPD).</li>
+          <li>Usamos tus datos para que la app funcione: tu cuenta, las fichas de tus mascotas, los recordatorios, los informes y el uso compartido en familia.</li>
+          <li>Nunca vendemos tus datos y nunca damos los datos de salud de tu mascota a anunciantes.</li>
+          <li>Los datos de la app se guardan en la Unión Europea (Estocolmo, Suecia).</li>
+          <li>Para medir nuestros anuncios usamos las herramientas de Meta en la app y, solo si aceptas las cookies, las de Meta y OpenAI en la web.</li>
+          <li>Puedes eliminar tu cuenta y todos sus datos desde la app cuando quieras.</li>
+        </ul>
+      </div>
+
+      <div class="sereno-toc">
+        <h3>Índice</h3>
+        <ol>
+          <li><a href="#es-who">Responsable de tus datos</a></li>
+          <li><a href="#es-collect">Qué datos recogemos</a></li>
+          <li><a href="#es-why">Para qué los usamos y con qué base jurídica</a></li>
+          <li><a href="#es-share">Con quién los compartimos</a></li>
+          <li><a href="#es-transfers">Transferencias fuera de la UE</a></li>
+          <li><a href="#es-ads">Publicidad, cookies y herramientas similares</a></li>
+          <li><a href="#es-retention">Cuánto tiempo los conservamos</a></li>
+          <li><a href="#es-security">Cómo los protegemos</a></li>
+          <li><a href="#es-minors">Menores</a></li>
+          <li><a href="#es-rights">Tus derechos</a></li>
+          <li><a href="#es-us">Usuarios en Estados Unidos, Reino Unido y Australia</a></li>
+          <li><a href="#es-changes">Cambios en esta política</a></li>
+          <li><a href="#es-contact">Contacto</a></li>
+        </ol>
+      </div>
+
+      <h2 id="es-who">1. Responsable de tus datos</h2>
+      <p>El responsable del tratamiento es <strong>Ivan Salgarello</strong>, empresario individual, que opera con el nombre <strong>Sereno</strong> ("nosotros"), con domicilio en Tombola, 37053 Cerea (VR), Italia — NIF-IVA IT05070290233 — correo <a href="mailto:supportserenopet@gmail.com">supportserenopet@gmail.com</a>.</p>
+      <p>Esta política cubre la app Sereno para iOS y Android, la web <a href="https://www.serenopet.com">serenopet.com</a> y los correos que intercambias con nosotros. No hemos nombrado un Delegado de Protección de Datos porque la ley no lo exige para nuestra actividad (art. 37 RGPD): para cualquier pregunta sobre privacidad escribe al correo indicado.</p>
+
+      <h2 id="es-collect">2. Qué datos recogemos</h2>
+      <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>Categoría</th><th>Qué incluye</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Cuenta</strong></td><td>Correo electrónico, contraseña (guardada solo como hash irreversible), nombre, idioma, ajustes de notificaciones.</td></tr>
+          <tr><td><strong>Inicio de sesión con Apple o Google</strong></td><td>El nombre y el correo que el proveedor nos comunica cuando lo eliges (con Apple puedes ocultar tu correo real).</td></tr>
+          <tr><td><strong>Perfiles de las mascotas</strong></td><td>Nombre, especie, raza, sexo, fecha de nacimiento, peso, número de microchip, foto, enfermedades, alergias.</td></tr>
+          <tr><td><strong>Datos de salud de las mascotas</strong></td><td>Medicamentos y dosis dadas, cambios de tratamiento, síntomas y crisis, vacunas, visitas al veterinario y sus costes, glucosa, peso, temperatura, frecuencia respiratoria, comida, agua, heces, fluidos, puntuaciones de calidad de vida, bultos, análisis de laboratorio, actividades, tratamientos, recordatorios de cuidado, notas, y los documentos y fotos que subes.</td></tr>
+          <tr><td><strong>Datos de tu veterinario</strong></td><td>Nombre, clínica, teléfono y correo de tu veterinario, si los introduces (por ejemplo para la ficha de emergencia y los informes).</td></tr>
+          <tr><td><strong>Uso compartido en familia</strong></td><td>Correos de las personas que invitas, enlaces de invitación (caducan a los 7 días), el rol de cada miembro y quién registró qué en una mascota compartida (por ejemplo "Marco dio la dosis").</td></tr>
+          <tr><td><strong>Suscripción</strong></td><td>Plan, fechas de prueba y renovación, tienda, producto, precio, moneda y país de compra, identificadores de la transacción en la tienda. Nunca vemos los datos de tu tarjeta: los pagos los gestionan Apple o Google.</td></tr>
+          <tr><td><strong>Cómo nos conociste</strong></td><td>Tu respuesta opcional al registrarte (por ejemplo un grupo de Facebook, Instagram o tu veterinario) y el código de socio que introduzcas.</td></tr>
+          <tr><td><strong>Uso de la app</strong></td><td>Cuántas veces al día abres la app, la hora de la primera y la última apertura, plataforma y versión de la app, y cuándo creas un informe.</td></tr>
+          <tr><td><strong>Dispositivo</strong></td><td>Token de notificaciones push, plataforma (iOS/Android), versión de la app, idioma.</td></tr>
+          <tr><td><strong>Informes de errores</strong></td><td>Detalles técnicos de los errores: modelo del dispositivo, sistema operativo, versión de la app, traza del error. La herramienta está configurada para no enviar los identificadores personales predeterminados.</td></tr>
+          <tr><td><strong>Medición publicitaria en la app</strong></td><td>El ID de tu cuenta Sereno (un código aleatorio, no tu nombre ni tu correo), el identificador publicitario del dispositivo (en iPhone solo si permites el rastreo; en Android el ID de publicidad) y estos eventos: instalación, apertura de la app, registro completado y método usado, introducción completada, primera mascota añadida (solo la especie), primer medicamento añadido, compra iniciada, prueba iniciada, compra con importe y moneda. Nunca datos de salud, nombres de mascotas ni notas.</td></tr>
+          <tr><td><strong>Soporte</strong></td><td>Los correos que nos envías y nuestras respuestas.</td></tr>
+          <tr><td><strong>Web</strong></td><td>Dirección IP y datos técnicos de las solicitudes en los registros de nuestro alojamiento; tu idioma y tu elección sobre cookies guardados en tu navegador; y, solo si aceptas las cookies, los datos recogidos por el Píxel de Meta y el píxel de OpenAI (páginas visitadas, clics en los botones de las tiendas y en el botón de correo de la página beta, dirección IP, información del navegador y del dispositivo, identificadores de cookies).</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p><strong>Qué es obligatorio.</strong> Para crear una cuenta necesitamos un correo electrónico (o el inicio de sesión con Apple/Google). Todo lo demás es opcional, pero sin ello algunas funciones no funcionarán.</p>
+      <p><strong>Datos de las mascotas.</strong> Los datos de salud de los animales no son "categorías especiales" según el RGPD, que protege los datos de salud de las personas. Aun así los protegemos como si lo fueran.</p>
+      <p><strong>Datos sobre ti y otras personas.</strong> Sereno está hecho para los datos de tu mascota: no escribas en notas o documentos información sobre tu salud o la de otras personas. Si introduces los datos de tu veterinario o invitas a familiares, asegúrate de que están de acuerdo.</p>
+
+      <h2 id="es-why">3. Para qué los usamos y con qué base jurídica</h2>
+      <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>Finalidad</th><th>Base jurídica (RGPD)</th></tr></thead>
+        <tbody>
+          <tr><td>Crear y gestionar tu cuenta; guardar y sincronizar tus datos; recordatorios, informes, ficha de emergencia y uso compartido en familia</td><td>Ejecución del contrato (art. 6.1.b)</td></tr>
+          <tr><td>Gestionar suscripciones, pruebas gratuitas y códigos de socio</td><td>Ejecución del contrato (art. 6.1.b)</td></tr>
+          <tr><td>Conservar los datos de facturación</td><td>Obligación legal fiscal y contable italiana (art. 6.1.c)</td></tr>
+          <tr><td>Contar las aperturas de la app, analizar errores, prevenir abusos, mantener el servicio seguro, saber cómo nos conoce la gente</td><td>Nuestro interés legítimo en que Sereno funcione, sea seguro y útil (art. 6.1.f). Puedes oponerte en cualquier momento.</td></tr>
+          <tr><td>Medir nuestros anuncios en la app</td><td>iPhone: tu consentimiento mediante el aviso de rastreo de Apple (art. 6.1.a). Android: nuestro interés legítimo en medir nuestros anuncios (art. 6.1.f); puedes oponerte en cualquier momento, ver la sección 6.</td></tr>
+          <tr><td>Píxel de Meta y píxel de OpenAI en la web</td><td>Tu consentimiento mediante el aviso de cookies (art. 6.1.a RGPD y art. 122 del Código de privacidad italiano)</td></tr>
+          <tr><td>Responder a tus correos</td><td>Ejecución del contrato o nuestro interés legítimo en responderte</td></tr>
+          <tr><td>Cumplir la ley, responder a las autoridades, defendernos ante reclamaciones</td><td>Obligación legal (art. 6.1.c) e interés legítimo (art. 6.1.f)</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>No tomamos decisiones sobre ti basadas únicamente en tratamientos automatizados que produzcan efectos jurídicos o efectos igualmente significativos (art. 22 RGPD). Sereno no da consejos veterinarios y no juzga por sí solo la salud de tu mascota.</p>
+
+      <h2 id="es-share">4. Con quién los compartimos</h2>
+      <p>No vendemos tus datos. Usamos estos proveedores para que Sereno funcione. Cuando tratan datos por cuenta nuestra, lo hacen con un contrato de encargo del tratamiento (art. 28 RGPD).</p>
+      <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>Proveedor</th><th>Qué hace para nosotros</th><th>Datos</th><th>Dónde</th></tr></thead>
+        <tbody>
+          <tr><td>Supabase</td><td>Base de datos, inicio de sesión, almacenamiento de archivos</td><td>Todos los datos de la app</td><td>UE — Estocolmo, Suecia</td></tr>
+          <tr><td>Sentry</td><td>Informes de errores</td><td>Datos técnicos de errores</td><td>UE — Alemania</td></tr>
+          <tr><td>Expo</td><td>Envía las notificaciones push</td><td>Token push, texto de la notificación</td><td>EE. UU.</td></tr>
+          <tr><td>Apple Push Notification service, Google Firebase Cloud Messaging</td><td>Entregan las notificaciones a tu dispositivo</td><td>Token push, texto de la notificación</td><td>Todo el mundo</td></tr>
+          <tr><td>RevenueCat</td><td>Gestiona las suscripciones</td><td>ID de la cuenta Sereno, datos de compra</td><td>EE. UU.</td></tr>
+          <tr><td>Resend</td><td>Envía los correos de la cuenta (códigos de verificación, restablecer la contraseña)</td><td>Correo electrónico, contenido del correo</td><td>EE. UU.</td></tr>
+          <tr><td>Google (Gmail)</td><td>Nuestro buzón de soporte</td><td>Tus correos</td><td>EE. UU. / todo el mundo</td></tr>
+          <tr><td>Vercel</td><td>Alojamiento de la web</td><td>Dirección IP, registros de solicitudes (solo web)</td><td>Red global</td></tr>
+          <tr><td>Meta Platforms Ireland Ltd. y Meta Platforms, Inc.</td><td>Medición publicitaria: SDK en la app y, con consentimiento, Píxel en la web</td><td>Ver sección 2. Nunca datos de salud.</td><td>Irlanda / EE. UU.</td></tr>
+          <tr><td>OpenAI</td><td>Medición publicitaria en la web, solo con consentimiento</td><td>Páginas visitadas, clics en las tiendas, dirección IP, información del navegador</td><td>EE. UU.</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>Para el Píxel de Meta en nuestra web, nosotros y Meta somos corresponsables de la recogida y el envío de los datos a Meta; lo que Meta hace después se rige por su propia política. Meta y OpenAI también usan los datos según sus propias políticas.</p>
+      <p>También compartimos datos:</p>
+      <ul>
+        <li><strong>con Apple y Google</strong>, que venden y facturan las suscripciones y ofrecen el inicio de sesión con Apple/Google como responsables independientes, según sus políticas;</li>
+        <li><strong>con las personas que invitas</strong> a tu familia: ven las mascotas que compartes y lo que se registra en ellas;</li>
+        <li><strong>con quien tú elijas</strong>: un informe o una ficha de emergencia salen de la app solo cuando los compartes;</li>
+        <li><strong>con los socios cuyo código usaste</strong>: nunca reciben tu nombre ni tu correo;</li>
+        <li><strong>con las autoridades</strong>, cuando la ley lo exige, y <strong>con un comprador</strong> si el negocio se transfiriera, con las mismas protecciones descritas aquí.</li>
+      </ul>
+
+      <h2 id="es-transfers">5. Transferencias fuera de la UE</h2>
+      <p>Los datos de la app se guardan en la UE. Algunos proveedores tienen sede en Estados Unidos. Para estas transferencias nos basamos en el Marco de Privacidad de Datos UE–EE. UU. (decisión de adecuación de la Comisión Europea del 10 de julio de 2023) cuando el proveedor está certificado, y en otro caso en las Cláusulas contractuales tipo aprobadas por la Comisión Europea (art. 46 RGPD).</p>
+
+      <h2 id="es-ads">6. Publicidad, cookies y herramientas similares</h2>
+      <h3>En la web</h3>
+      <ul>
+        <li><strong>Siempre activas (necesarias):</strong> tu idioma y tu elección sobre cookies se guardan en el navegador. Nuestro alojamiento puede usar cookies técnicas por seguridad. No requieren consentimiento.</li>
+        <li><strong>Solo si tocas "Aceptar":</strong> el Píxel de Meta (cookies como <code>_fbp</code>) y el píxel de OpenAI, para medir nuestros anuncios. Si tocas "Rechazar", no se carga ninguno.</li>
+        <li><strong>Si cambias de idea:</strong> toca "Preferencias de cookies" al final de la página de inicio y el aviso volverá a aparecer. También puedes borrar los datos del sitio en tu navegador.</li>
+      </ul>
+      <h3>En la app</h3>
+      <p>La app no usa cookies. Incluye el SDK de Meta, que envía a Meta los datos indicados en la sección 2 para medir nuestros anuncios.</p>
+      <ul>
+        <li><strong>iPhone:</strong> el identificador publicitario solo se usa si tocas "Permitir" en el aviso de rastreo de Apple. Si no lo haces, pedimos a Meta que no use tus datos para rastreo. Puedes cambiarlo en Ajustes → Privacidad y seguridad → Rastreo.</li>
+        <li><strong>Android:</strong> el SDK se inicia al abrir la app y usa el ID de publicidad de Android. Puedes detenerlo en cualquier momento eliminando tu ID de publicidad en los ajustes del dispositivo (Ajustes → Privacidad → Anuncios), o escribiéndonos para oponerte.</li>
+      </ul>
+
+      <h2 id="es-retention">7. Cuánto tiempo los conservamos</h2>
+      <ul>
+        <li><strong>Cuenta y datos de las mascotas:</strong> hasta que elimines tu cuenta. Después se borran de la base de datos y del almacenamiento de archivos, y de las copias de seguridad en 30 días.</li>
+        <li><strong>Datos de facturación</strong> (compras, renovaciones, reembolsos): 10 años, como exige la ley italiana (art. 2220 del Código Civil). Solo están vinculados a un ID de cuenta y se conservan incluso después de eliminar la cuenta.</li>
+        <li><strong>Enlaces de invitación familiar:</strong> caducan a los 7 días.</li>
+        <li><strong>Informes de errores:</strong> no más de 90 días.</li>
+        <li><strong>Correos de soporte:</strong> hasta 2 años después del último intercambio.</li>
+        <li><strong>Registros de la web:</strong> durante el breve periodo que fija nuestro alojamiento.</li>
+        <li><strong>Elección sobre cookies:</strong> guardada en tu navegador hasta que la cambies o la borres.</li>
+      </ul>
+      <p>Podemos conservar estadísticas anónimas y agregadas que ya no identifican a nadie.</p>
+
+      <h2 id="es-security">8. Cómo los protegemos</h2>
+      <ul>
+        <li>Cifrado en tránsito (HTTPS/TLS) y en reposo;</li>
+        <li>Reglas de la base de datos (Row-Level Security) para que cada persona solo acceda a sus propios datos y a las mascotas compartidas con ella;</li>
+        <li>Contraseñas cifradas y verificación del correo;</li>
+        <li>Revisiones periódicas del código y la infraestructura.</li>
+      </ul>
+      <p>Ningún sistema es 100 % seguro. Si una brecha pusiera en riesgo tus datos, lo notificaremos a la autoridad y, cuando corresponda, a ti, según los artículos 33 y 34 del RGPD.</p>
+
+      <h2 id="es-minors">9. Menores</h2>
+      <p>Sereno está pensado para personas mayores de 18 años. No recogemos a sabiendas datos de menores. Si crees que un menor nos ha dado sus datos, escríbenos y los borraremos.</p>
+
+      <h2 id="es-rights">10. Tus derechos</h2>
+      <p>Según el RGPD puedes pedirnos en cualquier momento:</p>
+      <ul>
+        <li><strong>acceder</strong> a tus datos y obtener una copia (art. 15);</li>
+        <li><strong>rectificarlos</strong> (art. 16) — la mayoría se edita directamente en la app;</li>
+        <li><strong>suprimirlos</strong> (art. 17) — en la app ve a Más → Eliminar cuenta, o usa <a href="/delete-account">serenopet.com/delete-account</a>;</li>
+        <li><strong>limitar</strong> su uso (art. 18);</li>
+        <li><strong>recibirlos</strong> en un formato estructurado y legible por máquina (art. 20);</li>
+        <li><strong>oponerte</strong> a los usos basados en nuestro interés legítimo (art. 21);</li>
+        <li><strong>retirar tu consentimiento</strong> en cualquier momento, sin afectar a lo anterior (art. 7.3).</li>
+      </ul>
+      <p>Escribe a <a href="mailto:supportserenopet@gmail.com">supportserenopet@gmail.com</a>. Respondemos en un mes; para solicitudes complejas el plazo puede ampliarse dos meses más, y te diremos por qué. También tienes derecho a presentar una reclamación ante una autoridad de control: en Italia el <a href="https://www.garanteprivacy.it" target="_blank" rel="noopener">Garante per la protezione dei dati personali</a>, en España la Agencia Española de Protección de Datos (AEPD), o la autoridad del país de la UE donde vivas o trabajes.</p>
+
+      <h2 id="es-us">11. Usuarios en Estados Unidos, Reino Unido y Australia</h2>
+      <p><strong>Estados Unidos.</strong> Si vives en un estado con una ley de privacidad del consumidor (como California, Colorado, Connecticut, Virginia o Utah), puedes pedir conocer, acceder, corregir y eliminar tus datos personales, sin ser discriminado por ello. No vendemos datos personales a cambio de dinero. El uso de Meta y OpenAI para medir anuncios puede considerarse "compartir" o "publicidad dirigida" según algunas de estas leyes: puedes excluirte rechazando las cookies en la web, no permitiendo el rastreo en iPhone, eliminando tu ID de publicidad en Android, o escribiéndonos. No usamos datos personales sensibles para inferir características sobre ti. Un agente autorizado puede hacer una solicitud por ti por correo.</p>
+      <p><strong>Reino Unido.</strong> Tienes los mismos derechos según el UK GDPR y puedes reclamar ante la Information Commissioner's Office (ICO).</p>
+      <p><strong>Australia.</strong> Tratamos tus datos según los Australian Privacy Principles. Escríbenos primero; si no quedas satisfecho, puedes reclamar ante la Office of the Australian Information Commissioner (OAIC).</p>
+
+      <h2 id="es-changes">12. Cambios en esta política</h2>
+      <p>Cuando actualizamos esta política cambiamos la fecha de arriba. Si los cambios son importantes, te lo diremos en la app o por correo antes de que se apliquen.</p>
+
+      <h2 id="es-contact">13. Contacto</h2>
+      <p class="company">Ivan Salgarello — Sereno (empresario individual)<br>Tombola, 37053 Cerea (VR), Italia<br>NIF-IVA IT05070290233<br>Correo: <a href="mailto:supportserenopet@gmail.com">supportserenopet@gmail.com</a><br>Web: <a href="https://www.serenopet.com">serenopet.com</a></p>
+    </article>
   </main>
+  <script>
+  (function () {
+    var L = ['en', 'it', 'es'];
+    function pick() {
+      var q = (location.search.match(/[?&]lang=(en|it|es)/) || [])[1];
+      if (q) return q;
+      try { var s = localStorage.getItem('sereno-lang'); if (L.indexOf(s) > -1) return s; } catch (e) {}
+      var n = (navigator.language || 'en').slice(0, 2).toLowerCase();
+      return L.indexOf(n) > -1 ? n : 'en';
+    }
+    function show(l) {
+      document.querySelectorAll('[data-lang]').forEach(function (el) { el.hidden = el.getAttribute('data-lang') !== l; });
+      document.documentElement.lang = l;
+      document.querySelectorAll('.lang-switch button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-set') === l)); });
+      var h = document.querySelector('article[data-lang="' + l + '"] h1');
+      if (h) document.title = h.textContent + ' — Sereno';
+    }
+    document.querySelectorAll('.lang-switch button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var l = b.getAttribute('data-set');
+        try { localStorage.setItem('sereno-lang', l); } catch (e) {}
+        show(l);
+        window.scrollTo(0, 0);
+      });
+    });
+    show(pick());
+  })();
+  </script>
 </body>
 </html>

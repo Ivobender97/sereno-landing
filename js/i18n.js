@@ -485,7 +485,9 @@ window.SERENO_I18N = {
     "footer.legal": "Legal",
     "footer.privacy": "Privacy Policy",
     "footer.terms": "Terms",
-    "footer.rights": "© 2026 Sereno®. Made with care for pets everywhere."
+    "footer.cookies": "Cookie preferences",
+    "footer.rights": "© 2026 Sereno®. Made with care for pets everywhere.",
+    "footer.company_id": "Sereno is run by Ivan Salgarello, sole trader · Tombola, 37053 Cerea (VR), Italy · VAT no. IT05070290233"
   },
 
   it: {
@@ -972,7 +974,9 @@ window.SERENO_I18N = {
     "footer.legal": "Legale",
     "footer.privacy": "Privacy",
     "footer.terms": "Termini",
-    "footer.rights": "© 2026 Sereno®. Fatto con cura per gli animali ovunque."
+    "footer.cookies": "Preferenze cookie",
+    "footer.rights": "© 2026 Sereno®. Fatto con cura per gli animali ovunque.",
+    "footer.company_id": "Sereno di Ivan Salgarello, ditta individuale · Tombola, 37053 Cerea (VR), Italia · P.IVA 05070290233"
   },
 
   es: {
@@ -1459,6 +1463,8 @@ window.SERENO_I18N = {
     "footer.legal": "Legal",
     "footer.privacy": "Privacidad",
     "footer.terms": "Términos",
-    "footer.rights": "© 2026 Sereno®. Hecho con cariño para las mascotas de todo el mundo."
+    "footer.cookies": "Preferencias de cookies",
+    "footer.rights": "© 2026 Sereno®. Hecho con cariño para las mascotas de todo el mundo.",
+    "footer.company_id": "Sereno es gestionado por Ivan Salgarello, empresario individual · Tombola, 37053 Cerea (VR), Italia · NIF-IVA IT05070290233"
   }
 };

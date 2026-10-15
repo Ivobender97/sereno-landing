@@ -4,214 +4,66 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Terms of Service — Sereno</title>
-  <meta name="description" content="Sereno Terms of Service. Read the terms and conditions for using our pet health tracker app.">
+  <meta name="description" content="Sereno Terms of Service: plans, subscriptions, free trials, your content and your rights.">
   <meta name="robots" content="index, follow">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/fonts.css">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #eef5f4;
-      color: #1a202c;
-      line-height: 1.6;
-      min-height: 100vh;
-    }
-    .sereno-nav {
-      position: sticky;
-      top: 0;
-      background: rgba(238, 245, 244, 0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid #ddeae9;
-      padding: 16px 24px;
-      z-index: 100;
-    }
-    .sereno-nav-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-    .sereno-brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: #2c7a7b;
-    }
-    .sereno-brand-paw {
-      width: 36px;
-      height: 36px;
-      background: #2c7a7b;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 16px rgba(44, 122, 123, 0.25);
-    }
-    .sereno-brand-paw svg {
-      width: 20px;
-      height: 20px;
-      fill: white;
-    }
-    .sereno-brand-logo {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      object-fit: cover;
-    }
-    .sereno-brand-name {
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      color: #2c7a7b;
-    }
-    .sereno-back {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: #2c7a7b;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 14px;
-      padding: 8px 14px;
-      border-radius: 9999px;
-      transition: background 0.2s ease;
-    }
-    .sereno-back:hover {
-      background: rgba(44, 122, 123, 0.08);
-    }
-    main {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 40px 24px 80px;
-    }
-    .sereno-card {
-      background: #ffffff;
-      border-radius: 16px;
-      padding: 48px 40px;
-      box-shadow: 0 4px 24px rgba(44, 122, 123, 0.06);
-    }
-    .sereno-card h1 {
-      font-size: 32px;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      color: #1a202c;
-      margin-bottom: 8px;
-    }
-    .sereno-card .last-updated {
-      color: #595959;
-      font-size: 14px;
-      margin-bottom: 32px;
-    }
-    .sereno-card h2 {
-      font-size: 20px;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      color: #1a202c;
-      margin-top: 36px;
-      margin-bottom: 14px;
-    }
-    .sereno-card h3 {
-      font-size: 17px;
-      font-weight: 700;
-      color: #1a202c;
-      margin-top: 24px;
-      margin-bottom: 10px;
-    }
-    .sereno-card p {
-      font-size: 15px;
-      color: #2d3748;
-      margin-bottom: 14px;
-    }
-    .sereno-card ul, .sereno-card ol {
-      margin-left: 24px;
-      margin-bottom: 14px;
-    }
-    .sereno-card li {
-      font-size: 15px;
-      color: #2d3748;
-      margin-bottom: 8px;
-    }
-    .sereno-card a {
-      color: #2c7a7b;
-      text-decoration: underline;
-      font-weight: 600;
-    }
-    .sereno-card a:hover {
-      color: #1f5b5c;
-    }
-    .sereno-card strong {
-      font-weight: 700;
-      color: #1a202c;
-    }
-    .sereno-card .medical-disclaimer {
-      background: #fff5f5;
-      border-left: 4px solid #e53e3e;
-      padding: 18px 22px;
-      border-radius: 8px;
-      margin: 24px 0;
-    }
-    .sereno-card .medical-disclaimer strong {
-      color: #c53030;
-      display: block;
-      margin-bottom: 6px;
-      font-size: 15px;
-    }
-    .sereno-card .medical-disclaimer p {
-      font-size: 14px;
-      color: #742a2a;
-      margin: 0;
-    }
-    .sereno-toc {
-      background: #f7fafa;
-      border-radius: 12px;
-      padding: 20px 24px;
-      margin: 24px 0 32px;
-    }
-    .sereno-toc h3 {
-      margin-top: 0;
-      font-size: 15px;
-      color: #2c7a7b;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    .sereno-toc ol {
-      margin-left: 18px;
-      margin-bottom: 0;
-      columns: 2;
-      column-gap: 24px;
-    }
-    .sereno-toc li {
-      font-size: 14px;
-      margin-bottom: 4px;
-      break-inside: avoid;
-    }
-    .sereno-toc a {
-      text-decoration: none;
-      color: #2c7a7b;
-      font-weight: 500;
-    }
-    .sereno-toc a:hover {
-      text-decoration: underline;
-    }
-    /* Mobile responsive */
+    body { font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #eef5f4; color: #1a202c; line-height: 1.6; min-height: 100vh; }
+    .sereno-nav { position: sticky; top: 0; background: rgba(238, 245, 244, 0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid #ddeae9; padding: 14px 24px; z-index: 100; }
+    .sereno-nav-inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .sereno-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #2c7a7b; }
+    .sereno-brand-logo { width: 38px; height: 38px; border-radius: 11px; object-fit: cover; }
+    .sereno-brand-name { font-size: 21px; font-weight: 800; letter-spacing: -0.02em; color: #2c7a7b; }
+    .nav-right { display: flex; align-items: center; gap: 8px; }
+    .lang-switch { display: inline-flex; background: #fff; border: 1px solid #ddeae9; border-radius: 9999px; padding: 3px; }
+    .lang-switch button { font: inherit; font-size: 13px; font-weight: 700; color: #2c7a7b; background: none; border: 0; border-radius: 9999px; padding: 5px 10px; cursor: pointer; }
+    .lang-switch button[aria-pressed="true"] { background: #2c7a7b; color: #fff; }
+    .sereno-back { color: #2c7a7b; text-decoration: none; font-weight: 600; font-size: 14px; padding: 8px 12px; border-radius: 9999px; white-space: nowrap; }
+    .sereno-back:hover { background: rgba(44, 122, 123, 0.08); }
+    main { max-width: 900px; margin: 0 auto; padding: 40px 24px 80px; }
+    .sereno-card { background: #fff; border-radius: 16px; padding: 48px 40px; box-shadow: 0 4px 24px rgba(44, 122, 123, 0.06); }
+    .sereno-card h1 { font-size: 32px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 8px; }
+    .sereno-card .last-updated { color: #595959; font-size: 14px; margin-bottom: 28px; }
+    .sereno-card h2 { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; margin-top: 36px; margin-bottom: 14px; scroll-margin-top: 90px; }
+    .sereno-card h3 { font-size: 17px; font-weight: 700; margin-top: 22px; margin-bottom: 10px; }
+    .sereno-card p { font-size: 15px; color: #2d3748; margin-bottom: 14px; }
+    .sereno-card ul, .sereno-card ol { margin-left: 22px; margin-bottom: 14px; }
+    .sereno-card li { font-size: 15px; color: #2d3748; margin-bottom: 8px; }
+    .sereno-card a { color: #2c7a7b; text-decoration: underline; font-weight: 600; overflow-wrap: anywhere; }
+    .sereno-card strong { font-weight: 700; color: #1a202c; }
+    .summary-box { background: #f0f9f7; border-left: 4px solid #2c7a7b; padding: 18px 22px; border-radius: 8px; margin: 16px 0 24px; }
+    .summary-box > strong { color: #2c7a7b; display: block; margin-bottom: 8px; font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .summary-box ul { margin-bottom: 0; }
+    .summary-box li { font-size: 14px; color: #234e51; margin-bottom: 4px; }
+    .warn-box { background: #fff5f5; border-left: 4px solid #c53030; padding: 18px 22px; border-radius: 8px; margin: 16px 0 20px; }
+    .warn-box p { color: #742a2a; margin-bottom: 8px; }
+    .warn-box p:last-child { margin-bottom: 0; }
+    .table-wrap { overflow-x: auto; margin: 16px 0 24px; }
+    .data-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .data-table th { background: #f7fafa; color: #2c7a7b; text-align: left; padding: 11px 12px; font-weight: 700; border-bottom: 2px solid #ddeae9; }
+    .data-table td { padding: 11px 12px; border-bottom: 1px solid #eef5f4; vertical-align: top; color: #2d3748; }
+    .data-table tr:last-child td { border-bottom: none; }
+    .sereno-toc { background: #f7fafa; border-radius: 12px; padding: 20px 24px; margin: 24px 0 32px; }
+    .sereno-toc h3 { margin-top: 0; font-size: 15px; color: #2c7a7b; text-transform: uppercase; letter-spacing: 0.05em; }
+    .sereno-toc ol { margin-left: 18px; margin-bottom: 0; columns: 2; column-gap: 24px; }
+    .sereno-toc li { font-size: 14px; margin-bottom: 4px; break-inside: avoid; }
+    .sereno-toc a { text-decoration: none; font-weight: 500; }
+    .sereno-toc a:hover { text-decoration: underline; }
+    .company { font-size: 14px; color: #4a5568; }
+    [hidden] { display: none !important; }
     @media (max-width: 768px) {
-      .sereno-nav { padding: 12px 16px; }
-      .sereno-brand-name { font-size: 18px; }
-      .sereno-brand-paw { width: 32px; height: 32px; }
-      .sereno-brand-paw svg { width: 18px; height: 18px; }
-      .sereno-back { font-size: 13px; padding: 6px 12px; }
-      main { padding: 24px 12px 60px; }
-      .sereno-card { padding: 28px 20px; border-radius: 12px; }
+      .sereno-nav { padding: 10px 14px; }
+      .sereno-brand-name { display: none; }
+      .sereno-back { font-size: 13px; padding: 6px 8px; }
+      main { padding: 20px 12px 60px; }
+      .sereno-card { padding: 28px 18px; border-radius: 12px; }
       .sereno-card h1 { font-size: 26px; }
       .sereno-card h2 { font-size: 18px; }
       .sereno-toc ol { columns: 1; }
+      .data-table { font-size: 13px; }
+      .data-table th, .data-table td { padding: 9px 8px; }
     }
   </style>
 </head>
@@ -219,307 +71,503 @@
   <nav class="sereno-nav">
     <div class="sereno-nav-inner">
       <a href="/" class="sereno-brand" aria-label="Sereno home">
-        <img src="assets/logo.png" class="sereno-brand-logo" alt="Sereno" />
+        <img src="/assets/logo-192.png" class="sereno-brand-logo" alt="Sereno" width="38" height="38">
         <span class="sereno-brand-name">Sereno</span>
       </a>
-      <a href="/" class="sereno-back">← Back to home</a>
+      <div class="nav-right">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" data-set="en" aria-pressed="true">EN</button>
+          <button type="button" data-set="it" aria-pressed="false">IT</button>
+          <button type="button" data-set="es" aria-pressed="false">ES</button>
+        </div>
+        <a href="/" class="sereno-back"><span data-lang="en">← Home</span><span data-lang="it" hidden>← Home</span><span data-lang="es" hidden>← Inicio</span></a>
+      </div>
     </div>
   </nav>
   <main>
-    <div class="sereno-card">
-
+    <article class="sereno-card" data-lang="en" lang="en">
       <h1>Terms of Service</h1>
-      <p class="last-updated">Last updated: May 28, 2026</p>
+      <p class="last-updated">Last updated: October 15, 2026</p>
 
-      <h2 id="agreement">1. Agreement to Our Legal Terms</h2>
-      <p>We are <strong>Ivan Salgarello</strong>, doing business as <strong>Sereno</strong> ("<strong>we</strong>," "<strong>us</strong>," "<strong>our</strong>"), an individual based in Italy.</p>
-      <p>We operate the mobile application <strong>Sereno</strong> (the "<strong>App</strong>"), as well as the website <a href="https://serenopet.com">https://serenopet.com</a> (the "<strong>Site</strong>"), and any other related products and services that refer or link to these legal terms (collectively, the "<strong>Services</strong>").</p>
-      <p>You can contact us by email at <a href="mailto:supportserenopet@gmail.com">supportserenopet@gmail.com</a>.</p>
-      <p>These Terms of Service ("<strong>Legal Terms</strong>") constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("<strong>you</strong>"), and Ivan Salgarello (doing business as Sereno), concerning your access to and use of the Services. You agree that by accessing the Services, you have read, understood, and agreed to be bound by all of these Legal Terms. <strong>If you do not agree with all of these Legal Terms, then you are expressly prohibited from using the Services and you must discontinue use immediately.</strong></p>
-      <p>We will provide you with prior notice of any scheduled changes to the Services you are using. The modified Legal Terms will become effective upon posting or notifying you by <a href="mailto:supportserenopet@gmail.com">supportserenopet@gmail.com</a>, as stated in the email message. By continuing to use the Services after the effective date of any changes, you agree to be bound by the modified terms.</p>
-      <p>The Services are intended for users who are at least 18 years old. Persons under the age of 18 are not permitted to use or register for the Services.</p>
-      <p>We recommend that you print a copy of these Legal Terms for your records.</p>
+      <div class="summary-box">
+        <strong>In short</strong>
+        <ul>
+          <li>Sereno helps you record and share your pet's health information. It is not a vet and does not give veterinary advice.</li>
+          <li>You can use Sereno for free. Plus and Pro are subscriptions bought through the App Store or Google Play, and they renew until you cancel.</li>
+          <li>Your data is yours: you can export it or delete it.</li>
+          <li>If you are a consumer, you keep all the rights that consumer law gives you.</li>
+        </ul>
+      </div>
 
       <div class="sereno-toc">
-        <h3>Table of Contents</h3>
+        <h3>Contents</h3>
         <ol>
-          <li><a href="#agreement">Agreement to Our Legal Terms</a></li>
-          <li><a href="#services">Our Services</a></li>
-          <li><a href="#medical-disclaimer">Medical & Veterinary Disclaimer</a></li>
-          <li><a href="#ip">Intellectual Property Rights</a></li>
-          <li><a href="#representations">User Representations</a></li>
-          <li><a href="#registration">User Registration</a></li>
-          <li><a href="#subscriptions">Subscriptions</a></li>
-          <li><a href="#free-trial">Free Trial</a></li>
-          <li><a href="#payments">Purchases and Payment</a></li>
-          <li><a href="#prohibited">Prohibited Activities</a></li>
-          <li><a href="#contributions">User Generated Contributions</a></li>
-          <li><a href="#license">Contribution License</a></li>
-          <li><a href="#mobile-license">Mobile Application License</a></li>
-          <li><a href="#privacy">Privacy Policy</a></li>
-          <li><a href="#copyright">Copyright Infringements</a></li>
-          <li><a href="#termination">Term and Termination</a></li>
-          <li><a href="#modifications">Modifications and Interruptions</a></li>
-          <li><a href="#law">Governing Law</a></li>
-          <li><a href="#disputes">Dispute Resolution</a></li>
-          <li><a href="#corrections">Corrections</a></li>
-          <li><a href="#disclaimer">Disclaimer</a></li>
-          <li><a href="#liability">Limitations of Liability</a></li>
-          <li><a href="#indemnification">Indemnification</a></li>
-          <li><a href="#user-data">User Data</a></li>
-          <li><a href="#electronic">Electronic Communications</a></li>
-          <li><a href="#misc">Miscellaneous</a></li>
-          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="#en-t-who">Who we are</a></li>
+          <li><a href="#en-t-what">What Sereno is</a></li>
+          <li><a href="#en-t-vet">Not veterinary advice</a></li>
+          <li><a href="#en-t-account">Who can use Sereno</a></li>
+          <li><a href="#en-t-plans">Plans and subscriptions</a></li>
+          <li><a href="#en-t-trial">Free trials and promotional access</a></li>
+          <li><a href="#en-t-refunds">Refunds and right of withdrawal</a></li>
+          <li><a href="#en-t-content">Your content</a></li>
+          <li><a href="#en-t-family">Family sharing</a></li>
+          <li><a href="#en-t-use">Acceptable use</a></li>
+          <li><a href="#en-t-changes-service">Availability and changes to the service</a></li>
+          <li><a href="#en-t-ip">Intellectual property and app licence</a></li>
+          <li><a href="#en-t-end">Closing your account</a></li>
+          <li><a href="#en-t-liability">Liability</a></li>
+          <li><a href="#en-t-privacy">Privacy</a></li>
+          <li><a href="#en-t-changes">Changes to these terms</a></li>
+          <li><a href="#en-t-law">Applicable law and disputes</a></li>
+          <li><a href="#en-t-dsa">Point of contact</a></li>
+          <li><a href="#en-t-general">General</a></li>
+          <li><a href="#en-t-contact">Contact us</a></li>
         </ol>
       </div>
 
-      <h2 id="services">2. Our Services</h2>
-      <p>Sereno is a mobile pet health tracker application for iOS and Android. It helps pet owners — especially those caring for pets with chronic conditions such as diabetes, epilepsy, kidney disease, allergies, or hypothyroidism — to track medications, symptoms, vaccinations, vet visits, and medical documents in one place. Users can generate shareable PDF health reports for their veterinarians, set up family sharing with anti-double-dose logic, and receive push notification reminders.</p>
-      <p>The Services are available in English, Italian, and Spanish.</p>
-      <p>The information provided when using the Services is not intended for distribution to or use by any person or entity in any jurisdiction or country where such distribution or use would be contrary to law or regulation or which would subject us to any registration requirement within such jurisdiction or country. Accordingly, those persons who choose to access the Services from other locations do so on their own initiative and are solely responsible for compliance with local laws, if and to the extent local laws are applicable.</p>
+      <h2 id="en-t-who">1. Who we are</h2>
+      <p>Sereno is run by <strong>Ivan Salgarello</strong>, sole trader, trading as <strong>Sereno</strong> ("we", "us"), Tombola, 37053 Cerea (VR), Italy — VAT no. IT05070290233 — email <a href="mailto:supportserenopet@gmail.com">supportserenopet@gmail.com</a>.</p>
+      <p>These terms are an agreement between you and us for the Sereno app, the website serenopet.com and the related services (the "Services"). By creating an account or using Sereno you accept them. If you do not agree, please do not use the Services.</p>
 
-      <h2 id="medical-disclaimer">3. Medical & Veterinary Disclaimer</h2>
-      <div class="medical-disclaimer">
-        <strong>⚠️ Important: Sereno is NOT a substitute for professional veterinary care.</strong>
-        <p>Sereno is a personal tracking tool only. It does not provide veterinary advice, diagnoses, treatments, or medical recommendations. Always consult a qualified veterinarian for any questions regarding your pet's health.</p>
+      <h2 id="en-t-what">2. What Sereno is</h2>
+      <p>Sereno is an app for iOS and Android that helps you record medications, doses, symptoms, measurements, documents and other information about your pet's health, receive reminders, share care with your family and create reports to bring to your vet. It is available in English, Italian and Spanish.</p>
+
+      <h2 id="en-t-vet">3. Not veterinary advice</h2>
+      <div class="warn-box">
+        <p><strong>Sereno does not replace your vet.</strong></p>
+        <p>Sereno is a tool for recording and organising information. It is not a veterinary service or a medical device. It does not diagnose, treat or recommend treatments, doses or thresholds.</p>
       </div>
-      <p>You acknowledge and agree that:</p>
       <ul>
-        <li>Sereno is <strong>not a veterinary service, medical device, or diagnostic tool</strong>. We do not employ veterinarians, and no content within the Services constitutes professional veterinary advice.</li>
-        <li>The Services are designed solely to help you <strong>record, organize, and share information</strong> about your pet's health. Any decisions concerning your pet's medical care must be made in consultation with a qualified veterinarian.</li>
-        <li>Reminders, schedules, dose tracking, and any other automated features within the App are <strong>convenience tools</strong>. They do not constitute medical instructions and should never replace direct guidance from your veterinarian.</li>
-        <li>In case of a <strong>medical emergency</strong> involving your pet, you must contact a veterinarian or emergency animal hospital immediately. Do not rely on the App for emergency response.</li>
-        <li>The Emergency Card feature within the App is provided as a convenience to share information with veterinary professionals. It does not constitute a medical record and is not a substitute for official veterinary documentation.</li>
-        <li>We make no representations or warranties regarding the accuracy, completeness, or fitness for purpose of any information stored, generated, or displayed by the Services. You are solely responsible for verifying the accuracy of any information you enter or rely upon.</li>
-        <li>To the maximum extent permitted by law, we disclaim all liability for any harm, injury, illness, or death of any animal or person resulting from the use of, or inability to use, the Services.</li>
+        <li>Decisions about your pet's care must be made with a qualified veterinarian. Reminders, charts, counters and reports help you keep track; they do not replace your vet's instructions.</li>
+        <li>In an emergency, contact your vet or an emergency animal hospital immediately. Do not rely on the app, or on notifications arriving on time: delivery depends on your device, its settings and third-party services.</li>
+        <li>You are responsible for the accuracy of what you record. Reports and the emergency card show what you and your family have entered.</li>
       </ul>
 
-      <h2 id="ip">4. Intellectual Property Rights</h2>
-      <h3>Our intellectual property</h3>
-      <p>We are the owner or the licensee of all intellectual property rights in our Services, including all source code, databases, functionality, software, website designs, audio, video, text, photographs, and graphics in the Services (collectively, the "<strong>Content</strong>"), as well as the trademarks, service marks, and logos contained therein (the "<strong>Marks</strong>"), including the name "Sereno" and our paw-mark logo.</p>
-      <p>Our Content and Marks are protected by copyright and trademark laws (and various other intellectual property rights and unfair competition laws) and treaties around the world.</p>
-      <p>The Content and Marks are provided in or through the Services "AS IS" for your personal, non-commercial use only.</p>
+      <h2 id="en-t-account">4. Who can use Sereno</h2>
+      <p>You must be at least 18 years old. Please give us accurate information, keep your password safe and tell us straight away if you think someone else is using your account. You are responsible for what happens in your account.</p>
 
-      <h3>Your use of our Services</h3>
-      <p>Subject to your compliance with these Legal Terms, including the "<a href="#prohibited">Prohibited Activities</a>" section below, we grant you a non-exclusive, non-transferable, revocable license to:</p>
+      <h2 id="en-t-plans">5. Plans and subscriptions</h2>
       <ul>
-        <li>access the Services; and</li>
-        <li>download or print a copy of any portion of the Content to which you have properly gained access,</li>
-      </ul>
-      <p>solely for your personal, non-commercial use.</p>
-      <p>Except as set out in this section or elsewhere in our Legal Terms, no part of the Services and no Content or Marks may be copied, reproduced, aggregated, republished, uploaded, posted, publicly displayed, encoded, translated, transmitted, distributed, sold, licensed, or otherwise exploited for any commercial purpose whatsoever, without our express prior written permission.</p>
-      <p>If you wish to make any use of the Services, Content, or Marks other than as set out in this section or elsewhere in our Legal Terms, please address your request to: <a href="mailto:supportserenopet@gmail.com">supportserenopet@gmail.com</a>.</p>
-      <p>We reserve all rights not expressly granted to you in and to the Services, Content, and Marks. Any breach of these Intellectual Property Rights will constitute a material breach of our Legal Terms and your right to use our Services will terminate immediately.</p>
-
-      <h2 id="representations">5. User Representations</h2>
-      <p>By using the Services, you represent and warrant that:</p>
-      <ol>
-        <li>all registration information you submit will be true, accurate, current, and complete;</li>
-        <li>you will maintain the accuracy of such information and promptly update such registration information as necessary;</li>
-        <li>you have the legal capacity and you agree to comply with these Legal Terms;</li>
-        <li>you are not a minor in the jurisdiction in which you reside, and in any case you are at least 18 years old;</li>
-        <li>you will not access the Services through automated or non-human means, whether through a bot, script, or otherwise;</li>
-        <li>you will not use the Services for any illegal or unauthorized purpose; and</li>
-        <li>your use of the Services will not violate any applicable law or regulation.</li>
-      </ol>
-      <p>If you provide any information that is untrue, inaccurate, not current, or incomplete, we have the right to suspend or terminate your account and refuse any and all current or future use of the Services (or any portion thereof).</p>
-
-      <h2 id="registration">6. User Registration</h2>
-      <p>You are required to register to use the Services. You agree to keep your password confidential and will be responsible for all use of your account and password. We reserve the right to remove, reclaim, or change a username you select if we determine, in our sole discretion, that such username is inappropriate, obscene, or otherwise objectionable.</p>
-      <p>Email confirmation is required to activate your account. You are responsible for keeping your email address up to date.</p>
-
-      <h2 id="subscriptions">7. Subscriptions</h2>
-      <h3>Plans and billing</h3>
-      <p>Sereno offers a free plan and paid subscription plans:</p>
-      <ul>
-        <li><strong>Free</strong>: limited features (e.g. limited number of pets, medications, and family members).</li>
-        <li><strong>Plus</strong>: USD 4.99/month or USD 39/year.</li>
-        <li><strong>Pro</strong>: USD 9.99/month or USD 79/year.</li>
-      </ul>
-      <p>Prices are listed in US Dollars. Local currency conversion, applicable taxes, and final pricing in your region are determined by the Apple App Store or Google Play Store at the time of purchase, in accordance with their respective billing policies.</p>
-
-      <h3>Auto-renewal</h3>
-      <p>All subscriptions are <strong>billed in advance</strong> on a recurring and periodic basis (monthly or yearly, as selected by you at the time of subscription). Subscriptions <strong>automatically renew</strong> at the end of each billing period for the same duration unless you cancel them in accordance with the cancellation procedures below.</p>
-
-      <h3>Cancellation</h3>
-      <p>You can cancel your subscription at any time through:</p>
-      <ul>
-        <li><strong>iOS</strong>: Settings → [Your Name] → Subscriptions → Sereno → Cancel Subscription.</li>
-        <li><strong>Android</strong>: Google Play Store → Profile → Payments & subscriptions → Subscriptions → Sereno → Cancel subscription.</li>
-      </ul>
-      <p>Cancellation will take effect at the end of the current billing period. You will retain access to paid features until that date, after which your account will revert to the Free plan.</p>
-
-      <h3>Refunds</h3>
-      <p>Because subscriptions are processed by Apple and Google, all refund requests must be submitted directly to the relevant store (Apple App Store or Google Play Store) in accordance with their respective refund policies. We are not able to process refunds directly. EU consumers may be entitled to additional refund rights under applicable consumer protection law.</p>
-
-      <h3>Fee changes</h3>
-      <p>We reserve the right to change subscription fees at any time. We will provide you with reasonable prior notice of any fee changes by email or in-app notification. Fee changes will take effect at the start of the next billing period following the date of the change. By continuing to use the Services after a fee change takes effect, you agree to pay the modified fee.</p>
-
-      <h2 id="free-trial">8. Free Trial</h2>
-      <p>We offer a <strong>7-day free trial</strong> on selected yearly subscriptions. The free trial may be available to new users only and is subject to eligibility rules set by the Apple App Store and Google Play Store.</p>
-      <p>If you do not convert to a paid subscription at the end of the trial period, your account will not be charged and your subscription benefits will be suspended; your account will revert to the Free plan until you upgrade.</p>
-      <p>We reserve the right to modify or terminate the free trial offer at any time, without notice and in our sole discretion.</p>
-
-      <h2 id="payments">9. Purchases and Payment</h2>
-      <p>We accept the following forms of payment, as enabled and processed by the Apple App Store and Google Play Store:</p>
-      <ul>
-        <li>Visa</li>
-        <li>Mastercard</li>
-        <li>American Express</li>
-        <li>Apple Pay</li>
-        <li>Google Pay</li>
-      </ul>
-      <p>All payments shall be in <strong>US Dollars (USD)</strong>. Local currency conversion and applicable taxes will be determined by the store at checkout.</p>
-      <p>You agree to provide current, complete, and accurate purchase and account information for all purchases made via the Services. You further agree to promptly update account and payment information, including email address, payment method, and payment card expiration date, so that we (and the relevant store) can complete your transactions and contact you as needed. Sales tax will be added to the price of purchases as deemed required by us or by the store. We reserve the right to refuse any order placed through the Services.</p>
-      <p><strong>Important:</strong> We do not directly process, store, or have access to your payment card data. All payment information is handled by Apple, Google, and our subscription management provider (RevenueCat).</p>
-
-      <h2 id="prohibited">10. Prohibited Activities</h2>
-      <p>You may not access or use the Services for any purpose other than that for which we make the Services available. The Services may not be used in connection with any commercial endeavors except those that are specifically endorsed or approved by us.</p>
-      <p>As a user of the Services, you agree not to:</p>
-      <ul>
-        <li>Systematically retrieve data or other content from the Services to create or compile, directly or indirectly, a collection, compilation, database, or directory without written permission from us.</li>
-        <li>Trick, defraud, or mislead us and other users, especially in any attempt to learn sensitive account information such as user passwords.</li>
-        <li>Circumvent, disable, or otherwise interfere with security-related features of the Services.</li>
-        <li>Disparage, tarnish, or otherwise harm, in our opinion, us and/or the Services.</li>
-        <li>Use any information obtained from the Services in order to harass, abuse, or harm another person.</li>
-        <li>Make improper use of our support services or submit false reports of abuse or misconduct.</li>
-        <li>Use the Services in a manner inconsistent with any applicable laws or regulations.</li>
-        <li>Engage in unauthorized framing of or linking to the Services.</li>
-        <li>Upload or transmit viruses, Trojan horses, or other material that interferes with any party's uninterrupted use and enjoyment of the Services, or modifies, impairs, disrupts, alters, or interferes with the use, features, functions, operation, or maintenance of the Services.</li>
-        <li>Engage in any automated use of the system, such as using scripts to send comments or messages, or using any data mining, robots, or similar data gathering and extraction tools.</li>
-        <li>Delete the copyright or other proprietary rights notice from any Content.</li>
-        <li>Attempt to impersonate another user or person or use the username of another user.</li>
-        <li>Interfere with, disrupt, or create an undue burden on the Services or the networks or services connected to the Services.</li>
-        <li>Harass, annoy, intimidate, or threaten any of our employees or agents engaged in providing any portion of the Services to you.</li>
-        <li>Attempt to bypass any measures of the Services designed to prevent or restrict access to the Services, or any portion of the Services.</li>
-        <li>Copy or adapt the Services' software, including but not limited to Flash, PHP, HTML, JavaScript, or other code.</li>
-        <li>Except as permitted by applicable law, decipher, decompile, disassemble, or reverse engineer any of the software comprising or in any way making up a part of the Services.</li>
-        <li>Use the Services to advertise or offer to sell goods and services.</li>
-        <li>Sell or otherwise transfer your profile.</li>
+        <li><strong>Plans.</strong> Sereno has a free plan, with the limits shown in the app, and paid subscriptions (Plus and Pro). What each plan includes is shown in the app.</li>
+        <li><strong>Price.</strong> The price is shown in the app and in the store before you buy, in your currency, with the taxes the store applies. The price shown when you confirm is the one that applies.</li>
+        <li><strong>Payment.</strong> Purchases and payments are handled by Apple (App Store) or Google (Google Play) under their own terms. We never see your card details.</li>
+        <li><strong>Automatic renewal.</strong> Subscriptions renew automatically for the same period (monthly or yearly) unless you cancel before the renewal date, in the way your store requires (on the App Store, at least 24 hours before the end of the current period).</li>
+        <li><strong>How to cancel.</strong> iPhone: Settings → your name → Subscriptions. Android: Google Play → Payments &amp; subscriptions → Subscriptions. Deleting the app or your account does not cancel the subscription on its own.</li>
+        <li><strong>After cancelling.</strong> You keep the paid features until the end of the period you have paid for; then your account moves to the free plan and your data stays.</li>
+        <li><strong>Price changes.</strong> If we change the price of a subscription, you will be told in advance as your store requires. If you do not accept the new price, you can cancel before it applies.</li>
       </ul>
 
-      <h2 id="contributions">11. User Generated Contributions</h2>
-      <p>The Services allow you to upload, store, or share content, including but not limited to text, photographs, PDF documents, and other materials related to your pet's health (collectively, "<strong>Contributions</strong>"). Contributions may be viewable by you and, where you enable family sharing, by other users you have invited to your family group.</p>
-      <p>When you create or make available any Contributions, you thereby represent and warrant that:</p>
-      <ul>
-        <li>The creation, distribution, transmission, public display, or performance, and the accessing, downloading, or copying of your Contributions do not and will not infringe the proprietary rights, including but not limited to the copyright, patent, trademark, trade secret, or moral rights of any third party.</li>
-        <li>You are the creator and owner of or have the necessary licenses, rights, consents, releases, and permissions to use and to authorize us, the Services, and other users of the Services to use your Contributions in any manner contemplated by the Services and these Legal Terms.</li>
-        <li>Your Contributions are not false, inaccurate, or misleading.</li>
-        <li>Your Contributions are not unsolicited or unauthorized advertising, promotional materials, pyramid schemes, chain letters, spam, mass mailings, or other forms of solicitation.</li>
-        <li>Your Contributions are not obscene, lewd, lascivious, filthy, violent, harassing, libelous, slanderous, or otherwise objectionable.</li>
-        <li>Your Contributions do not violate any applicable law, regulation, or rule.</li>
-        <li>Your Contributions do not violate the privacy or publicity rights of any third party.</li>
-        <li>Your Contributions do not contain any material that solicits personal information from anyone under the age of 18 or exploits people under the age of 18 in a sexual or violent manner.</li>
-      </ul>
-      <p>Any use of the Services in violation of the foregoing violates these Legal Terms and may result in, among other things, termination or suspension of your rights to use the Services.</p>
+      <h2 id="en-t-trial">6. Free trials and promotional access</h2>
+      <p><strong>Free trial.</strong> Some subscriptions start with a free trial. Its length is shown before you confirm (for example 7 days, or 14 days with a partner code). If you do not cancel before the trial ends, the subscription starts and the store charges the price shown. If you cancel during the trial, you pay nothing. Trials are for new subscribers, and the store decides who is eligible.</p>
+      <p><strong>Promotional access.</strong> We may sometimes give free access to paid features ourselves, for example to people taking part in a tester programme. It is free, lasts for the period we tell you, ends automatically and never turns into a paid subscription.</p>
 
-      <h2 id="license">12. Contribution License</h2>
-      <p>You and the Services agree that we may access, store, process, and use any information and personal data that you provide and your choices (including settings).</p>
-      <p>By submitting Contributions through the Services, you grant us a license to access, view, copy, store, and back up such Contributions solely for the purpose of providing the Services to you (for example, hosting your pet's medical records in our cloud storage so that you can access them across devices and share them with veterinarians and family members). This license is limited to what is necessary to operate the Services and to comply with applicable law.</p>
-      <p>You retain full ownership of all of your Contributions and any intellectual property rights or other proprietary rights associated with your Contributions. We do not claim any ownership over your Contributions.</p>
+      <h2 id="en-t-refunds">7. Refunds and right of withdrawal</h2>
+      <p>Because purchases are made through Apple or Google, refunds are requested from the store, under its rules (App Store: reportaproblem.apple.com; Google Play: your order history). We cannot issue refunds for store purchases ourselves.</p>
+      <p>If you are a consumer in the EU or the UK, you have a 14-day right of withdrawal from distance contracts, as provided by law. For purchases made through the App Store or Google Play, the store handles it under its procedures. Nothing in these terms limits the rights that consumer law gives you.</p>
 
-      <h2 id="mobile-license">13. Mobile Application License</h2>
-      <h3>Use license</h3>
-      <p>If you access the Services via the App, then we grant you a revocable, non-exclusive, non-transferable, limited right to install and use the App on wireless electronic devices owned or controlled by you, and to access and use the App on such devices strictly in accordance with the terms and conditions of this mobile application license contained in these Legal Terms. You shall not:</p>
+      <h2 id="en-t-content">8. Your content</h2>
       <ul>
-        <li>except as permitted by applicable law, decompile, reverse engineer, disassemble, attempt to derive the source code of, or decrypt the App;</li>
-        <li>make any modification, adaptation, improvement, enhancement, translation, or derivative work from the App;</li>
-        <li>violate any applicable laws, rules, or regulations in connection with your access or use of the App;</li>
-        <li>remove, alter, or obscure any proprietary notice (including any notice of copyright or trademark) posted by us or the licensors of the App;</li>
-        <li>use the App for any revenue-generating endeavor, commercial enterprise, or other purpose for which it is not designed or intended;</li>
-        <li>make the App available over a network or other environment permitting access or use by multiple devices or users at the same time;</li>
-        <li>use the App for creating a product, service, or software that is, directly or indirectly, competitive with or in any way a substitute for the App;</li>
-        <li>use the App to send automated queries to any website or to send any unsolicited commercial email; or</li>
-        <li>use any proprietary information or any of our interfaces or our other intellectual property in the design, development, manufacture, licensing, or distribution of any applications, accessories, or devices for use with the App.</li>
+        <li>The records, photos and documents you add ("your content") remain yours.</li>
+        <li>You allow us to store, copy, process and display your content only to provide the Services to you and to the people you share it with, to make backups, and to comply with the law. We do not use it for advertising and we do not sell it.</li>
+        <li>Upload only content you have the right to use. Enter other people's personal data (your vet's contact details, your family's email addresses) only if they are fine with it.</li>
+        <li>You can ask for a copy of your data at any time by writing to us, and you can delete it as described in section 13 and in the <a href="/privacy">Privacy Policy</a>.</li>
       </ul>
 
-      <h3>Apple and Android devices</h3>
-      <p>The following terms apply when you use the App obtained from either the Apple Store or Google Play (each an "<strong>App Distributor</strong>") to access the Services:</p>
+      <h2 id="en-t-family">9. Family sharing</h2>
+      <p>When you share a pet, the people you invite can see it and record information on it, according to their role. The owner of the pet can remove members at any time. What each member records appears with their name. Invite only people you trust.</p>
+
+      <h2 id="en-t-use">10. Acceptable use</h2>
+      <p>You agree not to:</p>
       <ul>
-        <li>the license granted to you for our App is limited to a non-transferable license to use the application on a device that utilizes the Apple iOS or Android operating systems, as applicable, and in accordance with the usage rules set forth in the applicable App Distributor's terms of service;</li>
-        <li>we are responsible for providing any maintenance and support services with respect to the App as specified in these Legal Terms or as otherwise required under applicable law, and you acknowledge that each App Distributor has no obligation whatsoever to furnish any maintenance and support services with respect to the App;</li>
-        <li>in the event of any failure of the App to conform to any applicable warranty, you may notify the applicable App Distributor, and the App Distributor, in accordance with its terms and policies, may refund the purchase price, if any, paid for the App, and to the maximum extent permitted by applicable law, the App Distributor will have no other warranty obligation whatsoever with respect to the App;</li>
-        <li>you represent and warrant that (i) you are not located in a country that is subject to a US government embargo, or that has been designated by the US government as a "terrorist supporting" country and (ii) you are not listed on any US government list of prohibited or restricted parties;</li>
-        <li>you must comply with applicable third-party terms of agreement when using the App, e.g. if you have a VoIP application, then you must not be in violation of their wireless data service agreement when using the App; and</li>
-        <li>you acknowledge and agree that the App Distributors are third-party beneficiaries of these Legal Terms, and that each App Distributor will have the right (and will be deemed to have accepted the right) to enforce these Legal Terms against you as a third-party beneficiary thereof.</li>
+        <li>use the Services for anything unlawful;</li>
+        <li>try to access other people's data, or get around security measures or plan limits;</li>
+        <li>copy, decompile or reverse engineer the app, except where the law allows it;</li>
+        <li>overload or disrupt the Services, or collect data from them with automated tools;</li>
+        <li>upload viruses, malicious code or unlawful content;</li>
+        <li>resell the Services or use them commercially without our written permission;</li>
+        <li>pretend to be someone else.</li>
       </ul>
 
-      <h2 id="privacy">14. Privacy Policy</h2>
-      <p>We care about data privacy and security. Please review our Privacy Policy at <a href="https://serenopet.com/privacy">https://serenopet.com/privacy</a>. By using the Services, you agree to be bound by our Privacy Policy, which is incorporated into these Legal Terms.</p>
-      <p>The Services are hosted in Italy and processed via European data centers (Supabase, Stockholm). If you access the Services from outside the European Union, please be aware that your information may be transferred to, stored, and processed in the European Union, where our service providers' facilities are located.</p>
+      <h2 id="en-t-changes-service">11. Availability and changes to the service</h2>
+      <p>We work to keep Sereno available, but there may be interruptions for maintenance, updates or causes beyond our control. We improve Sereno over time and may change or remove features. If a change has more than a minor negative effect on a paid feature you are using, we will tell you in advance and you can cancel your subscription. If we ever decide to close Sereno, we will tell you at least 30 days in advance so you can export your data.</p>
 
-      <h2 id="copyright">15. Copyright Infringements</h2>
-      <p>We respect the intellectual property rights of others. If you believe that any material available on or through the Services infringes upon any copyright you own or control, please immediately notify us using the contact information provided below (a "<strong>Notification</strong>").</p>
-      <p>A copy of your Notification will be sent to the person who posted or stored the material addressed in the Notification. Please be advised that pursuant to applicable law you may be held liable for damages if you make material misrepresentations in a Notification. Thus, if you are not sure that material located on or linked to by the Services infringes your copyright, you should consider first contacting an attorney.</p>
-      <p>Send your Notification to: <a href="mailto:supportserenopet@gmail.com">supportserenopet@gmail.com</a>.</p>
+      <h2 id="en-t-ip">12. Intellectual property and app licence</h2>
+      <p>The Sereno name and logo, the app, the website, their design and texts belong to us or to our licensors. We give you a personal, non-exclusive, non-transferable and revocable licence to use the app on devices you own or control, in line with these terms and with the usage rules of the store you downloaded it from.</p>
+      <h3>App Store and Google Play</h3>
+      <ul>
+        <li>These terms are between you and us, not Apple or Google. We, not Apple or Google, are responsible for the app and its content.</li>
+        <li>Apple has no obligation to provide maintenance or support for the app.</li>
+        <li>If the app does not conform to an applicable warranty, you can tell Apple, and Apple may refund the purchase price, if any; Apple has no other warranty obligation regarding the app.</li>
+        <li>We, not Apple, are responsible for handling any claims relating to the app, including product liability, failure to meet legal or regulatory requirements, consumer protection and intellectual property claims.</li>
+        <li>You confirm that you are not located in a country subject to a US government embargo or designated as "terrorist supporting", and that you are not on any US government list of prohibited or restricted parties.</li>
+        <li>Apple and its subsidiaries are third-party beneficiaries of these terms and may enforce them against you.</li>
+      </ul>
 
-      <h2 id="termination">16. Term and Termination</h2>
-      <p>These Legal Terms shall remain in full force and effect while you use the Services.</p>
-      <p><strong>Without limiting any other provision of these Legal Terms, we reserve the right to, in our sole discretion and without notice or liability, deny access to and use of the Services (including blocking certain IP addresses), to any person for any reason or for no reason</strong>, including without limitation for breach of any representation, warranty, or covenant contained in these Legal Terms or of any applicable law or regulation. We may terminate your use or participation in the Services or delete your account and any content or information that you posted at any time, without warning, in our sole discretion.</p>
-      <p>If we terminate or suspend your account for any reason, you are prohibited from registering and creating a new account under your name, a fake or borrowed name, or the name of any third party, even if you may be acting on behalf of the third party. In addition to terminating or suspending your account, we reserve the right to take appropriate legal action, including without limitation pursuing civil, criminal, and injunctive redress.</p>
-      <p>You may terminate your account at any time by using the in-app "Delete Account" feature or by contacting us at <a href="mailto:supportserenopet@gmail.com">supportserenopet@gmail.com</a>. Upon account deletion, all your personal data and uploaded content will be permanently removed in accordance with our Privacy Policy (Art. 17 GDPR — right to erasure).</p>
+      <h2 id="en-t-end">13. Closing your account</h2>
+      <p>You can stop using Sereno at any time and delete your account in the app (More → Delete account) or at <a href="/delete-account">serenopet.com/delete-account</a>. Your data is then deleted as described in the Privacy Policy. Remember to cancel your subscription in the store as well.</p>
+      <p>We may suspend or close an account in case of a serious or repeated breach of these terms, or when the law requires it. Where the law allows, we will tell you why and give you the chance to export your data.</p>
 
-      <h2 id="modifications">17. Modifications and Interruptions</h2>
-      <p>We reserve the right to change, modify, or remove the contents of the Services at any time or for any reason at our sole discretion without notice. However, we have no obligation to update any information on our Services. We will not be liable to you or any third party for any modification, price change, suspension, or discontinuance of the Services.</p>
-      <p>We cannot guarantee the Services will be available at all times. We may experience hardware, software, or other problems or need to perform maintenance related to the Services, resulting in interruptions, delays, or errors. We reserve the right to change, revise, update, suspend, discontinue, or otherwise modify the Services at any time or for any reason without notice to you. You agree that we have no liability whatsoever for any loss, damage, or inconvenience caused by your inability to access or use the Services during any downtime or discontinuance of the Services. Nothing in these Legal Terms will be construed to obligate us to maintain and support the Services or to supply any corrections, updates, or releases in connection therewith.</p>
+      <h2 id="en-t-liability">14. Liability</h2>
+      <p>We provide the Services with reasonable care. Nothing in these terms excludes or limits our liability for death or personal injury caused by negligence, for fraud, wilful misconduct or gross negligence, or any other liability that cannot be limited by law (including Art. 1229 of the Italian Civil Code). Nothing limits the legal guarantee of conformity for digital content and services that consumers have under the law.</p>
+      <p>Within those limits, we are not liable for losses we could not reasonably foresee, for decisions about your pet's health taken without a vet, for information recorded incorrectly, for notifications not delivered because of your device, its settings or third-party services, or for interruptions beyond our reasonable control. If you use Sereno for business purposes, our total liability is limited to the amount you paid us in the 12 months before the claim.</p>
 
-      <h2 id="law">18. Governing Law</h2>
-      <p>These Legal Terms shall be governed by and defined following the laws of <strong>Italy</strong>. Ivan Salgarello (doing business as Sereno) and yourself irrevocably consent that the courts of Italy shall have exclusive jurisdiction to resolve any dispute which may arise in connection with these Legal Terms.</p>
-      <p>If you are a consumer resident in the European Union, you may also benefit from any mandatory provisions of the law of the country in which you are resident. Nothing in these Legal Terms affects your rights as a consumer to rely on such mandatory provisions of local law.</p>
+      <h2 id="en-t-privacy">15. Privacy</h2>
+      <p>How we handle your personal data is explained in our <a href="/privacy">Privacy Policy</a>.</p>
 
-      <h2 id="disputes">19. Dispute Resolution</h2>
-      <h3>Informal negotiations</h3>
-      <p>To expedite resolution and control the cost of any dispute, controversy, or claim related to these Legal Terms (each a "<strong>Dispute</strong>" and collectively, the "<strong>Disputes</strong>") brought by either you or us (individually, a "<strong>Party</strong>" and collectively, the "<strong>Parties</strong>"), the Parties agree to first attempt to negotiate any Dispute (except those Disputes expressly provided below) informally for at least <strong>thirty (30) days</strong> before initiating arbitration. Such informal negotiations commence upon written notice from one Party to the other Party.</p>
+      <h2 id="en-t-changes">16. Changes to these terms</h2>
+      <p>We may update these terms for legal reasons, for new features, or when the way we work changes. For important changes we will tell you in the app or by email at least 30 days before they apply. If you do not agree, you can stop using Sereno, delete your account and cancel your subscription. If you keep using Sereno after that date, the new terms apply.</p>
 
-      <h3>Binding arbitration</h3>
-      <p>Any dispute arising out of or in connection with these Legal Terms, including any question regarding its existence, validity, or termination, shall be referred to and finally resolved by the <strong>arbitration rules of the European Court of Arbitration</strong>, which rules are deemed to be incorporated by reference into this clause. The number of arbitrators shall be one (1). The seat, or legal place, of arbitration shall be <strong>Milan, Italy</strong>. The language to be used in the arbitral proceedings shall be <strong>English</strong>. The governing law of the contract shall be the substantive law of Italy.</p>
+      <h2 id="en-t-law">17. Applicable law and disputes</h2>
+      <p>These terms are governed by Italian law. If you are a consumer, you keep the protection of the mandatory rules of the country where you live, and you can bring proceedings before the courts of your place of residence; for consumers living in Italy, the court of their place of residence has jurisdiction (Art. 66-bis of the Italian Consumer Code). If you are not a consumer, the courts of Verona have jurisdiction.</p>
+      <p>Before going to court, please write to us: we will try to solve the problem within 30 days.</p>
 
-      <h3>Restrictions</h3>
-      <p>The Parties agree that any arbitration shall be limited to the Dispute between the Parties individually. To the full extent permitted by law, (a) no arbitration shall be joined with any other proceeding; (b) there is no right or authority for any Dispute to be arbitrated on a class-action basis or to utilize class action procedures; and (c) there is no right or authority for any Dispute to be brought in a purported representative capacity on behalf of the general public or any other persons.</p>
+      <h2 id="en-t-dsa">18. Point of contact</h2>
+      <p>Under the EU Digital Services Act (Regulation (EU) 2022/2065), our single point of contact for users and authorities is <a href="mailto:supportserenopet@gmail.com">supportserenopet@gmail.com</a>. You can write to us in English, Italian or Spanish.</p>
 
-      <h3>Exceptions to informal negotiations and arbitration</h3>
-      <p>The Parties agree that the following Disputes are not subject to the above provisions concerning informal negotiations and binding arbitration: (a) any Disputes seeking to enforce or protect, or concerning the validity of, any of the intellectual property rights of a Party; (b) any Dispute related to, or arising from, allegations of theft, piracy, invasion of privacy, or unauthorized use; and (c) any claim for injunctive relief. If this provision is found to be illegal or unenforceable, then neither Party will elect to arbitrate any Dispute falling within that portion of this provision found to be illegal or unenforceable, and such Dispute shall be decided by a court of competent jurisdiction within the courts listed for jurisdiction above, and the Parties agree to submit to the personal jurisdiction of that court.</p>
+      <h2 id="en-t-general">19. General</h2>
+      <ul>
+        <li>If a clause of these terms is found invalid, the rest remains valid.</li>
+        <li>If we do not enforce a right straight away, we do not give it up.</li>
+        <li>You cannot transfer your rights under these terms without our consent. We may transfer this agreement to whoever takes over Sereno, as long as your rights are not reduced.</li>
+        <li>These terms and the Privacy Policy are the whole agreement between you and us about the Services.</li>
+        <li>We publish these terms in English, Italian and Spanish; all versions have the same value.</li>
+      </ul>
 
-      <h2 id="corrections">20. Corrections</h2>
-      <p>There may be information on the Services that contains typographical errors, inaccuracies, or omissions, including descriptions, pricing, availability, and various other information. We reserve the right to correct any errors, inaccuracies, or omissions and to change or update the information on the Services at any time, without prior notice.</p>
+      <h2 id="en-t-contact">20. Contact us</h2>
+      <p class="company">Ivan Salgarello — Sereno (sole trader)<br>Tombola, 37053 Cerea (VR), Italy<br>VAT no. IT05070290233<br>Email: <a href="mailto:supportserenopet@gmail.com">supportserenopet@gmail.com</a><br>Website: <a href="https://www.serenopet.com">serenopet.com</a></p>
+    </article>
 
-      <h2 id="disclaimer">21. Disclaimer</h2>
-      <p><strong>THE SERVICES ARE PROVIDED ON AN AS-IS AND AS-AVAILABLE BASIS. YOU AGREE THAT YOUR USE OF THE SERVICES WILL BE AT YOUR SOLE RISK. TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, IN CONNECTION WITH THE SERVICES AND YOUR USE THEREOF, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</strong></p>
-      <p>We make no warranties or representations about the accuracy or completeness of the Services' content or the content of any websites or mobile applications linked to the Services and we will assume no liability or responsibility for any (1) errors, mistakes, or inaccuracies of content and materials, (2) personal injury or property damage, of any nature whatsoever, resulting from your access to and use of the Services, (3) any unauthorized access to or use of our secure servers and/or any and all personal information and/or financial information stored therein, (4) any interruption or cessation of transmission to or from the Services, (5) any bugs, viruses, Trojan horses, or the like which may be transmitted to or through the Services by any third party, and/or (6) any errors or omissions in any content and materials or for any loss or damage of any kind incurred as a result of the use of any content posted, transmitted, or otherwise made available via the Services.</p>
-      <p><strong>The disclaimers in Section 3 (Medical & Veterinary Disclaimer) are an essential part of these Legal Terms and are incorporated by reference into this section.</strong></p>
+    <article class="sereno-card" data-lang="it" lang="it" hidden>
+      <h1>Termini di servizio</h1>
+      <p class="last-updated">Ultimo aggiornamento: 15 ottobre 2026</p>
 
-      <h2 id="liability">22. Limitations of Liability</h2>
-      <p><strong>IN NO EVENT WILL WE OR OUR DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE TO YOU OR ANY THIRD PARTY FOR ANY DIRECT, INDIRECT, CONSEQUENTIAL, EXEMPLARY, INCIDENTAL, SPECIAL, OR PUNITIVE DAMAGES, INCLUDING LOST PROFIT, LOST REVENUE, LOSS OF DATA, OR OTHER DAMAGES ARISING FROM YOUR USE OF THE SERVICES, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</strong></p>
-      <p>Notwithstanding anything to the contrary contained herein, our liability to you for any cause whatsoever and regardless of the form of the action, will at all times be limited to <strong>the amount paid, if any, by you to us during the six (6) month period prior to any cause of action arising</strong>.</p>
-      <p>Certain national laws, including EU consumer protection law, do not allow limitations on implied warranties or the exclusion or limitation of certain damages. If these laws apply to you, some or all of the above disclaimers or limitations may not apply to you, and you may have additional rights.</p>
+      <div class="summary-box">
+        <strong>In breve</strong>
+        <ul>
+          <li>Sereno ti aiuta a registrare e condividere le informazioni sulla salute del tuo animale. Non è un veterinario e non dà consigli veterinari.</li>
+          <li>Puoi usare Sereno gratis. Plus e Pro sono abbonamenti acquistati tramite App Store o Google Play, che si rinnovano finché non li disdici.</li>
+          <li>I tuoi dati sono tuoi: puoi esportarli o cancellarli.</li>
+          <li>Se sei un consumatore, mantieni tutti i diritti che ti dà il Codice del consumo.</li>
+        </ul>
+      </div>
 
-      <h2 id="indemnification">23. Indemnification</h2>
-      <p>You agree to defend, indemnify, and hold us harmless, including our subsidiaries, affiliates, and all of our respective officers, agents, partners, and employees, from and against any loss, damage, liability, claim, or demand, including reasonable attorneys' fees and expenses, made by any third party due to or arising out of: (1) use of the Services; (2) breach of these Legal Terms; (3) any breach of your representations and warranties set forth in these Legal Terms; (4) your violation of the rights of a third party, including but not limited to intellectual property rights; or (5) any overt harmful act toward any other user of the Services with whom you connected via the Services.</p>
-      <p>Notwithstanding the foregoing, we reserve the right, at your expense, to assume the exclusive defense and control of any matter for which you are required to indemnify us, and you agree to cooperate, at your expense, with our defense of such claims. We will use reasonable efforts to notify you of any such claim, action, or proceeding which is subject to this indemnification upon becoming aware of it.</p>
+      <div class="sereno-toc">
+        <h3>Indice</h3>
+        <ol>
+          <li><a href="#it-t-who">Chi siamo</a></li>
+          <li><a href="#it-t-what">Cos'è Sereno</a></li>
+          <li><a href="#it-t-vet">Non è un consiglio veterinario</a></li>
+          <li><a href="#it-t-account">Chi può usare Sereno</a></li>
+          <li><a href="#it-t-plans">Piani e abbonamenti</a></li>
+          <li><a href="#it-t-trial">Prove gratuite e accessi promozionali</a></li>
+          <li><a href="#it-t-refunds">Rimborsi e diritto di recesso</a></li>
+          <li><a href="#it-t-content">I tuoi contenuti</a></li>
+          <li><a href="#it-t-family">Condivisione in famiglia</a></li>
+          <li><a href="#it-t-use">Uso consentito</a></li>
+          <li><a href="#it-t-changes-service">Disponibilità e modifiche del servizio</a></li>
+          <li><a href="#it-t-ip">Proprietà intellettuale e licenza dell'app</a></li>
+          <li><a href="#it-t-end">Chiusura dell'account</a></li>
+          <li><a href="#it-t-liability">Responsabilità</a></li>
+          <li><a href="#it-t-privacy">Privacy</a></li>
+          <li><a href="#it-t-changes">Modifiche a questi termini</a></li>
+          <li><a href="#it-t-law">Legge applicabile e controversie</a></li>
+          <li><a href="#it-t-dsa">Punto di contatto</a></li>
+          <li><a href="#it-t-general">Disposizioni generali</a></li>
+          <li><a href="#it-t-contact">Contatti</a></li>
+        </ol>
+      </div>
 
-      <h2 id="user-data">24. User Data</h2>
-      <p>We will maintain certain data that you transmit to the Services for the purpose of managing the performance of the Services, as well as data relating to your use of the Services. Although we perform regular routine backups of data, you are solely responsible for all data that you transmit or that relates to any activity you have undertaken using the Services. You agree that we shall have no liability to you for any loss or corruption of any such data, and you hereby waive any right of action against us arising from any such loss or corruption of such data.</p>
-      <p>You can request the export or deletion of your personal data at any time in accordance with our Privacy Policy.</p>
+      <h2 id="it-t-who">1. Chi siamo</h2>
+      <p>Sereno è gestito da <strong>Ivan Salgarello</strong>, ditta individuale, che opera con il nome <strong>Sereno</strong> ("noi"), con sede in Tombola, 37053 Cerea (VR), Italia — P.IVA 05070290233 — email <a href="mailto:supportserenopet@gmail.com">supportserenopet@gmail.com</a>.</p>
+      <p>Questi termini sono un accordo tra te e noi per l'app Sereno, il sito serenopet.com e i servizi collegati (i "Servizi"). Creando un account o usando Sereno li accetti. Se non sei d'accordo, ti chiediamo di non usare i Servizi.</p>
 
-      <h2 id="electronic">25. Electronic Communications, Transactions, and Signatures</h2>
-      <p>Visiting the Services, sending us emails, and completing online forms constitute electronic communications. You consent to receive electronic communications, and you agree that all agreements, notices, disclosures, and other communications we provide to you electronically, via email and in-app notifications, satisfy any legal requirement that such communication be in writing.</p>
-      <p><strong>YOU HEREBY AGREE TO THE USE OF ELECTRONIC SIGNATURES, CONTRACTS, ORDERS, AND OTHER RECORDS, AND TO ELECTRONIC DELIVERY OF NOTICES, POLICIES, AND RECORDS OF TRANSACTIONS INITIATED OR COMPLETED BY US OR VIA THE SERVICES.</strong> You hereby waive any rights or requirements under any statutes, regulations, rules, ordinances, or other laws in any jurisdiction which require an original signature or delivery or retention of non-electronic records, or to payments or the granting of credits by any means other than electronic means.</p>
+      <h2 id="it-t-what">2. Cos'è Sereno</h2>
+      <p>Sereno è un'app per iOS e Android che ti aiuta a registrare farmaci, dosi, sintomi, misurazioni, documenti e altre informazioni sulla salute del tuo animale, a ricevere promemoria, a condividere le cure con la famiglia e a creare referti da portare al veterinario. È disponibile in inglese, italiano e spagnolo.</p>
 
-      <h2 id="misc">26. Miscellaneous</h2>
-      <p>These Legal Terms and any policies or operating rules posted by us on the Services or in respect to the Services constitute the entire agreement and understanding between you and us. Our failure to exercise or enforce any right or provision of these Legal Terms shall not operate as a waiver of such right or provision.</p>
-      <p>These Legal Terms operate to the fullest extent permissible by law. We may assign any or all of our rights and obligations to others at any time. We shall not be responsible or liable for any loss, damage, delay, or failure to act caused by any cause beyond our reasonable control. If any provision or part of a provision of these Legal Terms is determined to be unlawful, void, or unenforceable, that provision or part of the provision is deemed severable from these Legal Terms and does not affect the validity and enforceability of any remaining provisions.</p>
-      <p>There is no joint venture, partnership, employment, or agency relationship created between you and us as a result of these Legal Terms or use of the Services. You agree that these Legal Terms will not be construed against us by virtue of having drafted them. You hereby waive any and all defenses you may have based on the electronic form of these Legal Terms and the lack of signing by the parties hereto to execute these Legal Terms.</p>
+      <h2 id="it-t-vet">3. Non è un consiglio veterinario</h2>
+      <div class="warn-box">
+        <p><strong>Sereno non sostituisce il veterinario.</strong></p>
+        <p>Sereno è uno strumento per registrare e ordinare informazioni. Non è un servizio veterinario né un dispositivo medico. Non fa diagnosi, non cura e non consiglia trattamenti, dosi o soglie.</p>
+      </div>
+      <ul>
+        <li>Le decisioni sulle cure del tuo animale vanno prese con un veterinario abilitato. Promemoria, grafici, contatori e referti ti aiutano a tenere traccia; non sostituiscono le indicazioni del veterinario.</li>
+        <li>In caso di emergenza, contatta subito il tuo veterinario o un pronto soccorso veterinario. Non affidarti all'app, né al fatto che le notifiche arrivino in tempo: la consegna dipende dal dispositivo, dalle sue impostazioni e da servizi di terzi.</li>
+        <li>Sei responsabile dell'esattezza di ciò che registri. I referti e la scheda d'emergenza mostrano quello che tu e la tua famiglia avete inserito.</li>
+      </ul>
 
-      <h2 id="contact">27. Contact Us</h2>
-      <p>In order to resolve a complaint regarding the Services or to receive further information regarding use of the Services, please contact us at:</p>
-      <p>
-        <strong>Ivan Salgarello</strong> (doing business as Sereno)<br>
-        Italy<br>
-        Email: <a href="mailto:supportserenopet@gmail.com">supportserenopet@gmail.com</a><br>
-        Website: <a href="https://serenopet.com">https://serenopet.com</a>
-      </p>
+      <h2 id="it-t-account">4. Chi può usare Sereno</h2>
+      <p>Devi avere almeno 18 anni. Dacci informazioni corrette, custodisci la tua password e avvisaci subito se pensi che qualcun altro stia usando il tuo account. Sei responsabile di quello che avviene nel tuo account.</p>
 
-    </div>
+      <h2 id="it-t-plans">5. Piani e abbonamenti</h2>
+      <ul>
+        <li><strong>Piani.</strong> Sereno ha un piano gratuito, con i limiti indicati nell'app, e abbonamenti a pagamento (Plus e Pro). Cosa comprende ogni piano è indicato nell'app.</li>
+        <li><strong>Prezzo.</strong> Il prezzo è indicato nell'app e nello store prima dell'acquisto, nella tua valuta, con le imposte applicate dallo store. Vale il prezzo mostrato al momento della conferma.</li>
+        <li><strong>Pagamento.</strong> Acquisti e pagamenti sono gestiti da Apple (App Store) o Google (Google Play) secondo i loro termini. Non vediamo mai i dati della tua carta.</li>
+        <li><strong>Rinnovo automatico.</strong> Gli abbonamenti si rinnovano automaticamente per lo stesso periodo (mensile o annuale) se non li disdici prima della data di rinnovo, nel modo richiesto dal tuo store (sull'App Store, almeno 24 ore prima della fine del periodo in corso).</li>
+        <li><strong>Come disdire.</strong> iPhone: Impostazioni → il tuo nome → Abbonamenti. Android: Google Play → Pagamenti e abbonamenti → Abbonamenti. Cancellare l'app o l'account non disdice da solo l'abbonamento.</li>
+        <li><strong>Dopo la disdetta.</strong> Mantieni le funzioni a pagamento fino alla fine del periodo già pagato; poi l'account passa al piano gratuito e i tuoi dati restano.</li>
+        <li><strong>Cambi di prezzo.</strong> Se cambiamo il prezzo di un abbonamento, te lo comunichiamo in anticipo come richiesto dallo store. Se non accetti il nuovo prezzo, puoi disdire prima che si applichi.</li>
+      </ul>
+
+      <h2 id="it-t-trial">6. Prove gratuite e accessi promozionali</h2>
+      <p><strong>Prova gratuita.</strong> Alcuni abbonamenti iniziano con una prova gratuita. La durata è indicata prima della conferma (per esempio 7 giorni, oppure 14 giorni con un codice partner). Se non disdici prima della fine della prova, l'abbonamento parte e lo store addebita il prezzo indicato. Se disdici durante la prova, non paghi nulla. Le prove sono per i nuovi abbonati, e chi ne ha diritto lo decide lo store.</p>
+      <p><strong>Accesso promozionale.</strong> A volte possiamo dare noi l'accesso gratuito alle funzioni a pagamento, per esempio a chi partecipa a un programma di test. È gratuito, dura per il periodo che ti comunichiamo, finisce da solo e non diventa mai un abbonamento a pagamento.</p>
+
+      <h2 id="it-t-refunds">7. Rimborsi e diritto di recesso</h2>
+      <p>Poiché gli acquisti avvengono tramite Apple o Google, i rimborsi si chiedono allo store, secondo le sue regole (App Store: reportaproblem.apple.com; Google Play: la cronologia degli ordini). Non possiamo rimborsare direttamente gli acquisti fatti negli store.</p>
+      <p>Se sei un consumatore nell'UE o nel Regno Unito, hai il diritto di recesso di 14 giorni dai contratti a distanza previsto dalla legge (artt. 52 e seguenti del Codice del consumo). Per gli acquisti tramite App Store o Google Play, lo gestisce lo store secondo le sue procedure. Nulla in questi termini limita i diritti che ti dà la legge a tutela dei consumatori.</p>
+
+      <h2 id="it-t-content">8. I tuoi contenuti</h2>
+      <ul>
+        <li>I dati, le foto e i documenti che aggiungi ("i tuoi contenuti") restano tuoi.</li>
+        <li>Ci autorizzi a conservare, copiare, elaborare e mostrare i tuoi contenuti solo per fornire i Servizi a te e alle persone con cui li condividi, per fare i backup e per rispettare la legge. Non li usiamo per la pubblicità e non li vendiamo.</li>
+        <li>Carica solo contenuti che hai il diritto di usare. Inserisci dati personali di altre persone (i recapiti del veterinario, le email dei familiari) solo se sono d'accordo.</li>
+        <li>Puoi chiederci una copia dei tuoi dati in qualsiasi momento scrivendoci, e puoi cancellarli come descritto nella sezione 13 e nell'<a href="/privacy">Informativa sulla privacy</a>.</li>
+      </ul>
+
+      <h2 id="it-t-family">9. Condivisione in famiglia</h2>
+      <p>Quando condividi un animale, le persone che inviti possono vederlo e registrare informazioni, secondo il loro ruolo. Il proprietario dell'animale può rimuovere i membri in qualsiasi momento. Quello che ogni membro registra compare con il suo nome. Invita solo persone di cui ti fidi.</p>
+
+      <h2 id="it-t-use">10. Uso consentito</h2>
+      <p>Ti impegni a non:</p>
+      <ul>
+        <li>usare i Servizi per scopi illeciti;</li>
+        <li>cercare di accedere ai dati di altre persone, o aggirare le misure di sicurezza o i limiti dei piani;</li>
+        <li>copiare, decompilare o analizzare il codice dell'app, salvo dove la legge lo consente;</li>
+        <li>sovraccaricare o disturbare i Servizi, o raccoglierne dati con strumenti automatici;</li>
+        <li>caricare virus, codice dannoso o contenuti illeciti;</li>
+        <li>rivendere i Servizi o usarli a fini commerciali senza il nostro permesso scritto;</li>
+        <li>fingerti un'altra persona.</li>
+      </ul>
+
+      <h2 id="it-t-changes-service">11. Disponibilità e modifiche del servizio</h2>
+      <p>Lavoriamo per tenere Sereno sempre disponibile, ma ci possono essere interruzioni per manutenzione, aggiornamenti o cause che non dipendono da noi. Miglioriamo Sereno nel tempo e possiamo modificare o togliere funzioni. Se una modifica peggiora in modo non trascurabile una funzione a pagamento che stai usando, te lo diciamo in anticipo e puoi disdire l'abbonamento. Se un giorno decidessimo di chiudere Sereno, te lo diremo con almeno 30 giorni di anticipo, così potrai esportare i tuoi dati.</p>
+
+      <h2 id="it-t-ip">12. Proprietà intellettuale e licenza dell'app</h2>
+      <p>Il nome e il logo Sereno, l'app, il sito, la loro grafica e i testi appartengono a noi o ai nostri licenzianti. Ti concediamo una licenza personale, non esclusiva, non trasferibile e revocabile per usare l'app sui dispositivi che possiedi o controlli, nel rispetto di questi termini e delle regole d'uso dello store da cui l'hai scaricata.</p>
+      <h3>App Store e Google Play</h3>
+      <ul>
+        <li>Questi termini sono tra te e noi, non con Apple o Google. Siamo noi, non Apple o Google, i responsabili dell'app e dei suoi contenuti.</li>
+        <li>Apple non ha alcun obbligo di fornire manutenzione o assistenza per l'app.</li>
+        <li>Se l'app non è conforme a una garanzia applicabile, puoi avvisare Apple, che potrà rimborsare il prezzo d'acquisto, se previsto; Apple non ha altri obblighi di garanzia sull'app.</li>
+        <li>Siamo noi, non Apple, a gestire eventuali reclami relativi all'app, compresi quelli sulla responsabilità per danno da prodotto, sul mancato rispetto di norme di legge, sulla tutela dei consumatori e sulla proprietà intellettuale.</li>
+        <li>Confermi di non trovarti in un paese soggetto a embargo del governo statunitense o indicato come paese che "sostiene il terrorismo", e di non essere in alcuna lista di soggetti vietati o soggetti a restrizioni del governo statunitense.</li>
+        <li>Apple e le sue controllate sono terzi beneficiari di questi termini e possono farli valere nei tuoi confronti.</li>
+      </ul>
+
+      <h2 id="it-t-end">13. Chiusura dell'account</h2>
+      <p>Puoi smettere di usare Sereno in qualsiasi momento ed eliminare l'account dall'app (Altro → Elimina account) o da <a href="/delete-account">serenopet.com/delete-account</a>. I tuoi dati vengono poi cancellati come descritto nell'Informativa sulla privacy. Ricordati di disdire anche l'abbonamento nello store.</p>
+      <p>Possiamo sospendere o chiudere un account in caso di violazione grave o ripetuta di questi termini, o quando lo impone la legge. Quando la legge lo consente, ti diremo il motivo e ti daremo la possibilità di esportare i tuoi dati.</p>
+
+      <h2 id="it-t-liability">14. Responsabilità</h2>
+      <p>Forniamo i Servizi con ragionevole diligenza. Nulla in questi termini esclude o limita la nostra responsabilità per morte o lesioni personali causate da negligenza, per frode, dolo o colpa grave, o qualunque altra responsabilità che per legge non si può limitare (compreso l'art. 1229 del Codice civile). Nulla limita la garanzia legale di conformità per contenuti e servizi digitali che i consumatori hanno per legge (artt. 135-octies e seguenti del Codice del consumo).</p>
+      <p>Entro questi limiti, non rispondiamo di danni che non potevamo ragionevolmente prevedere, di decisioni sulla salute del tuo animale prese senza un veterinario, di informazioni registrate in modo errato, di notifiche non consegnate a causa del dispositivo, delle sue impostazioni o di servizi di terzi, o di interruzioni che sfuggono al nostro ragionevole controllo. Se usi Sereno per scopi professionali, la nostra responsabilità complessiva è limitata a quanto ci hai pagato nei 12 mesi precedenti la richiesta.</p>
+
+      <h2 id="it-t-privacy">15. Privacy</h2>
+      <p>Come trattiamo i tuoi dati personali è spiegato nella nostra <a href="/privacy">Informativa sulla privacy</a>.</p>
+
+      <h2 id="it-t-changes">16. Modifiche a questi termini</h2>
+      <p>Possiamo aggiornare questi termini per motivi di legge, per nuove funzioni o quando cambia il nostro modo di lavorare. Per le modifiche importanti te lo diremo nell'app o via email almeno 30 giorni prima che si applichino. Se non sei d'accordo, puoi smettere di usare Sereno, eliminare l'account e disdire l'abbonamento. Se continui a usare Sereno dopo quella data, si applicano i nuovi termini.</p>
+
+      <h2 id="it-t-law">17. Legge applicabile e controversie</h2>
+      <p>Questi termini sono regolati dalla legge italiana. Se sei un consumatore, mantieni la protezione delle norme inderogabili del paese in cui vivi e puoi agire davanti ai giudici del luogo in cui risiedi; per i consumatori residenti in Italia è competente il giudice del luogo di residenza o domicilio (art. 66-bis del Codice del consumo). Se non sei un consumatore, è competente il Foro di Verona.</p>
+      <p>Prima di rivolgerti a un giudice, scrivici: proveremo a risolvere il problema entro 30 giorni.</p>
+
+      <h2 id="it-t-dsa">18. Punto di contatto</h2>
+      <p>Ai sensi del Regolamento europeo sui servizi digitali (Regolamento (UE) 2022/2065), il nostro punto di contatto unico per gli utenti e le autorità è <a href="mailto:supportserenopet@gmail.com">supportserenopet@gmail.com</a>. Puoi scriverci in inglese, italiano o spagnolo.</p>
+
+      <h2 id="it-t-general">19. Disposizioni generali</h2>
+      <ul>
+        <li>Se una clausola di questi termini risultasse non valida, il resto rimane valido.</li>
+        <li>Se non facciamo valere subito un diritto, non vi rinunciamo.</li>
+        <li>Non puoi cedere i tuoi diritti previsti da questi termini senza il nostro consenso. Possiamo cedere questo accordo a chi subentrasse nella gestione di Sereno, purché i tuoi diritti non si riducano.</li>
+        <li>Questi termini e l'Informativa sulla privacy costituiscono l'intero accordo tra te e noi sui Servizi.</li>
+        <li>Pubblichiamo questi termini in inglese, italiano e spagnolo; tutte le versioni hanno lo stesso valore.</li>
+      </ul>
+
+      <h2 id="it-t-contact">20. Contatti</h2>
+      <p class="company">Ivan Salgarello — Sereno (ditta individuale)<br>Tombola, 37053 Cerea (VR), Italia<br>P.IVA 05070290233<br>Email: <a href="mailto:supportserenopet@gmail.com">supportserenopet@gmail.com</a><br>Sito: <a href="https://www.serenopet.com">serenopet.com</a></p>
+    </article>
+
+    <article class="sereno-card" data-lang="es" lang="es" hidden>
+      <h1>Términos del servicio</h1>
+      <p class="last-updated">Última actualización: 15 de octubre de 2026</p>
+
+      <div class="summary-box">
+        <strong>En resumen</strong>
+        <ul>
+          <li>Sereno te ayuda a registrar y compartir la información de salud de tu mascota. No es un veterinario y no da consejos veterinarios.</li>
+          <li>Puedes usar Sereno gratis. Plus y Pro son suscripciones que se compran en App Store o Google Play y se renuevan hasta que las canceles.</li>
+          <li>Tus datos son tuyos: puedes exportarlos o eliminarlos.</li>
+          <li>Si eres consumidor, conservas todos los derechos que te da la ley de consumo.</li>
+        </ul>
+      </div>
+
+      <div class="sereno-toc">
+        <h3>Índice</h3>
+        <ol>
+          <li><a href="#es-t-who">Quiénes somos</a></li>
+          <li><a href="#es-t-what">Qué es Sereno</a></li>
+          <li><a href="#es-t-vet">No es un consejo veterinario</a></li>
+          <li><a href="#es-t-account">Quién puede usar Sereno</a></li>
+          <li><a href="#es-t-plans">Planes y suscripciones</a></li>
+          <li><a href="#es-t-trial">Pruebas gratuitas y accesos promocionales</a></li>
+          <li><a href="#es-t-refunds">Reembolsos y derecho de desistimiento</a></li>
+          <li><a href="#es-t-content">Tu contenido</a></li>
+          <li><a href="#es-t-family">Uso compartido en familia</a></li>
+          <li><a href="#es-t-use">Uso aceptable</a></li>
+          <li><a href="#es-t-changes-service">Disponibilidad y cambios del servicio</a></li>
+          <li><a href="#es-t-ip">Propiedad intelectual y licencia de la app</a></li>
+          <li><a href="#es-t-end">Cierre de la cuenta</a></li>
+          <li><a href="#es-t-liability">Responsabilidad</a></li>
+          <li><a href="#es-t-privacy">Privacidad</a></li>
+          <li><a href="#es-t-changes">Cambios en estos términos</a></li>
+          <li><a href="#es-t-law">Ley aplicable y conflictos</a></li>
+          <li><a href="#es-t-dsa">Punto de contacto</a></li>
+          <li><a href="#es-t-general">Disposiciones generales</a></li>
+          <li><a href="#es-t-contact">Contacto</a></li>
+        </ol>
+      </div>
+
+      <h2 id="es-t-who">1. Quiénes somos</h2>
+      <p>Sereno está gestionado por <strong>Ivan Salgarello</strong>, empresario individual, que opera con el nombre <strong>Sereno</strong> ("nosotros"), con domicilio en Tombola, 37053 Cerea (VR), Italia — NIF-IVA IT05070290233 — correo <a href="mailto:supportserenopet@gmail.com">supportserenopet@gmail.com</a>.</p>
+      <p>Estos términos son un acuerdo entre tú y nosotros para la app Sereno, la web serenopet.com y los servicios relacionados (los "Servicios"). Al crear una cuenta o usar Sereno los aceptas. Si no estás de acuerdo, no uses los Servicios.</p>
+
+      <h2 id="es-t-what">2. Qué es Sereno</h2>
+      <p>Sereno es una app para iOS y Android que te ayuda a registrar medicamentos, dosis, síntomas, mediciones, documentos y otra información sobre la salud de tu mascota, recibir recordatorios, compartir los cuidados con tu familia y crear informes para llevar al veterinario. Está disponible en inglés, italiano y español.</p>
+
+      <h2 id="es-t-vet">3. No es un consejo veterinario</h2>
+      <div class="warn-box">
+        <p><strong>Sereno no sustituye a tu veterinario.</strong></p>
+        <p>Sereno es una herramienta para registrar y ordenar información. No es un servicio veterinario ni un producto sanitario. No diagnostica, no trata y no recomienda tratamientos, dosis ni umbrales.</p>
+      </div>
+      <ul>
+        <li>Las decisiones sobre los cuidados de tu mascota deben tomarse con un veterinario colegiado. Recordatorios, gráficos, contadores e informes te ayudan a llevar el control; no sustituyen las indicaciones de tu veterinario.</li>
+        <li>En una emergencia, contacta de inmediato con tu veterinario o con un hospital veterinario de urgencias. No confíes en la app ni en que las notificaciones lleguen a tiempo: la entrega depende de tu dispositivo, sus ajustes y servicios de terceros.</li>
+        <li>Eres responsable de la exactitud de lo que registras. Los informes y la ficha de emergencia muestran lo que tú y tu familia habéis introducido.</li>
+      </ul>
+
+      <h2 id="es-t-account">4. Quién puede usar Sereno</h2>
+      <p>Debes tener al menos 18 años. Danos información correcta, guarda bien tu contraseña y avísanos enseguida si crees que otra persona está usando tu cuenta. Eres responsable de lo que ocurre en tu cuenta.</p>
+
+      <h2 id="es-t-plans">5. Planes y suscripciones</h2>
+      <ul>
+        <li><strong>Planes.</strong> Sereno tiene un plan gratuito, con los límites indicados en la app, y suscripciones de pago (Plus y Pro). Lo que incluye cada plan se indica en la app.</li>
+        <li><strong>Precio.</strong> El precio se muestra en la app y en la tienda antes de comprar, en tu moneda, con los impuestos que aplica la tienda. Se aplica el precio mostrado al confirmar.</li>
+        <li><strong>Pago.</strong> Las compras y los pagos los gestionan Apple (App Store) o Google (Google Play) según sus propios términos. Nunca vemos los datos de tu tarjeta.</li>
+        <li><strong>Renovación automática.</strong> Las suscripciones se renuevan automáticamente por el mismo periodo (mensual o anual) salvo que las canceles antes de la fecha de renovación, como exija tu tienda (en App Store, al menos 24 horas antes del final del periodo en curso).</li>
+        <li><strong>Cómo cancelar.</strong> iPhone: Ajustes → tu nombre → Suscripciones. Android: Google Play → Pagos y suscripciones → Suscripciones. Borrar la app o la cuenta no cancela por sí solo la suscripción.</li>
+        <li><strong>Después de cancelar.</strong> Conservas las funciones de pago hasta el final del periodo ya pagado; después la cuenta pasa al plan gratuito y tus datos se mantienen.</li>
+        <li><strong>Cambios de precio.</strong> Si cambiamos el precio de una suscripción, te avisaremos con antelación como exija tu tienda. Si no aceptas el nuevo precio, puedes cancelar antes de que se aplique.</li>
+      </ul>
+
+      <h2 id="es-t-trial">6. Pruebas gratuitas y accesos promocionales</h2>
+      <p><strong>Prueba gratuita.</strong> Algunas suscripciones empiezan con una prueba gratuita. Su duración se indica antes de confirmar (por ejemplo 7 días, o 14 días con un código de socio). Si no cancelas antes de que termine la prueba, la suscripción empieza y la tienda cobra el precio indicado. Si cancelas durante la prueba, no pagas nada. Las pruebas son para nuevos suscriptores y la tienda decide quién puede usarlas.</p>
+      <p><strong>Acceso promocional.</strong> A veces podemos dar nosotros acceso gratuito a funciones de pago, por ejemplo a quienes participan en un programa de pruebas. Es gratuito, dura el periodo que te indiquemos, termina solo y nunca se convierte en una suscripción de pago.</p>
+
+      <h2 id="es-t-refunds">7. Reembolsos y derecho de desistimiento</h2>
+      <p>Como las compras se hacen a través de Apple o Google, los reembolsos se solicitan a la tienda, según sus normas (App Store: reportaproblem.apple.com; Google Play: tu historial de pedidos). No podemos reembolsar nosotros las compras hechas en las tiendas.</p>
+      <p>Si eres consumidor en la UE o en el Reino Unido, tienes el derecho de desistimiento de 14 días de los contratos a distancia previsto por la ley. Para las compras hechas a través de App Store o Google Play, lo gestiona la tienda según sus procedimientos. Nada en estos términos limita los derechos que te da la ley de protección de los consumidores.</p>
+
+      <h2 id="es-t-content">8. Tu contenido</h2>
+      <ul>
+        <li>Los registros, fotos y documentos que añades ("tu contenido") siguen siendo tuyos.</li>
+        <li>Nos autorizas a guardar, copiar, procesar y mostrar tu contenido solo para prestarte los Servicios a ti y a las personas con las que lo compartes, hacer copias de seguridad y cumplir la ley. No lo usamos para publicidad y no lo vendemos.</li>
+        <li>Sube solo contenido que tengas derecho a usar. Introduce datos personales de otras personas (los datos de tu veterinario, los correos de tu familia) solo si están de acuerdo.</li>
+        <li>Puedes pedirnos una copia de tus datos en cualquier momento escribiéndonos, y puedes eliminarlos como se explica en la sección 13 y en la <a href="/privacy">Política de privacidad</a>.</li>
+      </ul>
+
+      <h2 id="es-t-family">9. Uso compartido en familia</h2>
+      <p>Cuando compartes una mascota, las personas que invitas pueden verla y registrar información, según su rol. El propietario de la mascota puede quitar miembros en cualquier momento. Lo que registra cada miembro aparece con su nombre. Invita solo a personas de confianza.</p>
+
+      <h2 id="es-t-use">10. Uso aceptable</h2>
+      <p>Te comprometes a no:</p>
+      <ul>
+        <li>usar los Servicios para fines ilícitos;</li>
+        <li>intentar acceder a datos de otras personas, o eludir las medidas de seguridad o los límites de los planes;</li>
+        <li>copiar, descompilar o aplicar ingeniería inversa a la app, salvo cuando la ley lo permita;</li>
+        <li>sobrecargar o perturbar los Servicios, o extraer datos de ellos con herramientas automáticas;</li>
+        <li>subir virus, código malicioso o contenido ilícito;</li>
+        <li>revender los Servicios o usarlos con fines comerciales sin nuestro permiso por escrito;</li>
+        <li>hacerte pasar por otra persona.</li>
+      </ul>
+
+      <h2 id="es-t-changes-service">11. Disponibilidad y cambios del servicio</h2>
+      <p>Trabajamos para que Sereno esté siempre disponible, pero puede haber interrupciones por mantenimiento, actualizaciones o causas ajenas a nosotros. Mejoramos Sereno con el tiempo y podemos cambiar o quitar funciones. Si un cambio empeora de forma no menor una función de pago que estés usando, te avisaremos con antelación y podrás cancelar tu suscripción. Si algún día decidimos cerrar Sereno, te avisaremos con al menos 30 días de antelación para que puedas exportar tus datos.</p>
+
+      <h2 id="es-t-ip">12. Propiedad intelectual y licencia de la app</h2>
+      <p>El nombre y el logotipo de Sereno, la app, la web, su diseño y sus textos nos pertenecen a nosotros o a nuestros licenciantes. Te concedemos una licencia personal, no exclusiva, intransferible y revocable para usar la app en los dispositivos que posees o controlas, de acuerdo con estos términos y con las normas de uso de la tienda desde la que la descargaste.</p>
+      <h3>App Store y Google Play</h3>
+      <ul>
+        <li>Estos términos son entre tú y nosotros, no con Apple o Google. Somos nosotros, no Apple o Google, los responsables de la app y de su contenido.</li>
+        <li>Apple no tiene ninguna obligación de prestar mantenimiento o soporte para la app.</li>
+        <li>Si la app no cumple una garantía aplicable, puedes avisar a Apple, que podrá reembolsar el precio de compra, si lo hubiera; Apple no tiene ninguna otra obligación de garantía sobre la app.</li>
+        <li>Somos nosotros, no Apple, quienes atendemos las reclamaciones relativas a la app, incluidas las de responsabilidad por productos, incumplimiento de requisitos legales, protección de los consumidores y propiedad intelectual.</li>
+        <li>Confirmas que no te encuentras en un país sometido a embargo del gobierno de EE. UU. o designado como país que "apoya el terrorismo", y que no figuras en ninguna lista de personas prohibidas o restringidas del gobierno de EE. UU.</li>
+        <li>Apple y sus filiales son terceros beneficiarios de estos términos y pueden hacerlos valer frente a ti.</li>
+      </ul>
+
+      <h2 id="es-t-end">13. Cierre de la cuenta</h2>
+      <p>Puedes dejar de usar Sereno en cualquier momento y eliminar tu cuenta desde la app (Más → Eliminar cuenta) o en <a href="/delete-account">serenopet.com/delete-account</a>. Después tus datos se eliminan como se explica en la Política de privacidad. Recuerda cancelar también la suscripción en la tienda.</p>
+      <p>Podemos suspender o cerrar una cuenta en caso de incumplimiento grave o reiterado de estos términos, o cuando la ley lo exija. Cuando la ley lo permita, te diremos el motivo y te daremos la posibilidad de exportar tus datos.</p>
+
+      <h2 id="es-t-liability">14. Responsabilidad</h2>
+      <p>Prestamos los Servicios con una diligencia razonable. Nada en estos términos excluye o limita nuestra responsabilidad por muerte o lesiones personales causadas por negligencia, por fraude, dolo o culpa grave, ni ninguna otra responsabilidad que la ley no permita limitar (incluido el art. 1229 del Código Civil italiano). Nada limita la garantía legal de conformidad de los contenidos y servicios digitales que la ley reconoce a los consumidores.</p>
+      <p>Dentro de esos límites, no respondemos de daños que no podíamos prever razonablemente, de decisiones sobre la salud de tu mascota tomadas sin un veterinario, de información registrada de forma incorrecta, de notificaciones no entregadas por causa de tu dispositivo, sus ajustes o servicios de terceros, ni de interrupciones fuera de nuestro control razonable. Si usas Sereno con fines profesionales, nuestra responsabilidad total se limita a lo que nos hayas pagado en los 12 meses anteriores a la reclamación.</p>
+
+      <h2 id="es-t-privacy">15. Privacidad</h2>
+      <p>Cómo tratamos tus datos personales se explica en nuestra <a href="/privacy">Política de privacidad</a>.</p>
+
+      <h2 id="es-t-changes">16. Cambios en estos términos</h2>
+      <p>Podemos actualizar estos términos por motivos legales, por nuevas funciones o cuando cambie nuestra forma de trabajar. Para los cambios importantes te avisaremos en la app o por correo al menos 30 días antes de que se apliquen. Si no estás de acuerdo, puedes dejar de usar Sereno, eliminar tu cuenta y cancelar tu suscripción. Si sigues usando Sereno después de esa fecha, se aplican los nuevos términos.</p>
+
+      <h2 id="es-t-law">17. Ley aplicable y conflictos</h2>
+      <p>Estos términos se rigen por la ley italiana. Si eres consumidor, conservas la protección de las normas imperativas del país donde vives y puedes acudir a los tribunales de tu lugar de residencia; para los consumidores residentes en Italia es competente el juez de su lugar de residencia (art. 66-bis del Código de Consumo italiano). Si no eres consumidor, son competentes los tribunales de Verona.</p>
+      <p>Antes de acudir a un tribunal, escríbenos: intentaremos resolver el problema en 30 días.</p>
+
+      <h2 id="es-t-dsa">18. Punto de contacto</h2>
+      <p>De acuerdo con el Reglamento europeo de Servicios Digitales (Reglamento (UE) 2022/2065), nuestro punto de contacto único para usuarios y autoridades es <a href="mailto:supportserenopet@gmail.com">supportserenopet@gmail.com</a>. Puedes escribirnos en inglés, italiano o español.</p>
+
+      <h2 id="es-t-general">19. Disposiciones generales</h2>
+      <ul>
+        <li>Si una cláusula de estos términos se declara inválida, el resto sigue siendo válido.</li>
+        <li>Si no ejercemos un derecho de inmediato, no renunciamos a él.</li>
+        <li>No puedes ceder tus derechos de estos términos sin nuestro consentimiento. Podemos ceder este acuerdo a quien asuma la gestión de Sereno, siempre que tus derechos no se reduzcan.</li>
+        <li>Estos términos y la Política de privacidad son el acuerdo completo entre tú y nosotros sobre los Servicios.</li>
+        <li>Publicamos estos términos en inglés, italiano y español; todas las versiones tienen el mismo valor.</li>
+      </ul>
+
+      <h2 id="es-t-contact">20. Contacto</h2>
+      <p class="company">Ivan Salgarello — Sereno (empresario individual)<br>Tombola, 37053 Cerea (VR), Italia<br>NIF-IVA IT05070290233<br>Correo: <a href="mailto:supportserenopet@gmail.com">supportserenopet@gmail.com</a><br>Web: <a href="https://www.serenopet.com">serenopet.com</a></p>
+    </article>
   </main>
+  <script>
+  (function () {
+    var L = ['en', 'it', 'es'];
+    function pick() {
+      var q = (location.search.match(/[?&]lang=(en|it|es)/) || [])[1];
+      if (q) return q;
+      try { var s = localStorage.getItem('sereno-lang'); if (L.indexOf(s) > -1) return s; } catch (e) {}
+      var n = (navigator.language || 'en').slice(0, 2).toLowerCase();
+      return L.indexOf(n) > -1 ? n : 'en';
+    }
+    function show(l) {
+      document.querySelectorAll('[data-lang]').forEach(function (el) { el.hidden = el.getAttribute('data-lang') !== l; });
+      document.documentElement.lang = l;
+      document.querySelectorAll('.lang-switch button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-set') === l)); });
+      var h = document.querySelector('article[data-lang="' + l + '"] h1');
+      if (h) document.title = h.textContent + ' — Sereno';
+    }
+    document.querySelectorAll('.lang-switch button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var l = b.getAttribute('data-set');
+        try { localStorage.setItem('sereno-lang', l); } catch (e) {}
+        show(l);
+        window.scrollTo(0, 0);
+      });
+    });
+    show(pick());
+  })();
+  </script>
 </body>
 </html>

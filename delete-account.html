@@ -3,180 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Delete Your Account — Sereno</title>
-  <meta name="description" content="How to delete your Sereno account and all associated data, in the app or by request.">
+  <title>Delete your account — Sereno</title>
+  <meta name="description" content="How to delete your Sereno account and data, in the app or by email.">
   <meta name="robots" content="index, follow">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/fonts.css">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #eef5f4;
-      color: #1a202c;
-      line-height: 1.6;
-      min-height: 100vh;
-    }
-    .sereno-nav {
-      position: sticky;
-      top: 0;
-      background: rgba(238, 245, 244, 0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid #ddeae9;
-      padding: 16px 24px;
-      z-index: 100;
-    }
-    .sereno-nav-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-    .sereno-brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: #2c7a7b;
-    }
-    .sereno-brand-logo {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      object-fit: cover;
-    }
-    .sereno-brand-name {
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      color: #2c7a7b;
-    }
-    .sereno-back {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: #2c7a7b;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 14px;
-      padding: 8px 14px;
-      border-radius: 9999px;
-      transition: background 0.2s ease;
-    }
+    body { font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #eef5f4; color: #1a202c; line-height: 1.6; min-height: 100vh; }
+    .sereno-nav { position: sticky; top: 0; background: rgba(238, 245, 244, 0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid #ddeae9; padding: 14px 24px; z-index: 100; }
+    .sereno-nav-inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .sereno-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #2c7a7b; }
+    .sereno-brand-logo { width: 38px; height: 38px; border-radius: 11px; object-fit: cover; }
+    .sereno-brand-name { font-size: 21px; font-weight: 800; letter-spacing: -0.02em; color: #2c7a7b; }
+    .nav-right { display: flex; align-items: center; gap: 8px; }
+    .lang-switch { display: inline-flex; background: #fff; border: 1px solid #ddeae9; border-radius: 9999px; padding: 3px; }
+    .lang-switch button { font: inherit; font-size: 13px; font-weight: 700; color: #2c7a7b; background: none; border: 0; border-radius: 9999px; padding: 5px 10px; cursor: pointer; }
+    .lang-switch button[aria-pressed="true"] { background: #2c7a7b; color: #fff; }
+    .sereno-back { color: #2c7a7b; text-decoration: none; font-weight: 600; font-size: 14px; padding: 8px 12px; border-radius: 9999px; white-space: nowrap; }
     .sereno-back:hover { background: rgba(44, 122, 123, 0.08); }
-    main {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 40px 24px 80px;
-    }
-    .sereno-card {
-      background: #ffffff;
-      border-radius: 16px;
-      padding: 48px 40px;
-      box-shadow: 0 4px 24px rgba(44, 122, 123, 0.06);
-    }
-    .sereno-card h1 {
-      font-size: 32px;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      color: #1a202c;
-      margin-bottom: 8px;
-    }
-    .sereno-card .last-updated {
-      color: #595959;
-      font-size: 14px;
-      margin-bottom: 32px;
-    }
-    .sereno-card h2 {
-      font-size: 20px;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      color: #1a202c;
-      margin-top: 36px;
-      margin-bottom: 14px;
-    }
-    .sereno-card p {
-      font-size: 15px;
-      color: #2d3748;
-      margin-bottom: 14px;
-    }
-    .sereno-card ul, .sereno-card ol {
-      margin-left: 24px;
-      margin-bottom: 14px;
-    }
-    .sereno-card li {
-      font-size: 15px;
-      color: #2d3748;
-      margin-bottom: 8px;
-    }
-    .sereno-card a {
-      color: #2c7a7b;
-      text-decoration: underline;
-      font-weight: 600;
-    }
-    .sereno-card a:hover { color: #1f5b5c; }
+    main { max-width: 900px; margin: 0 auto; padding: 40px 24px 80px; }
+    .sereno-card { background: #fff; border-radius: 16px; padding: 48px 40px; box-shadow: 0 4px 24px rgba(44, 122, 123, 0.06); }
+    .sereno-card h1 { font-size: 32px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 8px; }
+    .sereno-card .last-updated { color: #595959; font-size: 14px; margin-bottom: 28px; }
+    .sereno-card h2 { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; margin-top: 36px; margin-bottom: 14px; scroll-margin-top: 90px; }
+    .sereno-card h3 { font-size: 17px; font-weight: 700; margin-top: 22px; margin-bottom: 10px; }
+    .sereno-card p { font-size: 15px; color: #2d3748; margin-bottom: 14px; }
+    .sereno-card ul, .sereno-card ol { margin-left: 22px; margin-bottom: 14px; }
+    .sereno-card li { font-size: 15px; color: #2d3748; margin-bottom: 8px; }
+    .sereno-card a { color: #2c7a7b; text-decoration: underline; font-weight: 600; overflow-wrap: anywhere; }
     .sereno-card strong { font-weight: 700; color: #1a202c; }
-    .sereno-card .summary-box {
-      background: #f0f9f7;
-      border-left: 4px solid #2c7a7b;
-      padding: 18px 22px;
-      border-radius: 8px;
-      margin: 16px 0 24px;
-    }
-    .sereno-card .summary-box strong {
-      color: #2c7a7b;
-      display: block;
-      margin-bottom: 6px;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    .sereno-card .summary-box p { font-size: 14px; color: #234e51; margin: 0; }
-    .sereno-steps {
-      counter-reset: step;
-      list-style: none;
-      margin-left: 0;
-    }
-    .sereno-steps li {
-      position: relative;
-      padding-left: 44px;
-      margin-bottom: 16px;
-      min-height: 32px;
-    }
-    .sereno-steps li::before {
-      counter-increment: step;
-      content: counter(step);
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 30px;
-      height: 30px;
-      background: #2c7a7b;
-      color: #ffffff;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 14px;
-    }
-    .doc-footer {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 24px 48px;
-      text-align: center;
-      color: #5a6470;
-      font-size: 13px;
-    }
-    .doc-footer a { color: #2c7a7b; text-decoration: none; font-weight: 600; }
-    @media (max-width: 600px) {
-      .sereno-card { padding: 32px 22px; }
+    .summary-box { background: #f0f9f7; border-left: 4px solid #2c7a7b; padding: 18px 22px; border-radius: 8px; margin: 16px 0 24px; }
+    .summary-box > strong { color: #2c7a7b; display: block; margin-bottom: 8px; font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .summary-box ul { margin-bottom: 0; }
+    .summary-box li { font-size: 14px; color: #234e51; margin-bottom: 4px; }
+    .warn-box { background: #fff5f5; border-left: 4px solid #c53030; padding: 18px 22px; border-radius: 8px; margin: 16px 0 20px; }
+    .warn-box p { color: #742a2a; margin-bottom: 8px; }
+    .warn-box p:last-child { margin-bottom: 0; }
+    .table-wrap { overflow-x: auto; margin: 16px 0 24px; }
+    .data-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .data-table th { background: #f7fafa; color: #2c7a7b; text-align: left; padding: 11px 12px; font-weight: 700; border-bottom: 2px solid #ddeae9; }
+    .data-table td { padding: 11px 12px; border-bottom: 1px solid #eef5f4; vertical-align: top; color: #2d3748; }
+    .data-table tr:last-child td { border-bottom: none; }
+    .sereno-toc { background: #f7fafa; border-radius: 12px; padding: 20px 24px; margin: 24px 0 32px; }
+    .sereno-toc h3 { margin-top: 0; font-size: 15px; color: #2c7a7b; text-transform: uppercase; letter-spacing: 0.05em; }
+    .sereno-toc ol { margin-left: 18px; margin-bottom: 0; columns: 2; column-gap: 24px; }
+    .sereno-toc li { font-size: 14px; margin-bottom: 4px; break-inside: avoid; }
+    .sereno-toc a { text-decoration: none; font-weight: 500; }
+    .sereno-toc a:hover { text-decoration: underline; }
+    .company { font-size: 14px; color: #4a5568; }
+    [hidden] { display: none !important; }
+    @media (max-width: 768px) {
+      .sereno-nav { padding: 10px 14px; }
+      .sereno-brand-name { display: none; }
+      .sereno-back { font-size: 13px; padding: 6px 8px; }
+      main { padding: 20px 12px 60px; }
+      .sereno-card { padding: 28px 18px; border-radius: 12px; }
       .sereno-card h1 { font-size: 26px; }
+      .sereno-card h2 { font-size: 18px; }
+      .sereno-toc ol { columns: 1; }
+      .data-table { font-size: 13px; }
+      .data-table th, .data-table td { padding: 9px 8px; }
     }
   </style>
 </head>
@@ -184,61 +71,203 @@
   <nav class="sereno-nav">
     <div class="sereno-nav-inner">
       <a href="/" class="sereno-brand" aria-label="Sereno home">
-        <img src="assets/logo.png" class="sereno-brand-logo" alt="Sereno" />
+        <img src="/assets/logo-192.png" class="sereno-brand-logo" alt="Sereno" width="38" height="38">
         <span class="sereno-brand-name">Sereno</span>
       </a>
-      <a href="/" class="sereno-back">← Back to home</a>
+      <div class="nav-right">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" data-set="en" aria-pressed="true">EN</button>
+          <button type="button" data-set="it" aria-pressed="false">IT</button>
+          <button type="button" data-set="es" aria-pressed="false">ES</button>
+        </div>
+        <a href="/" class="sereno-back"><span data-lang="en">← Home</span><span data-lang="it" hidden>← Home</span><span data-lang="es" hidden>← Inicio</span></a>
+      </div>
     </div>
   </nav>
   <main>
-    <div class="sereno-card">
-      <h1>Delete Your Sereno Account</h1>
-      <p class="last-updated">Applies to the app <strong>Sereno — Pet Health Tracker</strong> by Sereno.</p>
+    <article class="sereno-card" data-lang="en" lang="en">
+      <h1>Delete your Sereno account</h1>
+      <p class="last-updated">Applies to the app <strong>Sereno: Chronic Pet Health</strong> by Ivan Salgarello (Sereno), on iOS and Android. Last updated: October 15, 2026.</p>
 
       <div class="summary-box">
         <strong>In short</strong>
-        <p>You can delete your Sereno account and all of its data at any time, directly in the app or by emailing us. Deletion is permanent.</p>
+        <ul>
+          <li>You can delete your account and all its data at any time, in the app or by email.</li>
+          <li>Deletion is permanent and cannot be undone.</li>
+          <li>Deleting your account does not cancel a subscription: cancel it in the App Store or Google Play.</li>
+        </ul>
       </div>
 
-      <h2>Option 1 — Delete from within the app</h2>
-      <ol class="sereno-steps">
-        <li>Open the Sereno app and sign in.</li>
-        <li>Tap the <strong>More</strong> tab (bottom-right).</li>
-        <li>Open <strong>Account</strong>.</li>
-        <li>Tap <strong>Delete account</strong> and confirm.</li>
+      <h2>Option 1 — In the app</h2>
+      <ol>
+        <li>Open Sereno and sign in.</li>
+        <li>Tap the <strong>More</strong> tab (bottom right).</li>
+        <li>In the <strong>Account</strong> section, tap <strong>Delete account</strong> and confirm.</li>
       </ol>
-      <p>Your account and all associated data are permanently deleted right away.</p>
+      <p>Your account and its data are deleted right away.</p>
 
-      <h2>Option 2 — Request deletion by email</h2>
-      <p>If you can no longer access the app, send an email to
-        <a href="mailto:supportserenopet@gmail.com?subject=Delete%20my%20account">supportserenopet@gmail.com</a>
-        from the email address linked to your account, with the subject <strong>“Delete my account”</strong>.
-        We will verify your request and delete your account within 30 days.</p>
+      <h2>Option 2 — By email</h2>
+      <p>If you can no longer use the app, write to <a href="mailto:supportserenopet@gmail.com?subject=Delete%20my%20account">supportserenopet@gmail.com</a> from the email address of your account, with the subject <strong>"Delete my account"</strong>. We will check that the request comes from you and delete the account within 30 days.</p>
 
-      <h2>What data is deleted</h2>
-      <p>Deleting your account permanently removes <strong>all</strong> of your data, including:</p>
+      <h2>Cancel your subscription too</h2>
+      <p>Subscriptions are billed by Apple or Google, so deleting your account does not stop them. Cancel first:</p>
       <ul>
-        <li>Your account and profile (email, display name)</li>
-        <li>All pets and their profiles</li>
-        <li>Vaccinations, vet visits, symptoms, medications and dose logs</li>
-        <li>Uploaded documents and photos</li>
-        <li>Family sharing memberships and invites</li>
-        <li>Notification and device registration data</li>
+        <li><strong>iPhone:</strong> Settings → your name → Subscriptions → Sereno → Cancel.</li>
+        <li><strong>Android:</strong> Google Play → Payments &amp; subscriptions → Subscriptions → Sereno → Cancel.</li>
       </ul>
 
-      <h2>Data retention</h2>
-      <p>Your active data is deleted immediately upon request. Residual copies in encrypted backups are
-        purged within <strong>30 days</strong>. We retain data longer only where required to comply with a
-        legal obligation; in that case it is isolated and not used for any other purpose.</p>
+      <h2>What is deleted</h2>
+      <ul>
+        <li>Your account and profile (email, name, settings)</li>
+        <li>All your pets and everything recorded on them: medications and doses, symptoms, measurements, vaccinations, vet visits, notes</li>
+        <li>Documents and photos you uploaded</li>
+        <li>Family sharing memberships and invitations</li>
+        <li>Notification and device data</li>
+      </ul>
+      <p>If you were a member of a pet that belongs to someone else, the pet stays with its owner; only your membership is removed.</p>
+
+      <h2>What we keep, and for how long</h2>
+      <ul>
+        <li><strong>Backups:</strong> leftover copies in encrypted backups are removed within 30 days.</li>
+        <li><strong>Billing records</strong> (purchases, renewals, refunds): kept for 10 years because Italian accounting law requires it (Art. 2220 of the Civil Code). They are linked only to an account ID and are not used for anything else.</li>
+      </ul>
 
       <h2>Questions</h2>
-      <p>Contact us at
-        <a href="mailto:supportserenopet@gmail.com">supportserenopet@gmail.com</a>.
-        See also our <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms of Service</a>.</p>
-    </div>
+      <p>Write to <a href="mailto:supportserenopet@gmail.com">supportserenopet@gmail.com</a>. See also our <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms of Service</a>.</p>
+      <p class="company">Ivan Salgarello — Sereno (sole trader) · Tombola, 37053 Cerea (VR), Italy · VAT no. IT05070290233</p>
+    </article>
+
+    <article class="sereno-card" data-lang="it" lang="it" hidden>
+      <h1>Elimina il tuo account Sereno</h1>
+      <p class="last-updated">Vale per l'app <strong>Sereno: Chronic Pet Health</strong> di Ivan Salgarello (Sereno), su iOS e Android. Ultimo aggiornamento: 15 ottobre 2026.</p>
+
+      <div class="summary-box">
+        <strong>In breve</strong>
+        <ul>
+          <li>Puoi eliminare il tuo account e tutti i suoi dati quando vuoi, dall'app o via email.</li>
+          <li>L'eliminazione è definitiva e non si può annullare.</li>
+          <li>Eliminare l'account non disdice l'abbonamento: va disdetto nell'App Store o in Google Play.</li>
+        </ul>
+      </div>
+
+      <h2>Modo 1 — Dall'app</h2>
+      <ol>
+        <li>Apri Sereno ed entra nel tuo account.</li>
+        <li>Tocca la scheda <strong>Altro</strong> (in basso a destra).</li>
+        <li>Nella sezione <strong>Account</strong>, tocca <strong>Elimina account</strong> e conferma.</li>
+      </ol>
+      <p>L'account e i suoi dati vengono eliminati subito.</p>
+
+      <h2>Modo 2 — Via email</h2>
+      <p>Se non puoi più usare l'app, scrivi a <a href="mailto:supportserenopet@gmail.com?subject=Elimina%20il%20mio%20account">supportserenopet@gmail.com</a> dall'indirizzo email del tuo account, con oggetto <strong>"Elimina il mio account"</strong>. Verifichiamo che la richiesta venga da te ed eliminiamo l'account entro 30 giorni.</p>
+
+      <h2>Disdici anche l'abbonamento</h2>
+      <p>Gli abbonamenti sono addebitati da Apple o Google, quindi eliminare l'account non li ferma. Disdici prima:</p>
+      <ul>
+        <li><strong>iPhone:</strong> Impostazioni → il tuo nome → Abbonamenti → Sereno → Annulla abbonamento.</li>
+        <li><strong>Android:</strong> Google Play → Pagamenti e abbonamenti → Abbonamenti → Sereno → Annulla abbonamento.</li>
+      </ul>
+
+      <h2>Cosa viene eliminato</h2>
+      <ul>
+        <li>Il tuo account e profilo (email, nome, impostazioni)</li>
+        <li>Tutti i tuoi animali e tutto quello che è registrato su di loro: farmaci e dosi, sintomi, misurazioni, vaccinazioni, visite, note</li>
+        <li>I documenti e le foto che hai caricato</li>
+        <li>Le partecipazioni e gli inviti della condivisione in famiglia</li>
+        <li>I dati delle notifiche e del dispositivo</li>
+      </ul>
+      <p>Se partecipavi a un animale di un'altra persona, l'animale resta al suo proprietario; viene tolta solo la tua partecipazione.</p>
+
+      <h2>Cosa conserviamo, e per quanto</h2>
+      <ul>
+        <li><strong>Backup:</strong> le copie rimaste nei backup cifrati vengono eliminate entro 30 giorni.</li>
+        <li><strong>Dati di fatturazione</strong> (acquisti, rinnovi, rimborsi): conservati 10 anni perché lo impone la legge contabile italiana (art. 2220 del Codice civile). Sono collegati solo a un ID di account e non vengono usati per nient'altro.</li>
+      </ul>
+
+      <h2>Domande</h2>
+      <p>Scrivi a <a href="mailto:supportserenopet@gmail.com">supportserenopet@gmail.com</a>. Vedi anche l'<a href="/privacy">Informativa sulla privacy</a> e i <a href="/terms">Termini di servizio</a>.</p>
+      <p class="company">Ivan Salgarello — Sereno (ditta individuale) · Tombola, 37053 Cerea (VR), Italia · P.IVA 05070290233</p>
+    </article>
+
+    <article class="sereno-card" data-lang="es" lang="es" hidden>
+      <h1>Eliminar tu cuenta de Sereno</h1>
+      <p class="last-updated">Se aplica a la app <strong>Sereno: Chronic Pet Health</strong> de Ivan Salgarello (Sereno), en iOS y Android. Última actualización: 15 de octubre de 2026.</p>
+
+      <div class="summary-box">
+        <strong>En resumen</strong>
+        <ul>
+          <li>Puedes eliminar tu cuenta y todos sus datos cuando quieras, desde la app o por correo.</li>
+          <li>La eliminación es definitiva y no se puede deshacer.</li>
+          <li>Eliminar la cuenta no cancela la suscripción: cancélala en App Store o Google Play.</li>
+        </ul>
+      </div>
+
+      <h2>Opción 1 — Desde la app</h2>
+      <ol>
+        <li>Abre Sereno e inicia sesión.</li>
+        <li>Toca la pestaña <strong>Más</strong> (abajo a la derecha).</li>
+        <li>En la sección <strong>Cuenta</strong>, toca <strong>Eliminar cuenta</strong> y confirma.</li>
+      </ol>
+      <p>Tu cuenta y sus datos se eliminan al instante.</p>
+
+      <h2>Opción 2 — Por correo</h2>
+      <p>Si ya no puedes usar la app, escribe a <a href="mailto:supportserenopet@gmail.com?subject=Eliminar%20mi%20cuenta">supportserenopet@gmail.com</a> desde el correo de tu cuenta, con el asunto <strong>"Eliminar mi cuenta"</strong>. Comprobaremos que la solicitud es tuya y eliminaremos la cuenta en un plazo de 30 días.</p>
+
+      <h2>Cancela también la suscripción</h2>
+      <p>Las suscripciones las cobran Apple o Google, así que eliminar la cuenta no las detiene. Cancela primero:</p>
+      <ul>
+        <li><strong>iPhone:</strong> Ajustes → tu nombre → Suscripciones → Sereno → Cancelar suscripción.</li>
+        <li><strong>Android:</strong> Google Play → Pagos y suscripciones → Suscripciones → Sereno → Cancelar suscripción.</li>
+      </ul>
+
+      <h2>Qué se elimina</h2>
+      <ul>
+        <li>Tu cuenta y perfil (correo, nombre, ajustes)</li>
+        <li>Todas tus mascotas y todo lo registrado en ellas: medicamentos y dosis, síntomas, mediciones, vacunas, visitas, notas</li>
+        <li>Los documentos y fotos que subiste</li>
+        <li>Las membresías e invitaciones del uso compartido en familia</li>
+        <li>Los datos de notificaciones y del dispositivo</li>
+      </ul>
+      <p>Si participabas en una mascota de otra persona, la mascota sigue con su propietario; solo se quita tu participación.</p>
+
+      <h2>Qué conservamos y durante cuánto tiempo</h2>
+      <ul>
+        <li><strong>Copias de seguridad:</strong> las copias que queden en las copias de seguridad cifradas se eliminan en 30 días.</li>
+        <li><strong>Datos de facturación</strong> (compras, renovaciones, reembolsos): se conservan 10 años porque lo exige la ley contable italiana (art. 2220 del Código Civil). Solo están vinculados a un ID de cuenta y no se usan para nada más.</li>
+      </ul>
+
+      <h2>Preguntas</h2>
+      <p>Escribe a <a href="mailto:supportserenopet@gmail.com">supportserenopet@gmail.com</a>. Consulta también la <a href="/privacy">Política de privacidad</a> y los <a href="/terms">Términos del servicio</a>.</p>
+      <p class="company">Ivan Salgarello — Sereno (empresario individual) · Tombola, 37053 Cerea (VR), Italia · NIF-IVA IT05070290233</p>
+    </article>
   </main>
-  <div class="doc-footer">
-    © Sereno · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
-  </div>
+  <script>
+  (function () {
+    var L = ['en', 'it', 'es'];
+    function pick() {
+      var q = (location.search.match(/[?&]lang=(en|it|es)/) || [])[1];
+      if (q) return q;
+      try { var s = localStorage.getItem('sereno-lang'); if (L.indexOf(s) > -1) return s; } catch (e) {}
+      var n = (navigator.language || 'en').slice(0, 2).toLowerCase();
+      return L.indexOf(n) > -1 ? n : 'en';
+    }
+    function show(l) {
+      document.querySelectorAll('[data-lang]').forEach(function (el) { el.hidden = el.getAttribute('data-lang') !== l; });
+      document.documentElement.lang = l;
+      document.querySelectorAll('.lang-switch button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-set') === l)); });
+      var h = document.querySelector('article[data-lang="' + l + '"] h1');
+      if (h) document.title = h.textContent + ' — Sereno';
+    }
+    document.querySelectorAll('.lang-switch button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var l = b.getAttribute('data-set');
+        try { localStorage.setItem('sereno-lang', l); } catch (e) {}
+        show(l);
+        window.scrollTo(0, 0);
+      });
+    });
+    show(pick());
+  })();
+  </script>
 </body>
 </html>
