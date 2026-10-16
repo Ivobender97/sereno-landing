@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Pagina NASCOSTA per il veterinario (app Sereno, 16 ott 2026): mostra i video
      delle crisi che il proprietario ha deciso di condividere. Il codice del link
-     sta dopo il "#", quindi non arriva a nessun server; la pagina lo manda solo
-     alla funzione seizure-video-share di Supabase. Niente analytics, niente
+     sta dopo il "#", quindi non arriva al server del sito; la pagina lo manda solo
+     alla funzione seizure-video-share di Supabase, nel corpo di una POST. Niente analytics, niente
      pixel: sono dati sanitari. Non indicizzata, non collegata dal resto del sito. -->
 <meta name="robots" content="noindex, nofollow, noarchive">
 <meta name="referrer" content="no-referrer">
@@ -216,7 +216,15 @@
     }
     app.innerHTML = "";
     app.appendChild(el("div", { "class": "state" }, T[lang].loading));
-    fetch(API + "?t=" + encodeURIComponent(token), { cache: "no-store", referrerPolicy: "no-referrer" })
+    // Il codice va nel corpo della richiesta, non nell'indirizzo: cosi' non
+    // finisce nei registri delle richieste del server.
+    fetch(API, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ t: token }),
+      cache: "no-store",
+      referrerPolicy: "no-referrer"
+    })
       .then(function (res) {
         if (res.status === 404) { showState(T[lang].notFoundT, T[lang].notFound, false); return null; }
         if (!res.ok) throw new Error("http " + res.status);
