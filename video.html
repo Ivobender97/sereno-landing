@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Pagina NASCOSTA per il veterinario (app Sereno, 16 ott 2026): mostra i video
+     delle crisi che il proprietario ha deciso di condividere. Il codice del link
+     sta dopo il "#", quindi non arriva a nessun server; la pagina lo manda solo
+     alla funzione seizure-video-share di Supabase. Niente analytics, niente
+     pixel: sono dati sanitari. Non indicizzata, non collegata dal resto del sito. -->
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="no-referrer">
+<title>Seizure videos — Sereno</title>
+<link rel="icon" href="/assets/logo-192.png">
+<link rel="stylesheet" href="/css/fonts.css">
+<style>
+  :root{--teal:#2c7a7b;--teal-light:#e6f2f2;--ink:#1d2b2a;--muted:#4a615e;--soft:#6b7a7a;--bg:#f3f7f6;--card:#fff;--warn:#b8641f}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Plus Jakarta Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:720px;margin:0 auto;padding:20px 16px 40px}
+  .brand{display:flex;align-items:center;gap:10px;margin-bottom:22px}
+  .brand img{width:34px;height:34px;border-radius:9px}
+  .brand span{font-weight:800;font-size:18px;color:var(--teal)}
+  h1{font-size:clamp(24px,5.6vw,32px);line-height:1.15;margin:0 0 6px}
+  .sub{color:var(--muted);margin:0 0 22px;font-size:15px;line-height:1.5}
+  .card{background:var(--card);border-radius:20px;padding:16px;margin:0 0 18px;box-shadow:0 10px 30px rgba(20,60,60,.07)}
+  .when{font-weight:800;font-size:18px;margin:0 0 10px}
+  video{display:block;width:100%;max-height:65vh;background:#000;border-radius:14px}
+  .speeds{display:flex;gap:8px;margin:10px 0 4px;flex-wrap:wrap}
+  .speeds button{font:inherit;font-weight:700;font-size:14px;border:2px solid var(--teal);background:#fff;color:var(--teal);border-radius:999px;padding:6px 14px;cursor:pointer}
+  .speeds button[aria-pressed="true"]{background:var(--teal);color:#fff}
+  .novideo{background:var(--teal-light);color:var(--muted);border-radius:14px;padding:14px;font-size:14.5px}
+  dl{margin:0 0 14px;display:grid;grid-template-columns:minmax(110px,auto) 1fr;gap:8px 14px;font-size:15px;line-height:1.45}
+  dt{color:var(--soft);font-weight:600}
+  dd{margin:0;overflow-wrap:anywhere;white-space:pre-line}
+  @media (max-width:420px){dl{grid-template-columns:1fr}dt{margin-top:4px}}
+  .state{background:var(--card);border-radius:20px;padding:26px 18px;text-align:center;color:var(--muted);line-height:1.55;box-shadow:0 10px 30px rgba(20,60,60,.07)}
+  .state strong{display:block;color:var(--ink);font-size:18px;margin-bottom:6px}
+  .state button{margin-top:14px;font:inherit;font-weight:700;border:0;background:var(--teal);color:#fff;border-radius:999px;padding:10px 20px;cursor:pointer}
+  .foot{font-size:12.5px;color:var(--soft);text-align:center;line-height:1.55;margin-top:26px}
+  .foot a{color:var(--soft)}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="brand"><img src="/assets/logo-192.png" alt=""><span>Sereno</span></div>
+  <div id="app"><div class="state" id="loading">…</div></div>
+  <p class="foot" id="foot"></p>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var API = "https://rnwqbnqqzndxzjrlxrmb.supabase.co/functions/v1/seizure-video-share";
+
+  var T = {
+    en: {
+      loading: "Loading…",
+      title: function (n) { return n + "'s seizures"; },
+      titleOne: function (n) { return n + "'s seizure"; },
+      sub: function (d) { return "Shared by the owner from the Sereno app. This link works until " + d + "."; },
+      subOne: function (d) { return "Shared by the owner from the Sereno app. This link works until " + d + "."; },
+      duration: "Duration", intensity: "Severity", pre: "Before the seizure", notes: "Notes",
+      meds: "Medications in use that day", noMeds: "None recorded", notTimed: "Not timed",
+      noVideo: "No video for this seizure.",
+      speed: "Speed",
+      intensities: ["None", "Very mild", "Mild", "Moderate", "Severe", "Critical"],
+      notFoundT: "This link is not valid", notFound: "It may have expired (links last 30 days) or the owner may have stopped sharing it.",
+      errorT: "Couldn't load the videos", error: "Check your connection and try again.", retry: "Try again",
+      foot: "Recorded by the pet's owner with Sereno. These records are not a diagnosis."
+    },
+    it: {
+      loading: "Caricamento…",
+      title: function (n) { return "Le crisi di " + n; },
+      titleOne: function (n) { return "La crisi di " + n; },
+      sub: function (d) { return "Condivise dal proprietario con l'app Sereno. Questo link funziona fino al " + d + "."; },
+      subOne: function (d) { return "Condivisa dal proprietario con l'app Sereno. Questo link funziona fino al " + d + "."; },
+      duration: "Durata", intensity: "Gravità", pre: "Prima della crisi", notes: "Note",
+      meds: "Farmaci in corso quel giorno", noMeds: "Nessuno registrato", notTimed: "Non cronometrata",
+      noVideo: "Nessun video per questa crisi.",
+      speed: "Velocità",
+      intensities: ["Nessuna", "Molto lieve", "Lieve", "Moderata", "Grave", "Critica"],
+      notFoundT: "Questo link non è valido", notFound: "Può essere scaduto (i link durano 30 giorni) oppure il proprietario ha smesso di condividerlo.",
+      errorT: "Impossibile caricare i video", error: "Controlla la connessione e riprova.", retry: "Riprova",
+      foot: "Registrato dal proprietario dell'animale con Sereno. Questi dati non sono una diagnosi."
+    },
+    es: {
+      loading: "Cargando…",
+      title: function (n) { return "Las crisis de " + n; },
+      titleOne: function (n) { return "La crisis de " + n; },
+      sub: function (d) { return "Compartidas por el propietario desde la app Sereno. Este enlace funciona hasta el " + d + "."; },
+      subOne: function (d) { return "Compartida por el propietario desde la app Sereno. Este enlace funciona hasta el " + d + "."; },
+      duration: "Duración", intensity: "Gravedad", pre: "Antes de la crisis", notes: "Notas",
+      meds: "Medicamentos en curso ese día", noMeds: "Ninguno registrado", notTimed: "No cronometrada",
+      noVideo: "No hay video de esta crisis.",
+      speed: "Velocidad",
+      intensities: ["Ninguna", "Muy leve", "Leve", "Moderada", "Grave", "Crítica"],
+      notFoundT: "Este enlace no es válido", notFound: "Puede haber caducado (los enlaces duran 30 días) o el propietario dejó de compartirlo.",
+      errorT: "No se pudieron cargar los videos", error: "Revisa la conexión e inténtalo de nuevo.", retry: "Reintentar",
+      foot: "Registrado por el propietario del animal con Sereno. Estos datos no son un diagnóstico."
+    }
+  };
+
+  function pickLang(code) {
+    var c = String(code || "").slice(0, 2).toLowerCase();
+    return T[c] ? c : "en";
+  }
+
+  var lang = pickLang(navigator.language);
+  // Un solo ricaricamento automatico per un video che non parte (URL scaduto),
+  // per non girare in tondo se il problema e' un altro.
+  var reloadedForVideo = false;
+  var app = document.getElementById("app");
+
+  function el(tag, attrs, text) {
+    var n = document.createElement(tag);
+    if (attrs) for (var k in attrs) n.setAttribute(k, attrs[k]);
+    if (text !== undefined && text !== null) n.textContent = text;
+    return n;
+  }
+
+  function clock(s) {
+    var m = Math.floor(s / 60), r = s % 60;
+    return (m < 10 ? "0" : "") + m + ":" + (r < 10 ? "0" : "") + r;
+  }
+
+  function fmtDateTime(iso) {
+    return new Date(iso).toLocaleString(lang, { day: "numeric", month: "long", year: "numeric", hour: "2-digit", minute: "2-digit" });
+  }
+
+  function fmtDate(iso) {
+    return new Date(iso).toLocaleDateString(lang, { day: "numeric", month: "long", year: "numeric" });
+  }
+
+  function setFoot() {
+    document.getElementById("foot").textContent = T[lang].foot;
+    document.documentElement.lang = lang;
+  }
+
+  function showState(title, body, retry) {
+    app.innerHTML = "";
+    var box = el("div", { "class": "state" });
+    box.appendChild(el("strong", null, title));
+    box.appendChild(el("span", null, body));
+    if (retry) {
+      var b = el("button", { type: "button" }, T[lang].retry);
+      b.addEventListener("click", load);
+      box.appendChild(b);
+    }
+    app.appendChild(box);
+  }
+
+  function row(dl, label, value) {
+    if (value === null || value === undefined || value === "") return;
+    dl.appendChild(el("dt", null, label));
+    dl.appendChild(el("dd", null, value));
+  }
+
+  function render(data) {
+    lang = pickLang(data.lang);
+    var t = T[lang];
+    setFoot();
+    document.title = (data.seizures.length === 1 ? t.titleOne(data.petName) : t.title(data.petName)) + " — Sereno";
+    app.innerHTML = "";
+    app.appendChild(el("h1", null, data.seizures.length === 1 ? t.titleOne(data.petName) : t.title(data.petName)));
+    app.appendChild(el("p", { "class": "sub" }, (data.seizures.length === 1 ? t.subOne : t.sub)(fmtDate(data.expiresAt))));
+
+    data.seizures.forEach(function (s) {
+      var card = el("section", { "class": "card" });
+      card.appendChild(el("h2", { "class": "when" }, fmtDateTime(s.occurredAt)));
+
+      var dl = el("dl");
+      row(dl, t.duration, typeof s.durationSeconds === "number" ? clock(s.durationSeconds) : t.notTimed);
+      if (typeof s.intensity === "number" && s.intensity > 0) row(dl, t.intensity, t.intensities[s.intensity] || String(s.intensity));
+      row(dl, t.pre, s.preSeizureSigns);
+      row(dl, t.notes, s.notes);
+      row(dl, t.meds, s.medications && s.medications.length ? s.medications.join(", ") : t.noMeds);
+      card.appendChild(dl);
+
+      if (s.videoUrl) {
+        var v = el("video", { controls: "", playsinline: "", preload: "metadata" });
+        v.src = s.videoUrl;
+        // L'URL firmato dura 1 ora: se la pagina resta aperta di piu', si ricarica.
+        v.addEventListener("error", function () {
+          if (reloadedForVideo) return;
+          reloadedForVideo = true;
+          load();
+        }, { once: true });
+        card.appendChild(v);
+        var speeds = el("div", { "class": "speeds", role: "group", "aria-label": t.speed });
+        [1, 1.5, 2].forEach(function (rate) {
+          var b = el("button", { type: "button", "aria-pressed": rate === 1 ? "true" : "false" }, rate + "×");
+          b.addEventListener("click", function () {
+            v.playbackRate = rate;
+            Array.prototype.forEach.call(speeds.children, function (x) { x.setAttribute("aria-pressed", "false"); });
+            b.setAttribute("aria-pressed", "true");
+          });
+          speeds.appendChild(b);
+        });
+        card.appendChild(speeds);
+      } else {
+        card.appendChild(el("div", { "class": "novideo" }, t.noVideo));
+      }
+
+
+      app.appendChild(card);
+    });
+  }
+
+  function load() {
+    var token = decodeURIComponent((location.hash || "").replace(/^#/, ""));
+    setFoot();
+    if (!/^[A-Za-z0-9_-]{32}$/.test(token)) {
+      showState(T[lang].notFoundT, T[lang].notFound, false);
+      return;
+    }
+    app.innerHTML = "";
+    app.appendChild(el("div", { "class": "state" }, T[lang].loading));
+    fetch(API + "?t=" + encodeURIComponent(token), { cache: "no-store", referrerPolicy: "no-referrer" })
+      .then(function (res) {
+        if (res.status === 404) { showState(T[lang].notFoundT, T[lang].notFound, false); return null; }
+        if (!res.ok) throw new Error("http " + res.status);
+        return res.json();
+      })
+      .then(function (data) { if (data && data.ok) render(data); })
+      .catch(function () { showState(T[lang].errorT, T[lang].error, true); });
+  }
+
+  window.addEventListener("hashchange", load);
+  load();
+})();
+</script>
+</body>
+</html>
