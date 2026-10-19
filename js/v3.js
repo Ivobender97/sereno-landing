@@ -180,7 +180,7 @@
   var Y = 'Y', N = 'N', U = 'U', L = 'L';
   var CMP = [
     ['cmp.gCore'],
-    ['cmp.r1', Y, Y, Y], ['cmp.r2', Y, Y, Y], ['cmp.r3', Y, Y, Y], ['cmp.r4', Y, Y, Y], ['cmp.r5', Y, Y, Y], ['cmp.r6', Y, Y, Y], ['cmp.r19', Y, Y, Y], ['cmp.r20', Y, Y, Y], ['cmp.r21', Y, Y, Y],
+    ['cmp.r1', Y, Y, Y], ['cmp.r2', Y, Y, Y], ['cmp.r3', Y, Y, Y], ['cmp.r4', Y, Y, Y], ['cmp.r5', Y, Y, Y], ['cmp.r6', Y, Y, Y], ['cmp.r19', Y, Y, Y], ['cmp.r20', Y, Y, Y], ['cmp.r21', Y, Y, Y], ['cmp.r27', Y, Y, Y],
     ['cmp.gLimits'],
     ['cmp.r7', '1', '3', '10'], ['cmp.r26', L, L, L], ['cmp.r8', '2', '10', U], ['cmp.r9', '5', '25', U], ['cmp.r25', '3', '25', U], ['cmp.r10', '2', '2', '5'], ['cmp.r11', '1', '5', U], ['cmp.r22', '1', U, U], ['cmp.r12', N, Y, Y],
     ['cmp.gPlus'],
