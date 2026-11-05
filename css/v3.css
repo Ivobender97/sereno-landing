@@ -343,24 +343,24 @@ html:not(.js) .typo-line .w{color:var(--ink)}
 .scene{position:relative;perspective:1500px;perspective-origin:50% 35%;display:grid;place-items:center}
 .spin,.tilt,.float{position:relative;transform-style:preserve-3d}
 .tilt{transform:rotateX(var(--rx,7deg)) rotateY(var(--ry,-22deg)) rotateZ(var(--rz,0deg));transition:transform .9s var(--ease)}
-.float{animation:float3 7s ease-in-out infinite}
-@keyframes float3{50%{transform:translate3d(0,-12px,0) rotateZ(.8deg)}}
+/* no endless float on the hero phone: on Safari (iPhone) that animation flattened every 3D phone on the page - no edge, mirrored screen from behind (5 Nov 2026, tested on Ivan's iPhone) */
 .p3{--d:calc(var(--w) * .1);--R:calc(var(--w) * .16);--b:calc(var(--w) * .03);position:relative;width:var(--w);height:calc(var(--w) * 2.07);transform-style:preserve-3d}
-.p3-plate{position:absolute;inset:0;border-radius:var(--R);background:hsl(172 15% var(--l));transform:translateZ(calc(var(--d) * var(--t)))}
-.p3-key{position:absolute;width:calc(var(--w) * .03);border-radius:3px;background:hsl(172 12% var(--l));transform:translateZ(calc(var(--d) * var(--t)))}
+.p3-band{position:absolute;left:50%;top:50%;height:calc(var(--d) + 6px);background:linear-gradient(to bottom,rgba(0,0,0,.3),rgba(255,255,255,.14) 50%,rgba(0,0,0,.3)),hsl(172 15% var(--l))}
+.p3-key{height:calc(var(--d) * .45);border-radius:3px;background:linear-gradient(rgba(0,0,0,.18),rgba(0,0,0,.18)),hsl(172 12% var(--l))}
 .p3-front,.p3-back{position:absolute;inset:0;border-radius:var(--R);-webkit-backface-visibility:hidden;backface-visibility:hidden}
-.p3-front{transform:translateZ(calc(var(--d) / 2 + .6px));background:#0a1413;padding:var(--b);box-shadow:inset 0 0 0 calc(var(--w) * .007) #9dbcb6,inset 0 0 0 calc(var(--w) * .013) #33504c}
+.p3-front{transform:translateZ(calc(var(--d) / 2 + 3px));background:#0a1413;padding:var(--b);box-shadow:inset 0 0 0 calc(var(--w) * .007) #9dbcb6,inset 0 0 0 calc(var(--w) * .013) #33504c}
 .p3-screen{position:relative;width:100%;height:100%;border-radius:calc(var(--R) - var(--b));overflow:hidden;background:#f4f6f4;transform:translateZ(0)}
 .p3-screen>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
 .p3-island{position:absolute;z-index:6;top:calc(var(--w) * .052);left:50%;width:31%;height:calc(var(--w) * .088);transform:translateX(-50%);border-radius:99px;background:#040908}
 .p3-glare{position:absolute;inset:0;z-index:7;border-radius:inherit;pointer-events:none;background:linear-gradient(112deg,rgba(255,255,255,0) 20%,rgba(255,255,255,.26) 34%,rgba(255,255,255,.06) 46%,rgba(255,255,255,0) 60%);background-size:260% 100%;background-position:var(--gx,40%) 0;transition:background-position .9s var(--ease)}
-.p3-back{transform:rotateY(180deg) translateZ(calc(var(--d) / 2 + .6px));background:radial-gradient(130% 90% at 25% 8%,#4a928e 0%,#24605c 45%,#143b39 100%);box-shadow:inset 0 0 0 calc(var(--w) * .007) #9dbcb6}
+.p3-back{transform:rotateY(180deg) translateZ(calc(var(--d) / 2 + 3px));background:radial-gradient(130% 90% at 25% 8%,#4a928e 0%,#24605c 45%,#143b39 100%);box-shadow:inset 0 0 0 calc(var(--w) * .007) #9dbcb6}
+.p3--back .p3-front,.p3:not(.p3--back) .p3-back{visibility:hidden}
 .p3-back::after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(120deg,rgba(255,255,255,.18),rgba(255,255,255,0) 40%)}
 .p3-cam{position:absolute;left:7%;top:3.4%;width:38%;aspect-ratio:1;border-radius:26%;background:linear-gradient(145deg,rgba(255,255,255,.22),rgba(0,0,0,.18));box-shadow:inset 0 0 0 1px rgba(255,255,255,.18),0 6px 12px rgba(0,0,0,.28)}
 .p3-cam i{position:absolute;width:40%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 38% 34%,#5b7fb0 0 10%,#101a2c 28%,#000 62%);box-shadow:0 0 0 calc(var(--w) * .01) #1b2d2b,0 0 0 calc(var(--w) * .014) rgba(255,255,255,.22)}
 .p3-cam i:nth-child(1){left:7%;top:7%} .p3-cam i:nth-child(2){left:7%;top:53%} .p3-cam i:nth-child(3){left:53%;top:30%}
 .p3-cam b{position:absolute;right:12%;top:10%;width:12%;aspect-ratio:1;border-radius:50%;background:#f7f0d8;opacity:.8}
-.p3-logo{position:absolute;left:50%;top:52%;width:26%;transform:translate(-50%,-50%);border-radius:50%;box-shadow:0 8px 20px rgba(0,0,0,.25)}
+.p3-logo{position:absolute;left:50%;top:52%;width:36%;height:auto;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;box-shadow:0 8px 20px rgba(0,0,0,.25)}
 .floor{position:absolute;left:50%;bottom:-2%;width:62%;height:34px;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(13,40,38,.32),rgba(13,40,38,0));filter:blur(4px);animation:floor 7s ease-in-out infinite;pointer-events:none}
 @keyframes floor{50%{transform:translateX(-50%) scale(.86);opacity:.7}}
 

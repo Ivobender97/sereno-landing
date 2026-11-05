@@ -36,35 +36,48 @@
   function mk(tag, cls) { var e = document.createElement(tag); if (cls) e.className = cls; return e; }
 
   /* ---------------- 3D phone ---------------- */
-  /* plates stacked in depth give the body a real edge when it turns;
-     lighter in the middle, like a brushed metal band */
+  /* the edge is a continuous metal band around the body, like a real phone:
+     narrow strips standing on the outline (straight sides + rounded corners).
+     It replaced full-size plates stacked in depth (5 Nov 2026): with few
+     plates the edge looked sliced when the phone turned, with many of them
+     Safari on iPhone ran out of graphics memory and drew every phone flat.
+     All sizes follow --w: width 1, height 2.07, corner radius .16, depth .1 */
+  var P3_H = 1.035, P3_R = 0.16, P3_ARC = 12;
+  /* out = the direction the strip faces, in degrees (0 right, 90 down) */
+  function bandStrip(body, cx, cy, len, deg, out, cls) {
+    var s = mk('i', cls || 'p3-band');
+    s.style.width = 'calc(var(--w) * ' + len.toFixed(4) + ')';
+    s.style.transform = 'translate(-50%, -50%) translate(calc(var(--w) * ' + cx.toFixed(4) + '), calc(var(--w) * ' + cy.toFixed(4) + ')) rotateZ(' + deg.toFixed(2) + 'deg) rotateX(90deg)';
+    /* light from the top left: the band is brighter where it faces it */
+    s.style.setProperty('--l', (36 + 16 * Math.cos((out - 225) * Math.PI / 180)).toFixed(1) + '%');
+    body.appendChild(s);
+  }
   function buildPhone(el) {
     var kids = Array.prototype.slice.call(el.childNodes);
-    /* few plates: each one is a full-size layer in the phone's graphics memory */
-    var n = el.classList.contains('p3--mini') ? 4 : 6;
     var body = document.createDocumentFragment();
-    for (var k = 0; k < n; k++) {
-      var tt = k / (n - 1) - 0.5;
-      var p = mk('i', 'p3-plate');
-      p.style.setProperty('--t', tt.toFixed(3));
-      p.style.setProperty('--l', (22 + 34 * Math.pow(Math.cos(tt * Math.PI), 1.6)).toFixed(1) + '%');
-      body.appendChild(p);
-    }
-    /* side keys: action + volume on the left, power on the right */
-    [['left', 19, 4.5], ['left', 27, 8], ['left', 37, 8], ['right', 30, 12]].forEach(function (b) {
-      [-0.15, 0.15].forEach(function (z) {
-        var key = mk('i', 'p3-key');
-        key.style[b[0]] = 'calc(var(--w) * -.012)';
-        key.style.top = b[1] + '%'; key.style.height = b[2] + '%';
-        key.style.setProperty('--t', z);
-        key.style.setProperty('--l', '40%');
-        body.appendChild(key);
-      });
+    var side = P3_H - P3_R, half = 0.5 - P3_R;
+    bandStrip(body, -0.5, 0, 2 * side, 90, 180);
+    bandStrip(body, 0.5, 0, 2 * side, 90, 0);
+    bandStrip(body, 0, -P3_H, 2 * half, 0, 270);
+    bandStrip(body, 0, P3_H, 2 * half, 0, 90);
+    /* corners: short strips along the quarter circle (screen axes, y down) */
+    [[half, -side, -90], [half, side, 0], [-half, side, 90], [-half, -side, 180]].forEach(function (c) {
+      for (var k = 0; k < P3_ARC; k++) {
+        var a = (c[2] + (k + 0.5) * 90 / P3_ARC) * Math.PI / 180;
+        var chord = 2 * P3_R * Math.sin(Math.PI / 4 / P3_ARC) * 1.06;
+        bandStrip(body, c[0] + P3_R * Math.cos(a), c[1] + P3_R * Math.sin(a), chord, a * 180 / Math.PI + 90, a * 180 / Math.PI);
+      }
+    });
+    /* side keys: action + volume on the left, power on the right (top and
+       length in % of the height), standing just out of the band */
+    [[-1, 19, 4.5], [-1, 27, 8], [-1, 37, 8], [1, 30, 12]].forEach(function (b) {
+      var len = b[2] / 100 * 2 * P3_H, cy = -P3_H + b[1] / 100 * 2 * P3_H + len / 2;
+      bandStrip(body, b[0] * 0.512, cy, len, 90, b[0] < 0 ? 180 : 0, 'p3-band p3-key');
     });
     var back = mk('div', 'p3-back');
     var cam = mk('div', 'p3-cam'); cam.appendChild(mk('i')); cam.appendChild(mk('i')); cam.appendChild(mk('i')); cam.appendChild(mk('b'));
     back.appendChild(cam);
-    var logo = mk('img', 'p3-logo'); logo.src = 'assets/logo-192.png'; logo.alt = ''; logo.loading = 'lazy'; logo.width = 96; logo.height = 96;
+    var logo = mk('img', 'p3-logo'); logo.src = 'assets/sereno-paw-192.png'; logo.alt = ''; logo.loading = 'lazy'; logo.width = 96; logo.height = 96;
     back.appendChild(logo);
     body.appendChild(back);
     var front = mk('div', 'p3-front'), screen = mk('div', 'p3-screen');
@@ -83,6 +96,35 @@
     el.appendChild(body);
   }
   $$('.p3').forEach(buildPhone);
+
+  /* which side faces the viewer: Safari on iPhone did not hide the front
+     when the phone turned its back (nested 3D levels: .spin turns, .tilt
+     leans), so the mirrored screen showed instead of the back cover (5 Nov
+     2026; Chrome was fine). The real transforms of every level tell which
+     face is turned away, and that face is switched off. */
+  (function () {
+    var phones = $$('.p3');
+    if (!phones.length || typeof DOMMatrix === 'undefined') return;
+    function facingBack(el) {
+      var m = new DOMMatrix();
+      for (var n = el; n && !n.classList.contains('scene'); n = n.parentElement) {
+        var tr = getComputedStyle(n).transform;
+        if (tr && tr !== 'none') m = new DOMMatrix(tr).multiply(m);
+      }
+      /* the front faces the viewer while its z axis still points at us */
+      return m.m33 < 0;
+    }
+    var shown = new Set(), running = false;
+    function tick() {
+      shown.forEach(function (el) { el.classList.toggle('p3--back', facingBack(el)); });
+      if (shown.size) requestAnimationFrame(tick); else running = false;
+    }
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) shown.add(e.target); else shown.delete(e.target); });
+      if (shown.size && !running) { running = true; requestAnimationFrame(tick); }
+    });
+    phones.forEach(function (el) { el.classList.toggle('p3--back', facingBack(el)); io.observe(el); });
+  })();
 
   /* ---------------- conditions marquee ---------------- */
   var CONDS = ['diabetes', 'epilepsy', 'kidney_disease', 'heart_disease', 'cancer', 'gi_lymphoma', 'hyperthyroidism', 'cushings', 'addisons', 'hypothyroidism', 'arthritis', 'cognitive_dysfunction', 'senior', 'ibd', 'pancreatitis', 'epi', 'megaesophagus', 'feline_asthma', 'imha', 'felv', 'myasthenia_gravis', 'allergies', 'anxiety'];
