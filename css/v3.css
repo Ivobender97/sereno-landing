@@ -853,6 +853,14 @@ html:not(.js) .joy-row .joy-card{opacity:1;transform:none}
   /* pinned to the screen edges (12px), whatever the phone width */
   .orb--dose,.orb--timer{transform-origin:left center;left:calc(-16px - (100vw - var(--w)) / 2)}
   .orb--weight,.orb--report{transform-origin:right center;right:calc(-12px - (100vw - var(--w)) / 2)}
+  /* 7 Nov: the phone is turned in 3D and the cards float in front of it
+     (translateZ), so on screen the left ones slide further left than their
+     CSS position: up to 22 px (dose) and 39 px (timer) went off the screen
+     on every phone. Each card moves in by what its own depth pushes it out,
+     measured with the page at the top, where the turn is widest. */
+  .orb--dose{left:calc(24px - (100vw - var(--w)) / 2)}
+  .orb--timer{left:calc(42px - (100vw - var(--w)) / 2)}
+  .orb--report{right:calc(-6px - (100vw - var(--w)) / 2)}
 }
 @media (min-width:1000px) and (max-width:1279px){
   .orb--dose{left:-28%} .orb--weight{right:-30%} .orb--timer{left:-30%} .orb--report{right:-24%}
