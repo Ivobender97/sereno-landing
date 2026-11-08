@@ -87,7 +87,7 @@
   <main>
     <article class="sereno-card" data-lang="en" lang="en">
       <h1>Privacy Policy</h1>
-      <p class="last-updated">Last updated: October 19, 2026</p>
+      <p class="last-updated">Last updated: November 8, 2026</p>
 
       <div class="summary-box">
         <strong>At a glance</strong>
@@ -141,6 +141,7 @@
           <tr><td><strong>App usage</strong></td><td>How many times a day you open the app, the time of the first and last opening, platform and app version, and when you create a report.</td></tr>
           <tr><td><strong>Device</strong></td><td>Push notification token, platform (iOS/Android), app version, language.</td></tr>
           <tr><td><strong>Crash reports</strong></td><td>Technical details of errors: device model, operating system, app version, error trace. The tool is set up not to send default personal identifiers.</td></tr>
+          <tr><td><strong>Reading lab reports (Pro)</strong></td><td>When you upload a lab report (PDF or photo), the text is read on your phone: the file is not uploaded to us or sent to anyone. We save only the values you check and confirm. On Android, photos and scanned PDFs are read with Google ML Kit, which sends Google technical usage data (device make and model, system and app version, a per-installation identifier that does not identify you, timings, image format and size, event type and error codes), never the image or its text. On iPhone, reading uses Apple's on-device feature and sends nothing.</td></tr>
           <tr><td><strong>Ad measurement in the app</strong></td><td>Only if you allow it (on iPhone through Apple's tracking prompt, on Android through Sereno's ad measurement prompt): your Sereno account ID (a random code, not your name or email) and the advertising identifier of your device. These events: install, app open, sign-up completed and the method used, onboarding completed, first pet added (species only), first medication added, checkout started, trial started, purchase with amount and currency. On Android they are sent only if you allow ad measurement; on iPhone, if you don't allow tracking, they are sent without your account ID or advertising identifier. Never health records, pet names or notes.</td></tr>
           <tr><td><strong>Support</strong></td><td>The emails you send us and our replies.</td></tr>
           <tr><td><strong>Website</strong></td><td>IP address and technical request data in our hosting logs; your language and cookie choice saved in your browser; and, only if you accept cookies, the data collected by the Meta Pixel and the OpenAI pixel (pages visited, clicks on the store buttons and on the email button of the beta page, IP address, browser and device information, cookie identifiers).</td></tr>
@@ -177,6 +178,7 @@
         <tbody>
           <tr><td>Supabase</td><td>Database, sign-in, file storage</td><td>All app data</td><td>EU — Stockholm, Sweden</td></tr>
           <tr><td>Sentry</td><td>Crash reports</td><td>Technical error data</td><td>EU — Germany</td></tr>
+          <tr><td>Google (ML Kit, Android only)</td><td>Reading the text of photos and scanned PDFs on your phone</td><td>Technical usage data (see section 2). Never the image or its text.</td><td>USA / worldwide</td></tr>
           <tr><td>Expo</td><td>Sends push notifications</td><td>Push token, notification text</td><td>USA</td></tr>
           <tr><td>Apple Push Notification service, Google Firebase Cloud Messaging</td><td>Deliver notifications to your device</td><td>Push token, notification text</td><td>Worldwide</td></tr>
           <tr><td>RevenueCat</td><td>Manages subscriptions</td><td>Sereno account ID, purchase data</td><td>USA</td></tr>
@@ -267,7 +269,7 @@
 
     <article class="sereno-card" data-lang="it" lang="it" hidden>
       <h1>Informativa sulla privacy</h1>
-      <p class="last-updated">Ultimo aggiornamento: 19 ottobre 2026</p>
+      <p class="last-updated">Ultimo aggiornamento: 8 novembre 2026</p>
 
       <div class="summary-box">
         <strong>In breve</strong>
@@ -321,6 +323,7 @@
           <tr><td><strong>Uso dell'app</strong></td><td>Quante volte al giorno apri l'app, l'ora della prima e dell'ultima apertura, piattaforma e versione dell'app, e quando crei un referto.</td></tr>
           <tr><td><strong>Dispositivo</strong></td><td>Token per le notifiche push, piattaforma (iOS/Android), versione dell'app, lingua.</td></tr>
           <tr><td><strong>Segnalazioni di errore</strong></td><td>Dettagli tecnici degli errori: modello del dispositivo, sistema operativo, versione dell'app, traccia dell'errore. Lo strumento è impostato per non inviare gli identificativi personali predefiniti.</td></tr>
+          <tr><td><strong>Lettura dei referti (Pro)</strong></td><td>Quando carichi un referto (PDF o foto), il testo viene letto dentro il tuo telefono: il file non viene caricato da noi né inviato a nessuno. Salviamo solo i valori che controlli e confermi. Su Android foto e PDF scansionati vengono letti con Google ML Kit, che invia a Google dati tecnici di utilizzo (marca e modello del dispositivo, versione del sistema e dell'app, un identificativo legato all'installazione che non ti identifica, tempi, formato e dimensione dell'immagine, tipo di evento e codici di errore), mai l'immagine né il suo testo. Su iPhone la lettura usa la funzione di Apple dentro il telefono e non invia nulla.</td></tr>
           <tr><td><strong>Misurazione pubblicitaria nell'app</strong></td><td>Solo se lo consenti (su iPhone tramite il messaggio di Apple sul tracciamento, su Android tramite il messaggio di Sereno sulla misurazione delle pubblicità): l'ID del tuo account Sereno (un codice casuale, non il tuo nome né la tua email) e l'identificativo pubblicitario del dispositivo. Questi eventi: installazione, apertura dell'app, iscrizione completata e metodo usato, introduzione completata, primo animale aggiunto (solo la specie), primo farmaco aggiunto, acquisto avviato, prova iniziata, acquisto con importo e valuta. Su Android partono solo se consenti la misurazione delle pubblicità; su iPhone, se non consenti il tracciamento, partono senza l'ID dell'account né l'identificativo pubblicitario. Mai dati sanitari, nomi degli animali o note.</td></tr>
           <tr><td><strong>Assistenza</strong></td><td>Le email che ci mandi e le nostre risposte.</td></tr>
           <tr><td><strong>Sito</strong></td><td>Indirizzo IP e dati tecnici delle richieste nei log del nostro hosting; la lingua e la scelta sui cookie salvate nel tuo browser; e, solo se accetti i cookie, i dati raccolti dal Pixel di Meta e dal pixel di OpenAI (pagine visitate, clic sui pulsanti degli store e sul pulsante email della pagina beta, indirizzo IP, informazioni su browser e dispositivo, identificativi dei cookie).</td></tr>
@@ -357,6 +360,7 @@
         <tbody>
           <tr><td>Supabase</td><td>Database, accesso, archiviazione dei file</td><td>Tutti i dati dell'app</td><td>UE — Stoccolma, Svezia</td></tr>
           <tr><td>Sentry</td><td>Segnalazioni di errore</td><td>Dati tecnici degli errori</td><td>UE — Germania</td></tr>
+          <tr><td>Google (ML Kit, solo Android)</td><td>Lettura del testo di foto e PDF scansionati sul tuo telefono</td><td>Dati tecnici di utilizzo (vedi sezione 2). Mai l'immagine né il suo testo.</td><td>USA / tutto il mondo</td></tr>
           <tr><td>Expo</td><td>Invio delle notifiche push</td><td>Token push, testo della notifica</td><td>USA</td></tr>
           <tr><td>Apple Push Notification service, Google Firebase Cloud Messaging</td><td>Consegna delle notifiche al dispositivo</td><td>Token push, testo della notifica</td><td>Tutto il mondo</td></tr>
           <tr><td>RevenueCat</td><td>Gestione degli abbonamenti</td><td>ID dell'account Sereno, dati d'acquisto</td><td>USA</td></tr>
@@ -447,7 +451,7 @@
 
     <article class="sereno-card" data-lang="es" lang="es" hidden>
       <h1>Política de privacidad</h1>
-      <p class="last-updated">Última actualización: 19 de octubre de 2026</p>
+      <p class="last-updated">Última actualización: 8 de noviembre de 2026</p>
 
       <div class="summary-box">
         <strong>En resumen</strong>
@@ -501,6 +505,7 @@
           <tr><td><strong>Uso de la app</strong></td><td>Cuántas veces al día abres la app, la hora de la primera y la última apertura, plataforma y versión de la app, y cuándo creas un informe.</td></tr>
           <tr><td><strong>Dispositivo</strong></td><td>Token de notificaciones push, plataforma (iOS/Android), versión de la app, idioma.</td></tr>
           <tr><td><strong>Informes de errores</strong></td><td>Detalles técnicos de los errores: modelo del dispositivo, sistema operativo, versión de la app, traza del error. La herramienta está configurada para no enviar los identificadores personales predeterminados.</td></tr>
+          <tr><td><strong>Lectura de informes (Pro)</strong></td><td>Cuando subes un informe (PDF o foto), el texto se lee dentro de tu teléfono: el archivo no se nos sube ni se envía a nadie. Guardamos solo los valores que revisas y confirmas. En Android, las fotos y los PDF escaneados se leen con Google ML Kit, que envía a Google datos técnicos de uso (marca y modelo del dispositivo, versión del sistema y de la app, un identificador de la instalación que no te identifica, tiempos, formato y tamaño de la imagen, tipo de evento y códigos de error), nunca la imagen ni su texto. En iPhone, la lectura usa la función de Apple dentro del teléfono y no envía nada.</td></tr>
           <tr><td><strong>Medición publicitaria en la app</strong></td><td>Solo si lo permites (en iPhone mediante el aviso de rastreo de Apple, en Android mediante el aviso de Sereno sobre la medición de anuncios): el ID de tu cuenta Sereno (un código aleatorio, no tu nombre ni tu correo) y el identificador publicitario del dispositivo. Estos eventos: instalación, apertura de la app, registro completado y método usado, introducción completada, primera mascota añadida (solo la especie), primer medicamento añadido, compra iniciada, prueba iniciada, compra con importe y moneda. En Android solo se envían si permites la medición de anuncios; en iPhone, si no permites el rastreo, se envían sin el ID de tu cuenta ni el identificador publicitario. Nunca datos de salud, nombres de mascotas ni notas.</td></tr>
           <tr><td><strong>Soporte</strong></td><td>Los correos que nos envías y nuestras respuestas.</td></tr>
           <tr><td><strong>Web</strong></td><td>Dirección IP y datos técnicos de las solicitudes en los registros de nuestro alojamiento; tu idioma y tu elección sobre cookies guardados en tu navegador; y, solo si aceptas las cookies, los datos recogidos por el Píxel de Meta y el píxel de OpenAI (páginas visitadas, clics en los botones de las tiendas y en el botón de correo de la página beta, dirección IP, información del navegador y del dispositivo, identificadores de cookies).</td></tr>
@@ -537,6 +542,7 @@
         <tbody>
           <tr><td>Supabase</td><td>Base de datos, inicio de sesión, almacenamiento de archivos</td><td>Todos los datos de la app</td><td>UE — Estocolmo, Suecia</td></tr>
           <tr><td>Sentry</td><td>Informes de errores</td><td>Datos técnicos de errores</td><td>UE — Alemania</td></tr>
+          <tr><td>Google (ML Kit, solo Android)</td><td>Lectura del texto de fotos y PDF escaneados en tu teléfono</td><td>Datos técnicos de uso (ver sección 2). Nunca la imagen ni su texto.</td><td>EE. UU. / todo el mundo</td></tr>
           <tr><td>Expo</td><td>Envía las notificaciones push</td><td>Token push, texto de la notificación</td><td>EE. UU.</td></tr>
           <tr><td>Apple Push Notification service, Google Firebase Cloud Messaging</td><td>Entregan las notificaciones a tu dispositivo</td><td>Token push, texto de la notificación</td><td>Todo el mundo</td></tr>
           <tr><td>RevenueCat</td><td>Gestiona las suscripciones</td><td>ID de la cuenta Sereno, datos de compra</td><td>EE. UU.</td></tr>
